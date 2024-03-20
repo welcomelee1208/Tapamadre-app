@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--swiper-->
+    <link rel="stylesheet" href="assets/vendor/css/swiper-bundle.min.css">
+    
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <!--aos animation-->
+    <link rel="stylesheet" href="assets/vendor/css/aos.css">
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+
+    <!--Add custom style here-->
+    <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
+    <title>Resto</title>
+  </head>
+  <body class="bg-dark text-white">
+    <div class="bg-dust position-fixed inset-0 pe-none z-index-n1"></div>
+       <!--Preloader Begins-->
+       <div class="preloader">
+    </div>
+    <!--Preloader Ends-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top w-100 z-index-fixed navbar-fullscreen">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/logo/logo-light.svg" alt="Logo" class="img-fluid width-80">
+            </a>
+            <div class="d-flex align-items-center order-lg-2 navbar-icons">
+                <button data-bs-target="#fullscreen-collapsed" aria-expanded="false"
+                    class="fullscreen-toggler order-2 rounded-pill d-flex" type="button" data-bs-toggle="collapse">
+                    <span class="fullscreen-toggler-lines"></span>
+                </button>
+                <div class="nav-item">
+                    <a class="nav-icon-link nav-link text-white" href="login-register.html">SignIn</a>
+                </div>
+                <div class="nav-item ps-3">
+                    <a href="#offcanvasCart" class="nav-icon-link nav-link text-white" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasCart">
+                        <div class="d-flex align-items-center">
+                            <span>Bag</span>
+                            <span class="cart-badge">(2)</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="position-lg-relative nav-item ps-3 ps-lg-4 pe-4">
+                    <a data-bs-toggle="dropdown" href="#"
+                        class="nav-icon-link text-white">
+                        <i class="bi bi-search"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-search p-4"
+                        id="dropdown-search">
+                        <h5 class="mb-3">Tell us what you're looking for</h5>
+                        <form>
+                            <input type="text"
+                                class="form-control form-control-lg"
+                                placeholder="Example: Dinner, Wine, Pizza">
+                            <div class="d-grid pt-2">
+                                <button type="button" class="btn btn-primary btn-lg">
+                                    Search
+                                </button>
+                            </div>
+                        </form>
+                        <div class="pt-4">
+                            <h6 class="mb-3">Popular searches</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#!" class="dropdown-item">Egg & spinach
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="dropdown-item">Creamy soup
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="dropdown-item">Crunch veg salad
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fullscreen-navbar bg-dark text-white" id="fullscreen-collapsed">
+            <div class="fullscreen-inner">
+                <div class="fullscreen-inner-wrap">
+                    <div class="fullscreen-inner-scroll">
+                        <div class="container">
+                            <div class="row py-4 w-100 d-md-flex justify-content-md-center align-items-center">
+                                <!--Col-->
+                                <div class="col-sm-6 col-md-5 mb-5 mb-sm-0">
+                                    <ul class="nav flex-column" id="fullscreen-nav">
+                                        <li class="nav-item">
+                                            <a href="index-dark-ui.html" class="nav-link active">Home</a>
+                                        </li>
+                                        <li class="nav-item d-block ms-0 fullscreen-dropdown">
+                                            <a href="#" class="nav-link" aria-expanded="false"
+                                                aria-controls="fullscreen-food-menu" data-bs-toggle="collapse"
+                                                data-bs-target="#fullscreen-food-menu">Menu</a>
+                                            <div id="fullscreen-food-menu" data-bs-parent="#fullscreen-nav"
+                                                class="fullscreen-dropdown-menu ps-3 px-lg-4 collapse">
+                                                <a href="#!" class="d-block py-1 mb-2">Food</a>
+                                                <a href="#!" class="d-block py-1 mb-2">Drink</a>
+                                                <a href="#!" class="d-block py-1 mb-2">Dessert</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item d-block ms-0 fullscreen-dropdown">
+                                            <a href="#" class="nav-link" aria-expanded="false"
+                                                data-bs-toggle="collapse" data-bs-target="#fullscreen-shop">Shop</a>
+                                            <div id="fullscreen-shop" data-bs-parent="#fullscreen-nav"
+                                                class="fullscreen-dropdown-menu ps-3 ps-lg-4 collapse">
+                                                <a href="shop-products.html"
+                                                    class="d-block py-1 mb-2">Products</a>
+                                                <a href="shop-checkout.html"
+                                                    class="d-block py-1 mb-2">Checkout</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item d-block ms-0">
+                                            <a href="#!" class="nav-link">About Us</a>
+                                        </li>
+                                        <li class="nav-item d-block ms-0">
+                                            <a href="#!" class="nav-link">News & Events</a>
+                                        </li>
+                                        <li class="nav-item d-block ms-0">
+                                            <a href="#!" class="nav-link">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--Col-->
+                                <div class="col-sm-5 col-xl-4">
+                                    <div class="d-flex flex-column h-100 justify-content-md-between">
+                                        <!--Address - Info-->
+                                        <div>
+                                            <h5 class="mb-3 opacity-50">Our location</h5>
+                                            <p class="text-muted">
+                                                <strong class="d-block">Resto</strong>
+                                                Rancho Bernardo Rd<br> San Diego <br> CA 92127 <br> United States
+                                            </p>
+                                            <hr class="border-top">
+                                            <p class="mb-3 h5 text-muted">
+                                                Call: <a href="tel:+1123-456-7890" class="text-white">
+                                                    +1 1234 567
+                                                </a>
+                                            </p>
+                                            <p class="mb-0 h5 text-muted">
+                                                Mail: <a href="mailto:yourmail@domain.com" class="text-white">
+                                                    yourmail@domain.com
+                                                </a>
+                                            </p>
+                                        </div>
+
+                                        <!--Social-->
+                                        <div class="text-white">
+                                            <hr class="border-top">
+                                            <h5 class="mb-3 opacity-50">Follow us</h5>
+                                            <ul class="mb-0 list-inline">
+                                                <li class="list-inline-item">
+                                                    <a href="#!">
+                                                        <svg width="24" height="24" fill="currentColor"
+                                                            viewBox="0 0 512 512">
+                                                            <path
+                                                                d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31z"
+                                                                fill-rule="evenodd"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#!">
+                                                        <svg viewBox="0 0 512 512" width="24" height="24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M344.1 233.6c-28.9 0-32.9 28.8-32.9 28.8h61.4s.4-28.8-28.5-28.8zM204.8 262.4h-54.4v50h51.7c7.8-.2 22.4-2.4 22.4-24.3 0-26-19.7-25.7-19.7-25.7z">
+                                                            </path>
+                                                            <path
+                                                                d="M256 32C132.3 32 32 132.3 32 256s100.3 224 224 224 224-100.3 224-224S379.7 32 256 32zm47.2 137.6h77.1v23h-77.1v-23zm-39 120.8c0 57-59.4 55.2-59.4 55.2h-97.2v-187h97.2c29.6 0 52.9 16.3 52.9 49.8S229.2 244 229.2 244c37.6 0 35 46.4 35 46.4zm144.2-3.1h-96.9c0 34.7 32.9 32.5 32.9 32.5 31.1 0 30-20.1 30-20.1h32.9c0 53.4-64 49.7-64 49.7-76.7 0-71.8-71.5-71.8-71.5s-.1-71.8 71.8-71.8c75.7.1 65.1 81.2 65.1 81.2z">
+                                                            </path>
+                                                            <path
+                                                                d="M218 211.3c0-19.4-13.2-19.4-13.2-19.4h-54.4v41.7h51c8.8 0 16.6-2.9 16.6-22.3z">
+                                                            </path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#!">
+                                                        <svg width="24" height="24" fill="currentColor"
+                                                            viewBox="0 0 512 512">
+                                                            <path
+                                                                d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z">
+                                                            </path>
+                                                            <path
+                                                                d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z">
+                                                            </path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--Shopping cart offcanvas-->
+     <!--Cart-modal-start-->
+     <div class="offcanvas bg-dark text-white offcanvas-end fade" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCart"
+     aria-hidden="true">
+ 
+             <!--Cart-header-->
+             <div
+                 class="offcanvas-header">
+                 <h5 class="mb-0">Your cart</h5>
+                 <button class="btn-close btn-close-white z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                     </button>
+             </div>
+
+
+             <!--cart-content-->
+             <div class="offcanvas-body">
+
+                 <!--Item card-->
+                 <div class="card bg-transparent px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert1.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Sweet dessert</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span class="text-muted">$6.00</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+                 <!--Item card-->
+                 <div class="card bg-transparent px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert2.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Strawberry cake</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span class="text-muted">$7.50</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+
+             <!--cart-footer-->
+             <div class="offcanvas-footer p-4 border-0 flex-column">
+                 <div class="mb-3 d-flex justify-content-between w-100">
+                     <p class="mb-0 flex-grow-1">Subtotal </p>
+                     <h5 class="mb-0">$11.00</h5>
+                 </div>
+                 <div class="w-100">
+                     <a href="#" class="btn btn-primary w-100">continue to Checkout</a>
+                 </div>
+             </div>
+    </div>
+       <!--Page hero-->
+       <section class="position-relative tilt-image-hero overflow-hidden h-100">
+        <div class="d-flex flex-column h-100 align-items-center justify-content-center jarallax" data-speed=".3">
+            <div class="position-absolute  top-50 start-50 translate-middle w-25 opacity-75">
+                <img src="assets/img/600x800/6.jpg" alt="" data-tilt-scale="1.25" data-tilt data-tilt-mouse-event-element=".tilt-image-hero"
+                class="img-fluid">
+            </div>
+            <div class="container text-white py-4 zindex-2 position-relative">
+                <div class="row">
+                    <div class="col-xl-10 mx-auto text-center">
+                        <h4 class="text-primary">In good neighborhood</h4>
+                        <h1 class="display-1 font-serif fw-semibold mb-4">Restaurant & Bar</h1>
+                        <p class="lead mb-5">The best food in town around you</p>
+                        <small
+                            class="text-decoration-underline d-inline-block text-uppercase fw-bold">Scroll
+                            Down</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Verticle animated line-->
+        <div class="v-line position-absolute start-0 bottom-0 w-100 h-auto">
+            <div class="py-4 py-lg-5 bg-white"></div>
+        </div>
+        <!--End verticle line-->
+    </section>
+
+    <!--Main content-->
+    <main id="main">
+        <section class="position-relative">
+
+            <!--Verticle animated line-->
+            <div class="v-line mb-n2 mb-lg-n3 position-absolute start-0 bottom-0 w-100 h-auto">
+                <div class="py-4 py-lg-5 bg-secondary"></div>
+            </div>
+            <!--End verticle line-->
+            <div class="container py-7 py-lg-10">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md-6 col-lg-5 order-last order-md-1" data-aos="fade-up" data-aos-delay="50">
+
+                        <h6 class="mb-2">About the</h6>
+                        <h1 class="mb-4 display-4 font-serif fw-semibold">Restaurant</h1>
+                        <p class="mb-5 text-muted">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean <span
+                                class="text-decoration-underline">commodo</span> ligula eget dolor. Aenean massa.
+                            Cum sociis
+                            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+                            felis, ultricies nec, pellentesque pretium quis.
+                        </p>
+                        <div class="d-md-flex align-items-center justify-content-center justify-content-md-between">
+                            <h4
+                                class="text-serif mb-4 mb-lg-5 px-4 py-3 position-relative">
+                                <!--outline dashed-->
+                                <span class="position-absolute opacity-25 start-0 top-0 w-100 h-100 pe-none border-dashed-1 d-block"></span>
+                                <small class="d-block mb-2 text-muted">Lunch -</small> 9:30 <small
+                                    class="align-middle text-muted">to</small> 14:00
+                            </h4>
+                            <h4 class="text-serif mb-4 mb-lg-5 px-4 py-3 position-relative">
+                                <!--outline dashed-->
+                                <span class="position-absolute opacity-25 start-0 top-0 w-100 h-100 pe-none border-dashed-1 d-block"></span>
+                                <small class="d-block mb-2 text-muted">Dinner -</small> 20:15 <small
+                                    class="align-middle text-muted">to</small> 00:30
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-5 order-md-last position-relative mb-5 mb-md-0" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <!-- Image -->
+                        <div class="position-relative pb-7">
+                            <img src="assets/img/600x800/4.jpg" alt="image"
+                                class="position-absolute end-0 bottom-0 w-50">
+                            <img src="assets/img/600x800/1.jpg" alt="image"
+                                class="img-fluid position-relative w-75">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <section class="position-relative">
+            <!--Verticle animated line-->
+            <div class="v-line mb-n3 mb-lg-n6 position-absolute start-0 bottom-0 w-100 h-auto">
+                <div class="py-4 py-lg-5 bg-secondary"></div>
+            </div>
+            <!--End verticle line-->
+            <div class="container py-7 py-lg-10 position-relative z-index-1">
+                <div class="row g-1">
+                    <div class="col-12 col-md-4 mb-3 mb-md-0" data-aos="fade-up" data-aos-delay="50">
+                        <a href="#!" class="card-overlay hover-shadow hover-lift d-block position-relative overflow-hidden tilt-image1">
+                            <img class="img-fluid" src="assets/img/600x800/5.jpg" alt=".." data-tilt data-tilt-mouse-event-element=".tilt-image1">
+                            <div
+                                class="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                                <div
+                                    class="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end flex-column p-4">
+
+                                    <div class="d-flex align-items-center mb-2">
+
+                                        <h2 class="mb-0 display-6 font-serif fw-semibold">Food</h2>
+                                    </div>
+                                    <span class="text-muted lead"> Burger . Pizza . Meat .
+                                        Chicken</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!--Carousel-item-col-->
+                    <div class="col-12 col-md-4 mb-3 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                        <a href="#!" class="card-overlay hover-shadow hover-lift d-block position-relative overflow-hidden tilt-image2">
+                            <img class="img-fluid" src="assets/img/600x800/4.jpg" alt=".." data-tilt data-tilt-mouse-event-element=".tilt-image2">
+                            <div
+                                class="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                                <div
+                                    class="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end flex-column p-4">
+
+
+                                    <div class="d-flex align-items-center mb-2">
+                                        <h2 class="mb-0 display-6 font-serif fw-semibold">Drink</h2>
+                                    </div>
+                                    <span class="text-muted lead"> Drink . Cocktail . Coffee .
+                                        Tea</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!--Carousel-item-col-->
+                    <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="150">
+                        <a href="#!" class="card-overlay hover-shadow hover-lift d-block position-relative overflow-hidden tilt-image3">
+                            <img class="img-fluid" src="assets/img/600x800/3.jpg" alt=".." data-tilt data-tilt-mouse-event-element=".tilt-image3">
+                            <div
+                                class="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                                <div
+                                    class="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end flex-column p-4">
+
+                                    <div class="d-flex align-items-center mb-2">
+                                        <h2 class="mb-0 display-6 font-serif fw-semibold">Dessert</h2>
+                                    </div>
+                                    <span class="text-mutted lead">Vanilla . Cake . Pastry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!--Carousel-item-col-->
+                </div>
+            </div>
+        </section>
+
+        <section class="position-relative tilt-section2">
+            <div class="container py-7 py-lg-10 position-relative z-index-1">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-6 text-center mb-5 mb-lg-0">
+                        <div class="position-relative pb-4" data-aos="fade-up" data-aos-delay="50"
+                            data-aos-duration="400">
+                            <div
+                                class="position-absolute z-index-1 start-0 top-0 w-100 h-100 d-flex align-items-end justify-content-center">
+                                <a href="#!" class="btn btn-lg btn-info shadow btn-hover-scale"><span>Explore
+                                        Menu</span></a>
+                            </div>
+                            <img src="assets/img/800x600/3.jpg" alt="" class="img-fluid bg-white" data-tilt data-tilt-mouse-event-element=".tilt-section2">
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-xl-4">
+                        <div data-aos="fade-up">
+                            <h6 class="mb-4 text-primary">Menu of the day</h6>
+                            <h1 class="mb-5 display-4 font-serif fw-semibold">Today's special menu
+                            </h1>
+                        </div>
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex flex-column mb-4" data-aos="fade-up" data-aos-delay="50">
+                                <div>
+                                    <div class="d-flex w-100 justify-content-between align-items-center">
+                                        <h5 class="mb-2">Egg & spinach
+                                        </h5>
+                                        <span class="flex-grow-1 border-white border-dashed-1 opacity-25 mx-3"></span>
+                                        <span>$4.00</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <!--end menu box-->
+                            <li class="d-flex flex-column mb-4" data-aos="fade-up" data-aos-delay="100">
+                                <div>
+                                    <div class="d-flex w-100 justify-content-between align-items-center">
+                                        <h5 class="mb-2">Creamy soup
+                                        </h5>
+                                        <span class="flex-grow-1 border-white border-dashed-1 opacity-25 mx-3"></span>
+                                        <span>$3.50</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <!--end menu box-->
+                            <li class="d-flex flex-column mb-0" data-aos="fade-up" data-aos-delay="150">
+                                <div>
+                                    <div class="d-flex w-100 justify-content-between align-items-center">
+                                        <h5 class="mb-2">Crunch veg salad
+                                        </h5>
+                                        <span class="flex-grow-1 border-white border-dashed-1 opacity-25 mx-3"></span>
+                                        <span>$6.00</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <!--end menu box-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="position-relative tilt-section3">
+            <!--Verticle animated line-->
+            <div class="v-line mb-n3 mb-lg-n6 position-absolute start-0 bottom-0 w-100 h-auto">
+                <div class="py-4 py-lg-5 bg-secondary"></div>
+            </div>
+            <!--End verticle line-->
+            <div class="container position-relative py-7 py-lg-10">
+                <div class="row g-1 align-items-center justify-content-center">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="text-center px-4 px-lg-5 py-5 py-lg-6 bg-info me-md-n6 me-lg-n9 position-relative z-index-1 shadow-lg"
+                            data-aos="fade-up" data-aos-duration="400">
+                            <svg class="mb-4 text-primary" xmlns="http://www.w3.org/2000/svg" width="35" height="17"
+                                viewBox="0 0 35 17" fill="none">
+                                <path
+                                    d="M23.1868 16.22C20.4579 16.22 17.7289 16.1702 15 16.1702C17.4853 10.7967 19.9706 5.37349 22.4558 0C26.3543 0 30.2528 0.0497545 34.2 0.0497545C30.5452 5.42324 26.8416 10.8465 23.1868 16.22Z"
+                                    fill="currentColor" />
+                                <path
+                                    d="M8.18681 16.22C5.45787 16.22 2.72894 16.1702 0 16.1702C2.48528 10.7967 4.97056 5.37349 7.45584 0C11.3543 0 15.2528 0.0497545 19.2 0.0497545C15.5452 5.42324 11.8416 10.8465 8.18681 16.22Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <p class="fs-2 font-serif fw-normal lh-sm mb-4 text-white z-index-1">
+                                We had lunch here a few times while traveling with family. The servers are
+                                just wonderful and have great memories. We enjoy our delicious lunch.
+                                Must try!
+                            </p>
+                            <h5 class="mb-0 text-white">Joshua C, <small>CA</small></h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-auto">
+                        <div class="position-relative" data-aos="fade-down" data-aos-duration="400">
+                            <img src="assets/img/600x800/3.jpg" alt=""
+                                class="img-fluid position-relative ms-md-n4 ms-md-n6" data-tilt data-tilt-mouse-event-element=".tilt-section3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End-container-->
+        </section>
+        <section class="position-relative">
+            <div class="container py-7 py-lg-10 position-relative z-index-1">
+                <div class="row justify-content-between">
+                    <div class="col-lg-5 col-xl-5 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="50">
+                        <h1 class="mb-4 display-4 font-serif fw-semibold">How may we Serve you?</h1>
+                        <p class="pe-md-5 pe-lg-8 mb-0 text-muted">
+                            Feel free to request reservation for one table or entire space for a large party or
+                            event
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-xl-5">
+                        <div class="row row-cols-md-2 mb-3">
+                            <div class="col mb-3" data-aos="fade-up" data-aos-delay="50">
+                                <h5 class="mb-3 font-serif fw-semibold">Phone</h5>
+                                <p>(01) 123 4567</p>
+                            </div>
+                            <div class="col mb-3" data-aos="fade-up" data-aos-delay="100">
+                                <h5 class="mb-3 font-serif fw-semibold">Email</h5>
+                                <p>
+                                    <a class="d-inline-block lead"
+                                        href="#mailto:yourmail@domain.com">yourmail@domain.com
+                                         </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row row-cols-md-2">
+                            <div class="col" data-aos="fade-up" data-aos-delay="150">
+                                <h5 class="mb-3 font-serif fw-semibold">Opening Hours</h5>
+                                <p class="mb-21">Tuesday - <strong class="text-primary">10am - 5pm</strong></p>
+                                <p class="mb-2 border-top border-bottom py-2 mb-0">Sunday - <strong
+                                        class="text-primary">5pm - 11pm</strong></p>
+                                <p class="mb-0">Monday - <strong class="text-primary">Close</strong></p>
+                            </div>
+                            <div class="col" data-aos="fade-up" data-aos-delay="200">
+                                <h5 class="mb-3 font-serif fw-semibold">Reach us</h5>
+                                <p class="mb-0">
+                                    124, Lorem Street, NY
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="position-relative bg-secondary text-white bg-repat"
+            style="background-image: url('assets/img/dust.png');">
+            <div class="container py-7 py-lg-10">
+                <div class="row justify-content-between">
+                    <div class="col-lg-5 col-xl-4 mb-5 mb-md-0 order-md-last text-md-end" data-aos="fade-up"
+                        data-aos-duration="200">
+                        <h6 class="mb-2">On highlight</h6>
+                        <h1 class="display-4 font-serif fw-semibold mb-5">
+                            What's New
+                        </h1>
+                        <div>
+                            <a href="#" class="btn btn-hover-scale btn-white">
+                                <span>View All</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-5 order-md-1">
+                        <!--News & Event card-->
+                        <div class="card card-body px-0 border-0 bg-transparent flex-row mb-4 tilt-inline1" data-aos="fade-up"
+                            data-aos-duration="200">
+                            <a href="#!">
+                                <img src="assets/img/600x800/1.jpg" alt="" class="width-120 me-3 me-lg-4" data-tilt data-tilt-mouse-event-element=".tilt-inline1">
+                            </a>
+                            <div class="flex-grow-1 d-flex flex-column align-items-stretch">
+                                <a href="#!" class="fs-3 font-serif lh-sm fw-semibold text-white">
+                                    Previewing layouts and visual mockups
+                                </a>
+                                <div class="d-flex jsutify-content-between align-items-center w-100 mt-auto">
+                                    <span class="text-muted">24 Nov 2020</span>
+                                    <div class="flex-grow-1 text-end">
+                                        <a href="#!" class="">
+                                            Read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Divider-->
+                        <div class="mb-4 text-white" data-aos="fade-up" data-aos-duration="400">
+                            <hr class="border-top">
+                        </div>
+                        <!--News & Event card-->
+                        <div class="card card-body px-0 border-0 bg-transparent flex-row tilt-inline2" data-aos="fade-up"
+                            data-aos-duration="600">
+                            <a href="#!">
+                                <img src="assets/img/600x800/2.jpg" alt="" class="width-120 me-3 me-lg-4" data-tilt data-tilt-mouse-event-element=".tilt-inline2">
+                            </a>
+                            <div class="flex-grow-1 d-flex flex-column align-items-stretch">
+                                <a href="#!" class="fs-3 lh-sm font-serif fw-semibold text-white">
+                                    Lorem ipsum is placeholder text used in the graphic
+                                </a>
+                                <div class="d-flex jsutify-content-between align-items-center w-100 mt-auto">
+                                    <span class="text-muted">24 Nov 2020</span>
+                                    <div class="flex-grow-1 text-end">
+                                        <a href="#!" class="">
+                                            Read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<footer class="footer bg-dark text-white position-relative overflow-hidden">
+    <a href="#top" data-scroll class="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+        </svg>
+    </a>
+    <div class="container py-8 pt-lg-9 position-relative">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5 me-auto mb-5">
+                <h4 class="mb-3 text-primary">Subscribe to Newsletter</h4>
+                <p class="mb-4 text-muted">And stay in the know</p>
+                <form>
+                    <div class="d-md-flex">
+                        <div class="mb-2 mb-md-0 me-md-2 flex-grow-1">
+                            <input type="email" class="form-control border-0 w-100 form-control-lg"
+                                placeholder="Enter your Email">
+                        </div>
+                        <div class="d-grid d-md-block">
+                            <button type="button" class="btn btn-lg btn-primary btn-hover-scale">
+                                <span>I'm In</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 mb-5">
+                <h5 class="mb-4">Our location</h5>
+                <p class="text-muted">
+                    <strong class="d-table">Resto</strong>
+                    Rancho Bernardo Rd<br> San Diego <br> CA 92127 <br> United States
+                </p>
+                <p class="mb-1">
+                    <a href="tel:+1123-456-7890">+01 123-456-7890</a>
+                </p>
+                <p>
+                    <a href="mailto:support@uigator.com">
+                        <span>youremail@domain.com</span>
+                    </a>
+                </p>
+            </div>
+            <div class="col-lg-3 col-xl-2 mb-5">
+                <h5 class="mb-4">Company</h5>
+                <ul class="nav flex-column mb-0">
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Food</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Wine</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Beer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link p-0">Shop</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="opacity-25 mb-5">
+        <div class="d-sm-flex justify-content-sm-between justify-content-center">
+            <ul class="d-flex flex-wrap list-unstyled mb-4 mb-sm-0">
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-facebook fs-5"></i>
+                    </a></li>
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-twitter fs-5"></i>
+                    </a></li>
+                <li class=""><a href="#!" class="hover-lift d-block">
+                      <i class="bi bi-instagram fs-5"></i>
+                    </a></li>
+            </ul>
+            <small class="d-block text-muted">© Copyright  <script>
+                document.write(new Date().getFullYear())
+
+            </script>. All right reserved. Resto</small>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/theme.bundle.js"></script>
+
+    <!--swiper-->
+    <script src="assets/vendor/swiper-bundle.min.js"></script>
+    <script>
+        //Testimonial slider
+var swiper = new Swiper('.swiper-testimonials', {
+  direction: 'horizontal',
+  autoHeight: true,
+  pagination: {
+    el: '.swiper-pagination',
+    dynamicBullets: true,
+  },
+});
+    </script>
+  </body>
+</html>

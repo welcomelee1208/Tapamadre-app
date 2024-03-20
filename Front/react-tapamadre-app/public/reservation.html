@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Flatpickr and choices select css-->
+    <link rel="stylesheet" href="assets/vendor/css/flatpickr.min.css">
+    
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <!--aos animation-->
+    <link rel="stylesheet" href="assets/vendor/css/aos.css">
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+
+    <!--Add custom style here-->
+    <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
+
+    <title>Resto</title>
+  </head>
+  <body>
+       <!--Preloader Begins-->
+       <div class="preloader">
+    </div>
+    <!--Preloader Ends-->
+
+     <!--Main navbar start-->
+     <nav
+     class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white">
+     <div class="container">
+         <a class="navbar-brand" href="index.html">
+             <img src="assets/img/logo/logo-light.svg" alt="Logo" class="img-fluid logo-default">
+             <img src="assets/img/logo/logo-dark.svg" alt="Logo" class="img-fluid logo-pinned">
+         </a>
+         <div class="d-flex align-items-center order-lg-2 navbar-icons">
+            <button class="navbar-toggler order-last ms-3 ms-lg-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#restoMainNavbar" aria-controls="restoMainNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-line"></span>
+                <span class="navbar-toggler-line-end"></span>
+            </button>
+            <div class="navbar-nav flex-row align-items-center">
+               <div class="nav-item me-3 me-lg-0">
+                   <a class="nav-icon-link nav-link " href="login-register.html">SignIn</a>
+               </div>
+               <div class="nav-item me-lg-0 me-3">
+                   <a class="nav-icon-link nav-link" href="#offcanvasCart" data-bs-toggle="offcanvas"
+                       data-bs-target="#offcanvasCart">
+                       <div class="d-flex align-items-center">
+                           <span>Bag</span>
+                           <span class="cart-badge">(2)</span>
+                       </div>
+                   </a>
+               </div>
+               <div class="position-lg-relative me-4 me-lg-0 nav-item">
+                   <a data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" class="nav-link">
+                       <i class="bi bi-search"></i>
+                   </a>
+                   <div class="dropdown-menu w-100 position-absolute dropdown-menu-lg-end dropdown-search p-4"
+                       id="dropdown-search">
+                       <h5 class="mb-3">Tell us what you're looking for</h5>
+                       <form>
+                           <input type="text" class="form-control form-control-lg"
+                               placeholder="Example: Dinner, Wine, Pizza">
+                           <div class="d-grid pt-2">
+                               <button type="button" class="btn btn-primary">
+                                   Search
+                               </button>
+                           </div>
+                       </form>
+                       <div class="pt-2">
+                           <div class="dropdown-header">Popular searches</div>
+                           <ul class="list-unstyled mb-0">
+                               <li>
+                                   <a href="#!" class="dropdown-item">Egg & spinach
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Creamy soup
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Crunch veg salad
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+        <!--navbar-offcanvas-lg-->
+        <div class="offcanvas offcanvas-end" id="restoMainNavbar">
+          <div class="offcanvas-header">
+           <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+           </button>
+          </div>
+          <div class="offcanvas-body">
+           <ul class="navbar-nav mx-auto">
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link  " data-bs-auto-close="outside" data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Home </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="index.html">Default Parallax</a></li>
+                       <li><a class="dropdown-item" href="index-video-player.html">Video Player</a></li>
+                       <li><a class="dropdown-item" href="index-image-slider.html">Image Slider</a>
+                       </li>
+                       <li><a class="dropdown-item" href="index-dark-ui.html">Dark UI</a></li>
+                       <li><a class="dropdown-item" href="one-page.html">One Page</a></li>
+                       <li class="dropend">
+                           <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">Menu Levels </a>
+                           <ul class="dropdown-menu">
+                               <li class="dropend">
+                                   <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">menu level 2 </a>
+                                   <ul class="dropdown-menu">
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                   </ul>
+                               </li>
+                           </ul>
+                       </li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Menu </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="menu-simple.html">Menu simple</a></li>
+                       <li><a class="dropdown-item" href="menu-tiles.html">Menu tiles</a></li>
+                       <li><a class="dropdown-item" href="menu-grid.html">Menu grid</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Blog </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="blog-sidebar-end.html">Sidebar end</a></li>
+                       <li><a class="dropdown-item" href="blog-sidebar-start.html">Sidebar start</a></li>
+                       <li><a class="dropdown-item" href="blog-masonry.html">Masonry</a></li>
+                       <li><a class="dropdown-item" href="blog-fullwidth.html">Full width</a></li>
+                       <li><a class="dropdown-item" href="blog-post.html">Single Page</a></li>
+                   </ul>
+               </li>
+               <li class="nav-item"><a class="nav-link active" href="reservation.html">Reservation</a></li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Pages</a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="about.html">About</a></li>
+                       <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                       <li><a class="dropdown-item" href="contact.html">Contact us</a></li>
+                       <li><a class="dropdown-item" href="login-register.html">Login Register</a></li>
+                       <li><a class="dropdown-item" href="page-full-width.html">Page Full Width</a></li>
+                       <li><a class="dropdown-item" href="page-blank.html">Page blank</a></li>
+                       <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+    
+                       <li><a class="dropdown-item" href="page-sticky-sidebar.html">sticky sidebar</a></li>
+                       <li><a class="dropdown-item" href="page-sticky-footer.html">sticky footer </a></li>
+                       <li><a class="dropdown-item" href="typography.html">Typography</a></li>
+                       <li><a class="dropdown-item" href="elements.html">Elements</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Shop </a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="shop-products.html">Products</a></li>
+                       <li><a class="dropdown-item" href="shop-checkout.html">Checkout</a></li>
+                   </ul>
+               </li>
+           </ul>
+          </div>
+        </div>
+        <!--/.nav-offcanvas -->
+     </div>
+
+    </nav>
+
+
+    <!--Shopping cart offcanvas-->
+     <!--Cart-modal-start-->
+     <div class="offcanvas offcanvas-end fade" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCart"
+     aria-hidden="true">
+ 
+             <!--Cart-header-->
+             <div
+                 class="offcanvas-header">
+                 <h5 class="mb-0">Your cart</h5>
+                 <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                     </button>
+             </div>
+
+
+             <!--cart-content-->
+             <div class="offcanvas-body">
+
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert1.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Sweet dessert</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$6.00</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert2.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Strawberry cake</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$7.50</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+
+             <!--cart-footer-->
+             <div class="offcanvas-footer p-4 border-0 flex-column">
+                 <div class="mb-3 d-flex justify-content-between w-100">
+                     <p class="mb-0 flex-grow-1">Subtotal </p>
+                     <h5 class="mb-0">$11.00</h5>
+                 </div>
+                 <div class="w-100">
+                     <a href="#" class="btn btn-primary w-100">continue to Checkout</a>
+                 </div>
+             </div>
+    </div>
+
+    <section class="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
+        <img src="assets/img/1920x1000/5.jpg" alt="" class="jarallax-img opacity-25">
+
+        <div class="container pt-8 pb-6 text-center position-relative text-white">
+            <div class="row pt-4 pt-lg-6 justify-content-center text-center">
+                <div class="col-lg-8 col-md-10">
+                    <h1 class="display-2 mb-2 mx-auto">
+                        Reserve Table</h1>
+                    <p class="lead mb-0">
+                        The best food in town at one of the best locations
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Main content-->
+    <main id="main">
+
+        <section class="position-relative">
+            <div class="container py-7 py-lg-10">
+                <div class="row">
+                    <div class="col-md-10 col-lg-7 mx-auto">
+                        <div class="mb-5" data-aos="fade-up" data-aos-duration="400">
+                            <h4 class="mb-3">Call us</h4>
+                            <h2 class="mb-0 display-5 fw-lighter">
+                                <a href="#"> +01 123-456-4590</a>
+                            </h2>
+                        </div>
+                        <hr class="my-0">
+                        <div class="mb-5 pt-5" data-aos="fade-up" data-aos-duration="400">
+                            <h4 class="mb-3">Send Email</h4>
+                            <h2 class="mb-0 display-5 fw-lighter">
+                                <a href="mailto:booking@resto.com" class="d-inline-block"><span>booking@resto.com</span></a>
+                            </h2>
+                        </div>
+                        <hr class="my-0">
+                        <div class="pt-5" data-aos="fade-up" data-aos-duration="400">
+                            <h4 class="mb-3">Book Online</h4>
+                            <form class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label class="mb-2">What's your name?</label>
+                                    <input type="text" req id="reservationName" class="form-control"
+                                        placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="mb-2">When do you want to reserve a table?</label>
+                                    <div class="row">
+                                        <!--Col-->
+                                        <div class="col-sm-6 col-12 mb-2 mb-sm-0">
+                                            <input required type="text" class="form-control bg-white" data-flatpicker
+                                                placeholder="Select Date">
+                                        </div>
+                                        <!--Col-->
+                                        <div class="col-sm-6 col-12">
+                                            <select required class="form-control" data-choices>
+                                                <option value="">- Select Time - </option>
+                                                <option value="7:00 p.m.">7:00 p.m. </option>
+                                                <option value="7:30 p.m.">7:30 p.m. </option>
+                                                <option value="8:00 p.m.">8:00 p.m. </option>
+                                                <option value="8:30 p.m.">8:30 p.m. </option>
+                                                <option value="9:00 p.m.">9:00 p.m. </option>
+                                                <option value="9:30 p.m.">9:30 p.m. </option>
+                                                <option value="10:00 p.m.">10:00 p.m. </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="mb-2">How many people would you like to reserve?</label>
+                                    <select class="form-control" required data-choices>
+                                        <option>1 </option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>5+</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="mb-2">How can we contact you?</label>
+                                    <input type="email" id="reservationEmail" class="form-control"
+                                        placeholder="Your Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="mb-2">Special information</label>
+                                    <input type="text" id="reservationInfo" class="form-control"
+                                        placeholder="Such as Allergies or Occation Party" required>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" required type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Agree with terms & conditions
+                                    </label>
+                                </div>
+                                <div class="text-end">
+                                    <button type="submit"
+                                        class="btn btn-info btn-hover-scale btn-lg w-100"><span>Submit</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container pb-8 pb-lg-9 position-relative z-index-1">
+            <div class="row">
+                <div class="col-lg-9 col-xl-9 mx-auto text-center">
+                    <div class="text-center pb-8 pb-lg-9" data-aos="fade-up" data-aos-delay="50">
+                       <!--Divider pattern-->
+                    <div class="text-center text-primary" data-aos="fade-up" data-aos-delay="200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90" height="28" viewBox="0 0 45 14" fill="none">
+                            <circle cx="1.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="7.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="13.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="19.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="1.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="7.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="13.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="19.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="1.5" cy="13" r="1" fill="currentColor"/>
+                            <circle cx="7.5" cy="13" r="1" fill="currentColor"/>
+                            <circle cx="13.5" cy="13" r="1" fill="currentColor"/>
+                            <circle cx="19.5" cy="13" r="1" fill="currentColor"/>
+                            <circle cx="25.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="31.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="37.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="43.5" cy="1" r="1" fill="currentColor"/>
+                            <circle cx="25.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="31.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="37.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="43.5" cy="7" r="1" fill="currentColor"/>
+                            <circle cx="25.5" cy="13" r="1" fill="currentColor"/>
+                            <circle cx="31.5" cy="13" r="1" fill="currentColor"/>
+                            <circle cx="37.5" cy="13" r="1" fill="currentColor"/>
+                            <circle cx="43.5" cy="13" r="1" fill="currentColor"/>
+                            </svg>
+                    </div>
+                    </div>
+                    <p class="display-6 mb-0" data-aos="fade-up" data-aos-delay="100">
+                        Open from <span class="text-highlight text-info">9:30 a.m.</span> for lunch and from <span
+                            class="text-highlight text-info">19:30 p.m.</span> for dinner.
+                        Closing days: Sunday evening and Monday all day.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!--Footer-->
+<svg preserveAspectRatio="none" width="100%" height="64" viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g class="text-primary">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L422.667 100L845.333 0L1268 125V200H845.333H422.667H0Z" fill="currentColor"/>
+</g>
+<g class="text-dark">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L450.667 108L901.333 16L1352 131V200H901.333H450.667H0Z" fill="currentColor"/>
+  </g>
+</svg>
+<footer class="footer bg-dark text-white position-relative overflow-hidden">
+    <a href="#top" data-scroll class="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+        </svg>
+    </a>
+    <div class="container py-8 pt-lg-9 position-relative">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5 me-auto mb-5">
+                <h4 class="mb-3 text-primary">Subscribe to Newsletter</h4>
+                <p class="mb-4 text-muted">And stay in the know</p>
+                <form>
+                    <div class="d-md-flex">
+                        <div class="mb-2 mb-md-0 me-md-2 flex-grow-1">
+                            <input type="email" class="form-control border-0 w-100 form-control-lg"
+                                placeholder="Enter your Email">
+                        </div>
+                        <div class="d-grid d-md-block">
+                            <button type="button" class="btn btn-lg btn-primary btn-hover-scale">
+                                <span>I'm In</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 mb-5">
+                <h5 class="mb-4">Our location</h5>
+                <p class="text-muted">
+                    <strong class="d-table">Resto</strong>
+                    Rancho Bernardo Rd<br> San Diego <br> CA 92127 <br> United States
+                </p>
+                <p class="mb-1">
+                    <a href="tel:+1123-456-7890">+01 123-456-7890</a>
+                </p>
+                <p>
+                    <a href="mailto:support@uigator.com">
+                        <span>youremail@domain.com</span>
+                    </a>
+                </p>
+            </div>
+            <div class="col-lg-3 col-xl-2 mb-5">
+                <h5 class="mb-4">Company</h5>
+                <ul class="nav flex-column mb-0">
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Food</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Wine</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Beer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link p-0">Shop</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="opacity-25 mb-5">
+        <div class="d-sm-flex justify-content-sm-between justify-content-center">
+            <ul class="d-flex flex-wrap list-unstyled mb-4 mb-sm-0">
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-facebook fs-5"></i>
+                    </a></li>
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-twitter fs-5"></i>
+                    </a></li>
+                <li class=""><a href="#!" class="hover-lift d-block">
+                      <i class="bi bi-instagram fs-5"></i>
+                    </a></li>
+            </ul>
+            <small class="d-block text-muted">© Copyright  <script>
+                document.write(new Date().getFullYear())
+
+            </script>. All right reserved. Resto</small>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/theme.bundle.js"></script>
+
+
+    <!--Calendar flatpickr-->
+    <script src="assets/vendor/flatpickr.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    var fp = document.querySelectorAll('[data-flatpicker]');
+    for (i = 0; i < fp.length; ++i) {
+        var element = fp[i];
+        new flatpickr(element, {
+            minDate: "today",
+            maxDate: new Date().fp_incr(29)
+        });
+    }
+});
+    </script>
+
+    <!--Choices select-->
+    <script src="assets/vendor/choices.min.js"></script>
+    <script>
+        // Pass single element
+document.addEventListener('DOMContentLoaded', function () {
+    var elementChoices = document.querySelectorAll('[data-choices]');
+    for (i = 0; i < elementChoices.length; ++i) {
+        var element = elementChoices[i];
+        new Choices(element, {
+            classNames: {
+                containerInner: element.className,
+                input: "form-control", inputCloned: "form-control-xs",
+                listDropdown: "dropdown-menu", itemChoice: "dropdown-item",
+                activeState: "show",
+                selectedState: "active"
+            }
+        });
+    }
+});
+    </script>
+  </body>
+</html>

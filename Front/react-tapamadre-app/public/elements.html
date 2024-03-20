@@ -1,0 +1,1521 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--swiper-->
+        <link rel="stylesheet" href="assets/vendor/css/swiper-bundle.min.css">
+        <!--glightbox-->
+        <link rel="stylesheet" href="assets/vendor/css/glightbox.min.css">
+        <!--flatpickr-->
+        <link rel="stylesheet" href="assets/vendor/css/flatpickr.min.css">
+        
+        <!--Google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+        <!--aos animation-->
+        <link rel="stylesheet" href="assets/vendor/css/aos.css">
+        <!--Bootstrap icons-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+
+        <!--Add custom style here-->
+        <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
+        <title>Resto</title>
+    </head>
+
+    <body>
+           <!--Preloader Begins-->
+           <div class="preloader">
+        </div>
+        <!--Preloader Ends-->
+
+         <!--Main navbar start-->
+         <nav
+         class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white">
+         <div class="container">
+             <a class="navbar-brand" href="index.html">
+                 <img src="assets/img/logo/logo-light.svg" alt="Logo" class="img-fluid logo-default">
+                 <img src="assets/img/logo/logo-dark.svg" alt="Logo" class="img-fluid logo-pinned">
+             </a>
+             <div class="d-flex align-items-center order-lg-2 navbar-icons">
+                <button class="navbar-toggler order-last ms-3 ms-lg-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#restoMainNavbar" aria-controls="restoMainNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-line"></span>
+                    <span class="navbar-toggler-line-end"></span>
+                </button>
+                <div class="navbar-nav flex-row align-items-center">
+                   <div class="nav-item me-3 me-lg-0">
+                       <a class="nav-icon-link nav-link " href="login-register.html">SignIn</a>
+                   </div>
+                   <div class="nav-item me-lg-0 me-3">
+                       <a class="nav-icon-link nav-link" href="#offcanvasCart" data-bs-toggle="offcanvas"
+                           data-bs-target="#offcanvasCart">
+                           <div class="d-flex align-items-center">
+                               <span>Bag</span>
+                               <span class="cart-badge">(2)</span>
+                           </div>
+                       </a>
+                   </div>
+                   <div class="position-lg-relative me-4 me-lg-0 nav-item">
+                       <a data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" class="nav-link">
+                           <i class="bi bi-search"></i>
+                       </a>
+                       <div class="dropdown-menu w-100 position-absolute dropdown-menu-lg-end dropdown-search p-4"
+                           id="dropdown-search">
+                           <h5 class="mb-3">Tell us what you're looking for</h5>
+                           <form>
+                               <input type="text" class="form-control form-control-lg"
+                                   placeholder="Example: Dinner, Wine, Pizza">
+                               <div class="d-grid pt-2">
+                                   <button type="button" class="btn btn-primary">
+                                       Search
+                                   </button>
+                               </div>
+                           </form>
+                           <div class="pt-2">
+                               <div class="dropdown-header">Popular searches</div>
+                               <ul class="list-unstyled mb-0">
+                                   <li>
+                                       <a href="#!" class="dropdown-item">Egg & spinach
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="#!" class="dropdown-item">Creamy soup
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="#!" class="dropdown-item">Crunch veg salad
+                                       </a>
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+            <!--navbar-offcanvas-lg-->
+            <div class="offcanvas offcanvas-end" id="restoMainNavbar">
+              <div class="offcanvas-header">
+               <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+               </button>
+              </div>
+              <div class="offcanvas-body">
+               <ul class="navbar-nav mx-auto">
+                   <li class="dropdown nav-item">
+                       <a href="#" class="dropdown-toggle nav-link  " data-bs-auto-close="outside" data-bs-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Home </a>
+                       <ul class="dropdown-menu dropdown-menu-start">
+                           <li><a class="dropdown-item" href="index.html">Default Parallax</a></li>
+                           <li><a class="dropdown-item" href="index-video-player.html">Video Player</a></li>
+                           <li><a class="dropdown-item" href="index-image-slider.html">Image Slider</a>
+                           </li>
+                           <li><a class="dropdown-item" href="index-dark-ui.html">Dark UI</a></li>
+                           <li><a class="dropdown-item" href="one-page.html">One Page</a></li>
+                           <li class="dropend">
+                               <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">Menu Levels </a>
+                               <ul class="dropdown-menu">
+                                   <li class="dropend">
+                                       <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">menu level 2 </a>
+                                       <ul class="dropdown-menu">
+                                           <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                           <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                       </ul>
+                                   </li>
+                               </ul>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="dropdown nav-item">
+                       <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Menu </a>
+                       <ul class="dropdown-menu dropdown-menu-start">
+                           <li><a class="dropdown-item" href="menu-simple.html">Menu simple</a></li>
+                           <li><a class="dropdown-item" href="menu-tiles.html">Menu tiles</a></li>
+                           <li><a class="dropdown-item" href="menu-grid.html">Menu grid</a></li>
+                       </ul>
+                   </li>
+                   <li class="dropdown nav-item">
+                       <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Blog </a>
+                       <ul class="dropdown-menu dropdown-menu-start">
+                           <li><a class="dropdown-item" href="blog-sidebar-end.html">Sidebar end</a></li>
+                           <li><a class="dropdown-item" href="blog-sidebar-start.html">Sidebar start</a></li>
+                           <li><a class="dropdown-item" href="blog-masonry.html">Masonry</a></li>
+                           <li><a class="dropdown-item" href="blog-fullwidth.html">Full width</a></li>
+                           <li><a class="dropdown-item" href="blog-post.html">Single Page</a></li>
+                       </ul>
+                   </li>
+                   <li class="nav-item"><a class="nav-link " href="reservation.html">Reservation</a></li>
+                   <li class="dropdown nav-item">
+                       <a href="#" class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Pages</a>
+                       <ul class="dropdown-menu dropdown-menu-end">
+                           <li><a class="dropdown-item" href="about.html">About</a></li>
+                           <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                           <li><a class="dropdown-item" href="contact.html">Contact us</a></li>
+                           <li><a class="dropdown-item" href="login-register.html">Login Register</a></li>
+                           <li><a class="dropdown-item" href="page-full-width.html">Page Full Width</a></li>
+                           <li><a class="dropdown-item" href="page-blank.html">Page blank</a></li>
+                           <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+    
+                           <li><a class="dropdown-item" href="page-sticky-sidebar.html">sticky sidebar</a></li>
+                           <li><a class="dropdown-item" href="page-sticky-footer.html">sticky footer </a></li>
+                           <li><a class="dropdown-item" href="typography.html">Typography</a></li>
+                           <li><a class="dropdown-item" href="elements.html">Elements</a></li>
+                       </ul>
+                   </li>
+                   <li class="dropdown nav-item">
+                       <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Shop </a>
+                       <ul class="dropdown-menu dropdown-menu-end">
+                           <li><a class="dropdown-item" href="shop-products.html">Products</a></li>
+                           <li><a class="dropdown-item" href="shop-checkout.html">Checkout</a></li>
+                       </ul>
+                   </li>
+               </ul>
+              </div>
+            </div>
+            <!--/.nav-offcanvas -->
+         </div>
+
+        </nav>
+
+
+        <!--Shopping cart offcanvas-->
+         <!--Cart-modal-start-->
+         <div class="offcanvas offcanvas-end fade" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCart"
+         aria-hidden="true">
+ 
+                 <!--Cart-header-->
+                 <div
+                     class="offcanvas-header">
+                     <h5 class="mb-0">Your cart</h5>
+                     <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                         </button>
+                 </div>
+
+
+                 <!--cart-content-->
+                 <div class="offcanvas-body">
+
+                     <!--Item card-->
+                     <div class="card px-1 py-3 card-body flex-row border-0">
+                         <div class="me-3">
+                             <img src="assets/img/menu/dessert1.jpg" alt="" class="width-70 rounded-3 shadow">
+                         </div>
+                         <div class="flex-grow-1">
+                             <h6 class="mb-0">Sweet dessert</h6>
+                             <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                             <div>
+                                 <span>$6.00</span>
+                             </div>
+                         </div>
+                         <div>
+                             <a href="#!" class="text-muted">
+                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                     <path fill-rule="evenodd"
+                                         d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                 </svg>
+                             </a>
+                         </div>
+                     </div>
+                     <!--Item card-->
+                     <div class="card px-1 py-3 card-body flex-row border-0">
+                         <div class="me-3">
+                             <img src="assets/img/menu/dessert2.jpg" alt="" class="width-70 rounded-3 shadow">
+                         </div>
+                         <div class="flex-grow-1">
+                             <h6 class="mb-0">Strawberry cake</h6>
+                             <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                             <div>
+                                 <span>$7.50</span>
+                             </div>
+                         </div>
+                         <div>
+                             <a href="#!" class="text-muted">
+                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                     <path fill-rule="evenodd"
+                                         d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                 </svg>
+                             </a>
+                         </div>
+                     </div>
+                 </div>
+
+                 <!--cart-footer-->
+                 <div class="offcanvas-footer p-4 border-0 flex-column">
+                     <div class="mb-3 d-flex justify-content-between w-100">
+                         <p class="mb-0 flex-grow-1">Subtotal </p>
+                         <h5 class="mb-0">$11.00</h5>
+                     </div>
+                     <div class="w-100">
+                         <a href="#" class="btn btn-primary w-100">continue to Checkout</a>
+                     </div>
+                 </div>
+        </div>
+
+
+        <!--Page-header-->
+        <section class="position-relative overflow-hidden bg-dark bg-repeat text-white"
+            style="background-image: url('assets/img/dust.png'); background-repeat: repeat; background-position: top left;">
+            <div class="container pt-8 pb-6 position-relative z-index-1">
+                <div class="row pt-4 pt-lg-6 justify-content-center align-items-center">
+                    <div class="col-12 col-lg-6 text-center">
+                        <h1 class="display-3 mb-0">UI Elements</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Main content-start-->
+        <main id="main">
+            <section class="position-relative bg-white">
+                <div class="container">
+                    <div class="row">
+                        <!--Col-->
+                        <div class="col-12 col-xl-10 mx-auto">
+                            <div id="buttons" class="py-8 py-lg-10">
+                                <h5 class="mb-5 display-5 text-center">Buttons</h5>
+                                <div class="">
+                                    <div class="mb-5">
+                                        <button type="button" class="btn btn-primary mb-1">Primary</button>
+                                        <button type="button" class="btn btn-success mb-1">Success</button>
+                                        <button type="button" class="btn btn-info mb-1">Info</button>
+                                        <button type="button" class="btn btn-secondary mb-1">Secondary</button>
+                                        <button type="button" class="btn btn-light mb-1">Light</button>
+                                        <button type="button" class="btn btn-dark mb-1">Dark</button>
+                                        <button type="button" class="btn btn-danger mb-1">Danger</button>
+                                        <button type="button" class="btn btn-warning mb-1">Warning</button>
+                                    </div>
+                                    <div class="mb-5">
+                                        <h6 class="mb-0 pb-2 mb-4 border-bottom">Sizing</h6>
+                                        <button type="button" class="btn btn-outline-primary btn-sm mb-1">Small</button>
+                                        <button type="button" class="btn btn-outline-primary mb-1">Regular</button>
+                                        <button type="button" class="btn btn-outline-primary btn-lg mb-1">Large
+                                            Button</button>
+                                        <button type="button" class="btn btn-primary btn-lg w-100 mb-1">Block
+                                            Button</button>
+                                    </div>
+                                    <div class="mb-5">
+                                        <h6 class="mb-0 pb-2 mb-4 border-bottom">Outline</h6>
+                                        <button type="button" class="btn btn-outline-primary mb-1">Primary</button>
+                                        <button type="button" class="btn btn-outline-success mb-1">Success</button>
+                                        <button type="button" class="btn btn-outline-info mb-1">Info</button>
+                                        <button type="button" class="btn btn-outline-dark mb-1">Dark</button>
+                                        <button type="button" class="btn btn-outline-light mb-1">Light</button>
+                                        <button type="button" class="btn btn-outline-secondary mb-1">Secondary</button>
+                                        <button type="button" class="btn btn-outline-danger mb-1">Danger</button>
+                                        <button type="button" class="btn btn-outline-warning mb-1">Warning</button>
+                                    </div>
+                                    <div class="mb-4">
+                                        <h6 class="mb-0 pb-2 mb-4 border-bottom">Advanced Styled Buttons</h6>
+                                        <button type="button" class="btn btn-primary rounded-pill mb-1">Rounded
+                                            Corners</button>
+                                        <button type="button" class="btn btn-success mb-1">With Icon
+                                            <svg width="24" height="24" viewBox="0 0 16 16"
+                                                class="bi bi-arrow-right ms-2" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-hover-scale mb-1"><span>Hover
+                                                Scale</span></button>
+                                        <a href="#" class="text-dark ms-3 hover-underline-link">
+                                            <span class="position-relative">Hover Underline</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+
+                            <div id="toolpopover" class="py-8 py-lg-10">
+                                <h5 class="mb-5 display-5 text-center">Tooltips & Popover</h5>
+                                <div class="">
+                                    <div class="mb-5">
+                                        <h6 class="mb-0 pb-2 mb-4 border-bottom">Tooltips</h6>
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Tooltip on top">
+                                            Tooltip on top
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Tooltip on right">
+                                            Tooltip on right
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                                            data-bs-placement="bottom" title="Tooltip on bottom">
+                                            Tooltip on bottom
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                                            data-bs-placement="left" title="Tooltip on left">
+                                            Tooltip on left
+                                        </button>
+                                        <br><br>
+                                        <h5>Example</h5>
+                                        <p>Hover over the links below to see tooltips:</p>
+                                        <p class="text-muted">Tight pants next level keffiyeh <a href="#"
+                                                data-bs-toggle="tooltip" title=""
+                                                data-original-title="Default tooltip">you probably</a> haven't heard of
+                                            them. Photo booth beard raw denim letterpress vegan messenger bag stumptown.
+                                            Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american
+                                            apparel <a href="#" data-bs-toggle="tooltip" title="Another tooltip">have
+                                                a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh
+                                            mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko
+                                            mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#"
+                                                data-bs-toggle="tooltip" title="Another one here too">whatever
+                                                keytar</a>, scenester farm-to-table banksy Austin <a href="#"
+                                                data-bs-toggle="tooltip" title=""
+                                                data-original-title="The last tip!">twitter handle</a> freegan cred raw
+                                            denim single-origin coffee viral.
+                                        </p>
+                                    </div>
+                                    <div class="mb-5">
+                                        <h4 class="mb-0 pb-2 mb-4 border-bottom">Popover Examples</h4>
+                                        <button type="button" class="btn btn-secondary" data-bs-container="body"
+                                            data-bs-toggle="popover" data-bs-placement="top"
+                                            data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                            Popover on top
+                                        </button>
+
+                                        <button type="button" class="btn btn-secondary" data-bs-container="body"
+                                            data-bs-toggle="popover" data-bs-placement="right"
+                                            data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                            Popover on right
+                                        </button>
+
+                                        <button type="button" class="btn btn-secondary" data-bs-container="body"
+                                            data-bs-toggle="popover" data-bs-placement="bottom"
+                                            data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                            Popover on bottom
+                                        </button>
+
+                                        <button type="button" class="btn btn-secondary" data-bs-container="body"
+                                            data-bs-toggle="popover" data-bs-placement="left"
+                                            data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                            Popover on left
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div id="CollapseDemo" class="py-8 py-lg-10 px-lg-10">
+                                <h5 class="mb-5 display-5 text-center">Collapse accordions</h5>
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          Accordion Item #1
+                                        </button>
+                                      </h2>
+                                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                          Accordion Item #2
+                                        </button>
+                                      </h2>
+                                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                          Accordion Item #3
+                                        </button>
+                                      </h2>
+                                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div id="cards" class="py-7 py-lg-10">
+                                <h5 class="mb-5 display-5 text-center">Cards</h5>
+                                <div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 col-lg-5 mb-5">
+                                            <!--Card overlay text-->
+                                            <div class="card-overlay position-relative overflow-hidden">
+                                                <img class="img-fluid" src="assets/img/800x600/4.jpg" alt="..">
+                                                <div
+                                                    class="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                                                    <div
+                                                        class="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end flex-column p-4">
+                                                        <span class="h5 d-block">Corte Alata Drink</span>
+                                                        <small>$6.5</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-5 mb-5">
+                                            <!--Card product-->
+                                            <div class="card-item mb-3 card border-0">
+                                                <div class="position-relative card-item-header">
+                                                    <img src="assets/img/800x600/1.jpg" alt=""
+                                                        class="img-fluid position-relative">
+                                                    <span class="item-badge badge-success">Best Seller</span>
+
+                                                    <a class="stretched-link" href="#"></a>
+                                                </div>
+                                                <div class="card-item-body pt-3">
+
+                                                    <!--Item Info-->
+                                                    <div class="d-flex">
+                                                        <div class="flex-grow-1">
+                                                            <h6 class="mb-0 fw-bold">Milk shake icecream</h6>
+                                                            <small class="text-muted">Dessert</small>
+                                                        </div>
+                                                        <div class="flex-grow-0 card-item-add">
+                                                            <span class="item-price">$4.50</span>
+                                                            <a href="#!"
+                                                                class="btn btn-add btn-sm btn-outline-secondary">
+                                                                <div class="d-flex align-items-center">
+                                                                    Add to Basket
+                                                                    <i class="bi bi-basket3-fill ms-2"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-5 mb-5 mb-md-0">
+                                            <article>
+                                                <div class="mb-2">
+                                                    <a href="#!" class="small rounded-pill">Food</a>
+                                                </div>
+                                                <a href="#!" class="line-height-1 text-dark mb-3 d-table">
+                                                    <h2 class="text-reset mb-0 text-capitalize"> A business that
+                                                        prepares and serves food and
+                                                        drinks to customers</h2>
+                                                </a>
+                                                <a href="#!" class="thumbnail-hover mb-3">
+                                                    <img src="assets/img/800x600/4.jpg" alt="" class="img-fluid">
+                                                    <div class="thumbnail-hover-overlay">
+                                                        <span
+                                                            class="text-white text-uppercase small fw-bold">Read
+                                                            Story</span>
+                                                    </div>
+                                                </a>
+
+                                                <div class="post-meta">
+
+                                                    <ul
+                                                        class="list-unstyled d-flex align-items-center mb-0 small text-muted">
+                                                        <li>Posted by <a href="#"
+                                                                class="text-secondary d-inline-flex align-items-center">
+                                                                <span>
+                                                                    John</span></a></li>
+                                                        <li class="ms-2">On <a href="#"
+                                                                class="text-secondary d-inline-flex align-items-center">
+
+                                                                <span> 13 Oct. 2020</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="col-md-6 col-lg-5">
+                                            <article>
+
+                                                <a href="#!" class="thumbnail-hover mb-3">
+                                                    <img src="assets/img/800x600/2.jpg" alt="" class="img-fluid">
+                                                    <div class="thumbnail-hover-overlay">
+                                                        <span
+                                                            class="text-white text-uppercase small fw-bold">Read
+                                                            Story</span>
+                                                    </div>
+                                                </a>
+
+                                                <div class="post-meta">
+                                                    <div class="mb-2">
+                                                        <a href="#!" class="small rounded-pill">Events</a>
+                                                    </div>
+                                                    <a href="#!" class="fs-2 line-height-1 text-dark mb-3 d-table">
+                                                        <h2 class="text-capitalize text-reset">
+                                                            Clare smith attend an event at Resto
+                                                            Restaurant
+                                                        </h2>
+                                                    </a>
+                                                    <ul
+                                                        class="list-unstyled d-flex align-items-center mb-0 small text-muted">
+                                                        <li>Posted by <a href="#"
+                                                                class="text-secondary d-inline-flex align-items-center">
+                                                                <span>
+                                                                    John</span></a></li>
+                                                        <li class="ms-2">On <a href="#"
+                                                                class="text-secondary d-inline-flex align-items-center">
+
+                                                                <span> 13 Oct. 2020</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div id="testimonials" class="py-8 py-lg-10">
+                                <h5 class="mb-5 display-5 text-center">Testimonial Cards</h5>
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-5 mb-md-0">
+                                            <div>
+                                                <svg class="mb-4 text-primary" xmlns="http://www.w3.org/2000/svg"
+                                                    width="35" height="17" viewBox="0 0 35 17" fill="none">
+                                                    <path
+                                                        d="M23.1868 16.22C20.4579 16.22 17.7289 16.1702 15 16.1702C17.4853 10.7967 19.9706 5.37349 22.4558 0C26.3543 0 30.2528 0.0497545 34.2 0.0497545C30.5452 5.42324 26.8416 10.8465 23.1868 16.22Z"
+                                                        fill="currentColor" />
+                                                    <path
+                                                        d="M8.18681 16.22C5.45787 16.22 2.72894 16.1702 0 16.1702C2.48528 10.7967 4.97056 5.37349 7.45584 0C11.3543 0 15.2528 0.0497545 19.2 0.0497545C15.5452 5.42324 11.8416 10.8465 8.18681 16.22Z"
+                                                        fill="currentColor" />
+                                                </svg>
+                                                <p class="h1 text-capitalize fw-normal mb-4">
+                                                    We had two meals here in two days. Both were excellent. Tonight
+                                                    was attentive and friendly. Great job!
+                                                </p>
+                                                <h6>Josh Bob, <small class="text-muted">CA</small></h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="px-3 px-lg-5 py-5 border-0 bg-secondary text-white">
+                                                <svg class="mb-4 text-primary" xmlns="http://www.w3.org/2000/svg"
+                                                    width="35" height="17" viewBox="0 0 35 17" fill="none">
+                                                    <path
+                                                        d="M23.1868 16.22C20.4579 16.22 17.7289 16.1702 15 16.1702C17.4853 10.7967 19.9706 5.37349 22.4558 0C26.3543 0 30.2528 0.0497545 34.2 0.0497545C30.5452 5.42324 26.8416 10.8465 23.1868 16.22Z"
+                                                        fill="currentColor" />
+                                                    <path
+                                                        d="M8.18681 16.22C5.45787 16.22 2.72894 16.1702 0 16.1702C2.48528 10.7967 4.97056 5.37349 7.45584 0C11.3543 0 15.2528 0.0497545 19.2 0.0497545C15.5452 5.42324 11.8416 10.8465 8.18681 16.22Z"
+                                                        fill="currentColor" />
+                                                </svg>
+                                                <p class="h1 text-capitalize fw-normal mb-4">
+                                                    We had two meals here in two days. Both were excellent. Tonight
+                                                    was attentive and friendly. Great job!
+                                                </p>
+                                                <h6>Josh Bob, <small class="text-muted">CA</small></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div id="icons" class="py-7 py-lg-10">
+                                <h5 class="mb-5 display-5 text-center">Icons</h5>
+                                <div>
+                                    <div class="mb-5">
+                                        <h6 class="mb-3">Food icons</h6>
+
+                                        <!--Icon-->
+                                        <div class="element-icon-box mb-5">
+                                            <img src="assets/img/svg/food-drinks/Apple-Bite.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Apple.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Banana.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Beer-Glass.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Bilk-Bottle2.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Birthday-Cake.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Bread-2.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Cake.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Can-2.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Can.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Cheese.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Chef-Hat.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Chef-Hat2.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Chopsticks.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Chopsticks-2.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Cocktail.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Coconut.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Coffee-2.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Coffee-Bean.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Coffee-toGo.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Coffee.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Cookies.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Croissant.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Cupcake.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Doughnut.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Eggs.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Fish.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Fork.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/French-Fries.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Fruits.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Glass-Water.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Hamburger.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Honey.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Apple-Bite.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Hot-Dog.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Ice-Cream.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Juice.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Knife.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Lemon.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Lollipop-2.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Lollipop.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Martini-Glass.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Milk-Bottle.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Mushroom.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Open-Banana.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Pepper-withFire.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Pepper.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Pizza-Slice.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Pizza.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Plate.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Plates.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Soup.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Spoon.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Sushi.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Teapot.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Tee-Mug.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Tomato.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Wine-Bottle.svg" alt="" class="">
+                                            <img src="assets/img/svg/food-drinks/Wine-Glass.svg" alt="" class="">
+                                        </div>
+
+                                        <!--Bootstrap Icons-->
+                                        <h6 class="mb-3">Bootstrap icons</h6>
+                                        <div class="element-icon-box text-primary">
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-bag"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-right"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-down"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-up"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-envelope"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-telephone"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-shop"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
+                                            </svg>
+                                            <svg width="3em" height="3em" viewBox="0 0 16 16"
+                                                class="bi bi-file-earmark-zip" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                                                <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.11 0l-.929-.62a1 1 0 0 1-.415-1.074L5 8.438V7.5zm2 0H6v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.929-.62-.4-1.598A1 1 0 0 1 7 8.438V7.5z" />
+                                                <path
+                                                    d="M6 1h1.5v1H6zM5 2h1.5v1H5zm1 1h1.5v1H6zM5 4h1.5v1H5zm1 1h1.5v1H6V5z" />
+                                            </svg>
+                                        </div>
+                                        <!--More Icons Link-->
+                                        <p class="mb-0 pt-4">
+                                            <a href="https://icons.getbootstrap.com/" target="_blank"
+                                                class="hover-underline-link text-secondary">View All Icons</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div class="py-7 py-lg-10" id="selectBox">
+                                <h5 class="mb-5 display-5 text-center">Select Box</h5>
+                                <div class="row">
+                                    <div class="col-xl-5 col-lg-6 col-md-8 mx-auto">
+                                        <select class="form-control" data-choices>
+                                            <option>Select option</option>
+                                            <option>Another option</option>
+                                            <option>Just an option</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="pt-5 text-center">
+                                    <a target="_blank" class="btn btn-primary"
+                                        href="https://github.com/jshjohnson/Choices">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+
+                            <div class="py-7 py-lg-10" id="flatpicker">
+                                <h5 class="mb-5 display-5 text-center">Flatpicker</h5>
+                                <div class="row">
+                                    <div class="col-xl-5 col-lg-6 col-md-8 mx-auto">
+                                        <div>
+                                            <div class="text-center">
+                                                <input type="text" placeholder="Select Reservation Date"
+                                                    class="form-control bg-white width-280 mx-auto" readonly
+                                                    data-flatpicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-5 text-center">
+                                    <a target="_blank" class="btn btn-primary" href="https://flatpickr.js.org/">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+
+                            <div class="py-7 py-lg-10" id="lightBox">
+                                <h5 class="mb-5 display-5 text-center">GLightbox</h5>
+                                <div class="mb-5">
+
+                                    <div>
+                                        <!--row-->
+                                        <div class="row">
+
+                                            <!--Col type-->
+                                            <div class="col-12 text-center mb-5">
+                                                <h6 class="mb-4">Single Image</h6>
+                                                <a href="assets/img/800x600/4.jpg" data-gallery="gallery-single"
+                                                    class="glightbox">
+                                                    <img src="assets/img/800x600/4.jpg" class="img-fluid w-50"
+                                                        alt="image">
+                                                </a>
+                                            </div>
+
+                                            <!--Col type-->
+                                            <div class="col-md-12 text-center mb-5">
+                                                <h6 class="mb-4">Image Gallery</h6>
+                                                <div class="row row-cols-sm-3 justify-content-center" id="demo-gallery">
+                                                    <a href="assets/img/800x600/1.jpg" class="glightbox mb-2"
+                                                        data-gallery="demo-gallery">
+                                                        <img src="assets/img/800x600/1.jpg" class="img-fluid"
+                                                            alt="image">
+                                                    </a>
+                                                    <a href="assets/img/800x600/3.jpg" class="glightbox mb-2"
+                                                        data-gallery="demo-gallery">
+                                                        <img src="assets/img/800x600/3.jpg" class="img-fluid"
+                                                            alt="image">
+                                                    </a>
+                                                    <a href="assets/img/800x600/2.jpg" class="glightbox mb-2"
+                                                        data-gallery="demo-gallery">
+                                                        <img src="assets/img/800x600/2.jpg" class="img-fluid"
+                                                            alt="image">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!--Col type-->
+                                            <div class="col-12 text-center">
+                                                <h6 class="mb-4">Video Modal</h6>
+                                                <a href="assets/videos/vimeo-1058048317.mp4"
+                                                    class="glightbox d-inline-flex align-items-center"
+                                                    data-gallery="video">
+                                                    <div
+                                                        class="btn btn-outline-dark p-0 width-60 height-60 rounded-circle border border-dark border-width-2 d-flex flex-center">
+                                                        <svg width="32" height="32" viewBox="0 0 512 512" fill="none">
+                                                            <path
+                                                                d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z"
+                                                                stroke-miterlimit="20" stroke="currentColor"
+                                                                stroke-width="28"></path>
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a target="_blank" class="btn btn-primary"
+                                        href="https://biati-digital.github.io/glightbox/">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div class="py-7 py-lg-10" id="aosAnimations">
+                                <h5 class="mb-5 display-5 text-center">AOS Animations</h5>
+                                <div>
+
+                                    <div class="row">
+                                        <div class="col-6 col-sm-4 mb-3" data-aos-delay="100" data-aos-once="false"
+                                            data-aos="fade-up" data-aos-duration="300">
+                                            <div class="height-150 bg-primary"></div>
+                                        </div>
+                                        <div class="col-6 col-sm-4 mb-3" data-aos-delay="200" data-aos-once="false"
+                                            data-aos="fade-left" data-aos-duration="300">
+                                            <div class="height-150 bg-success"></div>
+                                        </div>
+                                        <div class="col-6 col-sm-4 mb-3" data-aos-delay="300" data-aos-once="false"
+                                            data-aos="fade-down" data-aos-duration="300">
+                                            <div class="height-150 bg-warning"></div>
+                                        </div>
+                                    </div>
+                                    <span>
+                                        Remove <code>data-aos-once="false"</code> for make 1 time animations
+                                    </span>
+                                </div>
+                                <div class="pt-5 text-center">
+                                    <a target="_blank" class="btn btn-primary" href="https://michalsnik.github.io/aos/">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div class="py-7 py-lg-10" id="Isotope">
+                                <h5 class="mb-5 display-5 text-center">Isotope</h5>
+                                <div>
+                                    <div>
+                                        <div class="position-relative min-height-50">
+                                            <nav class="nav text-center d-flex justify-content-center filter-nav mb-4">
+                                                <button
+                                                    class="is-checked btn-outline-secondary btn m-1 active border-width-2 btn-sm"
+                                                    data-bs-toggle="pill" data-filter="*"
+                                                    data-bs-target=".isotope-grid">
+                                                    All
+                                                </button>
+                                                <button class="btn-outline-secondary btn m-1 border-width-2 btn-sm"
+                                                    data-bs-toggle="pill" data-filter=".filter-1"
+                                                    data-bs-target=".isotope-grid">
+                                                    Filter 1
+                                                </button>
+                                                <button class=" btn-outline-secondary btn m-1 border-width-2 btn-sm"
+                                                    data-bs-toggle="pill" data-filter=".filter-2"
+                                                    data-bs-target=".isotope-grid">
+                                                    Filter 2
+                                                </button>
+                                            </nav>
+
+                                            <!--Isotope grid row-->
+                                            <div class="row g-3 isotope-grid" data-isotope='{"layoutMode": "masonry"}'>
+                                                <!--Isotope-grid-item-->
+                                                <div class="col-6 col-lg-3 filter-1 grid-item">
+                                                    <div class="py-10 bg-danger text-white text-center">01</div>
+                                                </div>
+                                                <!--End Item-->
+
+                                                <!--Isotope-grid-item-->
+                                                <div class="col-6 col-lg-3 filter-2 grid-item">
+                                                    <div class="py-10 bg-primary text-white text-center">02</div>
+                                                </div>
+                                                <!--End Item-->
+
+                                                <!--Isotope-grid-item-->
+                                                <div class="col-6 col-lg-3 filter-1 grid-item">
+                                                    <div class="py-10 bg-success text-white text-center">01B</div>
+                                                </div>
+                                                <!--End Item-->
+
+                                                <!--Isotope-grid-item-->
+                                                <div class="col-6 col-lg-3 filter-2 grid-item mb-2">
+                                                    <div class="py-10 bg-success text-white text-center">02B</div>
+                                                </div>
+                                                <!--End Item-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-5 text-center">
+                                    <a target="_blank" class="btn btn-primary" href="https://isotope.metafizzy.co/">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div class="py-7 py-lg-10" id="smoothscroll">
+                                <h5 class="mb-5 display-5 text-center">Smooth scroll</h5>
+                                <div class="pe-lg-6">
+                                    <div>
+                                        <div class="position-sticky justify-content-center nav top-0 bg-white">
+                                            <a href="#section1" data-scroll
+                                                class="d-table btn btn-light btn-sm me-1">Section 1</a>
+                                            <a href="#section2" data-scroll
+                                                class="d-table  btn btn-light btn-sm">Section 2</a>
+                                        </div>
+                                        <div id="section1" class="pt-8 pt-lg-9 pe-lg-10 text-start">
+                                            <h6>Section 1</h6>
+                                            <p>
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print,
+                                                and publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                                culpa qui officia deserunt mollit anim id est laborum.
+                                            </p>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                                culpa qui officia deserunt mollit anim id est laborum.
+                                            </p>
+                                        </div>
+                                        <div id="section2" class="pt-8 pt-lg-9 pe-lg-10">
+                                            <h6>Section 2</h6>
+                                            <p>
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print,
+                                                and publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                                culpa qui officia deserunt mollit anim id est laborum.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-5 pt-lg-9 text-center">
+                                    <a target="_blank" class="btn btn-primary"
+                                        href="https://github.com/cferdinandi/smooth-scroll">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div class="py-7 py-lg-10" id="jarallax">
+                                <h5 class="mb-5 display-5 text-center">P(J)arallax</h5>
+                                <div>
+                                    <div class="mb-4">
+                                        <p class="ps-3">Background Image Parallax</p>
+                                        <div class="jarallax vh-50" data-speed=".3">
+                                            <img src="assets/img/1920x1000/4.jpg" alt="" class="jarallax-img">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="ps-3 mb-3">
+                                            <p class="mb-0">Video Background Parallax</p>
+                                            <code>Vimeo and Youtube video also supported</code>
+                                        </div>
+                                        <div class="d-flex flex-column vh-50 bg-dark align-items-center justify-content-center jarallax"
+                                            data-speed=".3"
+                                            data-video-src="mp4:./assets/videos/vimeo-1058048317.mp4">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-5 text-center">
+                                    <a target="_blank" class="btn btn-primary" href="https://github.com/nk-o/jarallax">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Divider-->
+                            <svg class="text-success opacity-25 d-block mx-auto" xmlns="http://www.w3.org/2000/svg"
+                                width="149" height="11" preserveAspectRatio="none" viewBox="0 0 149 11">
+                                <path
+                                    d="M147.137 0c-3.915 0-5.905 2.362-7.504 4.26-1.579 1.873-2.572 2.932-4.616 2.932-2.045 0-3.036-1.06-4.615-2.932-1.598-1.898-3.588-4.26-7.504-4.26-3.914 0-5.904 2.363-7.503 4.26-1.575 1.873-2.568 2.932-4.609 2.932-2.039 0-3.03-1.06-4.605-2.931C104.584 2.363 102.596 0 98.683 0c-3.912 0-5.9 2.362-7.499 4.26-1.575 1.873-2.566 2.932-4.609 2.932-2.039 0-3.03-1.059-4.605-2.931C80.373 2.363 78.385 0 74.47 0c-3.911 0-5.9 2.362-7.496 4.26-1.576 1.873-2.567 2.932-4.608 2.932-2.038 0-3.03-1.059-4.605-2.931C56.164 2.363 54.176 0 50.262 0c-3.912 0-5.898 2.363-7.495 4.26-1.576 1.873-2.565 2.932-4.604 2.932-2.037 0-3.028-1.06-4.602-2.931C31.966 2.363 29.981 0 26.07 0c-3.915 0-5.903 2.363-7.5 4.26-1.575 1.873-2.566 2.932-4.605 2.932-2.039 0-3.03-1.06-4.605-2.931C7.763 2.363 5.775 0 1.863 0 .832 0 0 .805 0 1.798s.833 1.798 1.863 1.798c2.038 0 3.03 1.06 4.605 2.932 1.597 1.898 3.585 4.26 7.497 4.26s5.9-2.361 7.497-4.26c1.576-1.872 2.567-2.932 4.608-2.932 2.037 0 3.026 1.059 4.6 2.93 1.595 1.9 3.583 4.262 7.493 4.262 3.912 0 5.899-2.362 7.496-4.26 1.575-1.872 2.564-2.932 4.603-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.915 0 5.903-2.363 7.5-4.261 1.575-1.873 2.566-2.932 4.605-2.932 2.04 0 3.032 1.06 4.607 2.933 1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.363 7.501-4.261 1.575-1.872 2.567-2.932 4.607-2.932s3.03 1.06 4.606 2.932c1.597 1.898 3.585 4.26 7.497 4.26 3.914 0 5.902-2.361 7.5-4.26 1.578-1.872 2.57-2.932 4.612-2.932 2.044 0 3.037 1.06 4.616 2.933 1.599 1.898 3.589 4.26 7.503 4.26 3.916 0 5.905-2.362 7.504-4.26 1.579-1.873 2.572-2.933 4.617-2.933 1.029 0 1.862-.805 1.862-1.798S148.167 0 147.137 0z"
+                                    fill="currentColor"
+                                    transform="translate(-656 -4391) translate(0 2796) translate(345 1595) translate(311)">
+                                </path>
+                            </svg>
+                            <div class="py-7 py-lg-10" id="swiper">
+                                <h5 class="mb-5 display-5 text-center">Swiper carousel</h5>
+                                <div class="position-relative px-md-6">
+                                    <div>
+                                        <!-- Swiper HTML init -->
+                                        <div class="swiper-container overflow-hidden swiper-fw">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <img src="assets/img/1140x480/1.jpg" alt="" class="img-fluid">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="assets/img/1140x480/2.jpg" alt="" class="img-fluid">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="assets/img/1140x480/3.jpg" alt="" class="img-fluid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- If we need navigation buttons -->
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-5 text-center">
+                                    <span class="d-block mb-4">Checkout the unlimited swiper offical demos </span>
+                                    <a target="_blank" class="btn btn-primary" href="https://swiperjs.com/">
+                                        Visit Offical Site
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative">
+                <div class="container py-7 py-lg-10 text-center">
+                    <h5 class="mb-4 text-primary">Let us help to grow this Theme</h5>
+                    <h1 class="display-2 mb-3">Grab a license</h1>
+                    <p class="mb-5 lead">Feel free ask questions, Request for any feature you want to.</p>
+                    <a href="https://wrapbootstrap.com/theme/resto-restaurant-theme-bootstrap-5-WB0N3T496/?ref=wb_rakesh"
+                        target="_blank" class="btn btn-lg btn-hover-scale btn-primary"><span>Where to buy</span></a>
+                </div>
+            </section>
+        </main>
+        <!--/.End main-content-->
+
+         <!--Divider-->
+         <svg preserveAspectRatio="none" width="100%" height="64" viewBox="0 0 1015 162" fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+         <g class="text-primary">
+             <path fill-rule="evenodd" clip-rule="evenodd"
+                 d="M1061 32.6481L1038.9 39.8343C1016.79 47.0205 972.583 61.393 928.375 54.2067C884.167 47.0205 839.958 18.2756 795.75 29.055C751.542 39.8343 707.333 90.1378 663.125 90.1378C618.917 90.1378 574.708 39.8343 530.5 25.4619C486.292 11.0894 442.083 32.6481 397.875 29.055C353.667 25.4619 309.458 -3.28301 265.25 0.310095C221.042 3.9032 176.833 39.8343 132.625 61.3929C88.4167 82.9516 44.2083 90.1378 22.1041 93.7309L0 97.324V162H22.1041C44.2083 162 88.4167 162 132.625 162C176.833 162 221.042 162 265.25 162C309.458 162 353.667 162 397.875 162C442.083 162 486.292 162 530.5 162C574.708 162 618.917 162 663.125 162C707.333 162 751.542 162 795.75 162C839.958 162 884.167 162 928.375 162C972.583 162 1016.79 162 1038.9 162H1061V32.6481Z"
+                 fill="currentColor"></path>
+         </g>
+         <g class="text-dark">
+             <path fill-rule="evenodd" clip-rule="evenodd"
+                 d="M1015 42.2297L993.854 48.8836C972.708 55.5375 930.417 68.8453 888.125 62.1914C845.833 55.5375 803.542 28.9219 761.25 38.9027C718.958 48.8836 676.667 95.4609 634.375 95.4609C592.083 95.4609 549.792 48.8836 507.5 35.5758C465.208 22.268 422.917 42.2297 380.625 38.9027C338.333 35.5758 296.042 8.96017 253.75 12.2871C211.458 15.6141 169.167 48.8836 126.875 68.8453C84.5833 88.807 42.2916 95.4609 21.1458 98.7879L0 102.115V162H21.1458C42.2916 162 84.5833 162 126.875 162C169.167 162 211.458 162 253.75 162C296.042 162 338.333 162 380.625 162C422.917 162 465.208 162 507.5 162C549.792 162 592.083 162 634.375 162C676.667 162 718.958 162 761.25 162C803.542 162 845.833 162 888.125 162C930.417 162 972.708 162 993.854 162H1015V42.2297Z"
+                 fill="currentColor"></path>
+         </g>
+        </svg>
+
+        <footer class="footer bg-dark text-white position-relative">
+         <a href="#top" data-scroll class="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
+             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                 <path fill-rule="evenodd"
+                     d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+             </svg>
+         </a>
+         <div class="container pb-8 pt-8">
+             <div class="row justify-content-lg-between">
+                 <div class="col-lg-4 me-auto col-md-10 mb-5">
+                     <h5 class="mb-4">
+                         Subscribe and stay up to date
+                     </h5>
+                     <form>
+                         <div class="d-flex flex-column mb-3">
+                             <div class="mb-2">
+                                 <input type="email" class="form-control w-100 border-0 form-control-lg shadow-none"
+                                     placeholder="Enter your Email" required>
+                             </div>
+                             <div class="d-grid">
+                                 <button type="submit" class="btn btn-primary btn-lg btn-hover-scale">
+                                     <span>Submit</span>
+                                 </button>
+                             </div>
+                         </div>
+                     </form>
+                     <p class="mb-0 small text-muted">
+                         We'll never share your email.
+                     </p>
+                 </div>
+                 <div class="col-lg-3 me-auto me-md-0 col-sm-6 col-md-5 mb-4">
+                     <ul class="list-unstyled mb-0">
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Home
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 About us
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 News
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Events
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Career
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Customers
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Support
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+                 <div class="col-lg-3 col-md-5 col-sm-6 mb-4">
+                     <ul class="list-unstyled mb-0">
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Menu
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Dessert
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Drink & Wine
+                             </a>
+                         </li>
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Shop
+                             </a>
+                         </li>
+
+                         <li class="mb-3">
+                             <a href="#" class="mb-0">
+                                 Reservation
+                             </a>
+                         </li>
+                         <li>
+                             <a href="#" class="mb-0">
+                                 Catering
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+             <div
+                 class="border-top pt-4 text-center d-md-flex justify-content-md-between align-items-center">
+                 <ul class="list-inline mb-4 mb-md-0">
+                     <li class="list-inline-item"><a href="#!">
+                             <svg width="24" height="24" fill="currentColor" viewBox="0 0 512 512">
+                                 <path
+                                     d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221v-49.36c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42.02h62.12l-9.92 64.77h-52.2v156.53C398.1 461.85 480 369.18 480 257.35z"
+                                     fill-rule="evenodd" clip-rule="evenodd"></path>
+                             </svg>
+                         </a></li>
+                     <li class="list-inline-item ms-2"><a href="#!">
+                             <svg width="24" height="24" fill="currentColor" viewBox="0 0 512 512">
+                                 <path
+                                     d="M496 109.5a201.8 201.8 0 01-56.55 15.3 97.51 97.51 0 0043.33-53.6 197.74 197.74 0 01-62.56 23.5A99.14 99.14 0 00348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 002.54 22.1 280.7 280.7 0 01-203-101.3A95.69 95.69 0 0036 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0135.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 01-25.94 3.4 94.38 94.38 0 01-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0139.5 405.6a203 203 0 01-23.5-1.4A278.68 278.68 0 00166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 00496 109.5z">
+                                 </path>
+                             </svg>
+                         </a></li>
+                     <li class="list-inline-item ms-2"><a href="#!">
+                             <svg width="24" height="24" fill="currentColor" viewBox="0 0 512 512">
+                                 <path
+                                     d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z">
+                                 </path>
+                                 <path
+                                     d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z">
+                                 </path>
+                             </svg>
+                         </a></li>
+                 </ul>
+                 <small class="d-block text-muted">© Copyright <script>
+                    document.write(new Date().getFullYear())
+
+                </script>. All right reserved. Resto</small>
+             </div>
+         </div>
+        </footer>
+
+        <script src="assets/js/theme.bundle.js"></script>
+
+
+        <!--swiper-->
+        <script src="assets/vendor/swiper-bundle.min.js"></script>
+        <script>
+            //Main hero slider
+            var swiperMain = new Swiper('.swiper-fw', {
+                direction: 'horizontal',
+                loop: 'true',
+                grabCursor: 'true',
+                slidesPerView: 1,
+                autoplay: {
+                    delay: 3000,
+                },
+                navigation: {
+                    nextEl: '.swiperMain-button-next',
+                    prevEl: '.swiperMain-button-prev',
+                }
+            });
+
+            //Menu Icons
+            var swiper = new Swiper('.swiper-4col', {
+                slidesPerView: 4,
+                spaceBetween: 10,
+                grabCursor: 'true',
+                autoplay: {
+                    delay: 2000,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                }
+            });
+
+        </script>
+
+        <!--Lightbox-->
+        <script src="assets/vendor/glightbox.min.js"></script>
+        <script>
+            const lightbox = GLightbox({
+                selector: '.glightbox'
+            });
+
+        </script>
+
+
+        <!--Calendar flatpickr-->
+        <script src="assets/vendor/flatpickr.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var fp = document.querySelectorAll('[data-flatpicker]');
+                for (i = 0; i < fp.length; ++i) {
+                    var element = fp[i];
+                    new flatpickr(element, {
+                        minDate: "today",
+                        maxDate: new Date().fp_incr(29)
+                    });
+                }
+            });
+
+        </script>
+
+        <!--Choices select-->
+        <script src="assets/vendor/choices.min.js"></script>
+        <script>
+            // Pass single element
+            document.addEventListener('DOMContentLoaded', function () {
+                var elementChoices = document.querySelectorAll('[data-choices]');
+                for (i = 0; i < elementChoices.length; ++i) {
+                    var element = elementChoices[i];
+                    new Choices(element, {
+                        classNames: {
+                            containerInner: element.className,
+                            input: "form-control",
+                            inputCloned: "form-control-xs",
+                            listDropdown: "dropdown-menu",
+                            itemChoice: "dropdown-item",
+                            activeState: "show",
+                            selectedState: "active"
+                        }
+                    });
+                }
+            });
+
+        </script>
+
+
+        <!--Isotope-filter-->
+        <script src="assets/vendor/imagesloaded.pkgd.min.js"></script>
+        <script src="assets/vendor/isotope.pkgd.min.js"></script>
+        <script>
+            'use strict';
+            var grid = document.querySelector('.isotope-grid');
+            var iso;
+            if (grid) {
+                imagesLoaded(grid, function () {
+                    // init Isotope after all images have loaded
+                    iso = new Isotope(grid, {
+                        itemSelector: '.grid-item',
+                    });
+                });
+
+                // bind filter button click
+                var filtersElem = document.querySelector('.filter-nav');
+                filtersElem.addEventListener('click', function (event) {
+                    // only work with buttons
+                    if (!matchesSelector(event.target, 'button')) {
+                        return;
+                    }
+                    var filterValue = event.target.getAttribute('data-filter');
+                    // use matching filter function
+                    filterValue = [filterValue] || filterValue;
+                    iso.arrange({
+                        filter: filterValue
+                    });
+                });
+
+                // change is-checked class on buttons
+                var buttonGroups = document.querySelector('.filter-nav');
+                for (var i = 0, len = buttonGroups.length; i < len; i++) {
+                    var buttonGroup = buttonGroups[i];
+                    radioButtonGroup(buttonGroup);
+                }
+
+                function radioButtonGroup(buttonGroup) {
+                    buttonGroup.addEventListener('click', function (event) {
+                        // only work with buttons
+                        if (!matchesSelector(event.target, 'button')) {
+                            return;
+                        }
+                        buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+                        event.target.classList.add('is-checked');
+                    });
+                }
+            }
+
+        </script>
+
+        <!--Enable bootstrap popovers and tooltips-->
+        <script>
+            //Tooltip
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+//Popover
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        </script>
+    </body>
+
+</html>
