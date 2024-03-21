@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Flatpickr and choices select css-->
+    <link rel="stylesheet" href="assets/vendor/css/flatpickr.min.css">
+    
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <!--aos animation-->
+    <link rel="stylesheet" href="assets/vendor/css/aos.css">
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+
+    <!--Add custom style here-->
+    <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
+
+    <title>Resto</title>
+  </head>
+  <body>
+       <!--Preloader Begins-->
+       <div class="preloader">
+    </div>
+    <!--Preloader Ends-->
+
+     <!--Main navbar start-->
+     <nav
+     class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky">
+     <div class="container">
+         <a class="navbar-brand" href="index.html">
+             <img src="assets/img/logo/logo-dark.svg" alt="Logo" class="img-fluid">
+         </a>
+         <div class="d-flex align-items-center order-lg-2 navbar-icons">
+             <button class="navbar-toggler order-last ms-3 ms-lg-0" type="button" data-bs-toggle="offcanvas"
+                 data-bs-target="#restoMainNavbar" aria-controls="restoMainNavbar" aria-expanded="false"
+                 aria-label="Toggle navigation">
+                 <span class="navbar-toggler-line"></span>
+                 <span class="navbar-toggler-line-end"></span>
+             </button>
+             <div class="navbar-nav flex-row align-items-center">
+                <div class="nav-item me-3 me-lg-0 position-lg-relative">
+                    <a class="nav-icon-link nav-link" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">
+                        <img src="assets/img/faces/1.jpg" alt="" class="width-30 rounded-circle shadow-sm">
+                    </a>
+                    <!--user dropdown-->
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!--User header-->
+                        <div class="position-relative px-2 pt-4 pb-3 bg-info mb-3">
+                            <!--User header divider-->
+                            <svg class="position-absolute start-0 bottom-0 text-white flip-y" width="100%" height="32" preserveAspectRatio="none" viewBox="0 0 878 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0H878V108L0 470V0Z" fill="currentColor"></path>
+                            </svg>
+
+                            <div class="position-relative d-flex align-items-center text-white">
+                                <span>
+                                    <img src="assets/img/faces/1.jpg" alt="" class="width-70 position-relative mb-n2 rounded-circle me-3 shadow-sm">
+                                </span>
+                                <div>
+                                    <h6 class="mb-0 mt-n3">Adam Voges</h6>
+                                    <small class="text-muted">Administrator</small>
+                                </div>
+                            </div>
+                        </div>
+                    
+                            <!--User Links-->
+                            <a href="#!" class="dropdown-item d-flex align-items-center">
+                                <i class="bi bi-person-circle me-2"></i>
+                                Profile
+                            </a>
+                            <a href="#!" class="dropdown-item d-flex align-items-center">
+                                <i class="bi bi-basket3-fill me-2"></i>
+                                Orders
+                            </a>
+                            <a href="#!" class="dropdown-item d-flex align-items-center">
+                                <i class="bi bi-star-fill me-2"></i>
+                                Saved Items
+                            </a>
+                            <a href="#!" class="dropdown-item d-flex align-items-center">
+                                <i class="bi bi-gear-fill me-2"></i>
+                                Settings
+                            </a>
+                            <a href="login-register.html" class="dropdown-item d-flex align-items-center">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>
+                                Log Out
+                            </a>
+                    </div>
+                </div>
+                <div class="nav-item me-lg-0 me-3">
+                    <a class="nav-icon-link nav-link" href="#offcanvasCart" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasCart">
+                        <div class="d-flex align-items-center">
+                            <span>Bag</span>
+                            <span class="cart-badge">(2)</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="position-lg-relative me-4 me-lg-0 nav-item">
+                    <a data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" class="nav-link">
+                        <i class="bi bi-search"></i>
+                    </a>
+                    <div class="dropdown-menu w-100 position-absolute dropdown-menu-lg-end dropdown-search p-4"
+                        id="dropdown-search">
+                        <h5 class="mb-3">Tell us what you're looking for</h5>
+                        <form>
+                            <input type="text" class="form-control form-control-lg"
+                                placeholder="Example: Dinner, Wine, Pizza">
+                            <div class="d-grid pt-2">
+                                <button type="button" class="btn btn-primary">
+                                    Search
+                                </button>
+                            </div>
+                        </form>
+                        <div class="pt-2">
+                            <div class="dropdown-header">Popular searches</div>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#!" class="dropdown-item">Egg & spinach
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="dropdown-item">Creamy soup
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="dropdown-item">Crunch veg salad
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+         <div class="offcanvas offcanvas-end" id="restoMainNavbar">
+           <div class="offcanvas-header">
+            <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+            </button>
+           </div>
+           <div class="offcanvas-body">
+            <ul class="navbar-nav mx-auto">
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link active" data-bs-auto-close="outside" data-bs-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Home </a>
+                    <ul class="dropdown-menu dropdown-menu-start">
+                        <li><a class="dropdown-item" href="index.html">Default Parallax</a></li>
+                        <li><a class="dropdown-item" href="index-video-player.html">Video Player</a></li>
+                        <li><a class="dropdown-item" href="index-image-slider.html">Image Slider</a>
+                        </li>
+                        <li><a class="dropdown-item" href="index-dark-ui.html">Dark UI</a></li>
+                        <li><a class="dropdown-item" href="one-page.html">One Page</a></li>
+                        <li class="dropend">
+                            <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">Menu Levels </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropend">
+                                    <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">menu level 2 </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                        <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Menu </a>
+                    <ul class="dropdown-menu dropdown-menu-start">
+                        <li><a class="dropdown-item" href="menu-simple.html">Menu simple</a></li>
+                        <li><a class="dropdown-item" href="menu-tiles.html">Menu tiles</a></li>
+                        <li><a class="dropdown-item" href="menu-grid.html">Menu grid</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Blog </a>
+                    <ul class="dropdown-menu dropdown-menu-start">
+                        <li><a class="dropdown-item" href="blog-sidebar-end.html">Sidebar end</a></li>
+                        <li><a class="dropdown-item" href="blog-sidebar-start.html">Sidebar start</a></li>
+                        <li><a class="dropdown-item" href="blog-masonry.html">Masonry</a></li>
+                        <li><a class="dropdown-item" href="blog-fullwidth.html">Full width</a></li>
+                        <li><a class="dropdown-item" href="blog-post.html">Single Page</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="reservation.html">Reservation</a></li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Pages</a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="about.html">About</a></li>
+                        <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        <li><a class="dropdown-item" href="contact.html">Contact us</a></li>
+                        <li><a class="dropdown-item" href="login-register.html">Login Register</a></li>
+                        <li><a class="dropdown-item" href="page-full-width.html">Page Full Width</a></li>
+                        <li><a class="dropdown-item" href="page-blank.html">Page blank</a></li>
+                        <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+
+                        <li><a class="dropdown-item" href="page-sticky-sidebar.html">sticky sidebar</a></li>
+                        <li><a class="dropdown-item" href="page-sticky-footer.html">sticky footer </a></li>
+                        <li><a class="dropdown-item" href="typography.html">Typography</a></li>
+                        <li><a class="dropdown-item" href="elements.html">Elements</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Shop </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="shop-products.html">Products</a></li>
+                        <li><a class="dropdown-item" href="shop-checkout.html">Checkout</a></li>
+                    </ul>
+                </li>
+            </ul>
+           </div>
+         </div>
+         <!--/.nav-collapse -->
+     </div>
+
+    </nav>
+
+
+    <!--Shopping cart offcanvas-->
+     <!--Cart-modal-start-->
+     <div class="offcanvas offcanvas-end fade" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCart"
+     aria-hidden="true">
+ 
+             <!--Cart-header-->
+             <div
+                 class="offcanvas-header">
+                 <h5 class="mb-0">Your cart</h5>
+                 <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                     </button>
+             </div>
+
+
+             <!--cart-content-->
+             <div class="offcanvas-body">
+
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert1.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Sweet dessert</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$6.00</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert2.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Strawberry cake</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$7.50</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+
+             <!--cart-footer-->
+             <div class="offcanvas-footer p-4 border-0 flex-column">
+                 <div class="mb-3 d-flex justify-content-between w-100">
+                     <p class="mb-0 flex-grow-1">Subtotal </p>
+                     <h5 class="mb-0">$11.00</h5>
+                 </div>
+                 <div class="w-100">
+                     <a href="#" class="btn btn-primary w-100">continue to Checkout</a>
+                 </div>
+             </div>
+    </div>
+
+  <!--Page hero-->
+  <section class="position-relative overflow-hidden bg-white">
+    <div class="container pt-8 pb-6 position-relative z-index-1">
+        <div class="row pt-4 pt-lg-6 justify-content-between">
+            <div class="col-lg-9 col-xl-6">
+                <h1 class="display-3 position-relative mb-4">
+                    Dine with delicious food around you</h1>
+                <p class="lead mb-4 mb-lg-5">
+                    The best food in town at one of the best locations
+                </p>
+                <a href="#main" data-scroll class="btn btn-lg btn-primary btn-hover-scale"><span>
+                        Order Now
+                    </span></a>
+            </div>
+            <div class="col-lg-5">
+                <svg class="w-100 h-100" preserveAspectRatio="xMidYMid meet" width="492" height="492"
+                    viewBox="0 0 492 492" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <mask style="mask-type:alpha" id="maskCircle" maskUnits="userSpaceOnUse" x="0" y="0"
+                        width="492" height="492">
+                        <path
+                            d="M246.006 491.833C231.582 491.833 217.158 487.533 204.57 478.926C193.144 471.112 179.235 467.365 165.425 468.44C134.992 470.694 106.856 454.489 93.6599 427.004C87.6641 414.521 77.4909 404.347 65.0017 398.352C37.5168 385.156 21.2495 356.983 23.5656 326.58C24.616 312.77 20.8871 298.868 13.0729 287.441C-4.13432 262.266 -4.13432 229.738 13.0729 204.569C20.8871 193.137 24.6099 179.234 23.5656 165.424C21.2495 135.028 37.5168 106.855 65.0017 93.6591C77.4848 87.6633 87.6641 77.4901 93.6599 65.0009C106.856 37.516 135.004 21.2364 165.425 23.5647C179.198 24.6213 193.137 20.8924 204.57 13.072C229.745 -4.13518 262.267 -4.13518 287.442 13.072C298.875 20.8924 312.838 24.5968 326.581 23.5647C356.99 21.2364 385.151 37.516 398.346 65.0009C404.348 77.4839 414.521 87.6633 427.004 93.6591C454.495 106.855 470.757 135.022 468.441 165.424C467.384 179.241 471.113 193.137 478.927 204.569C496.134 229.744 496.134 262.266 478.927 287.441C471.113 298.868 467.384 312.77 468.441 326.58C470.757 356.983 454.489 385.15 427.004 398.345C414.521 404.347 404.348 414.521 398.352 427.004C385.157 454.489 356.996 470.694 326.581 468.44C312.783 467.42 298.869 471.112 287.442 478.926C274.855 487.527 260.437 491.833 246.006 491.833Z"
+                            fill="currentColor" />
+                    </mask>
+                    <g mask="url(#maskCircle)">
+                        <rect x="-10" y="-10" width="512" height="512" fill="url(#patternCircle)" />
+                    </g>
+                    <defs>
+                        <pattern id="patternCircle" patternContentUnits="objectBoundingBox" width="1"
+                            height="1">
+                            <use xlink:href="#imageCircle" transform="scale(0.00195312)" />
+                        </pattern>
+                        <image id="imageCircle" width="512" height="512" xlink:href="assets/img/circle1.png">
+                        </image>
+                    </defs>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+    <!--background shape-->
+    <svg class="w-50 h-75 text-info opacity-25 position-absolute end-0 top-0" preserveAspectRatio="none"
+        viewBox="0 0 473 376" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M332.297 -88.0891C384.317 -101.335 433.148 -147.492 483.789 -129.686C535.306 -111.572 570.279 -55.2432 579.016 -1.33817C587.355 50.1123 534.292 90.6495 527.884 142.376C518.852 215.279 587.042 305.827 534.591 357.26C484.916 405.97 401.349 342.65 332.297 334.167C274.426 327.057 207.062 349.992 163.156 311.628C119.575 273.549 143.664 200.525 119.28 148.039C89.2037 83.3016 -26.8269 36.2501 5.69651 -27.2931C40.805 -95.8871 152.35 -50.4793 228.106 -64.5811C263.986 -71.2601 296.929 -79.0834 332.297 -88.0891Z"
+            fill="currentColor" />
+    </svg>
+
+</section>
+
+<!--Main content-->
+<main id="main">
+    <section class="position-relative">
+        <div class="container py-7 py-lg-10 position-relative z-index-1">
+            <h1 class="mb-5 display-5">Shop by Category</h1>
+            <div class="row g-2 justify-content-center">
+                <div class="col-md-4 col-sm-10 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="50">
+                    <a href="#!" class="card-overlay d-block position-relative overflow-hidden">
+                        <img class="img-fluid" src="assets/img/600x800/7.jpg" alt="..">
+                        <div
+                            class="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                            <div
+                                class="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-3">
+
+                                <div class="d-flex align-items-center mb-2">
+
+                                    <div
+                                        class="order-last flex-grow-1 pt-1 border-top border-bottom border-white">
+                                    </div>
+                                    <h2 class="mb-0 display-5">Food</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <span class="d-block px-3 pt-3 text-center"> Burger . Pizza . Meat . Chicken</span>
+                </div>
+                <!--item-col-->
+                <div class="col-md-4 col-sm-10 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#!" class="card-overlay d-block position-relative overflow-hidden">
+                        <img class="img-fluid" src="assets/img/600x800/2.jpg" alt="..">
+                        <div
+                            class="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                            <div
+                                class="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-3">
+
+                                <div class="d-flex align-items-center mb-2">
+                                    <div
+                                        class="order-last flex-grow-1 pt-1 border-top border-bottom border-white">
+                                    </div>
+                                    <h2 class="mb-0 display-5">Drink</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <span class="d-block px-3 pt-3 text-center"> Soup . Cocktail . Coffee . Tea</span>
+                </div>
+                <!--item-col-->
+                <div class="col-md-4 col-sm-10" data-aos="fade-up" data-aos-delay="150">
+                    <a href="#!" class="card-overlay d-block position-relative overflow-hidden">
+                        <img class="img-fluid" src="assets/img/600x800/5.jpg" alt="..">
+                        <div
+                            class="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                            <div
+                                class="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div
+                                        class="order-last flex-grow-1 pt-1 border-top border-bottom border-white">
+                                    </div>
+                                    <h2 class="mb-0 display-5">Dessert</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <span class="d-block px-3 pt-3 text-center">Vanilla . Cake . Pastry</span>
+                </div>
+                <!--item-col-->
+            </div>
+        </div>
+    </section>
+    <section class="position-relative bg-light">
+        <div class="container py-7 py-lg-10">
+            <h1 class="mb-5 display-5">Best Sellers</h1>
+            <div class="row g-2 mb-6">
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/drink4.jpg" alt="" class="img-fluid position-relative">
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/food2.jpg" alt="" class="img-fluid position-relative">
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/drink2.jpg" alt="" class="img-fluid position-relative">
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/drink2.jpg" alt="" class="img-fluid position-relative">
+                            <span class="item-badge badge-primary">-20% OFF</span>
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/food5.jpg" alt="" class="img-fluid position-relative">
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/drink2.jpg" alt="" class="img-fluid position-relative">
+                            <span class="item-badge badge-primary">New</span>
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/food6.jpg" alt="" class="img-fluid position-relative">
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/drink4.jpg" alt="" class="img-fluid position-relative">
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/dessert4.jpg" alt="" class="img-fluid position-relative">
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/dessert1.jpg" alt="" class="img-fluid position-relative">
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/food1.jpg" alt="" class="img-fluid position-relative">
+                            <span class="item-badge badge-danger">Best Seller</span>
+
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Item Col-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-10 mx-auto">
+                    <div class="card-item card border-0 h-100">
+                        <div class="position-relative card-item-header">
+                            <img src="assets/img/menu/drink5.jpg" alt="" class="img-fluid position-relative">
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                        <div class="card-item-body pt-3 px-2">
+
+                            <!--Item Info-->
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Product title</h6>
+                                    <small class="text-muted">Food</small>
+                                </div>
+                                <div class="flex-grow-0 card-item-add">
+                                    <!--Price-->
+                                    <span class="item-price">$4.50</span>
+
+                                    <!--Add to cart-->
+                                    <a href="#!" class="btn btn-sm btn-add btn-outline-light border text-secondary">
+                                        <div class="d-flex align-items-center">
+                                              Add to bag
+                                              <i class="bi bi-basket3-fill ms-2"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center d-flex align-items-center justify-content-center">
+                <div class="spinner-border" role="status"> </div>
+                <span class="ms-2">Loading...</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="position-relative bg-white border-top">
+        <img src="assets/img/svg/brush1.svg" alt=""
+            class="position-absolute start-0 top-0 ms-4 mt-n4 width-100">
+
+        <div class="container py-8 position-relative z-index-1">
+            <h6 class="text-center mb-4">At the Resto</h6>
+            <h2 class="display-5 text-center mb-6">Other ways to get your food</h2>
+            <div class="row pt-4">
+                <div class="col-md-4 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="50">
+                    <div class="text-center position-relative">
+                        <div class="position-relative">
+                            <!--Icon-->
+                            <div
+                                class="mb-4 width-80 height-80 flex-center d-flex mx-auto position-relative text-white">
+                                <!--Icon BG-->
+                                <svg class="position-absolute text-info start-0 top-0 w-100 h-100"
+                                    preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                                    width="183" height="183" viewBox="0 0 183 183" fill="none">
+                                    <path
+                                        d="M2.34327 102.264C-1.96146 92.4096 2.34325 85.8627 2.34325 75.6261C5.01715 56.6119 9.44941 51.8913 14.0694 45.8479C22.5627 34.738 27.0882 24.3744 39.1117 17.1345C45.4752 13.3028 54.0584 10.9185 61.2723 9.45065C68.0353 8.07451 75.2841 2.57559 88.6996 0.35131C99.432 0.351301 104.141 0.180184 107.084 2.57559C110.027 4.97099 116.652 6.39342 120.996 8.0352C126.866 10.2533 131.633 12.8893 137.89 15.0113C146.797 18.0322 150.411 20.3698 157.566 33.1088C164.721 45.8479 166.51 44.028 172.77 55.8572C179.031 67.6864 182.609 75.6399 182.609 86.6939C182.609 90.8973 181.813 92.3557 181.813 104.084C181.813 115.812 180.494 114.714 178.633 120.867C175.588 130.937 166.51 140.481 157.566 153.22C150.315 163.548 145.944 167.128 137.89 172.43C127.666 179.161 120.21 178.959 108.077 181.428C94.9115 184.107 82.255 181.121 69.5204 180.518C61.5144 180.139 51.8302 178.858 46.4149 172.43C43.0869 168.48 33.7424 164.68 29.6713 161.409C27.2678 159.479 21.7549 156.012 20.2306 153.22C18.0237 149.178 17.9654 143.454 14.0694 140.481C6.94518 135.045 8.63605 123.777 7.2126 115.812C6.43623 111.467 4.07134 106.22 2.34327 102.264Z"
+                                        fill="currentColor" />
+                                </svg>
+
+                                <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                    class="bi bi-envelope position-relative" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                                </svg>
+                            </div>
+                            <h5 class="mb-2">Mail us</h5>
+                            <p class="lead mb-0">
+                                <a href="mailto:youremail@domain.com">youremail@domain.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center position-relative">
+                        <!--Icon-->
+                        <div
+                            class="mb-4 width-80 height-80 flex-center d-flex mx-auto position-relative text-white">
+                            <!--Icon BG-->
+                            <svg class="position-absolute text-info start-0 top-0 w-100 h-100"
+                                preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                                width="183" height="183" viewBox="0 0 183 183" fill="none">
+                                <path
+                                    d="M2.34327 102.264C-1.96146 92.4096 2.34325 85.8627 2.34325 75.6261C5.01715 56.6119 9.44941 51.8913 14.0694 45.8479C22.5627 34.738 27.0882 24.3744 39.1117 17.1345C45.4752 13.3028 54.0584 10.9185 61.2723 9.45065C68.0353 8.07451 75.2841 2.57559 88.6996 0.35131C99.432 0.351301 104.141 0.180184 107.084 2.57559C110.027 4.97099 116.652 6.39342 120.996 8.0352C126.866 10.2533 131.633 12.8893 137.89 15.0113C146.797 18.0322 150.411 20.3698 157.566 33.1088C164.721 45.8479 166.51 44.028 172.77 55.8572C179.031 67.6864 182.609 75.6399 182.609 86.6939C182.609 90.8973 181.813 92.3557 181.813 104.084C181.813 115.812 180.494 114.714 178.633 120.867C175.588 130.937 166.51 140.481 157.566 153.22C150.315 163.548 145.944 167.128 137.89 172.43C127.666 179.161 120.21 178.959 108.077 181.428C94.9115 184.107 82.255 181.121 69.5204 180.518C61.5144 180.139 51.8302 178.858 46.4149 172.43C43.0869 168.48 33.7424 164.68 29.6713 161.409C27.2678 159.479 21.7549 156.012 20.2306 153.22C18.0237 149.178 17.9654 143.454 14.0694 140.481C6.94518 135.045 8.63605 123.777 7.2126 115.812C6.43623 111.467 4.07134 106.22 2.34327 102.264Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                class="bi bi-telephone position-relative" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+
+                        </div>
+                        <h5 class="mb-2">Book a Table</h5>
+                        <p class="lead mb-0">
+                            +01 123-456-4590
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="text-center">
+                        <!--Icon-->
+                        <div
+                            class="mb-4 width-80 height-80 flex-center d-flex mx-auto position-relative text-white">
+                            <!--Icon BG-->
+                            <svg class="position-absolute text-info start-0 top-0 w-100 h-100"
+                                preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                                width="183" height="183" viewBox="0 0 183 183" fill="none">
+                                <path
+                                    d="M2.34327 102.264C-1.96146 92.4096 2.34325 85.8627 2.34325 75.6261C5.01715 56.6119 9.44941 51.8913 14.0694 45.8479C22.5627 34.738 27.0882 24.3744 39.1117 17.1345C45.4752 13.3028 54.0584 10.9185 61.2723 9.45065C68.0353 8.07451 75.2841 2.57559 88.6996 0.35131C99.432 0.351301 104.141 0.180184 107.084 2.57559C110.027 4.97099 116.652 6.39342 120.996 8.0352C126.866 10.2533 131.633 12.8893 137.89 15.0113C146.797 18.0322 150.411 20.3698 157.566 33.1088C164.721 45.8479 166.51 44.028 172.77 55.8572C179.031 67.6864 182.609 75.6399 182.609 86.6939C182.609 90.8973 181.813 92.3557 181.813 104.084C181.813 115.812 180.494 114.714 178.633 120.867C175.588 130.937 166.51 140.481 157.566 153.22C150.315 163.548 145.944 167.128 137.89 172.43C127.666 179.161 120.21 178.959 108.077 181.428C94.9115 184.107 82.255 181.121 69.5204 180.518C61.5144 180.139 51.8302 178.858 46.4149 172.43C43.0869 168.48 33.7424 164.68 29.6713 161.409C27.2678 159.479 21.7549 156.012 20.2306 153.22C18.0237 149.178 17.9654 143.454 14.0694 140.481C6.94518 135.045 8.63605 123.777 7.2126 115.812C6.43623 111.467 4.07134 106.22 2.34327 102.264Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                class="bi bi-shop position-relative" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
+                            </svg>
+
+                        </div>
+                        <h5 class="mb-2"> Reach us</h5>
+                        <p class="lead mb-0">
+                            124, Lorem Street, NY
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer-->
+<svg preserveAspectRatio="none" width="100%" height="64" viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g class="text-primary">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L422.667 100L845.333 0L1268 125V200H845.333H422.667H0Z" fill="currentColor"/>
+</g>
+<g class="text-dark">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L450.667 108L901.333 16L1352 131V200H901.333H450.667H0Z" fill="currentColor"/>
+  </g>
+</svg>
+<footer class="footer bg-dark text-white position-relative overflow-hidden">
+    <a href="#top" data-scroll class="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+        </svg>
+    </a>
+    <div class="container py-8 pt-lg-9 position-relative">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5 me-auto mb-5">
+                <h4 class="mb-3 text-primary">Subscribe to Newsletter</h4>
+                <p class="mb-4 text-muted">And stay in the know</p>
+                <form>
+                    <div class="d-md-flex">
+                        <div class="mb-2 mb-md-0 me-md-2 flex-grow-1">
+                            <input type="email" class="form-control border-0 w-100 form-control-lg"
+                                placeholder="Enter your Email">
+                        </div>
+                        <div class="d-grid d-md-block">
+                            <button type="button" class="btn btn-lg btn-primary btn-hover-scale">
+                                <span>I'm In</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 mb-5">
+                <h5 class="mb-4">Our location</h5>
+                <p class="text-muted">
+                    <strong class="d-table">Resto</strong>
+                    Rancho Bernardo Rd<br> San Diego <br> CA 92127 <br> United States
+                </p>
+                <p class="mb-1">
+                    <a href="tel:+1123-456-7890">+01 123-456-7890</a>
+                </p>
+                <p>
+                    <a href="mailto:support@uigator.com">
+                        <span>youremail@domain.com</span>
+                    </a>
+                </p>
+            </div>
+            <div class="col-lg-3 col-xl-2 mb-5">
+                <h5 class="mb-4">Company</h5>
+                <ul class="nav flex-column mb-0">
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Food</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Wine</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Beer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link p-0">Shop</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="opacity-25 mb-5">
+        <div class="d-sm-flex justify-content-sm-between justify-content-center">
+            <ul class="d-flex flex-wrap list-unstyled mb-4 mb-sm-0">
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-facebook fs-5"></i>
+                    </a></li>
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-twitter fs-5"></i>
+                    </a></li>
+                <li class=""><a href="#!" class="hover-lift d-block">
+                      <i class="bi bi-instagram fs-5"></i>
+                    </a></li>
+            </ul>
+            <small class="d-block text-muted">© Copyright  <script>
+                document.write(new Date().getFullYear())
+
+            </script>. All right reserved. Resto</small>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/theme.bundle.js"></script>
+
+
+  </body>
+</html>

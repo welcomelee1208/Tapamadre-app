@@ -1,0 +1,36 @@
+//Buttons custom box shadow on hover,focus
+.btn{
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+    --#{$prefix}btn-focus-box-shadow: 0 4px 16px rgba(var(--#{$prefix}btn-focus-shadow-rgb), .5);
+    &:hover{
+        box-shadow:var(--#{$prefix}btn-focus-box-shadow);
+      }
+}
+
+.btn-hover-scale{
+  position: relative;
+  overflow: hidden;
+  &::after {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 260%;
+    background: rgba(0,0,0,.075);
+    padding-top: 260%;
+    border-radius: 50%;
+    content: "";
+    z-index: 0;
+    transform: translateX(-50%);
+    transition: top .5s cubic-bezier(.455,.03,.515,.955),transform .5s cubic-bezier(.455,.03,.515,.955);
+  }
+  span{
+    position: relative;
+    z-index: 1;
+  }
+  &:hover::after {
+    transform: translateX(-50%) scale(1);
+    top: -130%;
+    transition-delay: .1s;
+}
+}
