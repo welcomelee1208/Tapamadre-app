@@ -83,8 +83,6 @@ const BlogList = () => {
             type: 'Event',
             link: '/newsevent/9',
         },
-
-        // 추가적인 블로그 데이터 추가 가능
     ]
 
     // 타입에 따라 블로그를 필터링하는 함수
