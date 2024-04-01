@@ -1,0 +1,410 @@
+.navbar {
+    .nav-link {
+      font-weight:$font-weight-bold;
+      text-transform: uppercase;
+      position: relative;
+      font-size: $font-size-sm * .875;
+      &::before{
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 6px;
+        background-color: $primary;
+        transition: all .25s;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        opacity: 0;
+        transform: translateX(-50%) scale(.5);
+        transform-origin: center;
+        z-index: -1;
+      }
+      &.active{
+        &::before{
+          transform: translateX(-50%) scale(1);
+        opacity: 1;
+        }
+      }
+    }
+  }
+  
+  .navbar-brand {
+    position: relative;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-link-white {
+    .navbar-brand {
+      position: relative;
+      padding: 0;
+      margin: .3rem 0;
+      .logo-pinned {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: auto;
+        top: 0;
+        opacity: 0;
+        transition: all .3s;
+      }
+    }
+    &.headroom--not-top,&.headroom--bottom{
+    .navbar-brand{
+      .logo-pinned{
+        opacity: 1;
+      }
+      .logo-default{
+        opacity: 0;
+        transition: all .3s;
+      }
+    }
+    }
+    &.headroom--top{
+      .navbar-toggler{
+        color: white;
+      }
+    }
+  }
+  .navbar-transparent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: $zindex-fixed;
+    transition: transform .3s linear, background-color .15s, padding .25s, box-shadow .15s;
+    padding: .5rem 0;
+  
+    &.navbar-sticky {
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+  }
+  
+  .headroom--not-top {
+    &.navbar-light,&.navbar-light.headroom--bottom {
+      background-color: rgba($white, .975);
+    }
+  
+    &.navbar-dark,&.navbar-dark.headroom--bottom {
+      background-color: rgba($dark, .975);
+    }
+  }
+  
+  .headroom--pinned:not(.headroom--top),
+  .headroom--bottom {
+    box-shadow: $box-shadow-sm;
+  }
+  
+  //Fullscreen navbar collapse
+  .navbar-toggler {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    min-height: 3rem;
+    padding: 0px;
+    border: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    outline: 0;
+    .navbar-toggler-line,
+    .navbar-toggler-line-end {
+        position: relative;
+        background-color:currentColor;
+        width: 32px;
+        height: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        display: block;
+        transition: all 0.3s;
+    }
+    .navbar-toggler-line {
+        left: 2px;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg, 0deg);
+        transform-style: preserve-3d;
+    }
+    .navbar-toggler-line-end {
+        left: auto;
+        right: 2px;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg, 0deg);
+    }
+    &[aria-expanded="true"] {
+        .navbar-toggler-line {
+            transform: translate3d(-2px, 2px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg)
+                skew(0deg, 0deg);
+            transform-style: preserve-3d;
+        }
+        .navbar-toggler-line-end {
+            transform: translate3d(2px, -4px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg)
+                skew(0deg, 0deg);
+            transform-style: preserve-3d;
+        }
+    }
+    &:focus {
+        box-shadow: $box-shadow;
+    }
+}
+
+//Navbar-fullscreen
+.navbar-fullscreen {
+    .fullscreen-toggler,
+    .navbar-brand {
+        z-index: 6;
+    }
+}
+.fullscreen-toggler {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: currentColor;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 0;
+    &:focus {
+        outline: 0;
+    }
+}
+.fullscreen-toggler-lines {
+    width: 32px;
+    height: 2px;
+    background-color: $white;
+    transform-origin: center;
+    transition: background-color 0.3s ease, top 0.3s ease, transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    position: relative;
+    &:before,
+    &:after {
+        transition: background-color 0.3s ease, top 0.3s ease, transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        left: 0;
+
+        background-color: $white;
+    }
+    &:before {
+        top: 6px;
+    }
+    &:after {
+        bottom: 6px;
+    }
+}
+[aria-expanded="true"] {
+    > .fullscreen-toggler-lines {
+        transform: rotate(45deg);
+        &:after {
+            transform: rotate(90deg);
+            bottom: 0;
+        }
+        &:before {
+            transform: rotate(90deg);
+            top: 0;
+        }
+    }
+}
+
+.fullscreen-navbar {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 0.25s ease-in-out, visibility 0.3s ease-in-out;
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.fullscreen-inner {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+    padding-top: 60px;
+    .fullscreen-inner-wrap {
+        overflow: hidden;
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        .fullscreen-inner-scroll {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+        }
+    }
+}
+
+.fullscreen-navbar {
+    .fullscreen-dropdown {
+        .nav-link {
+            &:after {
+                content: "";
+                width: 6px;
+                height: 6px;
+                vertical-align: middle;
+                border-radius: 100%;
+                background-color: white;
+                transition: all 0.25s ease;
+                opacity: 0.25;
+                display: inline-block;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+    .nav .nav-item {
+        height: auto;
+        .nav-link {
+            font-size: $font-size-base * 1.75;
+            letter-spacing: 0.01rem;
+            text-transform: capitalize;
+            font-family: $font-family-base;
+            font-weight: $font-weight-bold;
+            color: rgba($white, 0.85);
+            &:hover,
+            &.active {
+                color: $white;
+            }
+            &[aria-expanded="true"] {
+                &:after {
+                    opacity: 0.85;
+                }
+            }
+        }
+        &:not(:first-child) {
+            padding-left: 0;
+        }
+    }
+}
+
+.fullscreen-footer {
+    width: 100%;
+}
+
+
+
+
+  // scss-docs-start navbar-expand-loop
+  // Generate series of `.navbar-expand-*` responsive classes for configuring
+  // where your navbar collapses.
+  .navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $next: breakpoint-next($breakpoint, $grid-breakpoints);
+      $infix: breakpoint-infix($next, $grid-breakpoints);
+  
+      // stylelint-disable-next-line scss/selector-no-union-class-name
+      &#{$infix} {
+        @include media-breakpoint-up($next) {
+  
+          &.headroom--top {
+            padding: 1.25rem 0;
+          }
+          &.navbar-transparent.headroom--not-top,&.navbar-transparent.headroom--bottom {
+            padding: 0 0;
+          }
+          .offcanvas {
+            position: static;
+            z-index: auto;
+            flex-grow: 1;
+            width: auto !important;
+            height: auto !important;
+            visibility: visible !important;
+            background-color: transparent !important;
+            border: 0 !important;
+            transform: none !important;
+            transition: none;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+  
+            .offcanvas-header {
+              display: none;
+            }
+  
+            .offcanvas-body {
+              display: flex;
+              flex-grow: 1;
+              padding: 0;
+              overflow-y: visible;
+            }
+          }
+  
+          &.headroom--unpinned:not(.headroom--top):not(.headroom--bottom) {
+            transform: translateY(-100%);
+          }
+  
+          .nav-item {
+            height: 4.5rem;
+            display: flex;
+            align-items: center;
+  
+            &:not(:first-child) {
+              margin-left: 1.25rem;
+            }
+          }
+  
+          &.navbar-link-white.headroom--top {
+            .navbar-nav {
+              .nav-link {
+                color: $navbar-dark-color;
+                &:hover {
+                  color: $navbar-dark-hover-color;
+                }
+                &.active {
+                  color: $navbar-dark-active-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // scss-docs-end navbar-expand-loop
+
+  .navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $next: breakpoint-next($breakpoint, $grid-breakpoints);
+      $infix: breakpoint-infix($next, $grid-breakpoints);
+  
+      // stylelint-disable-next-line scss/selector-no-union-class-name
+      &#{$infix} {
+        @include media-breakpoint-down($next) {
+          &.navbar-link-white.headroom--top{
+            .navbar-icons .navbar-nav .nav-link{
+              color: rgba($white, 0.75);
+              &:hover,&.active{
+                color: $white;
+              }
+            }
+          }
+          .dropdown-menu{
+            box-shadow: none;
+            .dropdown-menu{
+              padding-left: .5rem;
+              margin-top: .25rem;
+            }
+          }
+        }
+      }
+    }
+  }

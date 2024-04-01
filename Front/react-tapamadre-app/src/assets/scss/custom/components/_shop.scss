@@ -1,0 +1,14 @@
+// Additional style for shop layouts
+
+.cart-item{
+    display: flex;
+    .cart-item-body{
+        flex: 1;
+        position: relative;
+        padding-left: $spacer;
+    }
+    }
+    .cart-item-thumbnail{
+        display: block;
+        max-width: $spacer  * 6;
+    }

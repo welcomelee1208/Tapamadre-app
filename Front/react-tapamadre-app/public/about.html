@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--swiper-->
+    <link rel="stylesheet" href="assets/vendor/css/swiper-bundle.min.css">
+    
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <!--aos animation-->
+    <link rel="stylesheet" href="assets/vendor/css/aos.css">
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+
+    <!--Add custom style here-->
+    <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
+    <title>Resto</title>
+  </head>
+  <body>
+       <!--Preloader Begins-->
+       <div class="preloader">
+    </div>
+    <!--Preloader Ends-->
+
+     <!--Main navbar start-->
+     <nav
+     class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white">
+     <div class="container">
+         <a class="navbar-brand" href="index.html">
+             <img src="assets/img/logo/logo-light.svg" alt="Logo" class="img-fluid logo-default">
+             <img src="assets/img/logo/logo-dark.svg" alt="Logo" class="img-fluid logo-pinned">
+         </a>
+         <div class="d-flex align-items-center order-lg-2 navbar-icons">
+            <button class="navbar-toggler order-last ms-3 ms-lg-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#restoMainNavbar" aria-controls="restoMainNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-line"></span>
+                <span class="navbar-toggler-line-end"></span>
+            </button>
+            <div class="navbar-nav flex-row align-items-center">
+               <div class="nav-item me-3 me-lg-0">
+                   <a class="nav-icon-link nav-link " href="login-register.html">SignIn</a>
+               </div>
+               <div class="nav-item me-lg-0 me-3">
+                   <a class="nav-icon-link nav-link" href="#offcanvasCart" data-bs-toggle="offcanvas"
+                       data-bs-target="#offcanvasCart">
+                       <div class="d-flex align-items-center">
+                           <span>Bag</span>
+                           <span class="cart-badge">(2)</span>
+                       </div>
+                   </a>
+               </div>
+               <div class="position-lg-relative me-4 me-lg-0 nav-item">
+                   <a data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" class="nav-link">
+                       <i class="bi bi-search"></i>
+                   </a>
+                   <div class="dropdown-menu w-100 position-absolute dropdown-menu-lg-end dropdown-search p-4"
+                       id="dropdown-search">
+                       <h5 class="mb-3">Tell us what you're looking for</h5>
+                       <form>
+                           <input type="text" class="form-control form-control-lg"
+                               placeholder="Example: Dinner, Wine, Pizza">
+                           <div class="d-grid pt-2">
+                               <button type="button" class="btn btn-primary">
+                                   Search
+                               </button>
+                           </div>
+                       </form>
+                       <div class="pt-2">
+                           <div class="dropdown-header">Popular searches</div>
+                           <ul class="list-unstyled mb-0">
+                               <li>
+                                   <a href="#!" class="dropdown-item">Egg & spinach
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Creamy soup
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Crunch veg salad
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+        <!--navbar-offcanvas-lg-->
+        <div class="offcanvas offcanvas-end" id="restoMainNavbar">
+          <div class="offcanvas-header">
+           <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+           </button>
+          </div>
+          <div class="offcanvas-body">
+           <ul class="navbar-nav mx-auto">
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link  " data-bs-auto-close="outside" data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Home </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="index.html">Default Parallax</a></li>
+                       <li><a class="dropdown-item" href="index-video-player.html">Video Player</a></li>
+                       <li><a class="dropdown-item" href="index-image-slider.html">Image Slider</a>
+                       </li>
+                       <li><a class="dropdown-item" href="index-dark-ui.html">Dark UI</a></li>
+                       <li><a class="dropdown-item" href="one-page.html">One Page</a></li>
+                       <li class="dropend">
+                           <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">Menu Levels </a>
+                           <ul class="dropdown-menu">
+                               <li class="dropend">
+                                   <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">menu level 2 </a>
+                                   <ul class="dropdown-menu">
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                   </ul>
+                               </li>
+                           </ul>
+                       </li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Menu </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="menu-simple.html">Menu simple</a></li>
+                       <li><a class="dropdown-item" href="menu-tiles.html">Menu tiles</a></li>
+                       <li><a class="dropdown-item" href="menu-grid.html">Menu grid</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Blog </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="blog-sidebar-end.html">Sidebar end</a></li>
+                       <li><a class="dropdown-item" href="blog-sidebar-start.html">Sidebar start</a></li>
+                       <li><a class="dropdown-item" href="blog-masonry.html">Masonry</a></li>
+                       <li><a class="dropdown-item" href="blog-fullwidth.html">Full width</a></li>
+                       <li><a class="dropdown-item" href="blog-post.html">Single Page</a></li>
+                   </ul>
+               </li>
+               <li class="nav-item"><a class="nav-link " href="reservation.html">Reservation</a></li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Pages</a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="about.html">About</a></li>
+                       <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                       <li><a class="dropdown-item" href="contact.html">Contact us</a></li>
+                       <li><a class="dropdown-item" href="login-register.html">Login Register</a></li>
+                       <li><a class="dropdown-item" href="page-full-width.html">Page Full Width</a></li>
+                       <li><a class="dropdown-item" href="page-blank.html">Page blank</a></li>
+                       <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+    
+                       <li><a class="dropdown-item" href="page-sticky-sidebar.html">sticky sidebar</a></li>
+                       <li><a class="dropdown-item" href="page-sticky-footer.html">sticky footer </a></li>
+                       <li><a class="dropdown-item" href="typography.html">Typography</a></li>
+                       <li><a class="dropdown-item" href="elements.html">Elements</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Shop </a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="shop-products.html">Products</a></li>
+                       <li><a class="dropdown-item" href="shop-checkout.html">Checkout</a></li>
+                   </ul>
+               </li>
+           </ul>
+          </div>
+        </div>
+        <!--/.nav-offcanvas -->
+     </div>
+
+    </nav>
+
+
+    <!--Shopping cart offcanvas-->
+     <!--Cart-modal-start-->
+     <div class="offcanvas offcanvas-end fade" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCart"
+     aria-hidden="true">
+ 
+             <!--Cart-header-->
+             <div
+                 class="offcanvas-header">
+                 <h5 class="mb-0">Your cart</h5>
+                 <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                     </button>
+             </div>
+
+
+             <!--cart-content-->
+             <div class="offcanvas-body">
+
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert1.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Sweet dessert</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$6.00</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert2.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Strawberry cake</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$7.50</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+
+             <!--cart-footer-->
+             <div class="offcanvas-footer p-4 border-0 flex-column">
+                 <div class="mb-3 d-flex justify-content-between w-100">
+                     <p class="mb-0 flex-grow-1">Subtotal </p>
+                     <h5 class="mb-0">$11.00</h5>
+                 </div>
+                 <div class="w-100">
+                     <a href="#" class="btn btn-primary w-100">continue to Checkout</a>
+                 </div>
+             </div>
+    </div>
+
+    <section class="jarallax overflow-hidden bg-white position-relative" data-speed=".3">
+        <div class="position-absolute start-0 top-0 w-100 h-75 bg-dark"></div>
+        <div class="container text-white position-relative z-index-1 pt-8 pb-6">
+            <div class="row pt-4 pt-lg-6 align-items-end justify-content-between">
+                <div class="col-lg-6 mb-4 mb-md-0">
+                    <h6 class="mb-2">Our Story</h6>
+                    <h1 class="display-2 mb-0 position-relative">
+                        Who We Are
+                    </h1>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <p class="mb-0">
+                        Lorem ipsum dolor sit amet adipiscing elit. Aenean commodo ligula eget dolor.
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                        ridiculus mus natoque penatibus.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative pe-3 pe-lg-9">
+            <img src="assets/img/1920x1000/2.jpg" alt="" class="img-fluid">
+            <div
+                class="position-absolute d-flex flex-center start-0 top-0 w-100 h-100 z-index-1">
+                <a data-tilt data-tilt-scale="1.25" href="assets/videos/vimeo-1058048317.mp4" class="glightbox d-flex btn btn-white p-0 width-90 height-90 rounded-circle flex-center p-0">
+                   <i class="fs-1 d-block lh-1 bi bi-play-fill"></i>
+                </a>
+                <h6 class="mb-0 ms-sm-4 d-none d-sm-block text-white">WatchOur Story</h6>
+            </div>
+        </div>
+    </section>
+    <!--End Page Hero-->
+
+    <!--Main content-start-->
+    <main id="main">
+
+        <section class="position-relative">
+
+            <div class="container pt-8 pb-3 pt-lg-9 pb-lg-9 position-relative">
+                <div class="row align-items-end justify-content-center">
+                    <div class="col-lg-6 col-xl-5" data-aos="fade-right" data-aos-duration="600">
+                        <h6 class="mb-2">Since 2016</h6>
+                        <h1 class="mb-4 display-5 position-relative">
+                            We make you feel better with fresh & tasty food.
+                        </h1>
+                        <p class="mb-0">
+                            Lorem ipsum dolor eiusmod tempor dolore magna. quis nostrud ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="position-relative">  
+             <div class="position-absolute start-0 top-0 h-50 w-75 bg-opacity-10 bg-info d-none d-lg-block"></div> 
+            <div class="container position-relative py-7 py-lg-10">
+                <div class="row justify-content-around align-items-center">
+
+                    <div class="col-lg-6 col-xl-4 order-last" data-aos="fade-right" data-aos-duration="400">
+                        <h6 class="mb-3">Our Culture</h6>
+                        <h1 class="mb-4 display-5">
+                            Without Passion, There is no Taste
+                        </h1>
+                        <p class="mb-5 pe-lg-3">
+                            Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <div class="mb-4 mb-lg-5 pe-lg-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="width-10 border border-primary"></div>
+                                <h5 class="mb-0 ms-2">The Spirit</h5>
+                            </div>
+                            <p class="mb-0">
+                                Lorem ipsum is placeholder text commonly used in the graphic
+                                publishing industries for previewing layouts and visual mockups.
+                            </p>
+                        </div>
+                        <div class="pe-lg-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="width-10 border border-primary"></div>
+
+                                <h5 class="mb-0 ms-2">The Environment</h5>
+                            </div>
+                            <p class="mb-0">
+                                Lorem ipsum is placeholder text commonly used in the graphic
+                                publishing industries for previewing layouts and visual mockups.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-5 order-1 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="400">
+                        <!-- Image -->
+                        <div class="position-relative">
+                           <img src="assets/img/600x800/4.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="position-relative overflow-hidden">
+            <div class="position-absolute start-0 bottom-0 ms-3 ms-lg-9 bg-dark w-100 h-100 jarallax"
+                data-speed=".3">
+                <img src="assets/img/1920x1000/5.jpg" alt="" class="jarallax-img opacity-25">
+            </div>
+            <div class="container px-lg-10 py-7 py-lg-10">
+                <!--Swiper-slider-->
+                <div class="swiper-container overflow-hidden pb-6 position-relative ps-3 ps-lg-0 swiper-testimonials text-white mx-lg-12">
+                    <div class="swiper-wrapper">
+                        <!--Swiper-slide-->
+                        <div class="swiper-slide">
+                            <div class="text-center">
+                                <svg class="mb-4 text-primary" xmlns="http://www.w3.org/2000/svg" width="35"
+                                    height="17" viewBox="0 0 35 17" fill="none">
+                                    <path
+                                        d="M23.1868 16.22C20.4579 16.22 17.7289 16.1702 15 16.1702C17.4853 10.7967 19.9706 5.37349 22.4558 0C26.3543 0 30.2528 0.0497545 34.2 0.0497545C30.5452 5.42324 26.8416 10.8465 23.1868 16.22Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M8.18681 16.22C5.45787 16.22 2.72894 16.1702 0 16.1702C2.48528 10.7967 4.97056 5.37349 7.45584 0C11.3543 0 15.2528 0.0497545 19.2 0.0497545C15.5452 5.42324 11.8416 10.8465 8.18681 16.22Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <p class="h2 mb-5">
+                                    We had lunch here a few times while traveling with family. The servers are
+                                    just wonderful and have great memories. We enjoy our delicious lunch.
+                                    Must try!
+                                </p>
+                                <h5 class="mb-0 text-white">Joshua C, <small>CA</small></h5>
+                            </div>
+                        </div>
+                        <!--Swiper-slide-->
+                        <div class="swiper-slide">
+                            <div class="text-center">
+                                <svg class="mb-4 text-primary" xmlns="http://www.w3.org/2000/svg" width="35"
+                                    height="17" viewBox="0 0 35 17" fill="none">
+                                    <path
+                                        d="M23.1868 16.22C20.4579 16.22 17.7289 16.1702 15 16.1702C17.4853 10.7967 19.9706 5.37349 22.4558 0C26.3543 0 30.2528 0.0497545 34.2 0.0497545C30.5452 5.42324 26.8416 10.8465 23.1868 16.22Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M8.18681 16.22C5.45787 16.22 2.72894 16.1702 0 16.1702C2.48528 10.7967 4.97056 5.37349 7.45584 0C11.3543 0 15.2528 0.0497545 19.2 0.0497545C15.5452 5.42324 11.8416 10.8465 8.18681 16.22Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <p class="h2 mb-5">
+                                    We have had two meals here in two days. Both were excellent. Tonight “Q” was
+                                    attentive and friendly. Great job!
+                                </p>
+                                <h5 class="mb-0 text-white">Josh Bob, <small class="text-muted">CA</small></h5>
+                            </div>
+                        </div>
+                        <!--Swiper-slide-->
+                        <div class="swiper-slide">
+                            <div class="text-center">
+                                <svg class="mb-4 text-primary" xmlns="http://www.w3.org/2000/svg" width="35"
+                                    height="17" viewBox="0 0 35 17" fill="none">
+                                    <path
+                                        d="M23.1868 16.22C20.4579 16.22 17.7289 16.1702 15 16.1702C17.4853 10.7967 19.9706 5.37349 22.4558 0C26.3543 0 30.2528 0.0497545 34.2 0.0497545C30.5452 5.42324 26.8416 10.8465 23.1868 16.22Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M8.18681 16.22C5.45787 16.22 2.72894 16.1702 0 16.1702C2.48528 10.7967 4.97056 5.37349 7.45584 0C11.3543 0 15.2528 0.0497545 19.2 0.0497545C15.5452 5.42324 11.8416 10.8465 8.18681 16.22Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <p class="h2 mb-5">
+                                    The food was fresh, properly prepared and a great value for the price. We highly
+                                    recommend it. The breakfast buffet on Sunday was equally as good.
+                                </p>
+                                <h5 class="mb-0 text-white">Jessica White, <small class="text-muted">LA</small></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+        <!--testimonials end-->
+        <section class="position-relative">
+            <div class="container py-7 py-lg-10 position-relative">
+                <div class="text-center w-lg-50 w-md-75 w-lg-50 mx-auto" data-aos="fade-up" data-aos-delay="50">
+                    <h6 class="mb-2">From the kitchen</h6>
+                    <h1 class="mb-5 display-5">
+                       Meet the Chefs
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+                        <div class="mb-5 mb-lg-0">
+
+                            <img src="assets/img/chefs/chef1.jpg" alt="" class="img-fluid mb-4">
+                            <div>
+                                <h5 class="mb-2">Emily Doe</h5>
+                                <span class="mb-3 d-block text-muted small">Manager</span>
+                                <p class="mb-0">
+                                    Lorem ipsum is placeholder text commonly used in the graphic publishing
+                                    industries for previewing layouts and visual mockups.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mb-5 mb-lg-0">
+                            <img src="assets/img/chefs/chef2.jpg" alt="" class="img-fluid mb-4">
+                            <div>
+                                <h5 class="mb-2">Gourge Floyyd</h5>
+                                <span class="mb-3 d-block text-muted small">Executive Chef</span>
+                                <p class="mb-0">
+                                    Lorem ipsum is placeholder text commonly used in the graphic publishing
+                                    industries for previewing layouts and visual mockups.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="">
+                            <img src="assets/img/chefs/chef3.jpg" alt="" class="img-fluid mb-4">
+                            <div>
+                                <h5 class="mb-2">John Smith</h5>
+                                <span class="mb-3 d-block text-muted small">Master Chef</span>
+                                <p class="mb-0">
+                                    Lorem ipsum is placeholder text commonly used in the graphic publishing
+                                    industries for previewing layouts and visual mockups.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--/.End main-content-->
+
+<!--Footer-->
+<svg preserveAspectRatio="none" width="100%" height="100" viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g class="text-primary">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L422.667 100L845.333 0L1268 125V200H845.333H422.667H0Z" fill="currentColor"/>
+</g>
+<g class="text-dark">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L450.667 108L901.333 16L1352 131V200H901.333H450.667H0Z" fill="currentColor"/>
+  </g>
+</svg>
+<footer class="footer bg-dark text-white position-relative overflow-hidden">
+    <a href="#top" data-scroll class="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+        </svg>
+    </a>
+    <div class="container py-8 pt-lg-9 position-relative">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5 me-auto mb-5">
+                <h4 class="mb-3 text-primary">Subscribe to Newsletter</h4>
+                <p class="mb-4 text-muted">And stay in the know</p>
+                <form>
+                    <div class="d-md-flex">
+                        <div class="mb-2 mb-md-0 me-md-2 flex-grow-1">
+                            <input type="email" class="form-control border-0 w-100 form-control-lg"
+                                placeholder="Enter your Email">
+                        </div>
+                        <div class="d-grid d-md-block">
+                            <button type="button" class="btn btn-lg btn-primary btn-hover-scale">
+                                <span>I'm In</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 mb-5">
+                <h5 class="mb-4">Our location</h5>
+                <p class="text-muted">
+                    <strong class="d-table">Resto</strong>
+                    Rancho Bernardo Rd<br> San Diego <br> CA 92127 <br> United States
+                </p>
+                <p class="mb-1">
+                    <a href="tel:+1123-456-7890">+01 123-456-7890</a>
+                </p>
+                <p>
+                    <a href="mailto:support@uigator.com">
+                        <span>youremail@domain.com</span>
+                    </a>
+                </p>
+            </div>
+            <div class="col-lg-3 col-xl-2 mb-5">
+                <h5 class="mb-4">Company</h5>
+                <ul class="nav flex-column mb-0">
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Food</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Wine</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#!" class="nav-link p-0">Beer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link p-0">Shop</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="opacity-25 mb-5">
+        <div class="d-sm-flex justify-content-sm-between justify-content-center">
+            <ul class="d-flex flex-wrap list-unstyled mb-4 mb-sm-0">
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-facebook fs-5"></i>
+                    </a></li>
+                <li class="me-4"><a href="#!" class="hover-lift d-block">
+                    <i class="bi bi-twitter fs-5"></i>
+                    </a></li>
+                <li class=""><a href="#!" class="hover-lift d-block">
+                      <i class="bi bi-instagram fs-5"></i>
+                    </a></li>
+            </ul>
+            <small class="d-block text-muted">© Copyright  <script>
+                document.write(new Date().getFullYear())
+
+            </script>. All right reserved. Resto</small>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/theme.bundle.js"></script>
+
+    <!--swiper-->
+    <script src="assets/vendor/swiper-bundle.min.js"></script>
+    <script>
+        //Testimonial slider
+var swiper = new Swiper('.swiper-testimonials', {
+  direction: 'horizontal',
+  autoHeight: true,
+  pagination: {
+    el: '.swiper-pagination',
+    dynamicBullets: true,
+  },
+});
+    </script>
+  </body>
+</html>

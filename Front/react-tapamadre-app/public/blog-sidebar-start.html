@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <!--aos animation-->
+    <link rel="stylesheet" href="assets/vendor/css/aos.css">
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+
+    <!--Add custom style here-->
+    <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
+    <title>Resto</title>
+  </head>
+  <body>
+       <!--Preloader Begins-->
+       <div class="preloader">
+    </div>
+    <!--Preloader Ends-->
+
+     <!--Main navbar start-->
+     <nav
+     class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white">
+     <div class="container">
+         <a class="navbar-brand" href="index.html">
+             <img src="assets/img/logo/logo-light.svg" alt="Logo" class="img-fluid logo-default">
+             <img src="assets/img/logo/logo-dark.svg" alt="Logo" class="img-fluid logo-pinned">
+         </a>
+         <div class="d-flex align-items-center order-lg-2 navbar-icons">
+            <button class="navbar-toggler order-last ms-3 ms-lg-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#restoMainNavbar" aria-controls="restoMainNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-line"></span>
+                <span class="navbar-toggler-line-end"></span>
+            </button>
+            <div class="navbar-nav flex-row align-items-center">
+               <div class="nav-item me-3 me-lg-0">
+                   <a class="nav-icon-link nav-link " href="login-register.html">SignIn</a>
+               </div>
+               <div class="nav-item me-lg-0 me-3">
+                   <a class="nav-icon-link nav-link" href="#offcanvasCart" data-bs-toggle="offcanvas"
+                       data-bs-target="#offcanvasCart">
+                       <div class="d-flex align-items-center">
+                           <span>Bag</span>
+                           <span class="cart-badge">(2)</span>
+                       </div>
+                   </a>
+               </div>
+               <div class="position-lg-relative me-4 me-lg-0 nav-item">
+                   <a data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" class="nav-link">
+                       <i class="bi bi-search"></i>
+                   </a>
+                   <div class="dropdown-menu w-100 position-absolute dropdown-menu-lg-end dropdown-search p-4"
+                       id="dropdown-search">
+                       <h5 class="mb-3">Tell us what you're looking for</h5>
+                       <form>
+                           <input type="text" class="form-control form-control-lg"
+                               placeholder="Example: Dinner, Wine, Pizza">
+                           <div class="d-grid pt-2">
+                               <button type="button" class="btn btn-primary">
+                                   Search
+                               </button>
+                           </div>
+                       </form>
+                       <div class="pt-2">
+                           <div class="dropdown-header">Popular searches</div>
+                           <ul class="list-unstyled mb-0">
+                               <li>
+                                   <a href="#!" class="dropdown-item">Egg & spinach
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Creamy soup
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Crunch veg salad
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+        <!--navbar-offcanvas-lg-->
+        <div class="offcanvas offcanvas-end" id="restoMainNavbar">
+          <div class="offcanvas-header">
+           <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+           </button>
+          </div>
+          <div class="offcanvas-body">
+           <ul class="navbar-nav mx-auto">
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link  " data-bs-auto-close="outside" data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Home </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="index.html">Default Parallax</a></li>
+                       <li><a class="dropdown-item" href="index-video-player.html">Video Player</a></li>
+                       <li><a class="dropdown-item" href="index-image-slider.html">Image Slider</a>
+                       </li>
+                       <li><a class="dropdown-item" href="index-dark-ui.html">Dark UI</a></li>
+                       <li><a class="dropdown-item" href="one-page.html">One Page</a></li>
+                       <li class="dropend">
+                           <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">Menu Levels </a>
+                           <ul class="dropdown-menu">
+                               <li class="dropend">
+                                   <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">menu level 2 </a>
+                                   <ul class="dropdown-menu">
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                   </ul>
+                               </li>
+                           </ul>
+                       </li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Menu </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="menu-simple.html">Menu simple</a></li>
+                       <li><a class="dropdown-item" href="menu-tiles.html">Menu tiles</a></li>
+                       <li><a class="dropdown-item" href="menu-grid.html">Menu grid</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Blog </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="blog-sidebar-end.html">Sidebar end</a></li>
+                       <li><a class="dropdown-item" href="blog-sidebar-start.html">Sidebar start</a></li>
+                       <li><a class="dropdown-item" href="blog-masonry.html">Masonry</a></li>
+                       <li><a class="dropdown-item" href="blog-fullwidth.html">Full width</a></li>
+                       <li><a class="dropdown-item" href="blog-post.html">Single Page</a></li>
+                   </ul>
+               </li>
+               <li class="nav-item"><a class="nav-link " href="reservation.html">Reservation</a></li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Pages</a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="about.html">About</a></li>
+                       <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                       <li><a class="dropdown-item" href="contact.html">Contact us</a></li>
+                       <li><a class="dropdown-item" href="login-register.html">Login Register</a></li>
+                       <li><a class="dropdown-item" href="page-full-width.html">Page Full Width</a></li>
+                       <li><a class="dropdown-item" href="page-blank.html">Page blank</a></li>
+                       <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+    
+                       <li><a class="dropdown-item" href="page-sticky-sidebar.html">sticky sidebar</a></li>
+                       <li><a class="dropdown-item" href="page-sticky-footer.html">sticky footer </a></li>
+                       <li><a class="dropdown-item" href="typography.html">Typography</a></li>
+                       <li><a class="dropdown-item" href="elements.html">Elements</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Shop </a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="shop-products.html">Products</a></li>
+                       <li><a class="dropdown-item" href="shop-checkout.html">Checkout</a></li>
+                   </ul>
+               </li>
+           </ul>
+          </div>
+        </div>
+        <!--/.nav-offcanvas -->
+     </div>
+
+    </nav>
+
+
+    <!--Shopping cart offcanvas-->
+     <!--Cart-modal-start-->
+     <div class="offcanvas offcanvas-end fade" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCart"
+     aria-hidden="true">
+ 
+             <!--Cart-header-->
+             <div
+                 class="offcanvas-header">
+                 <h5 class="mb-0">Your cart</h5>
+                 <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                     </button>
+             </div>
+
+
+             <!--cart-content-->
+             <div class="offcanvas-body">
+
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert1.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Sweet dessert</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$6.00</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert2.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Strawberry cake</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$7.50</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+
+             <!--cart-footer-->
+             <div class="offcanvas-footer p-4 border-0 flex-column">
+                 <div class="mb-3 d-flex justify-content-between w-100">
+                     <p class="mb-0 flex-grow-1">Subtotal </p>
+                     <h5 class="mb-0">$11.00</h5>
+                 </div>
+                 <div class="w-100">
+                     <a href="#" class="btn btn-primary w-100">continue to Checkout</a>
+                 </div>
+             </div>
+    </div>
+
+
+        <!--Page-header-->
+        <section class="position-relative overflow-hidden text-white bg-dark">
+            <div class="position-absolute start-0 top-0 w-100 h-100 bg-dark jarallax" data-speed=".3">
+                <img src="assets/img/1920x1000/2.jpg" alt="" class="jarallax-img opacity-25">
+            </div>
+
+            <div class="container pt-8 pb-6 pb-lg-9 position-relative z-index-1">
+                <div class="row pt-4 pt-lg-9">
+                    <div class="col-10 col-lg-7 mx-auto text-center">
+                        <h1 class="display-2 mb-0">Latest News</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--Main content-start-->
+        <main id="main">
+            <div class="container py-7 py-lg-10 position-relative z-index-1">
+                <div class="row">
+                    <div class="col-md-8 mb-6 mb-md-0 ms-md-auto order-md-2">
+                        <!--Article Post-->
+                        <article class="pb-5 border-bottom mb-5">
+                            <div class="mb-3">
+                                <a href="#!" class="small text-body">Food</a>
+                            </div>
+                            <a href="#!" class="text-dark">
+                                <h2 class="mb-4 fs-1">A business that prepares and serves food and Drink to customers
+                                </h2>
+                            </a>
+                            <a href="#!" class="thumbnail-hover mb-4">
+                                <img src="assets/img/1920x1000/4.jpg" alt="" class="img-fluid">
+                                <div class="thumbnail-hover-overlay">
+                                    <span class="text-white text-uppercase fw-bold small">Read Story</span>
+                                </div>
+                            </a>
+                            <div class="post-content">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book.
+                                </p>
+                            </div>
+
+                            <div class="post-meta">
+
+                                <ul class="list-unstyled small d-flex align-items-center mb-4 text-muted">
+                                    <li>Posted by <a href="#" class="text-secondary d-inline-flex align-items-center">
+                                            <span>
+                                                John</span></a></li>
+                                    <li class="ms-2">On <a href="#"
+                                            class="text-secondary d-inline-flex align-items-center">
+
+                                            <span> 13 Oct. 2020</span></a></li>
+                                </ul>
+                            </div>
+                        </article>
+                        <!--Article Post-->
+                        <article class="pb-4 border-bottom mb-4">
+                            <div class="mb-3">
+                                <a href="#!" class="small text-body">Food</a>
+                            </div>
+                            <a href="#!" class="text-dark">
+                                <h2 class="mb-4 fs-1">A business that prepares and serves food and Drink to customers
+                                </h2>
+                            </a>
+                            <a href="#!" class="thumbnail-hover mb-4">
+                                <img src="assets/img/1920x1000/3.jpg" alt="" class="img-fluid">
+                                <div class="thumbnail-hover-overlay">
+                                    <span class="text-white text-uppercase fw-bold small">Read Story</span>
+                                </div>
+                            </a>
+                            <div class="post-content">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book.
+                                </p>
+                            </div>
+
+                            <div class="post-meta">
+
+                                <ul class="list-unstyled small d-flex align-items-center mb-0 text-muted">
+                                    <li>Posted by <a href="#" class="text-secondary d-inline-flex align-items-center">
+                                            <span>
+                                                John</span></a></li>
+                                    <li class="ms-2">On <a href="#"
+                                            class="text-secondary d-inline-flex align-items-center">
+
+                                            <span> 13 Oct. 2020</span></a></li>
+                                </ul>
+                            </div>
+                        </article>
+                        <!--Article Post-->
+                        <article class="pb-4 border-bottom mb-5">
+                            <div class="mb-3">
+                                <a href="#!" class="small text-body">Events</a>
+                            </div>
+                            <a href="#!" class="text-dark">
+                                <h2 class="mb-4 fs-1">A video embed post example
+                                </h2>
+                            </a>
+                            <div class="ratio ratio-21x9 mb-4">
+                                <iframe src="https://www.youtube.com/embed/w81f9T83tck" title="YouTube video"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="post-content">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book.
+                                </p>
+                            </div>
+
+                            <div class="post-meta">
+
+                                <ul class="list-unstyled small d-flex align-items-center mb-4 text-muted">
+                                    <li>Posted by <a href="#" class="text-secondary d-inline-flex align-items-center">
+                                            <span>
+                                                John</span></a></li>
+                                    <li class="ms-2">On <a href="#"
+                                            class="text-secondary d-inline-flex align-items-center">
+
+                                            <span> 13 Oct. 2020</span></a></li>
+                                </ul>
+                            </div>
+                        </article>
+                        <nav aria-label="Page navigation example" class="d-flex justify-content-end">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <svg fill="none" width="16" height="16" viewBox="0 0 512 512">
+                                            <path stroke-linecap="square" stroke-miterlimit="10"
+                                                d="M244 400L100 256l144-144M120 256h292" stroke="currentColor"
+                                                stroke-width="32"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <svg fill="none" width="16" height="16" viewBox="0 0 512 512">
+                                            <path stroke-linecap="square" stroke-miterlimit="10"
+                                                d="M268 112l144 144-144 144M392 256H100" stroke="currentColor"
+                                                stroke-width="32"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--Pagination-->
+                    </div>
+                    <div class="col-md-4 col-lg-3 order-md-1">
+                        <div class="position-relative mb-5">
+                            <form>
+                                <input type="text" class="form-control rounded-0" placeholder="Search here...">
+                                <button
+                                    class="btn text-secondary p-0 rounded-0 position-absolute end-0 top-0 h-100 width-40 d-flex align-items-center justify-content-center"
+                                    type="button">
+                                    <svg width="24" height="24" class="text-reset" viewBox="0 0 512 512" fill="none">
+                                        <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+                                            stroke-miterlimit="10" stroke="currentColor" stroke-width="20"></path>
+                                        <path stroke-linecap="round" stroke-miterlimit="10" d="M338.29 338.29L448 448"
+                                            stroke="currentColor" stroke-width="20">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                        <!--sidebar widget end-->
+                        <div class="position-relative mb-5">
+                            <h5 class="mb-3">Categories</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-secondary d-block py-1">Food</a></li>
+                                <li><a href="#" class="text-secondary d-block py-1">Drink</a></li>
+                                <li><a href="#" class="text-secondary d-block py-1">Pizza</a></li>
+                                <li><a href="#" class="text-secondary d-block py-1">Offers</a></li>
+                                <li><a href="#" class="text-secondary d-block py-1">Burger</a></li>
+                                <li><a href="#" class="text-secondary d-block py-1">Events</a></li>
+                            </ul>
+                        </div>
+                        <!--sidebar widget end-->
+                        <div class="position-relative mb-5">
+                            <h5 class="mb-3">Latest Posts</h5>
+                            <ul class="list-unstyled">
+                                <li class="d-flex w-100 mb-4">
+                                    <a href="#">
+                                        <img src="assets/img/600x800/1.jpg" alt="" class="width-60 me-3">
+                                    </a>
+                                    <div class="post-content">
+                                        <p class="mb-0 lh-sm"><a href="#" class="text-body">Pizza
+                                                cordoin lorem ipsum dolor sit amet</a></p>
+                                        <small class="text-muted">14 April 2016</small>
+                                    </div>
+                                </li>
+                                <li class="d-flex w-100">
+                                    <a href="#">
+                                        <img src="assets/img/600x800/2.jpg" alt="" class="width-60 me-3">
+                                    </a>
+                                    <div class="post-content">
+                                        <p class="mb-0 lh-sm"><a href="#" class="text-body">Cordoin
+                                                lorem ipsum dolor sit amet</a></p>
+                                        <small class="text-muted">14 Oct. 2020</small>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--sidebar widget end-->
+                        <div class="position-relative">
+                            <h5 class="mb-3">Tags</h5>
+                            <div class="d-flex flex-wrap">
+                                
+                                    <a href="#"
+                                        class="btn btn-outline-secondary lh-1 pt-2 btn-sm small rounded-pill me-1 mb-2">Food</a>
+                                
+                                <a href="#"
+                                        class="btn btn-outline-secondary lh-1 pt-2 btn-sm small rounded-pill me-1 mb-2">Drink</a>
+                               
+                                <a href="#"
+                                        class="btn btn-outline-secondary lh-1 pt-2 btn-sm small rounded-pill me-1 mb-2">Nature</a>
+                               
+                                <a href="#"
+                                        class="btn btn-outline-secondary lh-1 pt-2 btn-sm small rounded-pill me-1 mb-2">Italian</a>
+                                
+                               <a href="#"
+                                        class="btn btn-outline-secondary lh-1 pt-2 btn-sm small rounded-pill me-1 mb-2">Bootstrap4</a>
+                                
+                               <a href="#"
+                                        class="btn btn-outline-secondary lh-1 pt-2 btn-sm small rounded-pill me-1 mb-2">Fashion</a>
+                               
+                            </div>
+                        </div>
+                        <!--sidebar widget end-->
+                    </div>
+                </div>
+            </div>
+        <!--Newsletter-->
+        <div class="container position-relative z-index-1">
+            <div class="bg-info text-white text-center w-lg-50 w-md-75 mx-md-auto px-3 px-lg-4 py-5 py-lg-7 position-relative z-index-1 mb-n8">
+                <h5 class="text-muted mb-3" data-aos="fade-up">Subscribe to our newsletter and</h5>
+                <h1 class="display-5 mb-5" data-aos="fade-up" data-aos-delay="100">Stay in the know</h1>
+                <form>
+                    <div class="d-flex flex-column mx-auto justify-content-center w-lg-75" data-aos="fade-up" data-aos-delay="150" data-aos-duration="400">
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg rounded-pill border-0" placeholder="Enter your Email">
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-hover-scale btn-primary rounded-pill btn-lg">
+                                <span>
+                                    Subscribe
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </main>
+        <!--/.End main-content-->
+<svg preserveAspectRatio="none" width="100%" height="100" viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g class="text-primary">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L422.667 100L845.333 0L1268 125V200H845.333H422.667H0Z" fill="currentColor"></path>
+    </g>
+    <g class="text-dark">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 200L450.667 108L901.333 16L1352 131V200H901.333H450.667H0Z" fill="currentColor"></path>
+        </g>
+    </svg>
+<footer class="footer bg-dark text-white position-relative overflow-hidden">
+    <a href="#top" data-scroll class="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+        </svg>
+    </a>
+    <div class="container pb-5 pt-4">
+        <div class="row pt-6">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <img class="mb-4 width-80" src="assets/img/logo/logo-light.svg" alt="">
+                <p class="mb-0 text-muted">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                </p>
+            </div>
+            <div class="col-lg-3 mx-xl-auto col-md-6 mb-5">
+                <h5 class="mb-4 text-muted">Latest News</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-4">
+                        <div class="post-content">
+                            <p class="mb-3"><a href="#" class="hover-underline-link pb-1">Everything you need to
+                                    know about benefits of our food</a></p>
+                            <small class="opacity-50">Nov. 27, 2020</small>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="post-content">
+                            <p class="mb-3"><a href="#" class="hover-underline-link pb-1">How to choose the best
+                                    table with tasty food</a></p>
+                            <small class="opacity-50">Nov. 27, 2020</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="mb-4 text-muted">Hours</h5>
+                <p><span class="text-muted">Monday: </span>Closed</p>
+                <p><span class="text-muted">Tue-Wed :</span> 9:Am - 10PM</p>
+                <p><span class="text-muted">Thu-Fri :</span> 9:Am - 10PM</p>
+                <p><span class="text-muted">Sat-Sun :</span> 5:PM - 10PM</p>
+            </div>
+            <div class="col-lg-3 col-xl-2 col-md-6 mb-5">
+                <h5 class="mb-4 text-muted">Quick links</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2">
+                        <a href="#">
+                            Menu
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#">
+                            Visit
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#">
+                            Press
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#">
+                            Chefs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Catering
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <ul class="list-inline f-social">
+                    <li class="list-inline-item mx-2"><a href="#">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 512 512">
+                                <path
+                                    d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221v-49.36c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42.02h62.12l-9.92 64.77h-52.2v156.53C398.1 461.85 480 369.18 480 257.35z"
+                                    fill-rule="evenodd" clip-rule="evenodd"></path>
+                            </svg>
+                        </a></li>
+                    <li class="list-inline-item mx-2"><a href="#">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 512 512">
+                                <path
+                                    d="M496 109.5a201.8 201.8 0 01-56.55 15.3 97.51 97.51 0 0043.33-53.6 197.74 197.74 0 01-62.56 23.5A99.14 99.14 0 00348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 002.54 22.1 280.7 280.7 0 01-203-101.3A95.69 95.69 0 0036 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0135.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 01-25.94 3.4 94.38 94.38 0 01-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0139.5 405.6a203 203 0 01-23.5-1.4A278.68 278.68 0 00166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 00496 109.5z">
+                                </path>
+                            </svg>
+                        </a></li>
+                    <li class="list-inline-item mx-2"><a href="#">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 512 512">
+                                <path
+                                    d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z">
+                                </path>
+                                <path
+                                    d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z">
+                                </path>
+                            </svg>
+                        </a></li>
+                </ul>
+                <small class="d-block text-muted">© Copyright <script>
+                    document.write(new Date().getFullYear())
+
+                </script>. All right reserved. Resto</small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/theme.bundle.js"></script>
+
+
+  </body>
+</html>

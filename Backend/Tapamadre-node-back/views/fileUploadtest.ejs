@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다중 파일 업로드</title>
+  </head>
+  <body>
+    <form action="/menu/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" id="fileInput" name="files" multiple />
+      <input type="submit" value="파일 업로드" />
+    </form>
+    <button onclick="submitFormFile()">메뉴 등록(DB저장)</button>
+
+    <script>
+      // 선택한 파일들을 담을 배열
+      let selectedFiles = [];
+
+      const formData = new FormData();
+
+      // 파일 선택 input의 변경 이벤트 리스너
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function (event) {
+          // 선택한 파일들을 배열에 추가
+          selectedFiles = Array.from(event.target.files);
+        });
+
+      // 폼 제출 이벤트 핸들러
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          // 선택한 파일들을 FormData에 추가
+          selectedFiles.forEach((file) => {
+            //files 필드에 file 객체 추가
+            formData.append("files", file);
+            console.log("파일 추가>>>", file);
+          });
+          // 폼 제출 방지
+          event.preventDefault();
+        });
+
+      //백엔드 전송
+      function submitFormFile() {
+        console.log("파일 확인>>>", formData);
+        fetch("/menu/upload", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (response.ok) {
+              console.log("파일이 성공적으로 업로드되었습니다.");
+            } else {
+              console.error("파일 업로드 중 오류가 발생했습니다.");
+            }
+          })
+          .catch((error) => {
+            console.error("파일 업로드 중 오류가 발생했습니다.", error);
+          });
+      }
+    </script>
+  </body>
+</html>

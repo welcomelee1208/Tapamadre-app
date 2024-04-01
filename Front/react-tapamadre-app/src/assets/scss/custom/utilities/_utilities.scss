@@ -1,0 +1,144 @@
+//Import utilities
+// Utilities
+$utilities: map-merge($utilities,
+
+        ("width-px": (property: width,
+            class: width,
+            values: (5:5px,
+                10:10px,
+                15:15px,
+                20:20px,
+                25:25px,
+                30:30px,
+                35:35px,
+                40:40px,
+                45:45px,
+                50:50px,
+                55:55px,
+                60:60px,
+                65:65px,
+                70:70px,
+                75:75px,
+                80:80px,
+                85:85px,
+                90:90px,
+                95:95px,
+                100:100px,
+                110:110px,
+                120:120px,
+                130:130px,
+                140:140px,
+                150:150px,
+            )),
+        "height-px": (property: height,
+            class: height,
+            values: (5:5px,10:10px,15:15px,20:20px,25:25px,30:30px,35:35px,40:40px,45:45px,
+                50:50px,55:55px,60:60px,65:65px,70:70px,75:75px,80:80px,85:85px,90:90px,95:95px,100:100px,
+                110:110px,120:120px,130:130px,140:140px,150:150px,
+            )),
+
+"vh-viewport": (
+      property: height,
+      class: vh,
+      values: (
+          25:25vh,
+          50:50vh,
+          75:75vh,
+          100: 100vh
+          )
+    ),
+    "vw-viewport": (
+      property: width,
+      class: vw,
+      values: (
+          25:25vw,
+          50:50vw,
+          75:75vw,
+          100: 100vw
+          )
+    ),
+    "z-index": (
+      property: z-index,
+      class: z-index,
+      values: (
+          1:1,
+          2:2,
+          3:3,
+          n1: -1,
+          fixed:$zindex-fixed
+          )
+    ),
+    "border-dashed": (
+      property: border,
+      class: border-dashed,
+      values: (
+          1:1px dashed $border-color,
+          2:2px dashed $border-color,
+          3:3px dashed $border-color,
+          4: 4px dashed $border-color,
+          5: 5px dashed $border-color,
+          ),
+    ),
+    "position": (property: position,
+            responsive:true,
+            values: static relative absolute fixed sticky),
+            "height": (responsive: true,
+            class:h,
+            property: height,
+            values: (0:0%,
+                10:10%,
+                20:20%,
+                25:25%,
+                30:30%,
+                40:40%,
+                50:50%,
+                60:60%,
+                70:70%,
+                75:75%,
+                80:80%,
+                90:90%,
+                100:100%,
+                auto:auto,
+            )),
+            "width": (responsive: true,
+            class:w,
+            property: width,
+            values: (0:0%,
+                10:10%,
+                20:20%,
+                25:25%,
+                30:30%,
+                40:40%,
+                50:50%,
+                60:60%,
+                70:70%,
+                75:75%,
+                80:80%,
+                90:90%,
+                100:100%,
+                auto:auto,
+            )),
+    ));
+    
+
+
+@import "./typography";
+
+    //Addiotional utilities
+    .flex-center{
+        align-items: center;
+        justify-content: center;
+    }
+  //overflow-scroll
+  .overflow-scroll-y{
+    overflow-y: scroll;
+  }
+  .min-height-100{
+    min-height: 100%;
+  }
+  .flip-x {
+    transform: matrix(-1,0,0,1,0,0);
+}
+.flip-y {
+    transform: matrix(1,0,0,-1,0,0);
+}

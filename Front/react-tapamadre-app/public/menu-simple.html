@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--swiper-->
+    <link rel="stylesheet" href="assets/vendor/css/swiper-bundle.min.css">
+    
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <!--aos animation-->
+    <link rel="stylesheet" href="assets/vendor/css/aos.css">
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+
+    <!--Add custom style here-->
+    <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
+    <title>Resto</title>
+  </head>
+  <body>
+       <!--Preloader Begins-->
+       <div class="preloader">
+    </div>
+    <!--Preloader Ends-->
+
+     <!--Main navbar start-->
+     <nav
+     class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky">
+     <div class="container">
+         <a class="navbar-brand" href="index.html">
+             <img src="assets/img/logo/logo-dark.svg" alt="Logo" class="img-fluid">
+         </a>
+         <div class="d-flex align-items-center order-lg-2 navbar-icons">
+            <button class="navbar-toggler order-last ms-3 ms-lg-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#restoMainNavbar" aria-controls="restoMainNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-line"></span>
+                <span class="navbar-toggler-line-end"></span>
+            </button>
+            <div class="navbar-nav flex-row align-items-center">
+               <div class="nav-item me-3 me-lg-0">
+                   <a class="nav-icon-link nav-link " href="login-register.html">SignIn</a>
+               </div>
+               <div class="nav-item me-lg-0 me-3">
+                   <a class="nav-icon-link nav-link" href="#offcanvasCart" data-bs-toggle="offcanvas"
+                       data-bs-target="#offcanvasCart">
+                       <div class="d-flex align-items-center">
+                           <span>Bag</span>
+                           <span class="cart-badge">(2)</span>
+                       </div>
+                   </a>
+               </div>
+               <div class="position-lg-relative me-4 me-lg-0 nav-item">
+                   <a data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" class="nav-link">
+                       <i class="bi bi-search"></i>
+                   </a>
+                   <div class="dropdown-menu w-100 position-absolute dropdown-menu-lg-end dropdown-search p-4"
+                       id="dropdown-search">
+                       <h5 class="mb-3">Tell us what you're looking for</h5>
+                       <form>
+                           <input type="text" class="form-control form-control-lg"
+                               placeholder="Example: Dinner, Wine, Pizza">
+                           <div class="d-grid pt-2">
+                               <button type="button" class="btn btn-primary">
+                                   Search
+                               </button>
+                           </div>
+                       </form>
+                       <div class="pt-2">
+                           <div class="dropdown-header">Popular searches</div>
+                           <ul class="list-unstyled mb-0">
+                               <li>
+                                   <a href="#!" class="dropdown-item">Egg & spinach
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Creamy soup
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#!" class="dropdown-item">Crunch veg salad
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+        <!--navbar-offcanvas-lg-->
+        <div class="offcanvas offcanvas-end" id="restoMainNavbar">
+          <div class="offcanvas-header">
+           <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+           </button>
+          </div>
+          <div class="offcanvas-body">
+           <ul class="navbar-nav mx-auto">
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link  " data-bs-auto-close="outside" data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Home </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="index.html">Default Parallax</a></li>
+                       <li><a class="dropdown-item" href="index-video-player.html">Video Player</a></li>
+                       <li><a class="dropdown-item" href="index-image-slider.html">Image Slider</a>
+                       </li>
+                       <li><a class="dropdown-item" href="index-dark-ui.html">Dark UI</a></li>
+                       <li><a class="dropdown-item" href="one-page.html">One Page</a></li>
+                       <li class="dropend">
+                           <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">Menu Levels </a>
+                           <ul class="dropdown-menu">
+                               <li class="dropend">
+                                   <a class="dropdown-item" data-bs-toggle="dropdown" data-bs-auto-close="outside" tabindex="-1" href="#">menu level 2 </a>
+                                   <ul class="dropdown-menu">
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                       <li><a class="dropdown-item" href="#"> menu level 3</a></li>
+                                   </ul>
+                               </li>
+                           </ul>
+                       </li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Menu </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="menu-simple.html">Menu simple</a></li>
+                       <li><a class="dropdown-item" href="menu-tiles.html">Menu tiles</a></li>
+                       <li><a class="dropdown-item" href="menu-grid.html">Menu grid</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Blog </a>
+                   <ul class="dropdown-menu dropdown-menu-start">
+                       <li><a class="dropdown-item" href="blog-sidebar-end.html">Sidebar end</a></li>
+                       <li><a class="dropdown-item" href="blog-sidebar-start.html">Sidebar start</a></li>
+                       <li><a class="dropdown-item" href="blog-masonry.html">Masonry</a></li>
+                       <li><a class="dropdown-item" href="blog-fullwidth.html">Full width</a></li>
+                       <li><a class="dropdown-item" href="blog-post.html">Single Page</a></li>
+                   </ul>
+               </li>
+               <li class="nav-item"><a class="nav-link " href="reservation.html">Reservation</a></li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Pages</a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="about.html">About</a></li>
+                       <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                       <li><a class="dropdown-item" href="contact.html">Contact us</a></li>
+                       <li><a class="dropdown-item" href="login-register.html">Login Register</a></li>
+                       <li><a class="dropdown-item" href="page-full-width.html">Page Full Width</a></li>
+                       <li><a class="dropdown-item" href="page-blank.html">Page blank</a></li>
+                       <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+    
+                       <li><a class="dropdown-item" href="page-sticky-sidebar.html">sticky sidebar</a></li>
+                       <li><a class="dropdown-item" href="page-sticky-footer.html">sticky footer </a></li>
+                       <li><a class="dropdown-item" href="typography.html">Typography</a></li>
+                       <li><a class="dropdown-item" href="elements.html">Elements</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown nav-item">
+                   <a href="#" class="dropdown-toggle nav-link " data-bs-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Shop </a>
+                   <ul class="dropdown-menu dropdown-menu-end">
+                       <li><a class="dropdown-item" href="shop-products.html">Products</a></li>
+                       <li><a class="dropdown-item" href="shop-checkout.html">Checkout</a></li>
+                   </ul>
+               </li>
+           </ul>
+          </div>
+        </div>
+        <!--/.nav-offcanvas -->
+     </div>
+
+    </nav>
+
+
+    <!--Shopping cart offcanvas-->
+     <!--Cart-modal-start-->
+     <div class="offcanvas offcanvas-end fade" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCart"
+     aria-hidden="true">
+ 
+             <!--Cart-header-->
+             <div
+                 class="offcanvas-header">
+                 <h5 class="mb-0">Your cart</h5>
+                 <button class="btn-close z-index-1" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                     </button>
+             </div>
+
+
+             <!--cart-content-->
+             <div class="offcanvas-body">
+
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert1.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Sweet dessert</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$6.00</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+                 <!--Item card-->
+                 <div class="card px-1 py-3 card-body flex-row border-0">
+                     <div class="me-3">
+                         <img src="assets/img/menu/dessert2.jpg" alt="" class="width-70 rounded-3 shadow">
+                     </div>
+                     <div class="flex-grow-1">
+                         <h6 class="mb-0">Strawberry cake</h6>
+                         <span class="d-inline-flex align-items-center my-1">Qty: 1</span>
+                         <div>
+                             <span>$7.50</span>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="#!" class="text-muted">
+                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd"
+                                     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                             </svg>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+
+             <!--cart-footer-->
+             <div class="offcanvas-footer p-4 border-0 flex-column">
+                 <div class="mb-3 d-flex justify-content-between w-100">
+                     <p class="mb-0 flex-grow-1">Subtotal </p>
+                     <h5 class="mb-0">$11.00</h5>
+                 </div>
+                 <div class="w-100">
+                     <a href="#" class="btn btn-primary w-100">continue to Checkout</a>
+                 </div>
+             </div>
+    </div>
+
+       <!--Page hero-->
+       <section class="position-relative overflow-hidden bg-light">
+        <div class="container pt-8 pb-6 text-center position-relative">
+            <div class="row pt-4 pt-lg-6 justify-content-center text-center">
+                <div class="col-lg-8 col-md-10">
+                    <h1 class="display-3 mb-3 mx-auto">
+                        Extended Menu</h1>
+                    <p class="lead mb-0">
+                        The best food in town at one of the best locations
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Main content-->
+    <main id="main">
+
+        <section class="position-relative">
+            <div class="container py-7 py-lg-10">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto">
+
+                        <!--Menu Card-->
+                        <div class="position-relative z-index-1 bg-light bg-repeat mb-4" style="background-image: url(assets/img/dust.png);">
+                            <div
+                                class="mb-0 px-4 pt-5 pb-6 bg-primary text-white position-relative d-flex align-items-end justify-content-center">
+                                <svg class="flip-x" xmlns="http://www.w3.org/2000/svg" height="60" width="60"
+                                    fill="currentColor" viewBox="0 0 5 5">
+                                    <path
+                                        d="M2.53229,2.50962a.08033.08033,0,0,0-.06026.03386c-.08988.111-.18242.22012-.26731.33484a2.19621,2.19621,0,0,0-.18855.3684,1.55123,1.55123,0,0,0-.11406.30783c-.009.03683-.0157.07436-.02328.11159a.42714.42714,0,0,1-.01434.06967c-.037.09462-.05317.13421-.16642.07409-.084-.04468-.16367-.09756-.24379-.14908a.15785.15785,0,0,1-.0484-.05116.78555.78555,0,0,1-.12763-.53026,1.64384,1.64384,0,0,1,.18523-.56756,1.55567,1.55567,0,0,1,.2582-.32213,2.19181,2.19181,0,0,1,.32044-.26236c.08271-.05593.16014-.11971.24216-.17673a1.16809,1.16809,0,0,1,.14767-.087q.2625-.13028.53685-.23439c.25814-.09842.51628-.19713.77254-.30057a2.928,2.928,0,0,1,.30688-.11559l.01209.00565.002.01141a.07664.07664,0,0,1-.01616.02231,3.21947,3.21947,0,0,0-.42484.44183,1.521,1.521,0,0,0-.32711.72084c-.02169.12687-.044.25346-.05338.38211a1.45047,1.45047,0,0,1-.024.155,2.38193,2.38193,0,0,1-.0669.30664,1.36513,1.36513,0,0,1-.35979.59176,1.34157,1.34157,0,0,1-.44527.27926.49875.49875,0,0,1-.25255.03219.04333.04333,0,0,1-.03553-.03858.64114.64114,0,0,1,.045-.32155,1.67711,1.67711,0,0,1,.29445-.4704c.02178-.02517.0442-.04987.0649-.076a.04679.04679,0,0,0,.00558-.02607c.00023-.0096-.02284-.0121-.039-.00272-.037.02152-.07281.04508-.11047.06529a.06715.06715,0,0,1-.03979.00328c-.01317-.00219-.01892-.03155-.01126-.05123.00525-.01333.01149-.02616.01711-.03927a3.58675,3.58675,0,0,1,.22921-.44417.23094.23094,0,0,0,.017-.05328l.017-.0199-.01-.00432Z" />
+                                </svg>
+                                <h3 class="mb-0 px-3 display-4 text-reset">Food</h3>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" fill="currentColor"
+                                    viewBox="0 0 5 5">
+                                    <path
+                                        d="M2.53229,2.50962a.08033.08033,0,0,0-.06026.03386c-.08988.111-.18242.22012-.26731.33484a2.19621,2.19621,0,0,0-.18855.3684,1.55123,1.55123,0,0,0-.11406.30783c-.009.03683-.0157.07436-.02328.11159a.42714.42714,0,0,1-.01434.06967c-.037.09462-.05317.13421-.16642.07409-.084-.04468-.16367-.09756-.24379-.14908a.15785.15785,0,0,1-.0484-.05116.78555.78555,0,0,1-.12763-.53026,1.64384,1.64384,0,0,1,.18523-.56756,1.55567,1.55567,0,0,1,.2582-.32213,2.19181,2.19181,0,0,1,.32044-.26236c.08271-.05593.16014-.11971.24216-.17673a1.16809,1.16809,0,0,1,.14767-.087q.2625-.13028.53685-.23439c.25814-.09842.51628-.19713.77254-.30057a2.928,2.928,0,0,1,.30688-.11559l.01209.00565.002.01141a.07664.07664,0,0,1-.01616.02231,3.21947,3.21947,0,0,0-.42484.44183,1.521,1.521,0,0,0-.32711.72084c-.02169.12687-.044.25346-.05338.38211a1.45047,1.45047,0,0,1-.024.155,2.38193,2.38193,0,0,1-.0669.30664,1.36513,1.36513,0,0,1-.35979.59176,1.34157,1.34157,0,0,1-.44527.27926.49875.49875,0,0,1-.25255.03219.04333.04333,0,0,1-.03553-.03858.64114.64114,0,0,1,.045-.32155,1.67711,1.67711,0,0,1,.29445-.4704c.02178-.02517.0442-.04987.0649-.076a.04679.04679,0,0,0,.00558-.02607c.00023-.0096-.02284-.0121-.039-.00272-.037.02152-.07281.04508-.11047.06529a.06715.06715,0,0,1-.03979.00328c-.01317-.00219-.01892-.03155-.01126-.05123.00525-.01333.01149-.02616.01711-.03927a3.58675,3.58675,0,0,1,.22921-.44417.23094.23094,0,0,0,.017-.05328l.017-.0199-.01-.00432Z" />
+                                </svg>
+
+                                <!--BG Shape-->
+                                <svg class="position-absolute start-0 bottom-0 text-light" preserveAspectRatio="none"
+                                    width="100%" height="60" viewBox="0 0 699 189" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0 0L58 32C117 63 233 126 350 133C466 140 611 65 651 32L699 0V189H641C583 189 466 189 350 189C233 189 117 189 58 189H0V0Z"
+                                        fill="currentColor" />
+                                </svg>
+
+                            </div>
+                            <ul class="list-unstyled mb-0 px-4 px-lg-5 py-5">
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Egg & spinach
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$4</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Miso soups
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$5.5</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Iced coffee
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$4.25</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Crunchy veg salad
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$6.00</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Beef mustard
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$7.50</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Smoked cheddar
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$5.25</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                            </ul>
+                        </div>
+                        <!--End Menu Card-->
+                        <!--Menu Card-->
+                        <div class="position-relative z-index-1 bg-light mb-4 bg-repeat" style="background-image: url('assets/img/dust.png');">
+                            <div
+                                class="mb-0 px-4 pt-5 pb-6 bg-primary text-white position-relative d-flex align-items-center justify-content-center">
+                                <svg class="text-white" width="60" height="60" viewBox="0 0 236 236" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M50.6133 89.0898H41.8242V97.8789H50.6133V89.0898Z"
+                                        fill="currentColor" />
+                                    <path d="M50.6133 67.1172H41.8242V75.9062H50.6133V67.1172Z"
+                                        fill="currentColor" />
+                                    <path d="M61.5703 78.0742H52.7812V86.8633H61.5703V78.0742Z"
+                                        fill="currentColor" />
+                                    <path d="M39.5977 78.0742H30.8086V86.8633H39.5977V78.0742Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M82.5469 125.125C78.7383 128.934 76.6875 133.914 76.6875 139.305C76.6875 144.695 78.7969 149.676 82.5469 153.484C86.3555 157.293 91.3359 159.344 96.7266 159.344C102.117 159.344 107.098 157.234 110.906 153.484C118.699 145.691 118.699 132.977 110.906 125.125C103.113 117.332 90.3984 117.332 82.5469 125.125ZM104.695 147.273C102.586 149.383 99.7734 150.555 96.7266 150.555C93.6797 150.555 90.8672 149.383 88.7578 147.273C86.6484 145.164 85.4766 142.352 85.4766 139.305C85.4766 136.258 86.6484 133.445 88.7578 131.336C90.9258 129.168 93.8555 128.055 96.7266 128.055C99.5977 128.055 102.469 129.168 104.695 131.336C109.09 135.73 109.09 142.879 104.695 147.273Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M118.891 155.225L112.677 161.44L118.891 167.655L125.106 161.44L118.891 155.225Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M181.922 82.4688L235.887 28.5039L207.527 0.144531L159.715 47.957L165.926 54.168L195.809 24.2852L211.746 40.2227L175.711 76.2578L142.547 43.0937L0.457031 185.066L50.9062 235.516L112.605 173.816L106.395 167.605L83.7188 190.34L45.6914 152.312L109.793 88.2109L147.82 126.238L125.086 148.973L131.297 155.184L192.996 93.4844L181.922 82.4688ZM202.078 18.0742L207.527 12.625L223.465 28.5625L218.016 34.0117L202.078 18.0742ZM77.5078 196.551L50.9648 223.094L12.9375 185.066L39.4805 158.523L77.5078 196.551ZM154.031 120.086L116.004 82.0586L142.547 55.5156L180.574 93.543L154.031 120.086Z"
+                                        fill="currentColor" />
+                                </svg>
+
+                                <h3 class="mb-0 px-3 display-4">Drink</h3>
+
+                                <svg class="text-white flip-x" width="60" height="60" viewBox="0 0 236 236"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M50.6133 89.0898H41.8242V97.8789H50.6133V89.0898Z"
+                                        fill="currentColor" />
+                                    <path d="M50.6133 67.1172H41.8242V75.9062H50.6133V67.1172Z"
+                                        fill="currentColor" />
+                                    <path d="M61.5703 78.0742H52.7812V86.8633H61.5703V78.0742Z"
+                                        fill="currentColor" />
+                                    <path d="M39.5977 78.0742H30.8086V86.8633H39.5977V78.0742Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M82.5469 125.125C78.7383 128.934 76.6875 133.914 76.6875 139.305C76.6875 144.695 78.7969 149.676 82.5469 153.484C86.3555 157.293 91.3359 159.344 96.7266 159.344C102.117 159.344 107.098 157.234 110.906 153.484C118.699 145.691 118.699 132.977 110.906 125.125C103.113 117.332 90.3984 117.332 82.5469 125.125ZM104.695 147.273C102.586 149.383 99.7734 150.555 96.7266 150.555C93.6797 150.555 90.8672 149.383 88.7578 147.273C86.6484 145.164 85.4766 142.352 85.4766 139.305C85.4766 136.258 86.6484 133.445 88.7578 131.336C90.9258 129.168 93.8555 128.055 96.7266 128.055C99.5977 128.055 102.469 129.168 104.695 131.336C109.09 135.73 109.09 142.879 104.695 147.273Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M118.891 155.225L112.677 161.44L118.891 167.655L125.106 161.44L118.891 155.225Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M181.922 82.4688L235.887 28.5039L207.527 0.144531L159.715 47.957L165.926 54.168L195.809 24.2852L211.746 40.2227L175.711 76.2578L142.547 43.0937L0.457031 185.066L50.9062 235.516L112.605 173.816L106.395 167.605L83.7188 190.34L45.6914 152.312L109.793 88.2109L147.82 126.238L125.086 148.973L131.297 155.184L192.996 93.4844L181.922 82.4688ZM202.078 18.0742L207.527 12.625L223.465 28.5625L218.016 34.0117L202.078 18.0742ZM77.5078 196.551L50.9648 223.094L12.9375 185.066L39.4805 158.523L77.5078 196.551ZM154.031 120.086L116.004 82.0586L142.547 55.5156L180.574 93.543L154.031 120.086Z"
+                                        fill="currentColor" />
+                                </svg>
+
+                                <!--BG Shape-->
+                                <svg class="position-absolute start-0 bottom-0 text-light" preserveAspectRatio="none"
+                                    width="100%" height="60" viewBox="0 0 699 189" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0 0L58 32C117 63 233 126 350 133C466 140 611 65 651 32L699 0V189H641C583 189 466 189 350 189C233 189 117 189 58 189H0V0Z"
+                                        fill="currentColor" />
+                                </svg>
+
+                            </div>
+                            <ul class="list-unstyled mb-0 px-4 px-lg-5 py-5">
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Berry tea
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$3.75</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">English tea
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$1.75</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Green tea
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$3.50</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Avocado pineapple
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$5.25</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Carrot lamongrass
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$3.25</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Lamon mint water
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$0.75</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column mb-4">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Apple juice
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$2.75</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                                <li class="d-flex flex-column">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 class=" fs-5 fw-semibold fst-italic font-serif">Latte coffee
+                                            </h5>
+                                            <span class="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span class="fw-bold">$3.00</span>
+                                        </div>
+
+                                        <p class="mb-0">Pellentesque enim. Aliquam tempor</p>
+                                    </div>
+                                </li>
+                                <!--end menu box-->
+                            </ul>
+                        </div>
+                        <!--End Menu Card-->
+
+                          <!--Download button-->
+                          <div class="text-center pt-5">
+                            <a href="#!" class="btn btn-success px-4 py-3 rounded-pill">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill me-2" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+                                      </svg>
+                                    <span>Download menu (pdf)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="position-relative bg-white border-top">
+            <img src="assets/img/svg/brush1.svg" alt=""
+                class="position-absolute start-0 top-0 ms-4 mt-n4 width-100">
+            <div class="container pb-9 pt-8 pt-lg-9 position-relative z-index-1">
+                <div class="row">
+                    <div class="col-md-4 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="50">
+                        <div class="text-center position-relative">
+                            <div class="position-relative">
+                                <!--Icon-->
+                                <div
+                                    class="mb-4 width-80 height-80 flex-center d-flex mx-auto position-relative text-white">
+                                    <!--Icon BG-->
+                                    <svg class="position-absolute text-primary start-0 top-0 w-100 h-100"
+                                        preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                                        width="183" height="183" viewBox="0 0 183 183" fill="none">
+                                        <path
+                                            d="M2.34327 102.264C-1.96146 92.4096 2.34325 85.8627 2.34325 75.6261C5.01715 56.6119 9.44941 51.8913 14.0694 45.8479C22.5627 34.738 27.0882 24.3744 39.1117 17.1345C45.4752 13.3028 54.0584 10.9185 61.2723 9.45065C68.0353 8.07451 75.2841 2.57559 88.6996 0.35131C99.432 0.351301 104.141 0.180184 107.084 2.57559C110.027 4.97099 116.652 6.39342 120.996 8.0352C126.866 10.2533 131.633 12.8893 137.89 15.0113C146.797 18.0322 150.411 20.3698 157.566 33.1088C164.721 45.8479 166.51 44.028 172.77 55.8572C179.031 67.6864 182.609 75.6399 182.609 86.6939C182.609 90.8973 181.813 92.3557 181.813 104.084C181.813 115.812 180.494 114.714 178.633 120.867C175.588 130.937 166.51 140.481 157.566 153.22C150.315 163.548 145.944 167.128 137.89 172.43C127.666 179.161 120.21 178.959 108.077 181.428C94.9115 184.107 82.255 181.121 69.5204 180.518C61.5144 180.139 51.8302 178.858 46.4149 172.43C43.0869 168.48 33.7424 164.68 29.6713 161.409C27.2678 159.479 21.7549 156.012 20.2306 153.22C18.0237 149.178 17.9654 143.454 14.0694 140.481C6.94518 135.045 8.63605 123.777 7.2126 115.812C6.43623 111.467 4.07134 106.22 2.34327 102.264Z"
+                                            fill="currentColor" />
+                                    </svg>
+
+                                    <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                        class="bi bi-envelope position-relative" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                                    </svg>
+                                </div>
+                                <h5 class="mb-3">Mail us</h5>
+                                <p class="lead mb-0">
+                                    <a href="mailto:yourmail@gmail.com" class="">yourmail@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center position-relative">
+                            <!--Icon-->
+                            <div
+                                class="mb-4 width-80 height-80 flex-center d-flex mx-auto position-relative text-white">
+                                <!--Icon BG-->
+                                <svg class="position-absolute text-primary start-0 top-0 w-100 h-100"
+                                    preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                                    width="183" height="183" viewBox="0 0 183 183" fill="none">
+                                    <path
+                                        d="M2.34327 102.264C-1.96146 92.4096 2.34325 85.8627 2.34325 75.6261C5.01715 56.6119 9.44941 51.8913 14.0694 45.8479C22.5627 34.738 27.0882 24.3744 39.1117 17.1345C45.4752 13.3028 54.0584 10.9185 61.2723 9.45065C68.0353 8.07451 75.2841 2.57559 88.6996 0.35131C99.432 0.351301 104.141 0.180184 107.084 2.57559C110.027 4.97099 116.652 6.39342 120.996 8.0352C126.866 10.2533 131.633 12.8893 137.89 15.0113C146.797 18.0322 150.411 20.3698 157.566 33.1088C164.721 45.8479 166.51 44.028 172.77 55.8572C179.031 67.6864 182.609 75.6399 182.609 86.6939C182.609 90.8973 181.813 92.3557 181.813 104.084C181.813 115.812 180.494 114.714 178.633 120.867C175.588 130.937 166.51 140.481 157.566 153.22C150.315 163.548 145.944 167.128 137.89 172.43C127.666 179.161 120.21 178.959 108.077 181.428C94.9115 184.107 82.255 181.121 69.5204 180.518C61.5144 180.139 51.8302 178.858 46.4149 172.43C43.0869 168.48 33.7424 164.68 29.6713 161.409C27.2678 159.479 21.7549 156.012 20.2306 153.22C18.0237 149.178 17.9654 143.454 14.0694 140.481C6.94518 135.045 8.63605 123.777 7.2126 115.812C6.43623 111.467 4.07134 106.22 2.34327 102.264Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                    class="bi bi-telephone position-relative" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                </svg>
+
+                            </div>
+                            <h5 class="mb-3">Book a Table</h5>
+                            <p class="lead mb-0">
+                                +01 123-456-4590
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="text-center">
+                            <!--Icon-->
+                            <div
+                                class="mb-4 width-80 height-80 flex-center d-flex mx-auto position-relative text-white">
+                                <!--Icon BG-->
+                                <svg class="position-absolute text-primary start-0 top-0 w-100 h-100"
+                                    preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                                    width="183" height="183" viewBox="0 0 183 183" fill="none">
+                                    <path
+                                        d="M2.34327 102.264C-1.96146 92.4096 2.34325 85.8627 2.34325 75.6261C5.01715 56.6119 9.44941 51.8913 14.0694 45.8479C22.5627 34.738 27.0882 24.3744 39.1117 17.1345C45.4752 13.3028 54.0584 10.9185 61.2723 9.45065C68.0353 8.07451 75.2841 2.57559 88.6996 0.35131C99.432 0.351301 104.141 0.180184 107.084 2.57559C110.027 4.97099 116.652 6.39342 120.996 8.0352C126.866 10.2533 131.633 12.8893 137.89 15.0113C146.797 18.0322 150.411 20.3698 157.566 33.1088C164.721 45.8479 166.51 44.028 172.77 55.8572C179.031 67.6864 182.609 75.6399 182.609 86.6939C182.609 90.8973 181.813 92.3557 181.813 104.084C181.813 115.812 180.494 114.714 178.633 120.867C175.588 130.937 166.51 140.481 157.566 153.22C150.315 163.548 145.944 167.128 137.89 172.43C127.666 179.161 120.21 178.959 108.077 181.428C94.9115 184.107 82.255 181.121 69.5204 180.518C61.5144 180.139 51.8302 178.858 46.4149 172.43C43.0869 168.48 33.7424 164.68 29.6713 161.409C27.2678 159.479 21.7549 156.012 20.2306 153.22C18.0237 149.178 17.9654 143.454 14.0694 140.481C6.94518 135.045 8.63605 123.777 7.2126 115.812C6.43623 111.467 4.07134 106.22 2.34327 102.264Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                    class="bi bi-shop position-relative" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
+                                </svg>
+
+                            </div>
+                            <h5 class="mb-3"> Reach us</h5>
+                            <p class="lead mb-0">
+                                124, Lorem Street, NY
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+ <!--Divider-->
+ <svg preserveAspectRatio="none" width="100%" height="64" viewBox="0 0 1015 162" fill="none"
+ xmlns="http://www.w3.org/2000/svg">
+ <g class="text-primary">
+     <path fill-rule="evenodd" clip-rule="evenodd"
+         d="M1061 32.6481L1038.9 39.8343C1016.79 47.0205 972.583 61.393 928.375 54.2067C884.167 47.0205 839.958 18.2756 795.75 29.055C751.542 39.8343 707.333 90.1378 663.125 90.1378C618.917 90.1378 574.708 39.8343 530.5 25.4619C486.292 11.0894 442.083 32.6481 397.875 29.055C353.667 25.4619 309.458 -3.28301 265.25 0.310095C221.042 3.9032 176.833 39.8343 132.625 61.3929C88.4167 82.9516 44.2083 90.1378 22.1041 93.7309L0 97.324V162H22.1041C44.2083 162 88.4167 162 132.625 162C176.833 162 221.042 162 265.25 162C309.458 162 353.667 162 397.875 162C442.083 162 486.292 162 530.5 162C574.708 162 618.917 162 663.125 162C707.333 162 751.542 162 795.75 162C839.958 162 884.167 162 928.375 162C972.583 162 1016.79 162 1038.9 162H1061V32.6481Z"
+         fill="currentColor"></path>
+ </g>
+ <g class="text-dark">
+     <path fill-rule="evenodd" clip-rule="evenodd"
+         d="M1015 42.2297L993.854 48.8836C972.708 55.5375 930.417 68.8453 888.125 62.1914C845.833 55.5375 803.542 28.9219 761.25 38.9027C718.958 48.8836 676.667 95.4609 634.375 95.4609C592.083 95.4609 549.792 48.8836 507.5 35.5758C465.208 22.268 422.917 42.2297 380.625 38.9027C338.333 35.5758 296.042 8.96017 253.75 12.2871C211.458 15.6141 169.167 48.8836 126.875 68.8453C84.5833 88.807 42.2916 95.4609 21.1458 98.7879L0 102.115V162H21.1458C42.2916 162 84.5833 162 126.875 162C169.167 162 211.458 162 253.75 162C296.042 162 338.333 162 380.625 162C422.917 162 465.208 162 507.5 162C549.792 162 592.083 162 634.375 162C676.667 162 718.958 162 761.25 162C803.542 162 845.833 162 888.125 162C930.417 162 972.708 162 993.854 162H1015V42.2297Z"
+         fill="currentColor"></path>
+ </g>
+</svg>
+
+<footer class="footer bg-dark text-white position-relative">
+ <a href="#top" data-scroll class="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
+     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg">
+         <path fill-rule="evenodd"
+             d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+     </svg>
+ </a>
+ <div class="container pb-8 pt-8">
+     <div class="row justify-content-lg-between">
+         <div class="col-lg-4 me-auto col-md-10 mb-5">
+             <h5 class="mb-4">
+                 Subscribe and stay up to date
+             </h5>
+             <form>
+                 <div class="d-flex flex-column mb-3">
+                     <div class="mb-2">
+                         <input type="email" class="form-control w-100 border-0 form-control-lg shadow-none"
+                             placeholder="Enter your Email" required>
+                     </div>
+                     <div class="d-grid">
+                         <button type="submit" class="btn btn-primary btn-lg btn-hover-scale">
+                             <span>Submit</span>
+                         </button>
+                     </div>
+                 </div>
+             </form>
+             <p class="mb-0 small text-muted">
+                 We'll never share your email.
+             </p>
+         </div>
+         <div class="col-lg-3 me-auto me-md-0 col-sm-6 col-md-5 mb-4">
+             <ul class="list-unstyled mb-0">
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Home
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         About us
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         News
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Events
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Career
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Customers
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Support
+                     </a>
+                 </li>
+             </ul>
+         </div>
+         <div class="col-lg-3 col-md-5 col-sm-6 mb-4">
+             <ul class="list-unstyled mb-0">
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Menu
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Dessert
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Drink & Wine
+                     </a>
+                 </li>
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Shop
+                     </a>
+                 </li>
+
+                 <li class="mb-3">
+                     <a href="#" class="mb-0">
+                         Reservation
+                     </a>
+                 </li>
+                 <li>
+                     <a href="#" class="mb-0">
+                         Catering
+                     </a>
+                 </li>
+             </ul>
+         </div>
+     </div>
+     <div
+         class="border-top pt-4 text-center d-md-flex justify-content-md-between align-items-center">
+         <ul class="list-inline mb-4 mb-md-0">
+             <li class="list-inline-item"><a href="#!">
+                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 512 512">
+                         <path
+                             d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221v-49.36c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42.02h62.12l-9.92 64.77h-52.2v156.53C398.1 461.85 480 369.18 480 257.35z"
+                             fill-rule="evenodd" clip-rule="evenodd"></path>
+                     </svg>
+                 </a></li>
+             <li class="list-inline-item ms-2"><a href="#!">
+                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 512 512">
+                         <path
+                             d="M496 109.5a201.8 201.8 0 01-56.55 15.3 97.51 97.51 0 0043.33-53.6 197.74 197.74 0 01-62.56 23.5A99.14 99.14 0 00348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 002.54 22.1 280.7 280.7 0 01-203-101.3A95.69 95.69 0 0036 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0135.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 01-25.94 3.4 94.38 94.38 0 01-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0139.5 405.6a203 203 0 01-23.5-1.4A278.68 278.68 0 00166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 00496 109.5z">
+                         </path>
+                     </svg>
+                 </a></li>
+             <li class="list-inline-item ms-2"><a href="#!">
+                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 512 512">
+                         <path
+                             d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z">
+                         </path>
+                         <path
+                             d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z">
+                         </path>
+                     </svg>
+                 </a></li>
+         </ul>
+         <small class="d-block text-muted">© Copyright <script>
+            document.write(new Date().getFullYear())
+
+        </script>. All right reserved. Resto</small>
+     </div>
+ </div>
+</footer>
+
+    <script src="assets/js/theme.bundle.js"></script>
+
+    
+  </body>
+</html>
