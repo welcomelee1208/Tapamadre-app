@@ -7,7 +7,7 @@ import '../../../assets/css/style.min.css'
 import '../../../assets/vendor/css/swiper-bundle.min.css'
 import '../../../assets/vendor/css/aos.css'
 
-import image1 from '../../../assets/img/1920x1000/2.jpg'
+import image1 from '../../../assets/img/600x800/7.jpg'
 import image2 from '../../../assets/img/1140x480/3.jpg'
 import image3 from '../../../assets/img/800x600/2.jpg'
 function BlogDetail() {
@@ -41,7 +41,6 @@ function BlogDetail() {
                                 <Swiper
                                     spaceBetween={50}
                                     slidesPerView={1}
-                                    navigation
                                     autoplay={{
                                         delay: 2500,
                                         disableOnInteraction: false,
@@ -62,12 +61,6 @@ function BlogDetail() {
                             </article>
                             <div className="post-meta">
                                 <ul className="list-unstyled small d-flex align-items-center mb-4 small">
-                                    <li>
-                                        Posted by
-                                        <a href="#" className="text-secondary d-inline-flex align-items-center">
-                                            <span> John</span>
-                                        </a>
-                                    </li>
                                     <li className="mx-3">
                                         On
                                         <a href="#" className="text-secondary d-inline-flex align-items-center">
@@ -121,7 +114,7 @@ function BlogDetail() {
                                         </a>
                                         <div className="post-content">
                                             <p className="mb-0 fw-normal lh-sm">
-                                                <a href="#" className="text-body">
+                                                <a href="/newsevent/4" className="text-body">
                                                     공지사항
                                                 </a>
                                             </p>
