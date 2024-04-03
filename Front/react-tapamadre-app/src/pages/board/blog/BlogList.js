@@ -13,7 +13,7 @@ const BlogList = () => {
     const blogData = [
         {
             id: 1,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/1.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'Event',
@@ -21,7 +21,7 @@ const BlogList = () => {
         },
         {
             id: 2,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/2.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'Event',
@@ -29,7 +29,7 @@ const BlogList = () => {
         },
         {
             id: 3,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/3.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'Event',
@@ -37,7 +37,7 @@ const BlogList = () => {
         },
         {
             id: 4,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/4.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'News',
@@ -45,7 +45,7 @@ const BlogList = () => {
         },
         {
             id: 5,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/5.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'News',
@@ -53,7 +53,7 @@ const BlogList = () => {
         },
         {
             id: 6,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/6.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'News',
@@ -61,7 +61,7 @@ const BlogList = () => {
         },
         {
             id: 7,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/3.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'News',
@@ -69,7 +69,7 @@ const BlogList = () => {
         },
         {
             id: 8,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/4.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'Event',
@@ -77,14 +77,12 @@ const BlogList = () => {
         },
         {
             id: 9,
-            imageUrl: 'assets/img/800x600/1.jpg',
+            imageUrl: 'assets/img/600x800/5.jpg',
             title: 'Tapamadre-newsevent 제목입니다.',
             date: '13 Oct. 2020',
             type: 'Event',
             link: '/newsevent/9',
         },
-
-        // 추가적인 블로그 데이터 추가 가능
     ]
 
     // 타입에 따라 블로그를 필터링하는 함수
@@ -150,7 +148,6 @@ const BlogList = () => {
                         <div className="pb-5 border-bottom">
                             <div className="mb-2">
                                 <a href={blog.link} className="small">
-                                    {' '}
                                     {/* 링크 추가 */}
                                     {blog.type}
                                 </a>

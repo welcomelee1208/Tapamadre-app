@@ -3,12 +3,26 @@ var router = express.Router();
 
 var db = require("../models/index");
 
+var moment = require("moment");
+var multer = require("multer");
 //반환할 api객체
 var apiResult = {
   code: "",
   data: {},
   result: "",
 };
+var storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, "public/upload/");
+  },
+  filename(req, file, cb) {
+    cb(
+      null,
+      `${moment(Date.now()).format("YYYYMMDDHHMMss")}_${file.originalname}`
+    );
+  },
+});
+const upload = multer({ storage: storage });
 /* 이미지 파일첨부 기능 구현/ 관리자만 작성할수있는 권한 부여 필요 */
 
 // 게시글 목록 조회
@@ -34,18 +48,19 @@ router.get("/all", async (req, res) => {
 
 // 게시글 생성
 //http://localhost:3001/blog/create
-router.post("/create", async (req, res) => {
-  // 게시글을 생성하는 코드
+router.post("/create", upload.single("main_img"), async (req, res) => {
   try {
     var title = req.body.title;
     var context = req.body.context;
     var article_type_code = req.body.article_type_code;
     var is_display_code = req.body.is_display_code;
     var ip_address = req.body.ip_address;
-    var main_img_path = req.body.main_img_path;
+    // 파일 정보는 req.file에서 확인할 수 있습니다.
+    var main_img_path = req.file ? req.file.path : ""; // 파일이 업로드되었다면 파일 경로를 저장
     var reg_member_id = req.body.reg_member_id;
     var reg_date = Date.now();
-    var view_count = req.body.view_count;
+    var view_count = req.body.view_count || 0; // view_count가 제공되지 않았다면 기본값으로 0 설정
+
     var newArticle = {
       title,
       context,
@@ -57,6 +72,7 @@ router.post("/create", async (req, res) => {
       reg_date,
       view_count,
     };
+
     var dbBlog = await db.NewsEvent.create(newArticle);
     return res.json({
       code: "200",
@@ -68,7 +84,7 @@ router.post("/create", async (req, res) => {
     return res.json({
       code: "500",
       data: null,
-      result: "Error in blogAPI /all get",
+      result: "Error in blogAPI /create post",
     });
   }
 });
