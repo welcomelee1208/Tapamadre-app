@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import Header from '../../../layout/Header'
+import Footer from '../../../layout/Footer'
 
 const BlogList = () => {
-    // 현재 선택된 필터 상태 관리
-    const [activeFilter, setActiveFilter] = useState('*')
-
-    // 버튼 클릭 핸들러: 선택된 필터를 업데이트
-    const handleFilterClick = (filter) => {
-        setActiveFilter(filter)
-    }
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [activeFilter, setActiveFilter] = useState(searchParams.get('filter') || '*')
 
     // 블로그 데이터 배열
     const blogData = [
@@ -85,93 +83,74 @@ const BlogList = () => {
         },
     ]
 
-    // 타입에 따라 블로그를 필터링하는 함수
-    const filterBlogsByType = (type) => {
-        if (type === '*') {
-            return blogData // 모든 블로그 반환
-        } else {
-            return blogData.filter((blog) => blog.type === type) // 해당 타입의 블로그만 반환
-        }
+    useEffect(() => {
+        // URL의 변경을 감지하여 상태 업데이트
+        const filter = searchParams.get('filter') || '*'
+        setActiveFilter(filter)
+    }, [searchParams])
+
+    const handleFilterClick = (filter) => {
+        setActiveFilter(filter)
+        // URL에 현재 필터 상태 반영
+        setSearchParams({ filter })
     }
 
-    // 필터링된 블로그 데이터
+    const filterBlogsByType = (type) => {
+        return type === '*' ? blogData : blogData.filter((blog) => blog.type === type)
+    }
+
     const filteredBlogs = filterBlogsByType(activeFilter)
 
     return (
-        <div className="container py-7 py-lg-10">
-            {/* 상단버튼영역(All,News,Event) */}
-            <nav className="nav nav-pill filter-nav mb-5 d-flex justify-content-center">
-                <button
-                    type="button"
-                    data-filter="*"
-                    onClick={() => handleFilterClick('*')}
-                    className={`btn btn-outline-secondary rounded-pill btn-sm me-2 ${
-                        activeFilter === '*' ? 'custom-orange' : ''
-                    }`}
-                >
-                    All
-                </button>
-                <button
-                    type="button"
-                    data-filter=".g_News"
-                    onClick={() => handleFilterClick('News')}
-                    className={`btn btn-outline-secondary rounded-pill btn-sm me-2 ${
-                        activeFilter === 'News' ? 'custom-orange' : ''
-                    }`}
-                >
-                    News
-                </button>
-                <button
-                    type="button"
-                    data-filter=".g_Event"
-                    onClick={() => handleFilterClick('Event')}
-                    className={`btn btn-outline-secondary rounded-pill btn-sm ${
-                        activeFilter === 'Event' ? 'custom-orange' : ''
-                    }`}
-                >
-                    Event
-                </button>
-            </nav>
-            <div className="row g-2 isotope-grid" data-isotope>
-                {/* 필터링된 블로그 데이터를 맵 함수를 사용하여 렌더링 */}
-                {filteredBlogs.map((blog) => (
-                    <div key={blog.id} className={`col-md-4 col-sm-6 grid-item g_${blog.type}`}>
-                        <a
-                            href={blog.imageUrl} // 이미지 클릭 시 연결되는 링크 수정
-                            data-title="Lorem ipsum 2022"
-                            data-gallery="gallery"
-                            className="glightbox hover-shadow hover-lift d-block"
+        <>
+            <Header />
+            <div className="container py-7 py-lg-10">
+                <nav className="nav nav-pill filter-nav mb-5 d-flex justify-content-center">
+                    {['*', 'News', 'Event'].map((filterType) => (
+                        <button
+                            key={filterType}
+                            type="button"
+                            onClick={() => handleFilterClick(filterType)}
+                            className={`btn btn-outline-secondary rounded-pill btn-sm me-2 ${
+                                activeFilter === filterType ? 'custom-orange' : ''
+                            }`}
                         >
-                            <img src={blog.imageUrl} alt="" className="img-fluid" />
-                        </a>
-                        {/* 카드하단 제목영역 */}
-                        <div className="pb-5 border-bottom">
-                            <div className="mb-2">
-                                <a href={blog.link} className="small">
-                                    {/* 링크 추가 */}
-                                    {blog.type}
-                                </a>
-                            </div>
-                            <a href={blog.link} className="text-dark">
-                                {' '}
-                                {/* 링크 추가 */}
-                                <h1 className="mb-3 h4 text-reset">{blog.title}</h1>
+                            {filterType === '*' ? 'All' : filterType}
+                        </button>
+                    ))}
+                </nav>
+                <div className="row g-2 isotope-grid">
+                    {filteredBlogs.map((blog) => (
+                        <div key={blog.id} className={`col-md-4 col-sm-6 grid-item g_${blog.type}`}>
+                            <a href={blog.imageUrl} className="glightbox hover-shadow hover-lift d-block">
+                                <img src={blog.imageUrl} alt="" className="img-fluid" />
                             </a>
-                            <div className="post-meta">
-                                <ul className="list-unstyled d-flex align-items-center mb-0 small text-muted">
-                                    <li className="ms-2">
-                                        On{' '}
-                                        <a href="#" className="text-secondary d-inline-flex align-items-center">
-                                            <span>{blog.date}</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <div className="pb-5 border-bottom">
+                                <div className="mb-2">
+                                    <a href={blog.link} className="small">
+                                        {blog.type}
+                                    </a>
+                                </div>
+                                <a href={blog.link} className="text-dark">
+                                    <h1 className="mb-3 h4 text-reset">{blog.title}</h1>
+                                </a>
+                                <div className="post-meta">
+                                    <ul className="list-unstyled d-flex align-items-center mb-0 small text-muted">
+                                        <li className="ms-2">
+                                            On{' '}
+                                            <a href="#" className="text-secondary d-inline-flex align-items-center">
+                                                <span>{blog.date}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 

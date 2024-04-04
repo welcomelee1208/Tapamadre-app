@@ -6,13 +6,15 @@ import 'swiper/css/navigation'
 import '../../../assets/css/style.min.css'
 import '../../../assets/vendor/css/swiper-bundle.min.css'
 import '../../../assets/vendor/css/aos.css'
-
+import Header from '../../../layout/Header'
+import Footer from '../../../layout/Footer'
 import image1 from '../../../assets/img/600x800/7.jpg'
 import image2 from '../../../assets/img/1140x480/3.jpg'
 import image3 from '../../../assets/img/800x600/2.jpg'
 function BlogDetail() {
     return (
         <>
+            <Header />
             <div className="preloader"></div>
             <main id="main" className="position-relative">
                 <svg
@@ -93,12 +95,12 @@ function BlogDetail() {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-muted d-block py-1">
+                                        <a href="/newsevent?filter=News" className="text-muted d-block py-1">
                                             News
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-muted d-block py-1">
+                                        <a href="/newsevent?filter=Event" className="text-muted d-block py-1">
                                             Event
                                         </a>
                                     </li>
@@ -140,6 +142,7 @@ function BlogDetail() {
                     </div>
                 </div>
             </main>
+            <Footer />
         </>
     )
 }
