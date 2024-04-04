@@ -20,6 +20,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         comment: "예약자 성명",
       },
+      reserve_user_email: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        comment: "이메일",
+      },
       reserve_user_telephone: {
         type: DataTypes.STRING(50),
         allowNull: false,

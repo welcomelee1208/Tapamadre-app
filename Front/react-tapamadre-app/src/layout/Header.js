@@ -149,9 +149,11 @@ const Header = (props) => {
                                 aria-label="Close"
                             ></button>
                         </div>
+
                         <div className="offcanvas-body">
                             <ul className="navbar-nav mx-auto">
-                                <li className="dropdown nav-item">
+                                {/* HOME */}
+                                <li className="nav-item">
                                     <Link
                                         to="/"
                                         className="dropdown-toggle nav-link active"
@@ -171,7 +173,8 @@ const Header = (props) => {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="dropdown nav-item">
+                                {/* MENU */}
+                                <li className="nav-item">
                                     <Link
                                         to="/menu"
                                         className="dropdown-toggle nav-link"
@@ -200,47 +203,15 @@ const Header = (props) => {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="dropdown nav-item">
-                                    <Link
-                                        to="#"
-                                        className="dropdown-toggle nav-link"
-                                        data-bs-toggle="dropdown"
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                    >
-                                        NEWS & EVENT
-                                    </Link>
-                                    <ul className="dropdown-menu dropdown-menu-start">
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-sidebar-end.html">
-                                                Sidebar end
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-sidebar-start.html">
-                                                Sidebar start
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-masonry.html">
-                                                Masonry
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-fullwidth.html">
-                                                Full width
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-post.html">
-                                                Single Page
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </li>
+                                {/* NEWS&EVENT */}
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="reservation.html">
+                                    <Link className="nav-link" to="/newsevent">
+                                        NEWSEVENT
+                                    </Link>
+                                </li>
+                                {/* RESERVATION */}
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/reservation">
                                         Reservation
                                     </Link>
                                 </li>
