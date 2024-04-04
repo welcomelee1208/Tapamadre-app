@@ -64,19 +64,19 @@ function BlogDetail() {
                                 <ul className="list-unstyled small d-flex align-items-center mb-4 small">
                                     <li>
                                         Posted by
-                                        <a href="#" className="text-secondary d-inline-flex align-items-center">
+                                        <a to="#" className="text-secondary d-inline-flex align-items-center">
                                             <span> John</span>
                                         </a>
                                     </li>
                                     <li className="mx-3">
                                         On
-                                        <a href="#" className="text-secondary d-inline-flex align-items-center">
+                                        <a to="#" className="text-secondary d-inline-flex align-items-center">
                                             <span> 13 Oct. 2020</span>
                                         </a>
                                     </li>
                                     <li>
                                         In
-                                        <a href="#" className="d-inline-flex align-items-center">
+                                        <a to="#" className="d-inline-flex align-items-center">
                                             <span> News</span>
                                         </a>
                                     </li>
@@ -95,17 +95,17 @@ function BlogDetail() {
                                 <h5 className="mb-3">Categories</h5>
                                 <ul className="list-unstyled">
                                     <li>
-                                        <a href="/newsevent" className="text-muted d-block py-1">
+                                        <a to="/newsevent" className="text-muted d-block py-1">
                                             All
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-muted d-block py-1">
+                                        <a to="#" className="text-muted d-block py-1">
                                             News
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-muted d-block py-1">
+                                        <a to="#" className="text-muted d-block py-1">
                                             Event
                                         </a>
                                     </li>
@@ -116,12 +116,12 @@ function BlogDetail() {
                                 <h5 className="mb-3">Latest Posts</h5>
                                 <ul className="list-unstyled">
                                     <li className="d-flex w-100 mb-4">
-                                        <a href="#">
+                                        <a to="#">
                                             <img src="assets/img/600x800/1.jpg" alt="" className="width-50 me-3" />
                                         </a>
                                         <div className="post-content">
                                             <p className="mb-0 fw-normal lh-sm">
-                                                <a href="#" className="text-body">
+                                                <a to="#" className="text-body">
                                                     공지사항
                                                 </a>
                                             </p>
@@ -129,12 +129,12 @@ function BlogDetail() {
                                         </div>
                                     </li>
                                     <li className="d-flex w-100">
-                                        <a href="#">
+                                        <a to="#">
                                             <img src="assets/img/600x800/2.jpg" alt="" className="width-50 me-3" />
                                         </a>
                                         <div className="post-content">
                                             <p className="mb-0 fw-normal lh-sm">
-                                                <a href="#" className="text-body">
+                                                <a to="#" className="text-body">
                                                     이벤트
                                                 </a>
                                             </p>
