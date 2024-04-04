@@ -5,7 +5,7 @@ import { useFormik } from 'formik'
 import { Link, Navigate } from 'react-router-dom'
 
 const ForgetPassword = () => {
-    return <div></div>
+    return <div>비밀번호찾기</div>
 }
 
 export default ForgetPassword

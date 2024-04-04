@@ -16,6 +16,8 @@ const Inquiry = React.lazy(() => import('../pages/board/QnA'))
 const Login = React.lazy(() => import('../pages/Auth/Login'))
 const Entry = React.lazy(() => import('../pages/Auth/Entry'))
 const ForgetPassword = React.lazy(() => import('../pages/Auth/ForgetPassword'))
+const PrivacyPolicy = React.lazy(() => import('../components/PrivacyPolicy'))
+const TermsOfService = React.lazy(() => import('../components/TermsOfService'))
 
 //인증이 필요한 라우팅 목록
 const authProtectedRoutes = [
@@ -36,6 +38,8 @@ const publicRoutes = [
     { path: '/newsEvent/:idx', component: <NewsEventDetail /> },
     { path: '/reservation', component: <Reservation /> },
     { path: '/inquiry', component: <Inquiry /> },
+    { path: '/PrivacyPolicy', component: <PrivacyPolicy /> },
+    { path: '/TermsOfService', component: <TermsOfService /> },
 ]
 
 //관리자 권한이 필요한 라우팅 목록

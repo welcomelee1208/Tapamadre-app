@@ -7,7 +7,7 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import * as Yup from 'yup'
 
-// 로그인 쪽 컴포넌트
+// 로그인 Header/Footer 컴포넌트
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
@@ -118,7 +118,14 @@ const Entry = () => {
                                                         <label htmlFor="registerEmail">Email</label>
                                                     </div>
                                                     <div>
-                                                        <button className="btn btn-primary mb-1">중복확인</button>
+                                                        <button
+                                                            className="btn btn-primary mb-3"
+                                                            style={{
+                                                                height: '-webkit-fill-available',
+                                                            }}
+                                                        >
+                                                            중복확인
+                                                        </button>
                                                     </div>
                                                 </div>
 
@@ -165,8 +172,9 @@ const Entry = () => {
                                                     />
                                                     <label className="form-check-label" htmlFor="checkForTerms">
                                                         <small>
-                                                            <Link to="#">이용약관</Link>과
-                                                            <Link to="#">개인정보취급방침</Link> 에 동의합니다.
+                                                            <Link to="/TermsOfService">이용약관</Link>과
+                                                            <Link to="/PrivacyPolicy"> 개인정보취급방침</Link>에
+                                                            동의합니다.
                                                         </small>
                                                     </label>
                                                 </div>

@@ -42,7 +42,7 @@ const AuthProtected = (props) => {
 const SwitchRoutes = () => {
     return (
         <React.Fragment>
-            <Suspense fallback={<div>로딩중...</div>}>
+            <Suspense>
                 <Routes>
                     {/* 퍼블릭 페이지 컴포넌트 라우팅 */}
                     {publicRoutes.map((route, idx) => (
