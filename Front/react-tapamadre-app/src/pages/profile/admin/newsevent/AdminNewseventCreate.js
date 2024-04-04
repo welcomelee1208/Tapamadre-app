@@ -1,4 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+
+// text 에디터 toastui/editor 라이브러리
+import { Editor } from '@toast-ui/react-editor'
+import '@toast-ui/editor/dist/toastui-editor.css'
 
 // 셀렉터 choices.css/.js
 import Choices from 'choices.js'
@@ -54,34 +59,51 @@ const AdminNewseventCreate = () => {
                                 <option value="2">소식</option>
                             </select>
                         </div>
+                        <div className="col-sm-1"></div>
+                        <div className=" col-sm-6 col-12 mb-2">
+                            <label className="mb-2">게시여부</label>
+                            <br />
+                            <input className="form-check-input" required type="radio" name="state" value="" checked />
+                            <span className="ms-1">게시함</span>
+                            <input className="form-check-input ms-5" required type="radio" name="state" value="" />
+                            <span className="ms-1">임시 저장</span>
+                        </div>
                     </div>
                 </div>
                 <div className="mb-3">
                     <div className="row">
-                        <div class="col-sm-5 col-12 mb-2">
+                        <div class="col-sm-12 col-12 mb-2">
                             <label className="mb-2">대표 이미지</label>
                             <input type="file" className="form-control" />
                         </div>
-                        <div class="col-sm-2 col-12 mb-2"></div>
-                        <div className=" col-sm-5 col-12 mb-2">
-                            <label className="mb-2">게시여부</label>
-                            <br />
-                            <input class="form-check-input" required type="checkbox" value="" checked />
-                            <span className="ms-1">게시함</span>
-                        </div>
+                        <div className="col-sm-2 col-12 mb-2"></div>
                     </div>
                 </div>
                 <div className="mb-4">
                     <label className="mb-2">내용</label>
-                    <textarea
-                        className="form-control"
-                        style={{ height: '200px' }}
-                        placeholder="내용을 입력하세요"
-                    ></textarea>
+                    <Editor
+                        previewStyle="tap" // 마크다운 미리보기 화면을 나타내는 방법
+                        initialEditType="wysiwyg" // 기본 에디터 타입 (마크다운 또는 위지윅)
+                        placeholder="글을 작성해 주세요" // 글이 없을 때 placeholder
+                        height="450px" // 높이 지정
+                        initialValue=""
+                        toolbarItems={[
+                            ['bold', 'italic', 'strike'],
+                            ['hr'],
+                            ['image', 'link'],
+                            ['ul', 'ol'],
+                            ['code', 'codeblock'],
+                        ]}
+                    />
                 </div>
                 <div className="text-end">
-                    <button type="submit" className="btn btn-info btn-hover-scale btn-lg w-100">
-                        <span>생성</span>
+                    <Link to="/admin/newsevent">
+                        <button type="button" className="btn btn-outline-dark">
+                            <span>목록</span>
+                        </button>
+                    </Link>
+                    <button type="submit" className="btn btn-primary ms-4">
+                        <span>게시</span>
                     </button>
                 </div>
             </form>

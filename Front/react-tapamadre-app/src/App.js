@@ -1,9 +1,11 @@
+// 기존 App.js ==> routes/routes.js로 이동중 03.25
+
 import './App.css'
 import React, { Suspense } from 'react'
 
 // 공용 Layout
-import Footer from './components/Footer'
-import Header from './components/Header'
+import Footer from './layout/Footer'
+import Header from './layout/Header'
 
 //라우팅 컴포넌트
 import SwitchRoutes from './routes'

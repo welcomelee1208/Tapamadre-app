@@ -348,7 +348,7 @@ const AdminReservationList = () => {
                 </Row>
             </Form>
 
-            <DataTable columns={columns} data={data} selectableRows pagination onSelectedRowsChange={handleChange} />
+            <DataTable columns={columns} data={data} highlightOnHover noTableHead pagination />
         </>
     )
 }

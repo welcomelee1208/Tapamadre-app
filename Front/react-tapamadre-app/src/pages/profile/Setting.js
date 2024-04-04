@@ -25,7 +25,7 @@ const Setting = () => {
                 <div className="container py-7 py-lg-10 position-relative z-index-1">
                     <div className="row">
                         {/* 컨텐츠영역 */}
-                        <div className="col-md-9 mb-6 mb-md-0 order-md-2 pb-3" style={{ border: '1px solid #E0E0E0' }}>
+                        <div className="col-md-9 mb-6 mb-md-0 order-md-2 pb-3">
                             <div className="pt-5 aos-init aos-animate" data-aos="fade-up" data-aos-duration="400">
                                 <Outlet />
                             </div>

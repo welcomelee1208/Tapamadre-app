@@ -1,3 +1,3 @@
-import {jarallax,jarallaxVideo} from "jarallax";
-jarallaxVideo();
-jarallax(document.querySelectorAll(".jarallax"));
+import { jarallax, jarallaxVideo } from 'jarallax'
+jarallaxVideo()
+jarallax(document.querySelectorAll('.jarallax'))

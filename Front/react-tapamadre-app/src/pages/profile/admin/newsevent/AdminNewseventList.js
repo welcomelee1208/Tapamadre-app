@@ -1,5 +1,6 @@
 // AdminBlogList;
 import React, { useRef, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
@@ -16,7 +17,8 @@ const columns = [
         name: '카테고리',
         selector: (row) => row.category,
         sortable: true,
-        wrap: true,
+
+        width: '100px',
     },
     {
         name: '제목',
@@ -30,13 +32,9 @@ const columns = [
         selector: (row) => row.is_display_code,
         sortable: true,
         wrap: true,
+        center: true,
+        width: '100px',
         format: (row) => (row.is_display_code === 1 ? 'O' : 'X'),
-    },
-    {
-        name: '조회수',
-        selector: (row) => row.view_count,
-        sortable: true,
-        minWidth: '80px',
     },
     {
         name: '작성일',
@@ -52,6 +50,13 @@ const columns = [
         sortable: true,
         wrap: true,
         width: '110px',
+    },
+    {
+        name: '조회수',
+        selector: (row) => row.view_count,
+        sortable: true,
+        center: true,
+        width: '90px',
     },
 ]
 
@@ -171,6 +176,7 @@ const data = [
 // const keyField =
 
 const AdminNewseventList = () => {
+    const navigate = useNavigate()
     const selectRef = useRef(null)
 
     // 테이블 선택 이벤트 핸들러
@@ -206,69 +212,19 @@ const AdminNewseventList = () => {
     // row : 해당 이벤트의 열 데이터(object)
     const handleLinkToUpdate = (row, event) => {
         console.log(row)
+        navigate('update')
     }
 
     return (
         <>
-            <h2>News / Event</h2>
-            <Form style={{ border: '#f0f3ee 0.5px solid', padding: '12px 8px 4px' }}>
-                <Row>
-                    {/* 카테고리 */}
-                    <div className="col-sm-3 col-12 mb-2">
-                        <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">카테고리 선택</option>
-                            <option value="0">공지사항</option>
-                            <option value="1">이벤트</option>
-                            <option value="2">소식</option>
-                        </select>
-                    </div>
-
-                    <div className="col-sm-9 col-12 mb-2">
-                        <input type="text" req id="reservationName" class="form-control" placeholder="제목" />
-                    </div>
-                </Row>
-
-                <Row className="mb-2">
-                    <div className="col-sm-3 col-12 mb-2 mb-sm-0">
-                        <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">- 예약 종류 -</option>
-                            <option value="0">일반 예약</option>
-                            <option value="1">단체 예약</option>
-                            <option value="2">대실 예약</option>
-                        </select>
-                    </div>
-                    <div className="col-sm-3 col-12 mb-2 mb-sm-0">
-                        <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">- 예약 종류 -</option>
-                            <option value="0">일반 예약</option>
-                            <option value="1">단체 예약</option>
-                            <option value="2">대실 예약</option>
-                        </select>
-                    </div>
-                    <div className="col-sm-6 col-12 mb-2 mb-sm-0" style={{ textAlign: 'right' }}>
-                        <button type="submit" class="btn btn-primary mb-1">
-                            검색
-                        </button>
-                    </div>
-                </Row>
-            </Form>
-
-            <DataTable
-                columns={columns}
-                data={data}
-                selectableRows
-                pagination
-                onSelectedRowsChange={handleChange}
-                onRowClicked={handleLinkToUpdate}
-            />
-            <div style={{ textAlign: 'right' }}>
-                <button type="button" class="btn btn-danger mb-1  me-3">
-                    선택 삭제
-                </button>
-                <button type="submit" class="btn btn-primary mb-1">
+            <h2 className="text-center">News / Event</h2>
+            <div className="text-end">
+                <button type="button" class="btn btn-primary mb-1" onClick={() => navigate('create')}>
                     생성
                 </button>
             </div>
+
+            <DataTable columns={columns} data={data} highlightOnHover pagination onRowClicked={handleLinkToUpdate} />
         </>
     )
 }
