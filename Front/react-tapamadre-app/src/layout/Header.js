@@ -202,7 +202,7 @@ const Header = (props) => {
                                 </li>
                                 <li className="dropdown nav-item">
                                     <Link
-                                        to="#"
+                                        to="/newsevent"
                                         className="dropdown-toggle nav-link"
                                         data-bs-toggle="dropdown"
                                         role="button"
@@ -211,36 +211,9 @@ const Header = (props) => {
                                     >
                                         NEWS & EVENT
                                     </Link>
-                                    <ul className="dropdown-menu dropdown-menu-start">
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-sidebar-end.html">
-                                                Sidebar end
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-sidebar-start.html">
-                                                Sidebar start
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-masonry.html">
-                                                Masonry
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-fullwidth.html">
-                                                Full width
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="blog-post.html">
-                                                Single Page
-                                            </Link>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="reservation.html">
+                                    <Link className="nav-link" to="/reservation">
                                         Reservation
                                     </Link>
                                 </li>
