@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
+import logo from '../assets/img/logo.png'
 
 const Header = () => {
     return (
@@ -26,9 +27,9 @@ const Header = () => {
             {/* <body> */}
             <nav className="navbar py-4 py-lg-3 navbar-expand border-bottom bg-white navbar-light w-100">
                 <div className="container">
-                    <a href="/" className="navbar-brand width-80">
-                        {/* <img src="assets/img/logo.png" alt="" className="img-fluid" /> */}
-                        <img src="assets/img/logo/logo-dark.svg" alt="" className="img-fluid" />
+                    <a href="/" className="navbar-brand width-100">
+                        <img src={logo} alt="" className="img-fluid" />
+                        {/* <img src="assets/img/logo/logo-dark.svg" alt="" className="img-fluid" /> */}
                     </a>
                     <div className="d-flex align-items-center ms-auto">
                         <small className="me-3 text-muted"> Book Now</small>

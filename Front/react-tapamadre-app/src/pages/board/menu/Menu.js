@@ -7,6 +7,9 @@ import MenuFood from './MenuFood'
 import MenuDrink from './MenuDrink'
 import MenuSet from './MenuSet'
 
+import Header from '../../../layout/Header'
+import Footer from '../../../layout/Footer'
+
 const Menu = () => {
     return (
         <div>
@@ -29,6 +32,7 @@ const Menu = () => {
                 <title>Resto</title>
             </Helmet>
             <body>
+                <Header />
                 {/* <!--Preloader Begins--> */}
                 <div className="preloader"></div>
                 {/* <!--Preloader Ends--> */}
@@ -107,6 +111,7 @@ const Menu = () => {
                     </g>
                 </svg> */}
             </body>
+            <Footer />
         </div>
     )
 }
