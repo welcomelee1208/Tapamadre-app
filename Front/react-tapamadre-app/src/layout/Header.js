@@ -57,8 +57,8 @@ const Header = (props) => {
             >
                 <div className="container">
                     <Link className="navbar-brand" to="index.html">
-                        <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" />
-                        <img src="assets/img/logo/logo-dark.svg" alt="Logo" className="img-fluid logo-pinned" />
+                        <img src="assets/img/svg/logo.png" alt="Logo" className="img-fluid logo-default" />
+                        <img src="assets/img/svg/logo.png" alt="Logo" className="img-fluid logo-pinned" />
                     </Link>
                     <div className="d-flex align-items-center order-lg-2 navbar-icons">
                         <Button

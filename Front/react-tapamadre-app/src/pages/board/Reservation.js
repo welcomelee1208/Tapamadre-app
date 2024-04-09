@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+
 import flatpickr from 'flatpickr'
 import Choices from 'choices.js'
 import 'flatpickr/dist/flatpickr.min.css'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
 
-const Reservation = () => {
+const Reservation = (args) => {
     useEffect(() => {
         initializeFlatpickr()
         initializeChoices()
@@ -42,6 +44,19 @@ const Reservation = () => {
         event.preventDefault() // Prevents the default form submission behavior
         // Handle form submission logic here
         // You can access form field values using event.target.<fieldName>.value
+    }
+    const [modal, setModal] = useState(false)
+    const [nestedModal, setNestedModal] = useState(false)
+    const [closeAll, setCloseAll] = useState(false)
+
+    const toggle = () => setModal(!modal)
+    const toggleNested = () => {
+        setNestedModal(!nestedModal)
+        setCloseAll(false)
+    }
+    const toggleAll = () => {
+        setNestedModal(!nestedModal)
+        setCloseAll(true)
     }
 
     return (
@@ -142,13 +157,20 @@ const Reservation = () => {
                                 </div>
                                 {/* 코멘트 */}
                                 <div className="row mb-3">
-                                    <div className=" col-12">
-                                        <label className="mb-2">예약자 코멘트</label>
-                                        <input type="text" id="reservationName" className="form-control" />
+                                    <div className="col-12">
+                                        <label className="mb-2" htmlFor="reservationName">
+                                            예약자 코멘트
+                                        </label>
+                                        <textarea id="reservationName" className="form-control" rows="4"></textarea>
                                     </div>
                                 </div>
+
                                 <div className="text-end">
-                                    <button type="submit" className="btn btn-info btn-hover-scale btn-lg w-100">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-info btn-hover-scale btn-lg w-100"
+                                        onClick={toggle}
+                                    >
                                         <span>Submit</span>
                                     </button>
                                 </div>
@@ -173,7 +195,36 @@ const Reservation = () => {
             <script src="assets/vendor/flatpickr.min.js"></script>
             <script src="assets/vendor/choices.min.js"></script>
             <script>{/* Script to initialize flatpickr and Choices */}</script>
-
+            <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalBody>
+                    밑에버튼을 눌러서 예약정보를 확인해주세요.
+                    <br />
+                    <Button color="success" onClick={toggleNested}>
+                        예약 정보 확인
+                    </Button>
+                    <Modal isOpen={nestedModal} toggle={toggleNested} onClosed={closeAll ? toggle : undefined}>
+                        <ModalHeader>사용자 예약 확인</ModalHeader>
+                        <ModalBody>일자: 시간: 인원수: 예약</ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" onClick={toggleNested}>
+                                수정
+                            </Button>{' '}
+                            <Button color="secondary" onClick={toggleAll}>
+                                예약신청 확정하기
+                            </Button>
+                        </ModalFooter>
+                    </Modal>
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={toggle}>
+                        수정
+                    </Button>{' '}
+                    <Button color="secondary" onClick={toggle}>
+                        신청
+                    </Button>
+                </ModalFooter>
+            </Modal>
             <Footer />
         </>
     )
