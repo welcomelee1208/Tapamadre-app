@@ -3,6 +3,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import Header from '../../layout/Header'
+import Footer from '../../layout/Footer'
 
 const Home = () => {
     return (
@@ -27,6 +29,7 @@ const Home = () => {
             </Helmet>
             {/* <body> */}
             {/* <!--Page hero--> */}
+            <Header />
             <section className="position-relative bg-dark text-white h-100 overflow-hidden jarallax" data-speed="0.2">
                 <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
                 <div className="container h-100 align-items-end d-flex w-100 text-white py-4 zindex-2 position-relative">
@@ -227,6 +230,7 @@ const Home = () => {
                     </div>
                 </section>
             </main>
+            <Footer />
             <script src="assets/js/theme.bundle.js"></script>
             {/* </body> */}
         </div>

@@ -5,8 +5,17 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { createGlobalStyle } from 'styled-components'
 
+import Header from '../../layout/Header'
+import Footer from '../../layout/Footer'
+
 const Reservation = () => {
-    return <div></div>
+    return (
+        <div>
+            <Header />
+            <h1>예약</h1>
+            <Footer />
+        </div>
+    )
 }
 
 export default Reservation
