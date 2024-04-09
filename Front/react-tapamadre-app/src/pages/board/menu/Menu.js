@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import MenuFood from './MenuFood'
 import MenuDrink from './MenuDrink'
 import MenuSet from './MenuSet'
+
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
 const Menu = () => {
@@ -35,6 +36,38 @@ const Menu = () => {
                     {/* <!--Preloader Begins--> */}
                     <div className="preloader"></div>
                     {/* <!--Preloader Ends--> */}
+=======
+
+import Header from '../../../layout/Header'
+import Footer from '../../../layout/Footer'
+
+const Menu = () => {
+    return (
+        <div>
+            <Helmet>
+                {/* Google Fonts */}
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
+                    rel="stylesheet"
+                />
+                {/* Bootstrap Icons */}
+                <link
+                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+                    rel="stylesheet"
+                />
+                {/* Main style */}
+                <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
+                {/* Custom style (if needed) */}
+                <link rel="stylesheet" href="assets/css/custom.css" />
+                {/* Title */}
+                <title>Resto</title>
+            </Helmet>
+            <body>
+                <Header />
+                {/* <!--Preloader Begins--> */}
+                <div className="preloader"></div>
+                {/* <!--Preloader Ends--> */}
+
 
                     {/* 카트 모달 코드 삭제처리했습니다  */}
 
@@ -109,10 +142,11 @@ const Menu = () => {
                         ></path>
                     </g>
                 </svg> */}
-                </body>
-            </div>
+
+            </body>
             <Footer />
-        </>
+        </div>
+
     )
 }
 

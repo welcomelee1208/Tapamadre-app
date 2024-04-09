@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import logo from '../assets/img/logo.png'
 
 // 추가참조
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // 리덕스 액션함수 참조하기
@@ -31,6 +32,8 @@ const Header = (props) => {
     // LayOut 전역상태내의 activeTab 전역상태값을 props에서 추출하여 현재의  전역상태내 activeTab 값을 추출한다.
     const activeTab = props.activeTab
 
+    const dispatch = useDispatch()
+
     return (
         <React.Fragment>
             <Helmet>
@@ -56,9 +59,11 @@ const Header = (props) => {
                 style={{ position: 'relative' }}
             >
                 <div className="container">
-                    <Link className="navbar-brand" to="index.html">
-                        <img src="assets/img/svg/logo.png" alt="Logo" className="img-fluid logo-default" />
-                        <img src="assets/img/svg/logo.png" alt="Logo" className="img-fluid logo-pinned" />
+
+                    <Link className="navbar-brand" to="/">
+                        <img src={logo} alt="Logo" className="img-fluid logo-default" />
+                        {/* <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" />
+
                     </Link>
                     <div className="d-flex align-items-center order-lg-2 navbar-icons">
                         <Button
@@ -163,13 +168,6 @@ const Header = (props) => {
                                     >
                                         Home
                                     </Link>
-                                    <ul className="dropdown-menu dropdown-menu-start">
-                                        <li>
-                                            <Link className="dropdown-item" to="index.html">
-                                                Default Parallax
-                                            </Link>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li className="dropdown nav-item">
                                     <Link
@@ -180,29 +178,31 @@ const Header = (props) => {
                                         aria-haspopup="true"
                                         aria-expanded="false"
                                     >
-                                        Menu
+                                        MENU
                                     </Link>
                                     <ul className="dropdown-menu dropdown-menu-start">
                                         <li>
-                                            <Link className="dropdown-item" to="menu-simple.html">
-                                                Menu simple
+                                            <Link className="dropdown-item" to="/food">
+                                                FOOD
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="menu-tiles.html">
-                                                Menu tiles
+                                            <Link className="dropdown-item" to="/drink">
+                                                DRINK
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="menu-grid.html">
-                                                Menu grid
+                                            <Link className="dropdown-item" to="/set">
+                                                SET MENU
                                             </Link>
                                         </li>
                                     </ul>
                                 </li>
                                 <li className="dropdown nav-item">
                                     <Link
+
                                         to="/newsevent"
+
                                         className="dropdown-toggle nav-link"
                                         data-bs-toggle="dropdown"
                                         role="button"
@@ -210,7 +210,19 @@ const Header = (props) => {
                                         aria-expanded="false"
                                     >
                                         NEWS & EVENT
-                                    </Link>
+
+                                    {/* <ul className="dropdown-menu dropdown-menu-start">
+                                        <li>
+                                            <Link className="dropdown-item" to="/blogDetail">
+                                                Sidebar end
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/blogList">
+                                                Sidebar start
+                                            </Link>
+                                        </li>
+
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/reservation">
@@ -219,7 +231,7 @@ const Header = (props) => {
                                 </li>
                                 {/* Q & A */}
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/inquiries">
+                                    <Link className="nav-link" to="/inquiry">
                                         Q & A
                                     </Link>
                                 </li>
@@ -234,5 +246,12 @@ const Header = (props) => {
     )
 }
 
+const mapStatetoProps = (state) => {
+    return {
+        ...state.Layout,
+    }
+}
+
+export default connect(mapStatetoProps)(Header)
 // export default connect(null, { setActiveTab })(Header)
-export default Header
+// export default Header

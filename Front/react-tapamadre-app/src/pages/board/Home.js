@@ -5,41 +5,40 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
+
+
 const Home = () => {
     return (
-        <>
+        <div>
+            <Helmet>
+                {/* Google Fonts */}
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
+                    rel="stylesheet"
+                />
+                {/* Bootstrap Icons */}
+                <link
+                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+                    rel="stylesheet"
+                />
+                {/* Main style */}
+                <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
+                {/* Custom style (if needed) */}
+                <link rel="stylesheet" href="assets/css/custom.css" />
+                {/* Title */}
+                <title>Resto</title>
+            </Helmet>
+            {/* <body> */}
+            {/* <!--Page hero--> */}
             <Header />
-            <div>
-                <Helmet>
-                    {/* Google Fonts */}
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
-                        rel="stylesheet"
-                    />
-                    {/* Bootstrap Icons */}
-                    <link
-                        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-                        rel="stylesheet"
-                    />
-                    {/* Main style */}
-                    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
-                    {/* Custom style (if needed) */}
-                    <link rel="stylesheet" href="assets/css/custom.css" />
-                    {/* Title */}
-                    <title>Resto</title>
-                </Helmet>
-                {/* <body> */}
-                {/* <!--Page hero--> */}
-                <section
-                    className="position-relative bg-dark text-white h-100 overflow-hidden jarallax"
-                    data-speed="0.2"
-                >
-                    <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
-                    <div className="container h-100 align-items-end d-flex w-100 text-white py-4 zindex-2 position-relative">
-                        <div className="row w-100">
-                            <div className="col-xl-9 text-center mx-auto">
-                                <h1 className="display-1 mb-5">Welcome to Tapamadre</h1>
-                                {/* <div className="mb-7 mb-lg-8">
+            <section className="position-relative bg-dark text-white h-100 overflow-hidden jarallax" data-speed="0.2">
+                <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+                <div className="container h-100 align-items-end d-flex w-100 text-white py-4 zindex-2 position-relative">
+                    <div className="row w-100">
+                        <div className="col-xl-9 text-center mx-auto">
+                            <h1 className="display-1 mb-5">Welcome to Tapamadre</h1>
+                            {/* <div className="mb-7 mb-lg-8">
+
                                     <Link href="#main" data-scroll className="btn btn-primary btn-hover-scale btn-lg">
                                         <span> Explore Menu</span>
                                     </Link>
@@ -235,13 +234,15 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </main>
-                <script src="assets/js/theme.bundle.js"></script>
-                {/* </body> */}
-            </div>
+
+                    </div>
+                </section>
+            </main>
             <Footer />
-        </>
+            <script src="assets/js/theme.bundle.js"></script>
+            {/* </body> */}
+        </div>
+
     )
 }
 
