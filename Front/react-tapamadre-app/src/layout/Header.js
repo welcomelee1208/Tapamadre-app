@@ -49,8 +49,7 @@ const Header = (props) => {
                 />
                 {/* Main style */}
                 <link rel="stylesheet" to="assets/css/style.min.css" id="switchThemeStyle" />
-                {/* Custom style (if needed) */}
-                <link rel="stylesheet" to="assets/css/custom.css" />
+
                 {/* Title */}
             </Helmet>
             {/* <body> */}
