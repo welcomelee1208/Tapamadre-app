@@ -12,6 +12,8 @@ const Home = () => {
         <div>
             <Helmet>
                 {/* Google Fonts */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
                     rel="stylesheet"
@@ -21,10 +23,15 @@ const Home = () => {
                     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
                     rel="stylesheet"
                 />
+                {/* <!--aos animation--> */}
+                {/* <link rel="stylesheet" href="../../assets/vendor/css/aos.css" /> */}
+                {/* <!--Bootstrap icons--> */}
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+                />
                 {/* Main style */}
-                <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
-                {/* Custom style (if needed) */}
-                <link rel="stylesheet" href="assets/css/custom.css" />
+                <link rel="stylesheet" href="../../assets/css/style.min.css" id="switchThemeStyle" />
                 {/* Title */}
                 <title>Resto</title>
             </Helmet>
@@ -32,7 +39,7 @@ const Home = () => {
             {/* <!--Page hero--> */}
             <Header />
             <section className="position-relative bg-dark text-white h-100 overflow-hidden jarallax" data-speed="0.2">
-                <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+                <img src="../../assets/img/main.png" alt="" className="jarallax-img opacity-25" />
                 <div className="container h-100 align-items-end d-flex w-100 text-white py-4 zindex-2 position-relative">
                     <div className="row w-100">
                         <div className="col-xl-9 text-center mx-auto">
@@ -49,49 +56,49 @@ const Home = () => {
                     {/* <!--End verticle line--> */}
                 </section>
 
-                <main id="main">
-                    <section className="position-relative overflow-hidden">
-                        <svg
-                            className="text-light position-absolute top-50 start-100 translate-middle"
-                            width="300"
-                            height="600"
-                            preserveAspectRatio="none"
-                            viewBox="0 0 120 241"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M120 240.058C88.174 240.058 57.6515 227.415 35.1472 204.91C12.6428 182.406 -8.85339e-07 151.884 0 120.058C8.85339e-07 88.2316 12.6428 57.7092 35.1472 35.2048C57.6516 12.7004 88.174 0.0576168 120 0.0576172V22.7206C94.1846 22.7206 69.4266 32.9757 51.1724 51.23C32.9181 69.4842 22.663 94.2422 22.663 120.058C22.663 145.873 32.9181 170.631 51.1724 188.885C69.4266 207.139 94.1846 217.395 120 217.395L120 240.058Z"
-                                fill="currentColor"
-                            />
-                        </svg>
+            <main id="main">
+                <section className="position-relative overflow-hidden">
+                    {/* <svg
+                        className="text-light position-absolute top-50 start-100 translate-middle"
+                        width="300"
+                        height="600"
+                        preserveAspectRatio="none"
+                        viewBox="0 0 120 241"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M120 240.058C88.174 240.058 57.6515 227.415 35.1472 204.91C12.6428 182.406 -8.85339e-07 151.884 0 120.058C8.85339e-07 88.2316 12.6428 57.7092 35.1472 35.2048C57.6516 12.7004 88.174 0.0576168 120 0.0576172V22.7206C94.1846 22.7206 69.4266 32.9757 51.1724 51.23C32.9181 69.4842 22.663 94.2422 22.663 120.058C22.663 145.873 32.9181 170.631 51.1724 188.885C69.4266 207.139 94.1846 217.395 120 217.395L120 240.058Z"
+                            fill="currentColor"
+                        />
+                    </svg> */}
 
-                        <div className="container py-7 py-lg-10 position-relative z-index-1">
-                            <div className="row justify-content-around align-items-center">
-                                <div
-                                    className="col-lg-6 col-xl-4 order-last order-lg-1"
-                                    data-aos="fade-up"
-                                    data-aos-delay="50"
-                                >
-                                    <p className="mb-3 text-primary fw-bold small text-uppercase">fresh food</p>
-                                    <h1 className="mb-5 display-5 position-relative me-lg-n9">
-                                        Made with natural ingredients
-                                    </h1>
-                                    <p className="mb-5 ps-4 border-2 border-info border-start position-relative me-lg-n5">
-                                        Lorem massa cras eget ut bibendum. Utoh pharetra orci est pretium. Id purus sed
-                                        ornare ridiculus sem diam ultricies aliquam cras.
-                                    </p>
-                                    <img src="assets/img/sign.png" className="d-block" alt="" />
-                                </div>
-                                <div
-                                    className="col-lg-6 col-xl-5 order-1 order-lg-last position-relative mb-5 mb-lg-0"
-                                    data-aos="fade-up"
-                                    data-aos-delay="100"
-                                >
-                                    {/* <!-- Image --> */}
-                                    <div className="position-relative">
-                                        <img src="assets/img/intro.png" alt="" className="img-fluid" />
-                                    </div>
+                    <div className="container py-7 py-lg-10 position-relative z-index-1">
+                        <div className="row justify-content-around align-items-center">
+                            <div
+                                className="col-lg-6 col-xl-4 order-last order-lg-1"
+                                data-aos="fade-up"
+                                data-aos-delay="50"
+                            >
+                                <p className="mb-3 text-primary fw-bold small text-uppercase">fresh food</p>
+                                <h1 className="mb-5 display-5 position-relative me-lg-n9">
+                                    Made with natural ingredients
+                                </h1>
+                                <p className="mb-5 ps-4 border-2 border-info border-start position-relative me-lg-n5">
+                                    Lorem massa cras eget ut bibendum. Utoh pharetra orci est pretium. Id purus sed
+                                    ornare ridiculus sem diam ultricies aliquam cras.
+                                </p>
+                                <img src="assets/img/sign.png" className="d-block" alt="" />
+                            </div>
+                            <div
+                                className="col-lg-6 col-xl-5 order-1 order-lg-last position-relative mb-5 mb-lg-0"
+                                data-aos="fade-up"
+                                data-aos-delay="100"
+                            >
+                                {/* <!-- Image --> */}
+                                <div className="position-relative">
+                                    <img src="../" alt="" className="img-fluid" />
+
                                 </div>
                             </div>
                         </div>
