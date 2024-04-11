@@ -43,9 +43,10 @@ const Header = (props) => {
                     rel="stylesheet"
                 />
                 {/* Main style */}
-                <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
-                {/* Custom style (if needed) */}
-                <link rel="stylesheet" href="assets/css/custom.css" />
+
+                <link rel="stylesheet" to="assets/css/style.min.css" id="switchThemeStyle" />
+
+
                 {/* Title */}
             </Helmet>
             <nav

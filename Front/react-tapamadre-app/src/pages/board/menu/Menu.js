@@ -26,8 +26,6 @@ const Menu = () => {
                 />
                 {/* Main style */}
                 <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
-                {/* Custom style (if needed) */}
-                <link rel="stylesheet" href="assets/css/custom.css" />
                 {/* Title */}
                 <title>Resto</title>
             </Helmet>
