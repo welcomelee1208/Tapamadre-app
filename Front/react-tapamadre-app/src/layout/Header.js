@@ -46,7 +46,6 @@ const Header = (props) => {
 
                 <link rel="stylesheet" to="assets/css/style.min.css" id="switchThemeStyle" />
 
-
                 {/* Title */}
             </Helmet>
             <nav
@@ -101,8 +100,8 @@ const Header = (props) => {
                                     id="dropdown-search"
                                 >
                                     <h5 className="mb-3">Tell us what you're looking for</h5>
-                                    <form>
-                                        <input
+                                    {/* <form>
+                                        {/* <input
                                             type="text"
                                             className="form-control form-control-lg"
                                             placeholder="Example: Dinner, Wine, Pizza"
@@ -132,7 +131,7 @@ const Header = (props) => {
                                                 </Link>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -162,29 +161,29 @@ const Header = (props) => {
                                     </Link>
                                 </li>
                                 <li className="dropdown nav-item">
-                                    <Link
-                                        to="/menu"
+                                    <div
                                         className="dropdown-toggle nav-link"
-                                        data-bs-toggle="dropdown" // 여기 수정
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
+                                        onClick={() => setDropdownOpen(!dropdownOpen)}
                                     >
                                         MENU
-                                    </Link>
-                                    <ul className="dropdown-menu dropdown-menu-start">
+                                    </div>
+                                    <ul
+                                        className={classnames('dropdown-menu dropdown-menu-start', {
+                                            show: dropdownOpen,
+                                        })}
+                                    >
                                         <li>
-                                            <Link className="dropdown-item" to="/food">
+                                            <Link className="dropdown-item" to="/menufood">
                                                 FOOD
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/drink">
+                                            <Link className="dropdown-item" to="/menudrink">
                                                 DRINK
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/set">
+                                            <Link className="dropdown-item" to="/menuset">
                                                 SET MENU
                                             </Link>
                                         </li>
