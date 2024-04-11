@@ -9,37 +9,6 @@ import MenuSet from './MenuSet'
 
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
-const Menu = () => {
-    return (
-        <>
-            <Header />
-            <div>
-                <Helmet>
-                    {/* Google Fonts */}
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
-                        rel="stylesheet"
-                    />
-                    {/* Bootstrap Icons */}
-                    <link
-                        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-                        rel="stylesheet"
-                    />
-                    {/* Main style */}
-                    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
-                    {/* Custom style (if needed) */}
-                    <link rel="stylesheet" href="assets/css/custom.css" />
-                    {/* Title */}
-                    <title>Resto</title>
-                </Helmet>
-                <body>
-                    {/* <!--Preloader Begins--> */}
-                    <div className="preloader"></div>
-                    {/* <!--Preloader Ends--> */}
-=======
-
-import Header from '../../../layout/Header'
-import Footer from '../../../layout/Footer'
 
 const Menu = () => {
     return (
@@ -68,11 +37,10 @@ const Menu = () => {
                 <div className="preloader"></div>
                 {/* <!--Preloader Ends--> */}
 
+                {/* 카트 모달 코드 삭제처리했습니다  */}
 
-                    {/* 카트 모달 코드 삭제처리했습니다  */}
-
-                    {/* 상단 header 디자인 부분 */}
-                    {/* <section className="position-relative overflow-hidden bg-light">
+                {/* 상단 header 디자인 부분 */}
+                {/* <section className="position-relative overflow-hidden bg-light">
                     <div className="container pt-8 pb-6 text-center position-relative">
                         <div className="row pt-4 pt-lg-6 justify-content-center text-center">
                             <div className="col-lg-8 col-md-10">
@@ -83,16 +51,16 @@ const Menu = () => {
                     </div>
                 </section> */}
 
-                    {/* <!--Main content--> */}
-                    <main id="main">
-                        <div class="container py-7 py-lg-5 position-relative z-index-1">
-                            <MenuFood></MenuFood>
-                            <hr></hr>
-                            <MenuDrink></MenuDrink>
-                            <hr></hr>
-                            <MenuSet></MenuSet>
+                {/* <!--Main content--> */}
+                <main id="main">
+                    <div class="container py-7 py-lg-5 position-relative z-index-1">
+                        <MenuFood></MenuFood>
+                        <hr></hr>
+                        <MenuDrink></MenuDrink>
+                        <hr></hr>
+                        <MenuSet></MenuSet>
 
-                            {/* 메뉴판 pdf 다운로드 버튼
+                        {/* 메뉴판 pdf 다운로드 버튼
                                     <div className="text-center pt-5">
                                         <Link href="#!" className="btn btn-success px-4 py-3 rounded-pill">
                                             <div className="d-flex align-items-center">
@@ -113,11 +81,11 @@ const Menu = () => {
                                             </div>
                                         </Link>
                                     </div> */}
-                        </div>
-                    </main>
+                    </div>
+                </main>
 
-                    {/* 하단 footer 디자인 부분 */}
-                    {/* <svg
+                {/* 하단 footer 디자인 부분 */}
+                {/* <svg
                     preserveAspectRatio="none"
                     width="100%"
                     height="64"
@@ -142,11 +110,9 @@ const Menu = () => {
                         ></path>
                     </g>
                 </svg> */}
-
             </body>
             <Footer />
         </div>
-
     )
 }
 
