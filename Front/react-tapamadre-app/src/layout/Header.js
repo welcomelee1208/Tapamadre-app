@@ -58,10 +58,11 @@ const Header = (props) => {
                 style={{ position: 'relative' }}
             >
                 <div className="container">
+
                     <Link className="navbar-brand" to="/">
                         <img src={logo} alt="Logo" className="img-fluid logo-default" />
                         {/* <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" />
-                        <img src="assets/img/logo/logo-dark.svg" alt="Logo" className="img-fluid logo-pinned" /> */}
+
                     </Link>
                     <div className="d-flex align-items-center order-lg-2 navbar-icons">
                         <Button
@@ -198,7 +199,9 @@ const Header = (props) => {
                                 </li>
                                 <li className="dropdown nav-item">
                                     <Link
-                                        to="/newsEvent"
+
+                                        to="/newsevent"
+
                                         className="dropdown-toggle nav-link"
                                         data-bs-toggle="dropdown"
                                         role="button"
@@ -206,7 +209,7 @@ const Header = (props) => {
                                         aria-expanded="false"
                                     >
                                         NEWS & EVENT
-                                    </Link>
+
                                     {/* <ul className="dropdown-menu dropdown-menu-start">
                                         <li>
                                             <Link className="dropdown-item" to="/blogDetail">
@@ -218,7 +221,7 @@ const Header = (props) => {
                                                 Sidebar start
                                             </Link>
                                         </li>
-                                    </ul> */}
+
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/reservation">

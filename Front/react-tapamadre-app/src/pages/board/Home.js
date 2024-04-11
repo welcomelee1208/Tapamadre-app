@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
 
+
 const Home = () => {
     return (
         <div>
@@ -44,15 +45,16 @@ const Home = () => {
                         <div className="col-xl-9 text-center mx-auto">
                             <h1 className="display-1 mb-5">Welcome to Tapamadre</h1>
                             {/* <div className="mb-7 mb-lg-8">
+
                                     <Link href="#main" data-scroll className="btn btn-primary btn-hover-scale btn-lg">
                                         <span> Explore Menu</span>
                                     </Link>
                                 </div> */}
+                            </div>
                         </div>
                     </div>
-                </div>
-                {/* <!--End verticle line--> */}
-            </section>
+                    {/* <!--End verticle line--> */}
+                </section>
 
             <main id="main">
                 <section className="position-relative overflow-hidden">
@@ -96,144 +98,150 @@ const Home = () => {
                                 {/* <!-- Image --> */}
                                 <div className="position-relative">
                                     <img src="../" alt="" className="img-fluid" />
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section className="position-relative" style={{ backgroundColor: 'black' }}>
-                    <div className="container position-relative z-index-1 p-lg-5">
-                        <div className="row g-2 justify-content-center">
-                            <div className="col-md-4 col-sm-10 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="50">
-                                <Link
-                                    href="#!"
-                                    className="card-overlay d-block position-relative overflow-hidden tilt-image1"
-                                >
-                                    <img
-                                        className="img-fluid"
-                                        src="assets/img/600x800/1.jpg"
-                                        alt=".."
-                                        data-tilt
-                                        data-tilt-mouse-event-element=".tilt-image1"
-                                    />
-                                    <div className="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
-                                        <div className="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-4 pb-lg-8">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <div className="order-last flex-grow-1 pt-1 border-top border-bottom border-white"></div>
-                                                <h2 className="mb-0 display-6">Food</h2>
+                    </section>
+                    <section className="position-relative" style={{ backgroundColor: 'black' }}>
+                        <div className="container position-relative z-index-1 p-lg-5">
+                            <div className="row g-2 justify-content-center">
+                                <div className="col-md-4 col-sm-10 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="50">
+                                    <Link
+                                        href="#!"
+                                        className="card-overlay d-block position-relative overflow-hidden tilt-image1"
+                                    >
+                                        <img
+                                            className="img-fluid"
+                                            src="assets/img/600x800/1.jpg"
+                                            alt=".."
+                                            data-tilt
+                                            data-tilt-mouse-event-element=".tilt-image1"
+                                        />
+                                        <div className="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                                            <div className="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-4 pb-lg-8">
+                                                <div className="d-flex align-items-center mb-2">
+                                                    <div className="order-last flex-grow-1 pt-1 border-top border-bottom border-white"></div>
+                                                    <h2 className="mb-0 display-6">Food</h2>
+                                                </div>
+                                                <span className="d-block"> burger . pizza . meat . chicken</span>
                                             </div>
-                                            <span className="d-block"> burger . pizza . meat . chicken</span>
                                         </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            {/* <!--item-col--> */}
-                            <div className="col-md-4 col-sm-10 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                                <Link
-                                    href="#!"
-                                    className="card-overlay d-block position-relative overflow-hidden tilt-image2"
+                                    </Link>
+                                </div>
+                                {/* <!--item-col--> */}
+                                <div
+                                    className="col-md-4 col-sm-10 mb-4 mb-md-0"
+                                    data-aos="fade-up"
+                                    data-aos-delay="100"
                                 >
-                                    <img
-                                        className="img-fluid"
-                                        src="assets/img/600x800/2.jpg"
-                                        alt=".."
-                                        data-tilt
-                                        data-tilt-mouse-event-element=".tilt-image2"
-                                    />
-                                    <div className="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
-                                        <div className="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-4 pb-lg-8">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <div className="order-last flex-grow-1 pt-1 border-top border-bottom border-white"></div>
-                                                <h2 className="mb-0 display-6">Drink</h2>
+                                    <Link
+                                        href="#!"
+                                        className="card-overlay d-block position-relative overflow-hidden tilt-image2"
+                                    >
+                                        <img
+                                            className="img-fluid"
+                                            src="assets/img/600x800/2.jpg"
+                                            alt=".."
+                                            data-tilt
+                                            data-tilt-mouse-event-element=".tilt-image2"
+                                        />
+                                        <div className="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                                            <div className="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-4 pb-lg-8">
+                                                <div className="d-flex align-items-center mb-2">
+                                                    <div className="order-last flex-grow-1 pt-1 border-top border-bottom border-white"></div>
+                                                    <h2 className="mb-0 display-6">Drink</h2>
+                                                </div>
+                                                <span className="d-block"> drink . cocktail . coffee . tea</span>
                                             </div>
-                                            <span className="d-block"> drink . cocktail . coffee . tea</span>
                                         </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            {/* <!--item-col--> */}
-                            <div className="col-md-4 col-sm-10" data-aos="fade-up" data-aos-delay="150">
-                                <Link
-                                    href="#!"
-                                    className="card-overlay d-block position-relative overflow-hidden tilt-image3"
-                                >
-                                    <img
-                                        className="img-fluid"
-                                        src="assets/img/600x800/5.jpg"
-                                        alt=".."
-                                        data-tilt
-                                        data-tilt-mouse-event-element=".tilt-image3"
-                                    />
-                                    <div className="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
-                                        <div className="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-4 pb-lg-8">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <div className="order-last flex-grow-1 pt-1 border-top border-bottom border-white"></div>
-                                                <h2 className="mb-0 display-6">Set Menu</h2>
+                                    </Link>
+                                </div>
+                                {/* <!--item-col--> */}
+                                <div className="col-md-4 col-sm-10" data-aos="fade-up" data-aos-delay="150">
+                                    <Link
+                                        href="#!"
+                                        className="card-overlay d-block position-relative overflow-hidden tilt-image3"
+                                    >
+                                        <img
+                                            className="img-fluid"
+                                            src="assets/img/600x800/5.jpg"
+                                            alt=".."
+                                            data-tilt
+                                            data-tilt-mouse-event-element=".tilt-image3"
+                                        />
+                                        <div className="card-overlay-box overlay-linear position-absolute start-0 top-0 w-100 h-100">
+                                            <div className="card-overlay-box-content text-white position-relative d-flex h-100 justify-content-end align-items-center flex-column px-4 pb-4 pb-lg-8">
+                                                <div className="d-flex align-items-center mb-2">
+                                                    <div className="order-last flex-grow-1 pt-1 border-top border-bottom border-white"></div>
+                                                    <h2 className="mb-0 display-6">Set Menu</h2>
+                                                </div>
+                                                <span className="d-block">Lunch . Dinner</span>
                                             </div>
-                                            <span className="d-block">Lunch . Dinner</span>
                                         </div>
-                                    </div>
-                                </Link>
+                                    </Link>
+                                </div>
+                                {/* <!--item-col--> */}
                             </div>
-                            {/* <!--item-col--> */}
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* 영업시간, 연락처, 문의사항 */}
-                <section class="position-relative">
-                    <div className="container position-relative overflow-hidden py-7">
-                        {/* <div className="row">
+                    {/* 영업시간, 연락처, 문의사항 */}
+                    <section class="position-relative">
+                        <div className="container position-relative overflow-hidden py-7">
+                            {/* <div className="row">
                                 <div className="mb-5 text-center col-12" data-aos="fade-up" data-aos-duration="200">
                                     <div data-aos="fade-up"></div>
                                     <h1 className="display-4 mb-0">Q & A</h1>
                                 </div>
                             </div> */}
-                        <div className="mb-5" style={{ display: 'flex' }}>
-                            {/* 지도 */}
-                            <div class="col-6 mb-6">
-                                <img src="assets/img/map.png" style={{ height: 400 }} />
-                            </div>
-                            {/* 영업시간, 연락처 */}
-                            <div class="col-md-6 mb-5 mb-md-0" style={{ textAlign: 'left' }}>
-                                <div
-                                    class="mb-4 pb-4 border-bottom border-light"
-                                    data-aos="fade-up"
-                                    data-aos-delay="50"
-                                >
-                                    <h5 class="mb-3">Opening hours</h5>
-                                    <p class="mb-2">
-                                        Tuesday - <small class="text-dark">10am - 5pm</small>
-                                    </p>
-                                    <p class="mb-2 border-top border-bottom border-light py-2 mb-0">
-                                        Sunday - <small class="text-dark">5pm - 11pm</small>
-                                    </p>
-                                    <p class="mb-0">
-                                        Monday - <small class="text-dark">Close</small>
-                                    </p>
+                            <div className="mb-5" style={{ display: 'flex' }}>
+                                {/* 지도 */}
+                                <div class="col-6 mb-6">
+                                    <img src="assets/img/map.png" style={{ height: 400 }} />
                                 </div>
-                                <div
-                                    class="mb-4 border-bottom border-light pb-4"
-                                    data-aos="fade-up"
-                                    data-aos-delay="100"
-                                >
-                                    <h5 class="mb-3">Mail us</h5>
-                                    <p class="lead mb-0">
-                                        <Link href="mailto:yourmail@domain.com" class="text-secondary">
-                                            yourmail@domain.com
-                                        </Link>
-                                    </p>
-                                </div>
-                                <div class="mb-0" data-aos="fade-up" data-aos-delay="150">
-                                    <h5 class="mb-3">Call us</h5>
-                                    <p class="lead text-dark mb-0">
-                                        <Link href="#" class="text-secondary">
-                                            +01 123-456-4590
-                                        </Link>
-                                    </p>
+                                {/* 영업시간, 연락처 */}
+                                <div class="col-md-6 mb-5 mb-md-0" style={{ textAlign: 'left' }}>
+                                    <div
+                                        class="mb-4 pb-4 border-bottom border-light"
+                                        data-aos="fade-up"
+                                        data-aos-delay="50"
+                                    >
+                                        <h5 class="mb-3">Opening hours</h5>
+                                        <p class="mb-2">
+                                            Tuesday - <small class="text-dark">10am - 5pm</small>
+                                        </p>
+                                        <p class="mb-2 border-top border-bottom border-light py-2 mb-0">
+                                            Sunday - <small class="text-dark">5pm - 11pm</small>
+                                        </p>
+                                        <p class="mb-0">
+                                            Monday - <small class="text-dark">Close</small>
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="mb-4 border-bottom border-light pb-4"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                    >
+                                        <h5 class="mb-3">Mail us</h5>
+                                        <p class="lead mb-0">
+                                            <Link href="mailto:yourmail@domain.com" class="text-secondary">
+                                                yourmail@domain.com
+                                            </Link>
+                                        </p>
+                                    </div>
+                                    <div class="mb-0" data-aos="fade-up" data-aos-delay="150">
+                                        <h5 class="mb-3">Call us</h5>
+                                        <p class="lead text-dark mb-0">
+                                            <Link href="#" class="text-secondary">
+                                                +01 123-456-4590
+                                            </Link>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </section>
             </main>
@@ -241,6 +249,7 @@ const Home = () => {
             <script src="assets/js/theme.bundle.js"></script>
             {/* </body> */}
         </div>
+
     )
 }
 
