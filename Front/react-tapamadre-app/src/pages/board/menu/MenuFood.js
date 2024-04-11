@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, Element } from 'react-scroll'
+import Header from '../../../layout/Header'
+import Footer from '../../../layout/Footer'
 
 const MenuData = {
     menu_name: '갑오징어 튀김',
@@ -15,103 +17,105 @@ const MenuData = {
 
 const MenuFood = () => {
     return (
-        <div className="container py-7 py-lg-10 position-relative z-index-1">
-            <div className="row">
-                {/* 카테고리 영역 */}
-                <div className="col-md-3 col-lg-3">
-                    <div className="position-relative mb-5 order-md-1">
-                        <h5 className="mb-3">Categories</h5>
-                        <ul className="list-unstyled">
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="lunchmenu"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    LUNCH MENU 점심메뉴
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="pintxos"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    PINTXOS 핀초스
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="tapas"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    TATAS 따빠스
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="pasta"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    PASTA 파스타
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="parrillada"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    PARRILLADA 그릴
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="postre"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    POSTRE 디저트
-                                </Link>
-                            </li>
-                        </ul>
+        <>
+            <Header />
+            <div className="container py-7 py-lg-10 position-relative z-index-1">
+                <div className="row">
+                    {/* 카테고리 영역 */}
+                    <div className="col-md-3 col-lg-3">
+                        <div className="position-relative mb-5 order-md-1">
+                            <h5 className="mb-3">Categories</h5>
+                            <ul className="list-unstyled">
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="lunchmenu"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        LUNCH MENU 점심메뉴
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="pintxos"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        PINTXOS 핀초스
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="tapas"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        TATAS 따빠스
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="pasta"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        PASTA 파스타
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="parrillada"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        PARRILLADA 그릴
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="postre"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        POSTRE 디저트
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
-                {/* 메뉴 카드 영역 */}
-                <div className="col-md-9">
-                    <div
-                        className="position-relative z-index-1 bg-white mb-4 bg-repeat"
-                        style={{ backgroundImage: "url('assets/img/dust.png')" }}
-                    >
-                        {/* 메뉴 상단 header 부분 */}
-                        {/* <div className="mb-0 px-4 py-5 bg-light position-relative d-flex align-items-end justify-content-center">
+                    {/* 메뉴 카드 영역 */}
+                    <div className="col-md-9">
+                        <div
+                            className="position-relative z-index-1 bg-white mb-4 bg-repeat"
+                            style={{ backgroundImage: "url('assets/img/dust.png')" }}
+                        >
+                            {/* 메뉴 상단 header 부분 */}
+                            {/* <div className="mb-0 px-4 py-5 bg-light position-relative d-flex align-items-end justify-content-center">
                             <svg
                                 className="flip-x text-primary"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -136,214 +140,218 @@ const MenuFood = () => {
                             </svg>
                         </div> */}
 
-                        <h4 className="mb-1 mt-4" id="lunchmenu">
-                            LUNCH MENU
-                        </h4>
-                        {/* 메뉴 리스트 */}
-                        <ul className="list-unstyled mb-0 px-3 py-5">
-                            {/* 메뉴항목1 */}
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div>
-                                        <img
-                                            src="assets/img/menu/food1.jpg"
-                                            alt=""
-                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold font-serif">
-                                                모둠 핀초 (6pieces){' '}
-                                                <a className="small text-dark">Assorted pintxo piatter (6picese)</a>
-                                            </h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">20,-</span>
+                            <h4 className="mb-1 mt-4" id="lunchmenu">
+                                LUNCH MENU
+                            </h4>
+                            {/* 메뉴 리스트 */}
+                            <ul className="list-unstyled mb-0 px-3 py-5">
+                                {/* 메뉴항목1 */}
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div>
+                                            <img
+                                                src="assets/img/menu/food1.jpg"
+                                                alt=""
+                                                className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                            />
                                         </div>
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold font-serif">
+                                                    모둠 핀초 (6pieces){' '}
+                                                    <a className="small text-dark">Assorted pintxo piatter (6picese)</a>
+                                                </h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">20,-</span>
+                                            </div>
 
-                                        <p className="mb-0">
-                                            다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            {/* 메뉴항목1 */}
-                            <li className="d-flex flex-column mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div>
-                                        <img
-                                            src="assets/img/menu/food2.jpg"
-                                            alt=""
-                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold font-serif">
-                                                토마토 부라타 샐러드{' '}
-                                                <a className="small text-dark">Ensalada de queso burrata y tomate</a>
-                                            </h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">22,-</span>
+                                            <p className="mb-0">
+                                                다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리
+                                            </p>
                                         </div>
-
-                                        <p className="mb-0">비네거 드레싱 베이스의 토마토와 부라타 샐러드</p>
                                     </div>
-                                </div>
-                            </li>
-                            {/* 메뉴항목2 */}
-                            <li className="d-flex flex-column mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div>
-                                        <img
-                                            src="assets/img/menu/food3.jpg"
-                                            alt=""
-                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold font-serif">
-                                                감바스 알 아히요 + 빵{' '}
-                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                            </h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">23,-</span>
+                                </li>
+                                {/* 메뉴항목1 */}
+                                <li className="d-flex flex-column mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div>
+                                            <img
+                                                src="assets/img/menu/food2.jpg"
+                                                alt=""
+                                                className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                            />
                                         </div>
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold font-serif">
+                                                    토마토 부라타 샐러드{' '}
+                                                    <a className="small text-dark">
+                                                        Ensalada de queso burrata y tomate
+                                                    </a>
+                                                </h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">22,-</span>
+                                            </div>
 
-                                        <p className="mb-0">
-                                            마늘과 페페론치노, 올리브유를 넣어 익힌 대표적인 스페인 새우 요리
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            {/* 메뉴항목3 */}
-                            <li className="d-flex flex-column mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div>
-                                        <img
-                                            src="assets/img/menu/food4.jpg"
-                                            alt=""
-                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold font-serif">
-                                                뽈뽀 아 라 가예가{' '}
-                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                            </h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">32,-</span>
+                                            <p className="mb-0">비네거 드레싱 베이스의 토마토와 부라타 샐러드</p>
                                         </div>
-
-                                        <p className="mb-0">
-                                            레몬 오일과 파프리카 파우더를 곁들인 갈리시아산 문어와 감자 타파스
-                                        </p>
                                     </div>
-                                </div>
-                            </li>
-                            {/* 메뉴항목4 */}
-                            <li className="d-flex flex-column mb-4">
-                                <div className="d-flex align-items-center">
-                                    <div>
-                                        <img
-                                            src={MenuData.file[0].file_path}
-                                            alt=""
-                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold font-serif">
-                                                {MenuData.menu_name}{' '}
-                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                            </h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">{MenuData.menu_price}</span>
+                                </li>
+                                {/* 메뉴항목2 */}
+                                <li className="d-flex flex-column mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div>
+                                            <img
+                                                src="assets/img/menu/food3.jpg"
+                                                alt=""
+                                                className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                            />
                                         </div>
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold font-serif">
+                                                    감바스 알 아히요 + 빵{' '}
+                                                    <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                                </h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">23,-</span>
+                                            </div>
 
-                                        <p className="mb-0">{MenuData.menu_desc}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            {/* <!--end menu box--> */}
-                        </ul>
-
-                        <h4 className="mb-1 mt-4" id="pintxos">
-                            PINTXOS 핀초스
-                        </h4>
-                        <a class="text-dark d-block py-1 font-serif">
-                            작은 빵이나 바게트 위에 각종 식재료들을 올려 놓고 핀으로 고정한 스페인 바스크 지방의 따빠스
-                            음식
-                        </a>
-                        {/* 메뉴 리스트 */}
-                        <ul className="list-unstyled mb-0 px-3 py-5">
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div>
-                                        <img
-                                            src="assets/img/menu/food1.jpg"
-                                            alt=""
-                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold font-serif">
-                                                만체고치즈 핀초 (2pieces){' '}
-                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                            </h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">8,-</span>
+                                            <p className="mb-0">
+                                                마늘과 페페론치노, 올리브유를 넣어 익힌 대표적인 스페인 새우 요리
+                                            </p>
                                         </div>
-
-                                        <p className="mb-0">감자 크림과 만체고 치즈를 조합한 핀초</p>
                                     </div>
-                                </div>
-                            </li>
-                            {/* <!--end menu box--> */}
-                        </ul>
-
-                        <h4 className="mb-1 mt-4" id="tapas">
-                            TAPAS 따빠스
-                        </h4>
-                        <a className="text-dark d-block py-1 font-serif">
-                            에스파냐에서 주요리를 먹기 전에 작은 접시에 담겨져 나오는 소량의 전채요리. 에스파냐어로
-                            따빠(tapa)는 '덮개'라는 뜻으로 안달루시아 지방에서 음식에 덮개를 덮어 먼지나 곤충으로부터
-                            보호한데서 유래한 명칭
-                        </a>
-                        {/* 메뉴 리스트 */}
-                        <ul className="list-unstyled mb-0 px-3 py-5">
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div>
-                                        <img
-                                            src="assets/img/menu/food1.jpg"
-                                            alt=""
-                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold font-serif">
-                                                만체고치즈 핀초 (2pieces){' '}
-                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                            </h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">8,-</span>
+                                </li>
+                                {/* 메뉴항목3 */}
+                                <li className="d-flex flex-column mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div>
+                                            <img
+                                                src="assets/img/menu/food4.jpg"
+                                                alt=""
+                                                className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                            />
                                         </div>
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold font-serif">
+                                                    뽈뽀 아 라 가예가{' '}
+                                                    <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                                </h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">32,-</span>
+                                            </div>
 
-                                        <p className="mb-0">감자 크림과 만체고 치즈를 조합한 핀초</p>
+                                            <p className="mb-0">
+                                                레몬 오일과 파프리카 파우더를 곁들인 갈리시아산 문어와 감자 타파스
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            {/* <!--end menu box--> */}
-                        </ul>
+                                </li>
+                                {/* 메뉴항목4 */}
+                                <li className="d-flex flex-column mb-4">
+                                    <div className="d-flex align-items-center">
+                                        <div>
+                                            <img
+                                                src={MenuData.file[0].file_path}
+                                                alt=""
+                                                className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                            />
+                                        </div>
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold font-serif">
+                                                    {MenuData.menu_name}{' '}
+                                                    <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                                </h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">{MenuData.menu_price}</span>
+                                            </div>
+
+                                            <p className="mb-0">{MenuData.menu_desc}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/* <!--end menu box--> */}
+                            </ul>
+
+                            <h4 className="mb-1 mt-4" id="pintxos">
+                                PINTXOS 핀초스
+                            </h4>
+                            <a class="text-dark d-block py-1 font-serif">
+                                작은 빵이나 바게트 위에 각종 식재료들을 올려 놓고 핀으로 고정한 스페인 바스크 지방의
+                                따빠스 음식
+                            </a>
+                            {/* 메뉴 리스트 */}
+                            <ul className="list-unstyled mb-0 px-3 py-5">
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div>
+                                            <img
+                                                src="assets/img/menu/food1.jpg"
+                                                alt=""
+                                                className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                            />
+                                        </div>
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold font-serif">
+                                                    만체고치즈 핀초 (2pieces){' '}
+                                                    <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                                </h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">8,-</span>
+                                            </div>
+
+                                            <p className="mb-0">감자 크림과 만체고 치즈를 조합한 핀초</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/* <!--end menu box--> */}
+                            </ul>
+
+                            <h4 className="mb-1 mt-4" id="tapas">
+                                TAPAS 따빠스
+                            </h4>
+                            <a className="text-dark d-block py-1 font-serif">
+                                에스파냐에서 주요리를 먹기 전에 작은 접시에 담겨져 나오는 소량의 전채요리. 에스파냐어로
+                                따빠(tapa)는 '덮개'라는 뜻으로 안달루시아 지방에서 음식에 덮개를 덮어 먼지나
+                                곤충으로부터 보호한데서 유래한 명칭
+                            </a>
+                            {/* 메뉴 리스트 */}
+                            <ul className="list-unstyled mb-0 px-3 py-5">
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div>
+                                            <img
+                                                src="assets/img/menu/food1.jpg"
+                                                alt=""
+                                                className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                            />
+                                        </div>
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold font-serif">
+                                                    만체고치즈 핀초 (2pieces){' '}
+                                                    <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                                </h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">8,-</span>
+                                            </div>
+
+                                            <p className="mb-0">감자 크림과 만체고 치즈를 조합한 핀초</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/* <!--end menu box--> */}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 
