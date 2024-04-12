@@ -8,7 +8,9 @@ const MyInquiryDetail = React.lazy(() => import('../pages/profile/mypage/MyInqui
 
 //인증이 필요없는 페이지 컴포넌트 참조
 const Home = React.lazy(() => import('../pages/board/Home'))
-const Menu = React.lazy(() => import('../pages/board/menu/Menu'))
+const MenuSet = React.lazy(() => import('../pages/board/menu/MenuSet'))
+const MenuFood = React.lazy(() => import('../pages/board/menu/MenuFood'))
+const MenuDrink = React.lazy(() => import('../pages/board/menu/MenuDrink'))
 const NewsEvent = React.lazy(() => import('../pages/board/blog/BlogList'))
 const NewsEventDetail = React.lazy(() => import('../pages/board/blog/BlogDetail'))
 const Reservation = React.lazy(() => import('../pages/board/Reservation'))
@@ -33,7 +35,9 @@ const publicRoutes = [
     { path: '/entry', component: <Entry /> },
     { path: '/forgetpassword', component: <ForgetPassword /> },
     { path: '/', component: <Home /> },
-    { path: '/menu', component: <Menu /> },
+    { path: '/menufood', component: <MenuFood /> },
+    { path: '/menudrink', component: <MenuDrink /> },
+    { path: '/menuset', component: <MenuSet /> },
     { path: '/newsEvent', component: <NewsEvent /> },
     { path: '/newsEvent/:idx', component: <NewsEventDetail /> },
     { path: '/reservation', component: <Reservation /> },

@@ -1,17 +1,21 @@
 import React from 'react'
+import Header from '../../../layout/Header'
+import Footer from '../../../layout/Footer'
 
 const MenuSet = () => {
     return (
-        <div className="container py-7 py-lg-10 position-relative z-index-1">
-            <div className="row">
-                {/* 메뉴 카드 영역 */}
-                <div className="col-md-12">
-                    <div
-                        className="position-relative z-index-1 bg-white mb-4 bg-repeat"
-                        style={{ backgroundImage: "url('assets/img/dust.png')" }}
-                    >
-                        {/* 메뉴 상단 header 부분 */}
-                        {/* <div className="mb-0 px-4 py-5 bg-light position-relative d-flex align-items-end justify-content-center">
+        <>
+            <Header />
+            <div className="container py-7 py-lg-10 position-relative z-index-1">
+                <div className="row">
+                    {/* 메뉴 카드 영역 */}
+                    <div className="col-md-12">
+                        <div
+                            className="position-relative z-index-1 bg-white mb-4 bg-repeat"
+                            style={{ backgroundImage: "url('assets/img/dust.png')" }}
+                        >
+                            {/* 메뉴 상단 header 부분 */}
+                            {/* <div className="mb-0 px-4 py-5 bg-light position-relative d-flex align-items-end justify-content-center">
                             <svg
                                 className="flip-x text-primary"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -36,205 +40,207 @@ const MenuSet = () => {
                             </svg>
                         </div> */}
 
-                        <h4 className="mb-1 mt-4" id="lunchset">
-                            LUNCH SET
-                        </h4>
-                        <ul className="list-unstyled mb-0 px-3 py-5">
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">A.</h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">38, /1인</span>
+                            <h4 className="mb-1 mt-4" id="lunchset">
+                                LUNCH SET
+                            </h4>
+                            <ul className="list-unstyled mb-0 px-3 py-5">
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">A.</h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">38, /1인</span>
+                                            </div>
+                                            <p className="mb-1">
+                                                오늘의 핀초{'  '}
+                                                <a className="small text-dark">Pintxo de ‘TapaMadre’</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                하몽 샐러드{'  '}
+                                                <a className="small text-dark">Ensalade de jamon serrano</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                크로케타{'  '}
+                                                <a className="small text-dark">Crozueras de jamon</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                감바스 알 하이요 + 빵{'  '}
+                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                세라노하몽을 채운 양송이 버섯요리{'  '}
+                                                <a className="small text-dark">Chamoinones rellenos</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                해산물 빠에야{'  '}
+                                                <a className="small text-dark">Paella de marisco</a>
+                                            </p>
                                         </div>
-                                        <p className="mb-1">
-                                            오늘의 핀초{'  '}
-                                            <a className="small text-dark">Pintxo de ‘TapaMadre’</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            하몽 샐러드{'  '}
-                                            <a className="small text-dark">Ensalade de jamon serrano</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            크로케타{'  '}
-                                            <a className="small text-dark">Crozueras de jamon</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            감바스 알 하이요 + 빵{'  '}
-                                            <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            세라노하몽을 채운 양송이 버섯요리{'  '}
-                                            <a className="small text-dark">Chamoinones rellenos</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            해산물 빠에야{'  '}
-                                            <a className="small text-dark">Paella de marisco</a>
-                                        </p>
                                     </div>
-                                </div>
-                            </li>
-                            {/* <!--end menu box--> */}
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">B.</h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">46, /1인</span>
+                                </li>
+                                {/* <!--end menu box--> */}
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">B.</h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">46, /1인</span>
+                                            </div>
+                                            <p className="mb-1">
+                                                오늘의 핀초{'  '}
+                                                <a className="small text-dark">Pintxo de ‘TapaMadre’</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                하몽 샐러드{'  '}
+                                                <a className="small text-dark">Ensalade de jamon serrano</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                크로케타{'  '}
+                                                <a className="small text-dark">Crozueras de jamon</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                감바스 알 하이요 + 빵{'  '}
+                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                세라노하몽을 채운 양송이 버섯요리{'  '}
+                                                <a className="small text-dark">Chamoinones rellenos</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                이베리코 스테이크{'  '}
+                                                <a className="small text-dark">Cuello de cerdo iberico</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                해산물 빠에야{'  '}
+                                                <a className="small text-dark">Paella de marisco</a>
+                                            </p>
                                         </div>
-                                        <p className="mb-1">
-                                            오늘의 핀초{'  '}
-                                            <a className="small text-dark">Pintxo de ‘TapaMadre’</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            하몽 샐러드{'  '}
-                                            <a className="small text-dark">Ensalade de jamon serrano</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            크로케타{'  '}
-                                            <a className="small text-dark">Crozueras de jamon</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            감바스 알 하이요 + 빵{'  '}
-                                            <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            세라노하몽을 채운 양송이 버섯요리{'  '}
-                                            <a className="small text-dark">Chamoinones rellenos</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            이베리코 스테이크{'  '}
-                                            <a className="small text-dark">Cuello de cerdo iberico</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            해산물 빠에야{'  '}
-                                            <a className="small text-dark">Paella de marisco</a>
-                                        </p>
                                     </div>
-                                </div>
-                            </li>
-                            {/* <!--end menu box--> */}
-                        </ul>
+                                </li>
+                                {/* <!--end menu box--> */}
+                            </ul>
 
-                        <h4 className="mb-1 mt-4" id="dinnerset">
-                            DINNER SET
-                        </h4>
-                        <ul className="list-unstyled mb-0 px-3 py-5">
-                            {/* dinner A세트 */}
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">A.</h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">60, /1인</span>
+                            <h4 className="mb-1 mt-4" id="dinnerset">
+                                DINNER SET
+                            </h4>
+                            <ul className="list-unstyled mb-0 px-3 py-5">
+                                {/* dinner A세트 */}
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">A.</h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">60, /1인</span>
+                                            </div>
+                                            <p className="mb-1">
+                                                토마토 부라타 샐러드{'  '}
+                                                <a className="small text-dark">Ensalada de queso burrata y tomate</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                오늘의 핀초{'  '}
+                                                <a className="small text-dark">Pintxo de ‘TapaMadre’</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                핸드카빙 5J 이베리코 하몽 플레터{'  '}
+                                                <a className="small text-dark">Plato de iberico jamon bellota 5J</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                감바스 알 하이요 + 빵{'  '}
+                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                양송이 버섯요리{'  '}
+                                                <a className="small text-dark">Chamoinones rellenos</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                이베리코 베요타 스테이크{'  '}
+                                                <a className="small text-dark">Cuello de cerdo iberico</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                해산물 빠에야{'  '}
+                                                <a className="small text-dark">Paella de marisco</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                디저트{'  '}
+                                                <a className="small text-dark">Poster</a>
+                                            </p>
                                         </div>
-                                        <p className="mb-1">
-                                            토마토 부라타 샐러드{'  '}
-                                            <a className="small text-dark">Ensalada de queso burrata y tomate</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            오늘의 핀초{'  '}
-                                            <a className="small text-dark">Pintxo de ‘TapaMadre’</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            핸드카빙 5J 이베리코 하몽 플레터{'  '}
-                                            <a className="small text-dark">Plato de iberico jamon bellota 5J</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            감바스 알 하이요 + 빵{'  '}
-                                            <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            양송이 버섯요리{'  '}
-                                            <a className="small text-dark">Chamoinones rellenos</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            이베리코 베요타 스테이크{'  '}
-                                            <a className="small text-dark">Cuello de cerdo iberico</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            해산물 빠에야{'  '}
-                                            <a className="small text-dark">Paella de marisco</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            디저트{'  '}
-                                            <a className="small text-dark">Poster</a>
-                                        </p>
                                     </div>
-                                </div>
-                            </li>
-                            {/* dinner B세트 */}
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">B.</h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">100, /1인</span>
+                                </li>
+                                {/* dinner B세트 */}
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">B.</h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">100, /1인</span>
+                                            </div>
+                                            <p className="mb-1">
+                                                핸드카빙 5J 이베리코 하몽 플레터{'  '}
+                                                <a className="small text-dark">Plato de iberico jamon bellota 5J</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                시즌 세비체 <a className="small text-dark">Season Ceviche</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                감바스 알 하이요 + 빵{'  '}
+                                                <a className="small text-dark">Gambas al aijllo + Pan</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                양송이 버섯요리{'  '}
+                                                <a className="small text-dark">Chamoinones rellenos</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                뽈뽀 아 라 가예가{'  '}
+                                                <a className="small text-dark">Pulpo a la gallerga</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                피쉬 그릴{'  '}
+                                                <a className="small text-dark">Pescado</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                이베리코 베요타 스테이크{'  '}
+                                                <a className="small text-dark">Cuello de cerdo iberico</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                해산물 빠에야{'  '}
+                                                <a className="small text-dark">Paella de marisco</a>
+                                            </p>
+                                            <p className="mb-1">
+                                                디저트{'  '}
+                                                <a className="small text-dark">Poster</a>
+                                            </p>
                                         </div>
-                                        <p className="mb-1">
-                                            핸드카빙 5J 이베리코 하몽 플레터{'  '}
-                                            <a className="small text-dark">Plato de iberico jamon bellota 5J</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            시즌 세비체 <a className="small text-dark">Season Ceviche</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            감바스 알 하이요 + 빵{'  '}
-                                            <a className="small text-dark">Gambas al aijllo + Pan</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            양송이 버섯요리{'  '}
-                                            <a className="small text-dark">Chamoinones rellenos</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            뽈뽀 아 라 가예가{'  '}
-                                            <a className="small text-dark">Pulpo a la gallerga</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            피쉬 그릴{'  '}
-                                            <a className="small text-dark">Pescado</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            이베리코 베요타 스테이크{'  '}
-                                            <a className="small text-dark">Cuello de cerdo iberico</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            해산물 빠에야{'  '}
-                                            <a className="small text-dark">Paella de marisco</a>
-                                        </p>
-                                        <p className="mb-1">
-                                            디저트{'  '}
-                                            <a className="small text-dark">Poster</a>
-                                        </p>
                                     </div>
-                                </div>
-                            </li>
-                            {/* <!--end menu box--> */}
-                            <li className="mb-4 mb-lg-5">
-                                <div className="d-flex align-items-center">
-                                    <div className="flex-grow-1">
-                                        <div className="d-flex w-100 justify-content-between align-items-center">
-                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">C.</h5>
-                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                            <span className="fw-bold">120, /1인</span>
+                                </li>
+                                {/* <!--end menu box--> */}
+                                <li className="mb-4 mb-lg-5">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="d-flex w-100 justify-content-between align-items-center">
+                                                <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">C.</h5>
+                                                <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                                <span className="fw-bold">120, /1인</span>
+                                            </div>
+                                            <p className="mb-1">
+                                                셰프 특선 메뉴{'  '}
+                                                <a className="small text-dark">Chef’s special menu</a>
+                                            </p>
+                                            <p className="mb-1 small"> * 4인 이상 사전 주문 시 준비됩니다.</p>
                                         </div>
-                                        <p className="mb-1">
-                                            셰프 특선 메뉴{'  '}
-                                            <a className="small text-dark">Chef’s special menu</a>
-                                        </p>
-                                        <p className="mb-1 small"> * 4인 이상 사전 주문 시 준비됩니다.</p>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 

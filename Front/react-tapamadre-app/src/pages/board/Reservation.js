@@ -1,14 +1,19 @@
-
 import React, { useEffect, useState } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-
+import { useNavigate, useLocation } from 'react-router-dom'
 import flatpickr from 'flatpickr'
 import Choices from 'choices.js'
 import 'flatpickr/dist/flatpickr.min.css'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
 
-const Reservation = (args) => {
+const Reservation = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    // URL에서 search params를 파싱
+    const searchParams = new URLSearchParams(location.search)
+    const reservationType = searchParams.get('type') // 'type' 파라미터 값을 가져옴
     useEffect(() => {
         initializeFlatpickr()
         initializeChoices()
@@ -41,10 +46,57 @@ const Reservation = (args) => {
         }
     }
 
+    const [formData, setFormData] = useState({
+        reservationDate: '',
+        reservationTime: '',
+        reservationName: '',
+        reservationPeople: '',
+        reservationPhone: '',
+        reservationEmail: '',
+    })
+
+    // 입력 필드의 값을 업데이트하는 함수
+    const handleInputChange = (event) => {
+        const { name, value } = event.target
+        console.log(`Input changed: ${name} - ${value}`) // 선택한 날짜 확인
+        setFormData({
+            ...formData,
+            [name]: value,
+        })
+    }
+
+    // 모든 입력 필드가 채워져 있는지 확인하는 함수
+    const isFormEmpty = () => {
+        for (const key in formData) {
+            if (formData[key].trim() === '') {
+                console.log(`${key} is empty`)
+                return true // 입력 필드 중 하나라도 비어 있으면 true 반환
+            }
+        }
+        console.log('Form is not empty')
+        return false // 모든 입력 필드가 채워져 있으면 false 반환
+    }
+    useEffect(() => {
+        const fp = flatpickr('[data-flatpicker]', {
+            minDate: 'today',
+            maxDate: new Date().fp_incr(29),
+            dateFormat: 'Y-m-d', // 선택한 날짜의 형식 설정
+            onChange: function (selectedDates, dateStr, instance) {
+                setFormData({
+                    ...formData,
+                    reservationDate: dateStr, // 선택한 날짜를 reservationDate에 업데이트
+                })
+            },
+        })
+    }, [])
     const handleSubmit = (event) => {
         event.preventDefault() // Prevents the default form submission behavior
         // Handle form submission logic here
         // You can access form field values using event.target.<fieldName>.value
+    }
+    // 예약 유형에 따라 URL을 변경하는 함수
+    const handleReservationTypeClick = (type) => {
+        navigate(`?type=${type}`)
     }
     const [modal, setModal] = useState(false)
     const [nestedModal, setNestedModal] = useState(false)
@@ -78,104 +130,162 @@ const Reservation = (args) => {
             </section>
 
             <main id="main">
+                <nav class="nav nav-pill filter-nav mb-5 d-flex justify-content-center">
+                    <div className="container text-center mt-4">
+                        <button
+                            className="btn btn-outline-secondary rounded-pill btn-sm me-2"
+                            onClick={() => handleReservationTypeClick('individual')}
+                        >
+                            개인
+                        </button>
+                        <button
+                            className="btn btn-outline-secondary rounded-pill btn-sm me-2"
+                            onClick={() => handleReservationTypeClick('group')}
+                        >
+                            단체
+                        </button>
+                        <button
+                            className="btn btn-outline-secondary rounded-pill btn-sm me-2"
+                            onClick={() => handleReservationTypeClick('exclusive')}
+                        >
+                            대관
+                        </button>
+                    </div>
+                </nav>
                 <section className="position-relative">
                     <div className="container">
                         <div className="pt-5" data-aos="fade-up" data-aos-duration="400">
-                            <h4 className="mb-3">Book Online</h4>
-                            <form onSubmit={handleSubmit}>
-                                {/* 예약 날짜 시간 */}
-                                <div className="mb-3">
-                                    <label className="mb-2">When do you want to reserve a table?</label>
-                                    <div className="row">
-                                        <div className="col-sm-6 col-12 mb-2 mb-sm-0">
+                            {/* Book Online 위에 박스 추가 */}
+                            <div className="book-online-box">
+                                <h4 className="mb-3">룸 이용 안내 </h4>
+                                <p>
+                                    6인 이하 단독 룸(최대 수용 인원 10명) 이용 시 1인당 코스메뉴 또는 이에 준하는
+                                    단품메뉴 주문 바라며 별도로 룸차지 발생됩니다. (최소 주문 금액
+                                    런치30만원/디너60만원)
+                                </p>
+                            </div>
+                            <div className="pt-5" data-aos="fade-up" data-aos-duration="400">
+                                <h4 className="mb-3">Book Online</h4>
+                                <form onSubmit={handleSubmit}>
+                                    {/* 예약 날짜 시간 */}
+                                    <div className="mb-3">
+                                        <label className="mb-2">When do you want to reserve a table?</label>
+                                        <div className="row">
+                                            <div className="col-sm-6 col-12 mb-2 mb-sm-0">
+                                                <input
+                                                    required
+                                                    type="text"
+                                                    className="form-control bg-white"
+                                                    data-flatpicker
+                                                    placeholder="Select Date"
+                                                    name="reservationDate"
+                                                    value={formData.reservationDate}
+                                                    onChange={handleInputChange}
+                                                />
+                                            </div>
+                                            <div className="col-sm-6 col-12">
+                                                <select
+                                                    required
+                                                    className="form-control"
+                                                    data-choices
+                                                    name="reservationTime"
+                                                    value={formData.reservationTime}
+                                                    onChange={handleInputChange}
+                                                >
+                                                    <option value="">- Select Time - </option>
+                                                    <option value="7:00 p.m.">7:00 p.m. </option>
+                                                    <option value="7:30 p.m.">7:30 p.m. </option>
+                                                    <option value="8:00 p.m.">8:00 p.m. </option>
+                                                    <option value="8:30 p.m.">8:30 p.m. </option>
+                                                    <option value="9:00 p.m.">9:00 p.m. </option>
+                                                    <option value="9:30 p.m.">9:30 p.m. </option>
+                                                    <option value="10:00 p.m.">10:00 p.m. </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* 이름, 예약인원 */}
+                                    <div className="row mb-3">
+                                        <div className="col-sm-6 col-12">
+                                            <label className="mb-2">예약자명</label>
                                             <input
-                                                required
                                                 type="text"
-                                                className="form-control bg-white"
-                                                data-flatpicker
-                                                placeholder="Select Date"
+                                                className="form-control"
+                                                placeholder="예약자명"
+                                                required
+                                                name="reservationName"
+                                                value={formData.reservationName}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                         <div className="col-sm-6 col-12">
-                                            <select required className="form-control" data-choices>
-                                                <option value="">- Select Time - </option>
-                                                <option value="7:00 p.m.">7:00 p.m. </option>
-                                                <option value="7:30 p.m.">7:30 p.m. </option>
-                                                <option value="8:00 p.m.">8:00 p.m. </option>
-                                                <option value="8:30 p.m.">8:30 p.m. </option>
-                                                <option value="9:00 p.m.">9:00 p.m. </option>
-                                                <option value="9:30 p.m.">9:30 p.m. </option>
-                                                <option value="10:00 p.m.">10:00 p.m. </option>
-                                            </select>
+                                            <label className="mb-2">예약인원</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="예약인원"
+                                                required
+                                                name="reservationPeople"
+                                                value={formData.reservationPeople}
+                                                onChange={handleInputChange}
+                                            />
                                         </div>
                                     </div>
-                                </div>
-                                {/* 이름, 예약인원 */}
-                                <div className="row mb-3">
-                                    <div className="col-sm-6 col-12">
-                                        <label className="mb-2">예약자명</label>
-                                        <input
-                                            type="text"
-                                            id="reservationName"
-                                            className="form-control"
-                                            placeholder="예약자명"
-                                            required
-                                        />
+                                    {/* 전화번호, 이메일 */}
+                                    <div className="row mb-3">
+                                        <div className="col-sm-6 col-12">
+                                            <label className="mb-2">전화번호</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="전화번호"
+                                                required
+                                                name="reservationPhone"
+                                                value={formData.reservationPhone}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <div className="col-sm-6 col-12">
+                                            <label className="mb-2">이메일</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="이메일"
+                                                required
+                                                name="reservationEmail"
+                                                value={formData.reservationEmail}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="col-sm-6 col-12">
-                                        <label className="mb-2">예약인원</label>
-                                        <input
-                                            type="text"
-                                            id="reservationName"
-                                            className="form-control"
-                                            placeholder="예약인원"
-                                            required
-                                        />
+                                    {/* 코멘트 */}
+                                    <div className="row mb-3">
+                                        <div className="col-12">
+                                            <label className="mb-2" htmlFor="reservationComment">
+                                                예약자 코멘트
+                                            </label>
+                                            <textarea
+                                                id="reservationComment"
+                                                className="form-control"
+                                                rows="4"
+                                                name="reservationComment"
+                                                onChange={handleInputChange}
+                                            ></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                {/* 전화번호, 이메일 */}
-                                <div className="row mb-3">
-                                    <div className="col-sm-6 col-12">
-                                        <label className="mb-2">전화번호</label>
-                                        <input
-                                            type="text"
-                                            id="reservationName"
-                                            className="form-control"
-                                            placeholder="전화번호"
-                                            required
-                                        />
-                                    </div>
-                                    <div className="col-sm-6 col-12">
-                                        <label className="mb-2">이메일</label>
-                                        <input
-                                            type="text"
-                                            id="reservationName"
-                                            className="form-control"
-                                            placeholder="이메일"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-                                {/* 코멘트 */}
-                                <div className="row mb-3">
-                                    <div className="col-12">
-                                        <label className="mb-2" htmlFor="reservationName">
-                                            예약자 코멘트
-                                        </label>
-                                        <textarea id="reservationName" className="form-control" rows="4"></textarea>
-                                    </div>
-                                </div>
 
-                                <div className="text-end">
-                                    <button
-                                        type="submit"
-                                        className="btn btn-info btn-hover-scale btn-lg w-100"
-                                        onClick={toggle}
-                                    >
-                                        <span>Submit</span>
-                                    </button>
-                                </div>
-                            </form>
+                                    <div className="text-end">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-info btn-hover-scale btn-lg w-100"
+                                            onClick={toggle}
+                                            disabled={isFormEmpty(false)} // 모든 입력 필드가 비어 있을 때만 버튼 비활성화
+                                        >
+                                            <span>Submit</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -197,7 +307,7 @@ const Reservation = (args) => {
             <script src="assets/vendor/choices.min.js"></script>
             <script>{/* Script to initialize flatpickr and Choices */}</script>
             <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalHeader toggle={toggle}>예약하기</ModalHeader>
                 <ModalBody>
                     밑에버튼을 눌러서 예약정보를 확인해주세요.
                     <br />
@@ -210,7 +320,7 @@ const Reservation = (args) => {
                         <ModalFooter>
                             <Button color="primary" onClick={toggleNested}>
                                 수정
-                            </Button>{' '}
+                            </Button>
                             <Button color="secondary" onClick={toggleAll}>
                                 예약신청 확정하기
                             </Button>
@@ -220,7 +330,7 @@ const Reservation = (args) => {
                 <ModalFooter>
                     <Button color="primary" onClick={toggle}>
                         수정
-                    </Button>{' '}
+                    </Button>
                     <Button color="secondary" onClick={toggle}>
                         신청
                     </Button>
@@ -228,7 +338,6 @@ const Reservation = (args) => {
             </Modal>
             <Footer />
         </>
-
     )
 }
 

@@ -1,79 +1,83 @@
 import React from 'react'
 import { Link, Element } from 'react-scroll'
+import Header from '../../../layout/Header'
+import Footer from '../../../layout/Footer'
 
 const MenuDrink = () => {
     return (
-        <div className="container py-7 py-lg-10 position-relative z-index-1">
-            <div className="row">
-                {/* 카테고리 영역 */}
-                <div className="col-md-3 col-lg-3">
-                    <div className="position-relative mb-5 order-md-1">
-                        <h5 className="mb-3">Categories</h5>
-                        <ul className="list-unstyled">
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="sangria"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    SANGRIA 상그리아
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="vino"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    VINO 글라스 와인
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="bebidas"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    BEBIDAS 음료
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClass="active"
-                                    to="cerveza"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    className="text-secondary d-block py-1r my-2"
-                                >
-                                    CERVEZA 맥주
-                                </Link>
-                            </li>
-                        </ul>
+        <>
+            <Header />
+            <div className="container py-7 py-lg-10 position-relative z-index-1">
+                <div className="row">
+                    {/* 카테고리 영역 */}
+                    <div className="col-md-3 col-lg-3">
+                        <div className="position-relative mb-5 order-md-1">
+                            <h5 className="mb-3">Categories</h5>
+                            <ul className="list-unstyled">
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="sangria"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        SANGRIA 상그리아
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="vino"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        VINO 글라스 와인
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="bebidas"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        BEBIDAS 음료
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        activeClass="active"
+                                        to="cerveza"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="text-secondary d-block py-1r my-2"
+                                    >
+                                        CERVEZA 맥주
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
-                {/* 메뉴 카드 영역 */}
-                <div className="col-md-9">
-                    <div
-                        className="position-relative z-index-1 bg-white mb-4 bg-repeat order-md-2"
-                        style={{ backgroundImage: "url('assets/img/dust.png')" }}
-                    >
-                        {/* 메뉴 상단 header 부분 */}
-                        {/* <div className="mb-0 px-4 py-5 bg-light position-relative d-flex align-items-center justify-content-center">
+                    {/* 메뉴 카드 영역 */}
+                    <div className="col-md-9">
+                        <div
+                            className="position-relative z-index-1 bg-white mb-4 bg-repeat order-md-2"
+                            style={{ backgroundImage: "url('assets/img/dust.png')" }}
+                        >
+                            {/* 메뉴 상단 header 부분 */}
+                            {/* <div className="mb-0 px-4 py-5 bg-light position-relative d-flex align-items-center justify-content-center">
                             <svg
                                 className="text-primary"
                                 width="60"
@@ -129,72 +133,76 @@ const MenuDrink = () => {
                             </svg>
                         </div> */}
 
-                        {/* 메뉴 LIST 영역 */}
-                        <h4 className="mb-1" id="sangria">
-                            SANGRIA 상그리아
-                        </h4>
-                        <ul className="list-unstyled mb-0 px-3 py-5">
-                            {/* 메뉴항목1 */}
-                            <li className="d-flex flex-row mb-4 mb-lg-5">
-                                <div>
-                                    <img
-                                        src="assets/img/menu/drink2.jpg"
-                                        alt=""
-                                        className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                    />
-                                </div>
-                                <div className="flex-grow-1">
-                                    <div className="d-flex w-100 justify-content-between align-items-center">
-                                        <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">Sangria</h5>
-                                        <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                        <span className="fw-bold">36,-</span>
+                            {/* 메뉴 LIST 영역 */}
+                            <h4 className="mb-1" id="sangria">
+                                SANGRIA 상그리아
+                            </h4>
+                            <ul className="list-unstyled mb-0 px-3 py-5">
+                                {/* 메뉴항목1 */}
+                                <li className="d-flex flex-row mb-4 mb-lg-5">
+                                    <div>
+                                        <img
+                                            src="assets/img/menu/drink2.jpg"
+                                            alt=""
+                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                        />
                                     </div>
-                                    <p className="mb-0">1000ml</p>
-                                </div>
-                            </li>
-                            {/* 메뉴항목2 */}
-                            <li className="d-flex flex-row mb-4 mb-lg-5">
-                                <div>
-                                    <img
-                                        src="assets/img/menu/drink5.jpg"
-                                        alt=""
-                                        className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                    />
-                                </div>
-                                <div className="flex-grow-1">
-                                    <div className="d-flex w-100 justify-content-between align-items-center">
-                                        <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">Sangria Glass</h5>
-                                        <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                        <span className="fw-bold">10,9-</span>
+                                    <div className="flex-grow-1">
+                                        <div className="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">Sangria</h5>
+                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span className="fw-bold">36,-</span>
+                                        </div>
+                                        <p className="mb-0">1000ml</p>
                                     </div>
-                                    <p className="mb-0">250ml / white, Red</p>
-                                </div>
-                            </li>
-                            {/* 메뉴항목3 */}
-                            <li className="d-flex flex-row mb-4 mb-lg-5">
-                                <div>
-                                    <img
-                                        src="assets/img/menu/drink4.jpg"
-                                        alt=""
-                                        className="width-60 rounded-circle shadow me-2 me-lg-4"
-                                    />
-                                </div>
-                                <div className="flex-grow-1">
-                                    <div className="d-flex w-100 justify-content-between align-items-center">
-                                        <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">
-                                            NonAlcolhol Sangria
-                                        </h5>
-                                        <span className="flex-grow-1 border-dashed-1 mx-3"></span>
-                                        <span className="fw-bold">10,9-</span>
+                                </li>
+                                {/* 메뉴항목2 */}
+                                <li className="d-flex flex-row mb-4 mb-lg-5">
+                                    <div>
+                                        <img
+                                            src="assets/img/menu/drink5.jpg"
+                                            alt=""
+                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                        />
                                     </div>
-                                    <p className="mb-0">250ml</p>
-                                </div>
-                            </li>
-                        </ul>
+                                    <div className="flex-grow-1">
+                                        <div className="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">
+                                                Sangria Glass
+                                            </h5>
+                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span className="fw-bold">10,9-</span>
+                                        </div>
+                                        <p className="mb-0">250ml / white, Red</p>
+                                    </div>
+                                </li>
+                                {/* 메뉴항목3 */}
+                                <li className="d-flex flex-row mb-4 mb-lg-5">
+                                    <div>
+                                        <img
+                                            src="assets/img/menu/drink4.jpg"
+                                            alt=""
+                                            className="width-60 rounded-circle shadow me-2 me-lg-4"
+                                        />
+                                    </div>
+                                    <div className="flex-grow-1">
+                                        <div className="d-flex w-100 justify-content-between align-items-center">
+                                            <h5 className="mb-2 fs-5 fw-semibold fst-italic font-serif">
+                                                NonAlcolhol Sangria
+                                            </h5>
+                                            <span className="flex-grow-1 border-dashed-1 mx-3"></span>
+                                            <span className="fw-bold">10,9-</span>
+                                        </div>
+                                        <p className="mb-0">250ml</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 

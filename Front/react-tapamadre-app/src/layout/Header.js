@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 
 import { setActiveTab } from '../redux/actions'
 import { Helmet } from 'react-helmet'
-
 import {
     Nav,
     NavItem,
@@ -18,13 +17,13 @@ import {
     DropdownMenu,
     Button,
 } from 'reactstrap'
-
 import classnames from 'classnames'
 
 const Header = (props) => {
     const toggleTab = (tab) => {
         props.setActiveTab(tab)
     }
+    const [dropdownOpen, setDropdownOpen] = useState(false)
 
     const activeTab = props.activeTab
 
@@ -34,11 +33,11 @@ const Header = (props) => {
         <React.Fragment>
             <Helmet>
                 <link
-                    to="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
                     rel="stylesheet"
                 />
                 <link
-                    to="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
                     rel="stylesheet"
                 />
                 <link rel="stylesheet" to="assets/css/style.min.css" id="switchThemeStyle" />
@@ -52,6 +51,7 @@ const Header = (props) => {
                     <Link className="navbar-brand" to="/">
                         <img src={logo} alt="Logo" className="img-fluid logo-default" />
                     </Link>
+                    {/* <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" /> */}
                     <div className="d-flex align-items-center order-lg-2 navbar-icons">
                         <Button
                             className="navbar-toggler order-last ms-3 ms-lg-0"
@@ -95,8 +95,8 @@ const Header = (props) => {
                                     id="dropdown-search"
                                 >
                                     <h5 className="mb-3">Tell us what you're looking for</h5>
-                                    <form>
-                                        <input
+                                    {/* <form>
+                                        {/* <input
                                             type="text"
                                             className="form-control form-control-lg"
                                             placeholder="Example: Dinner, Wine, Pizza"
@@ -126,7 +126,7 @@ const Header = (props) => {
                                                 </Link>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -156,29 +156,29 @@ const Header = (props) => {
                                     </Link>
                                 </li>
                                 <li className="dropdown nav-item">
-                                    <Link
-                                        to="/menu"
+                                    <div
                                         className="dropdown-toggle nav-link"
-                                        data-bs-toggle="dropdown"
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
+                                        onClick={() => setDropdownOpen(!dropdownOpen)}
                                     >
                                         MENU
-                                    </Link>
-                                    <ul className="dropdown-menu dropdown-menu-start">
+                                    </div>
+                                    <ul
+                                        className={classnames('dropdown-menu dropdown-menu-start', {
+                                            show: dropdownOpen,
+                                        })}
+                                    >
                                         <li>
-                                            <Link className="dropdown-item" to="/food">
+                                            <Link className="dropdown-item" to="/menufood">
                                                 FOOD
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/drink">
+                                            <Link className="dropdown-item" to="/menudrink">
                                                 DRINK
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/set">
+                                            <Link className="dropdown-item" to="/menuset">
                                                 SET MENU
                                             </Link>
                                         </li>
@@ -233,4 +233,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { setActiveTab })(Header)
+export default connect(mapStatetoProps)(Header)
