@@ -34,7 +34,7 @@ const Home = () => {
                 {/* <!--aos animation--> */}
                 <link rel="stylesheet" href="../../assets/vendor/css/aos.css" />
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link>
+                {/* <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link> */}
                 {/* <!--Bootstrap icons--> */}
                 <link
                     rel="stylesheet"

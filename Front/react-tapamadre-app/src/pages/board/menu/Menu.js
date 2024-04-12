@@ -24,8 +24,12 @@ const Menu = () => {
                     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
                     rel="stylesheet"
                 />
+                {/* <!--aos animation--> */}
+                <link rel="stylesheet" href="../../assets/vendor/css/aos.css" />
+                <link rel="stylesheet" href="../../assets/js/theme.bundle"></link>
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
                 {/* Main style */}
-                <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle" />
+                <link rel="stylesheet" href="../../assets/css/style.min.css" id="switchThemeStyle" />
                 {/* Title */}
                 <title>Resto</title>
             </Helmet>
@@ -38,16 +42,18 @@ const Menu = () => {
                 {/* 카트 모달 코드 삭제처리했습니다  */}
 
                 {/* 상단 header 디자인 부분 */}
-                {/* <section className="position-relative overflow-hidden bg-light">
-                    <div className="container pt-8 pb-6 text-center position-relative">
+                <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
+                    <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+
+                    <div className="container pt-8 pb-6 text-center position-relative text-white">
                         <div className="row pt-4 pt-lg-6 justify-content-center text-center">
                             <div className="col-lg-8 col-md-10">
-                                <h1 className="display-3 mb-3 mx-auto">Extended Tiles</h1>
+                                <h1 className="display-2 mb-2 mx-auto">MENU</h1>
                                 <p className="lead mb-0">The best food in town at one of the best locations</p>
                             </div>
                         </div>
                     </div>
-                </section> */}
+                </section>
 
                 {/* <!--Main content--> */}
                 <main id="main">
