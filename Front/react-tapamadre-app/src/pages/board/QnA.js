@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Helmet } from 'react-helmet'
 
@@ -6,7 +6,16 @@ import { Link } from 'react-router-dom'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
 
+// AOS 라이브러리
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const QnA = () => {
+    // aos 초기화
+    useEffect(() => {
+        AOS.init()
+    }, [])
+
     return (
         <div>
             <Header />
@@ -22,7 +31,9 @@ const QnA = () => {
                     rel="stylesheet"
                 />
                 {/* <!--aos animation--> */}
-                {/* <link rel="stylesheet" href="../../assets/vendor/css/aos.css" /> */}
+                <link rel="stylesheet" href="../../assets/vendor/css/aos.css" />
+                <link rel="stylesheet" href="../../assets/js/theme.bundle"></link>
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
                 {/* <!--Bootstrap icons--> */}
                 <link
                     rel="stylesheet"
@@ -37,6 +48,17 @@ const QnA = () => {
                 <title>Resto</title>
             </Helmet>
             {/* <!--Main content--> */}
+            {/* 상단 header 디자인 부분 */}
+            <section className="position-relative overflow-hidden bg-dark">
+                <div className="container pt-8 pb-6 text-center position-relative">
+                    <div className="row pt-4 pt-lg-6 justify-content-center text-center">
+                        <div className="col-lg-8 col-md-10">
+                            <h1 className="display-3 mb-3 mx-auto">Extended Tiles</h1>
+                            <p className="lead mb-0">The best food in town at one of the best locations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <main id="main">
                 <section className="position-relative">
                     <div className="container py-7 py-lg-10">

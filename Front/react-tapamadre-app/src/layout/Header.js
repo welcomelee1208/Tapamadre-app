@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// import logo from '../assets/img/logo2.jpg'
 import logo from '../assets/img/logo.png'
 
 // 추가참조
@@ -21,9 +22,19 @@ import {
     Button,
 } from 'reactstrap'
 
+// import '../assets/js/theme.bundle'
 import classnames from 'classnames'
 
+// AOS 라이브러리
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const Header = (props) => {
+    // aos 초기화
+    useEffect(() => {
+        AOS.init()
+    }, [])
+
     // 메뉴 선택시 선택 탭정보 전역상태 반영
     const toggleTab = (tab) => {
         props.setActiveTab(tab)
@@ -48,15 +59,17 @@ const Header = (props) => {
                     rel="stylesheet"
                 />
                 {/* Main style */}
-                <link rel="stylesheet" to="assets/css/style.min.css" id="switchThemeStyle" />
+                <link rel="stylesheet" to="../assets/css/style.min.css" id="switchThemeStyle" />
+
+                {/* <!--aos animation--> */}
+                <link rel="stylesheet" href="../assets/vendor/css/aos.css" />
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <script src="../assets/js/theme.bundle.js"></script>
 
                 {/* Title */}
             </Helmet>
             {/* <body> */}
-            <nav
-                className="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white"
-                style={{ position: 'relative' }}
-            >
+            <nav className="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white">
                 <div className="container">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} alt="Logo" className="img-fluid logo-default" />
@@ -94,7 +107,7 @@ const Header = (props) => {
                                     </div>
                                 </Link>
                             </div>
-                            <div className="position-lg-relative me-4 me-lg-0 nav-item">
+                            {/* <div className="position-lg-relative me-4 me-lg-0 nav-item">
                                 <Link
                                     data-bs-toggle="dropdown"
                                     data-bs-auto-close="outside"
@@ -139,7 +152,7 @@ const Header = (props) => {
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     {/* <!--navbar-offcanvas-lg--> */}
@@ -157,7 +170,7 @@ const Header = (props) => {
                                 <li className="dropdown nav-item">
                                     <Link
                                         to="/"
-                                        className="dropdown-toggle nav-link active"
+                                        className="nav-link active"
                                         data-bs-auto-close="outside"
                                         data-bs-toggle="dropdown"
                                         role="button"

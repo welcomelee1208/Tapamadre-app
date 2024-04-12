@@ -19,10 +19,10 @@ const Footer = () => {
                         />
                     </svg>
                 </a>
-                <div className="container py-8 pt-lg-9 position-relative">
+                <div className="container py-6 pt-lg-8 position-relative">
                     <div className="row">
                         <div className="col-lg-6 col-xl-5 me-auto mb-5">
-                            <h4 className="mb-3 text-primary">Subscribe to Newsletter</h4>
+                            {/* <h4 className="mb-3 text-primary">Subscribe to Newsletter</h4>
                             <p className="mb-4 text-muted">And stay in the know</p>
                             <form>
                                 <div className="d-md-flex">
@@ -39,68 +39,51 @@ const Footer = () => {
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            </form> */}
                         </div>
                         <div className="col-lg-3 mb-5">
-                            <h5 className="mb-4">Our location</h5>
+                            <h5 className="mb-4">주소</h5>
                             <p className="text-muted">
-                                <strong className="d-table">Resto</strong>
-                                Rancho Bernardo Rd
-                                <br />
-                                San Diego <br />
-                                CA 92127 <br />
-                                United States
+                                <strong className="d-table"></strong>
                             </p>
-                            <p className="mb-1">
-                                <a href="tel:+1123-456-7890">+01 123-456-7890</a>
-                            </p>
-                            <p>
-                                <a href="mailto:support@uigator.com">
-                                    <span>youremail@domain.com</span>
-                                </a>
-                            </p>
+                            {/* Rancho Bernardo Rd */}
+                            서울특별시 종로구
+                            <br />
+                            경희궁길 43, <br />
+                            따빠마드레 <br />
+                            <br />
+                            구: 신문로2가 1-251
                         </div>
                         <div className="col-lg-3 col-xl-2 mb-5">
-                            <h5 className="mb-4">Company</h5>
-                            <ul className="nav flex-column mb-0">
-                                <li className="nav-item mb-3">
-                                    <a href="#!" className="nav-link p-0">
-                                        Food
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-3">
-                                    <a href="#!" className="nav-link p-0">
-                                        Wine
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-3">
-                                    <a href="#!" className="nav-link p-0">
-                                        Beer
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="#!" className="nav-link p-0">
-                                        Shop
-                                    </a>
-                                </li>
-                            </ul>
+                            <h5 className="mb-4">연락처</h5>
+                            <p className="mb-1">
+                                <a href="tel:+02-722-4199">02-722-4199</a>
+                            </p>
+                            <p>
+                                <a href="madre@gmail.com">
+                                    <span>madre@gmail.com</span>
+                                </a>
+                            </p>
                         </div>
                     </div>
                     <hr className="opacity-25 mb-5" />
                     <div className="d-sm-flex justify-content-sm-between justify-content-center">
                         <ul className="d-flex flex-wrap list-unstyled mb-4 mb-sm-0">
                             <li className="me-4">
-                                <a href="#!" className="hover-lift d-block">
+                                <a
+                                    href="https://www.facebook.com/watch/tapamadre/"
+                                    className="hover-lift d-block"
+                                    target="_blank"
+                                >
                                     <i className="bi bi-facebook fs-5"></i>
                                 </a>
                             </li>
-                            <li className="me-4">
-                                <a href="#!" className="hover-lift d-block">
-                                    <i className="bi bi-twitter fs-5"></i>
-                                </a>
-                            </li>
                             <li className="">
-                                <a href="#!" className="hover-lift d-block">
+                                <a
+                                    href="https://www.instagram.com/tapamadre2016/"
+                                    className="hover-lift d-block"
+                                    target="_blank"
+                                >
                                     <i className="bi bi-instagram fs-5"></i>
                                 </a>
                             </li>
