@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { Link, Element } from 'react-scroll'
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
@@ -16,6 +17,9 @@ const MenuData = {
 }
 
 const MenuFood = () => {
+    const [modal, setModal] = useState(false)
+
+    const toggle = () => setModal(!modal)
     return (
         <>
             <Header />
@@ -146,7 +150,7 @@ const MenuFood = () => {
                             {/* 메뉴 리스트 */}
                             <ul className="list-unstyled mb-0 px-3 py-5">
                                 {/* 메뉴항목1 */}
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div>
                                             <img
@@ -172,11 +176,11 @@ const MenuFood = () => {
                                     </div>
                                 </li>
                                 {/* 메뉴항목1 */}
-                                <li className="d-flex flex-column mb-4 mb-lg-5">
+                                <li className="d-flex flex-column mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div>
                                             <img
-                                                src="assets/img/menu/food2.jpg"
+                                                src="assets/img/menu/food1.jpg"
                                                 alt=""
                                                 className="width-60 rounded-circle shadow me-2 me-lg-4"
                                             />
@@ -198,11 +202,11 @@ const MenuFood = () => {
                                     </div>
                                 </li>
                                 {/* 메뉴항목2 */}
-                                <li className="d-flex flex-column mb-4 mb-lg-5">
+                                <li className="d-flex flex-column mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div>
                                             <img
-                                                src="assets/img/menu/food3.jpg"
+                                                src="assets/img/menu/food1.jpg"
                                                 alt=""
                                                 className="width-60 rounded-circle shadow me-2 me-lg-4"
                                             />
@@ -224,11 +228,11 @@ const MenuFood = () => {
                                     </div>
                                 </li>
                                 {/* 메뉴항목3 */}
-                                <li className="d-flex flex-column mb-4 mb-lg-5">
+                                <li className="d-flex flex-column mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div>
                                             <img
-                                                src="assets/img/menu/food4.jpg"
+                                                src={MenuData.file[0].file_path}
                                                 alt=""
                                                 className="width-60 rounded-circle shadow me-2 me-lg-4"
                                             />
@@ -250,7 +254,7 @@ const MenuFood = () => {
                                     </div>
                                 </li>
                                 {/* 메뉴항목4 */}
-                                <li className="d-flex flex-column mb-4">
+                                <li className="d-flex flex-column mb-4" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div>
                                             <img
@@ -285,11 +289,11 @@ const MenuFood = () => {
                             </a>
                             {/* 메뉴 리스트 */}
                             <ul className="list-unstyled mb-0 px-3 py-5">
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div>
                                             <img
-                                                src="assets/img/menu/food1.jpg"
+                                                src={MenuData.file[0].file_path}
                                                 alt=""
                                                 className="width-60 rounded-circle shadow me-2 me-lg-4"
                                             />
@@ -321,11 +325,11 @@ const MenuFood = () => {
                             </a>
                             {/* 메뉴 리스트 */}
                             <ul className="list-unstyled mb-0 px-3 py-5">
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div>
                                             <img
-                                                src="assets/img/menu/food1.jpg"
+                                                src={MenuData.file[0].file_path}
                                                 alt=""
                                                 className="width-60 rounded-circle shadow me-2 me-lg-4"
                                             />
@@ -351,6 +355,28 @@ const MenuFood = () => {
                 </div>
             </div>
             <Footer />
+            <Modal isOpen={modal} toggle={toggle} size="lg">
+                <ModalHeader toggle={toggle}>음식상세</ModalHeader>
+                <ModalBody>
+                    {/* 이미지와 설명 */}
+                    <div className="d-flex">
+                        <img
+                            src="assets/img/menu/drink1.jpg"
+                            alt=""
+                            className="img-fluid mb-3"
+                            style={{ maxWidth: '50%', maxHeight: '80vh' }}
+                        />
+                        <div>
+                            <p>음식설명</p>
+                        </div>
+                    </div>
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={toggle}>
+                        닫기
+                    </Button>{' '}
+                </ModalFooter>
+            </Modal>
         </>
     )
 }

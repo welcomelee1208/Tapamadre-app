@@ -48,7 +48,24 @@ function BlogDetail() {
                         <div className="row pt-4 pt-lg-9 justify-content-between">
                             <div className="col-lg-7 col-xl-8 mb-7 mb-lg-0">
                                 <article className="border-bottom pb-5 mb-5">
+                                    <h1 className="mb-4 display-6">Categories</h1>
                                     <h1 className="mb-4 display-5">제목</h1>
+                                    <div className="post-meta">
+                                        <ul className="list-unstyled small d-flex align-items-center mb-4 small">
+                                            <li className="mx-3">
+                                                On
+                                                <p className="text-secondary d-inline-flex align-items-center">
+                                                    <span> 13 Oct. 2020</span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                In
+                                                <p className="d-inline-flex align-items-center">
+                                                    <span> News</span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <Swiper
                                         spaceBetween={50}
                                         slidesPerView={1}
@@ -62,30 +79,9 @@ function BlogDetail() {
                                         <SwiperSlide>
                                             <img src={image1} alt="" className="img-fluid" />
                                         </SwiperSlide>
-                                        <SwiperSlide>
-                                            <img src={image2} alt="" className="img-fluid" />
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <img src={image3} alt="" className="img-fluid" />
-                                        </SwiperSlide>
                                     </Swiper>
                                 </article>
-                                <div className="post-meta">
-                                    <ul className="list-unstyled small d-flex align-items-center mb-4 small">
-                                        <li className="mx-3">
-                                            On
-                                            <a href="#" className="text-secondary d-inline-flex align-items-center">
-                                                <span> 13 Oct. 2020</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            In
-                                            <a href="#" className="d-inline-flex align-items-center">
-                                                <span> News</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+
                                 {/* 내용 */}
                                 <div className="post-content">
                                     <p>소제목</p>
@@ -115,44 +111,12 @@ function BlogDetail() {
                                         </li>
                                     </ul>
                                 </div>
-                                {/* 최근게시물 */}
-                                <div className="position-relative mb-5">
-                                    <h5 className="mb-3">Latest Posts</h5>
-                                    <ul className="list-unstyled">
-                                        <li className="d-flex w-100 mb-4">
-                                            <a href="#">
-                                                <img src="assets/img/600x800/1.jpg" alt="" className="width-50 me-3" />
-                                            </a>
-                                            <div className="post-content">
-                                                <p className="mb-0 fw-normal lh-sm">
-                                                    <a href="/newsevent/4" className="text-body">
-                                                        공지사항
-                                                    </a>
-                                                </p>
-                                                <small className="text-muted">14 April 2016</small>
-                                            </div>
-                                        </li>
-                                        <li className="d-flex w-100">
-                                            <a href="#">
-                                                <img src="assets/img/600x800/2.jpg" alt="" className="width-50 me-3" />
-                                            </a>
-                                            <div className="post-content">
-                                                <p className="mb-0 fw-normal lh-sm">
-                                                    <a href="#" className="text-body">
-                                                        이벤트
-                                                    </a>
-                                                </p>
-                                                <small className="text-muted">14 Oct. 2020</small>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </main>
+                <Footer />
             </body>
-            <Footer />
         </div>
     )
 }

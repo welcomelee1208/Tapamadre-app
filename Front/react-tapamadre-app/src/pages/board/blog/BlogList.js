@@ -122,7 +122,7 @@ const BlogList = () => {
                 <div className="row g-2 isotope-grid">
                     {filteredBlogs.map((blog) => (
                         <div key={blog.id} className={`col-md-4 col-sm-6 grid-item g_${blog.type}`}>
-                            <a href={blog.imageUrl} className="glightbox hover-shadow hover-lift d-block">
+                            <a href={blog.link} className="glightbox hover-shadow hover-lift d-block">
                                 <img src={blog.imageUrl} alt="" className="img-fluid" />
                             </a>
                             <div className="pb-5 border-bottom">
@@ -137,8 +137,8 @@ const BlogList = () => {
                                 <div className="post-meta">
                                     <ul className="list-unstyled d-flex align-items-center mb-0 small text-muted">
                                         <li className="ms-2">
-                                            On{' '}
-                                            <a href="#" className="text-secondary d-inline-flex align-items-center">
+                                            On
+                                            <a className="text-secondary d-inline-flex align-items-center">
                                                 <span>{blog.date}</span>
                                             </a>
                                         </li>
