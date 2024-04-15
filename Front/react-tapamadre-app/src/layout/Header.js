@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// import logo from '../assets/img/logo2.jpg'
 import logo from '../assets/img/logo.png'
 
 import { connect, useDispatch } from 'react-redux'
@@ -17,9 +18,21 @@ import {
     DropdownMenu,
     Button,
 } from 'reactstrap'
+
+// import '../assets/js/theme.bundle'
 import classnames from 'classnames'
 
+// AOS 라이브러리
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const Header = (props) => {
+    // aos 초기화
+    useEffect(() => {
+        AOS.init()
+    }, [])
+
+    // 메뉴 선택시 선택 탭정보 전역상태 반영
     const toggleTab = (tab) => {
         props.setActiveTab(tab)
     }
@@ -40,16 +53,23 @@ const Header = (props) => {
                     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
                     rel="stylesheet"
                 />
-                <link rel="stylesheet" to="assets/css/style.min.css" id="switchThemeStyle" />
-                <link rel="stylesheet" to="assets/css/custom.css" />
+                {/* Main style */}
+                <link rel="stylesheet" to="../assets/css/style.min.css" id="switchThemeStyle" />
+
+                {/* <!--aos animation--> */}
+                <link rel="stylesheet" href="../assets/vendor/css/aos.css" />
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <script src="../assets/js/theme.bundle.js"></script>
+
+                {/* Title */}
             </Helmet>
-            <nav
-                className="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white"
-                style={{ position: 'relative' }}
-            >
+            {/* <body> */}
+            <nav className="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky navbar-link-white">
                 <div className="container">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} alt="Logo" className="img-fluid logo-default" />
+                        {/* <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" />
+                        <img src="assets/img/logo/logo-dark.svg" alt="Logo" className="img-fluid logo-pinned" /> */}
                     </Link>
                     {/* <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" /> */}
                     <div className="d-flex align-items-center order-lg-2 navbar-icons">
@@ -83,7 +103,7 @@ const Header = (props) => {
                                     </div>
                                 </Link>
                             </div>
-                            <div className="position-lg-relative me-4 me-lg-0 nav-item">
+                            {/* <div className="position-lg-relative me-4 me-lg-0 nav-item">
                                 <Link
                                     data-bs-toggle="dropdown"
                                     data-bs-auto-close="outside"
@@ -126,9 +146,9 @@ const Header = (props) => {
                                                 </Link>
                                             </li>
                                         </ul>
-                                    </div> */}
+                                    </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="offcanvas offcanvas-end" id="restoMainNavbar">
@@ -142,10 +162,10 @@ const Header = (props) => {
                         </div>
                         <div className="offcanvas-body">
                             <ul className="navbar-nav mx-auto">
-                                <li className="dropdown nav-item">
+                                {/* <li className="dropdown nav-item">
                                     <Link
                                         to="/"
-                                        className="dropdown-toggle nav-link active"
+                                        className="nav-link active"
                                         data-bs-auto-close="outside"
                                         data-bs-toggle="dropdown"
                                         role="button"
@@ -153,6 +173,11 @@ const Header = (props) => {
                                         aria-expanded="false"
                                     >
                                         Home
+                                    </Link>
+                                </li> */}
+                                <li className="nav-item">
+                                    <Link className="nav-link active" to="/">
+                                        HOME
                                     </Link>
                                 </li>
                                 <li className="dropdown nav-item">
@@ -184,38 +209,21 @@ const Header = (props) => {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="dropdown nav-item">
-                                    <Link
-                                        to="/newsevent"
-                                        className="dropdown-toggle nav-link"
-                                        data-bs-toggle="dropdown"
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                    >
-                                        NEWS & EVENT
-                                    </Link>
-                                    <ul className="dropdown-menu dropdown-menu-start">
-                                        <li>
-                                            <Link className="dropdown-item" to="/blogDetail">
-                                                Sidebar end
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="/blogList">
-                                                Sidebar start
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </li>
+                                {/* Q & A */}
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/reservation">
-                                        Reservation
+                                    <Link className="nav-link" to="/newsevent">
+                                        NEWS & EVENT
                                     </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/inquiry">
                                         Q & A
+                                    </Link>
+                                </li>
+                                {/* Reservation */}
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/reservation">
+                                        Reservation
                                     </Link>
                                 </li>
                             </ul>

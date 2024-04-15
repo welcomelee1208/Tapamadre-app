@@ -7,7 +7,17 @@ import 'flatpickr/dist/flatpickr.min.css'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
 
+import { Helmet } from 'react-helmet'
+// AOS 라이브러리
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const Reservation = () => {
+    // aos 초기화
+    useEffect(() => {
+        AOS.init()
+    }, [])
+
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -115,6 +125,34 @@ const Reservation = () => {
     return (
         <>
             <Header />
+            <Helmet>
+                {/* <!--Flatpickr and choices select css--> */}
+                <link rel="stylesheet" href="../../assets/vendor/css/flatpickr.min.css" />
+
+                {/* <!--Google fonts--> */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
+                    rel="stylesheet"
+                />
+                {/* <!--aos animation--> */}
+                <link rel="stylesheet" href="../../assets/vendor/css/aos.css" />
+                <link rel="stylesheet" href="../../assets/js/theme.bundle"></link>
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                {/* <!--Bootstrap icons--> */}
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+                />
+                {/* <!--Main style--> */}
+                <link rel="stylesheet" href="../../assets/css/style.min.css" id="switchThemeStyle" />
+
+                {/* <!--Add custom style here--> */}
+                {/* <!-- <link rel="stylesheet" href="assets/css/custom.css"> --> */}
+
+                <title>Resto</title>
+            </Helmet>
             {/* Reservation Section */}
             <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
                 <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
@@ -165,136 +203,126 @@ const Reservation = () => {
                                 </p>
                             </div>
                             <div className="pt-5" data-aos="fade-up" data-aos-duration="400">
-                                {/* Book Online 위에 박스 추가 */}
-                                <div className="book-online-box">
-                                    <h4 className="mb-3">주류및콜키지 안내 </h4>
-                                    <p>
-                                        예약 기준 2병 반입 가능하며 1병당 콜키지는 3만원입니다. 와인을 제외한 주류반입은
-                                        어려운점 양해 부탁드립니다.
-                                    </p>
-                                </div>
-                                <div className="pt-5" data-aos="fade-up" data-aos-duration="400">
-                                    <h4 className="mb-3">Book Online</h4>
-                                    <form onSubmit={handleSubmit}>
-                                        {/* 예약 날짜 시간 */}
-                                        <div className="mb-3">
-                                            <label className="mb-2">When do you want to reserve a table?</label>
-                                            <div className="row">
-                                                <div className="col-sm-6 col-12 mb-2 mb-sm-0">
-                                                    <input
-                                                        required
-                                                        type="text"
-                                                        className="form-control bg-white"
-                                                        data-flatpicker
-                                                        placeholder="Select Date"
-                                                        name="reservationDate"
-                                                        value={formData.reservationDate}
-                                                        onChange={handleInputChange}
-                                                    />
-                                                </div>
-                                                <div className="col-sm-6 col-12">
-                                                    <select
-                                                        required
-                                                        className="form-control"
-                                                        data-choices
-                                                        name="reservationTime"
-                                                        value={formData.reservationTime}
-                                                        onChange={handleInputChange}
-                                                    >
-                                                        <option value="">- Select Time - </option>
-                                                        <option value="7:00 p.m.">7:00 p.m. </option>
-                                                        <option value="7:30 p.m.">7:30 p.m. </option>
-                                                        <option value="8:00 p.m.">8:00 p.m. </option>
-                                                        <option value="8:30 p.m.">8:30 p.m. </option>
-                                                        <option value="9:00 p.m.">9:00 p.m. </option>
-                                                        <option value="9:30 p.m.">9:30 p.m. </option>
-                                                        <option value="10:00 p.m.">10:00 p.m. </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* 이름, 예약인원 */}
-                                        <div className="row mb-3">
-                                            <div className="col-sm-6 col-12">
-                                                <label className="mb-2">예약자명</label>
+                                <h4 className="mb-3">Book Online</h4>
+                                <form onSubmit={handleSubmit}>
+                                    {/* 예약 날짜 시간 */}
+                                    <div className="mb-3">
+                                        <label className="mb-2">When do you want to reserve a table?</label>
+                                        <div className="row">
+                                            <div className="col-sm-6 col-12 mb-2 mb-sm-0">
                                                 <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="예약자명"
                                                     required
-                                                    name="reservationName"
-                                                    value={formData.reservationName}
+                                                    type="text"
+                                                    className="form-control bg-white"
+                                                    data-flatpicker
+                                                    placeholder="Select Date"
+                                                    name="reservationDate"
+                                                    value={formData.reservationDate}
                                                     onChange={handleInputChange}
                                                 />
                                             </div>
                                             <div className="col-sm-6 col-12">
-                                                <label className="mb-2">예약인원</label>
-                                                <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="예약인원"
+                                                <select
                                                     required
-                                                    name="reservationPeople"
-                                                    value={formData.reservationPeople}
+                                                    className="form-control"
+                                                    data-choices
+                                                    name="reservationTime"
+                                                    value={formData.reservationTime}
                                                     onChange={handleInputChange}
-                                                />
+                                                >
+                                                    <option value="">- Select Time - </option>
+                                                    <option value="7:00 p.m.">7:00 p.m. </option>
+                                                    <option value="7:30 p.m.">7:30 p.m. </option>
+                                                    <option value="8:00 p.m.">8:00 p.m. </option>
+                                                    <option value="8:30 p.m.">8:30 p.m. </option>
+                                                    <option value="9:00 p.m.">9:00 p.m. </option>
+                                                    <option value="9:30 p.m.">9:30 p.m. </option>
+                                                    <option value="10:00 p.m.">10:00 p.m. </option>
+                                                </select>
                                             </div>
                                         </div>
-                                        {/* 전화번호, 이메일 */}
-                                        <div className="row mb-3">
-                                            <div className="col-sm-6 col-12">
-                                                <label className="mb-2">전화번호</label>
-                                                <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="전화번호"
-                                                    required
-                                                    name="reservationPhone"
-                                                    value={formData.reservationPhone}
-                                                    onChange={handleInputChange}
-                                                />
-                                            </div>
-                                            <div className="col-sm-6 col-12">
-                                                <label className="mb-2">이메일</label>
-                                                <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="이메일"
-                                                    required
-                                                    name="reservationEmail"
-                                                    value={formData.reservationEmail}
-                                                    onChange={handleInputChange}
-                                                />
-                                            </div>
+                                    </div>
+                                    {/* 이름, 예약인원 */}
+                                    <div className="row mb-3">
+                                        <div className="col-sm-6 col-12">
+                                            <label className="mb-2">예약자명</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="예약자명"
+                                                required
+                                                name="reservationName"
+                                                value={formData.reservationName}
+                                                onChange={handleInputChange}
+                                            />
                                         </div>
-                                        {/* 코멘트 */}
-                                        <div className="row mb-3">
-                                            <div className="col-12">
-                                                <label className="mb-2" htmlFor="reservationComment">
-                                                    예약자 코멘트
-                                                </label>
-                                                <textarea
-                                                    id="reservationComment"
-                                                    className="form-control"
-                                                    rows="4"
-                                                    name="reservationComment"
-                                                    onChange={handleInputChange}
-                                                ></textarea>
-                                            </div>
+                                        <div className="col-sm-6 col-12">
+                                            <label className="mb-2">예약인원</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="예약인원"
+                                                required
+                                                name="reservationPeople"
+                                                value={formData.reservationPeople}
+                                                onChange={handleInputChange}
+                                            />
                                         </div>
+                                    </div>
+                                    {/* 전화번호, 이메일 */}
+                                    <div className="row mb-3">
+                                        <div className="col-sm-6 col-12">
+                                            <label className="mb-2">전화번호</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="전화번호"
+                                                required
+                                                name="reservationPhone"
+                                                value={formData.reservationPhone}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <div className="col-sm-6 col-12">
+                                            <label className="mb-2">이메일</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="이메일"
+                                                required
+                                                name="reservationEmail"
+                                                value={formData.reservationEmail}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                    </div>
+                                    {/* 코멘트 */}
+                                    <div className="row mb-3">
+                                        <div className="col-12">
+                                            <label className="mb-2" htmlFor="reservationComment">
+                                                예약자 코멘트
+                                            </label>
+                                            <textarea
+                                                id="reservationComment"
+                                                className="form-control"
+                                                rows="4"
+                                                name="reservationComment"
+                                                onChange={handleInputChange}
+                                            ></textarea>
+                                        </div>
+                                    </div>
 
-                                        <div className="text-end">
-                                            <button
-                                                type="submit"
-                                                className="btn btn-info btn-hover-scale btn-lg w-100"
-                                                onClick={toggle}
-                                                disabled={isFormEmpty(false)} // 모든 입력 필드가 비어 있을 때만 버튼 비활성화
-                                            >
-                                                <span>Submit</span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <div className="text-end">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-info btn-hover-scale btn-lg w-100"
+                                            onClick={toggle}
+                                            disabled={isFormEmpty(false)} // 모든 입력 필드가 비어 있을 때만 버튼 비활성화
+                                        >
+                                            <span>Submit</span>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

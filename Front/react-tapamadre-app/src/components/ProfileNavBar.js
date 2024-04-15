@@ -6,16 +6,21 @@ const ProfileNavBar = () => {
         <div className="col-md-4 col-lg-3 order-md-1">
             {/* 공통 설정 탭 */}
             <div className="position-relative mb-5">
-                <h5 className="mb-3">나의 정보</h5>
+                <h5 className="mb-3">프로필</h5>
                 <ul className="list-unstyled">
                     <li>
-                        <Link to="#" className="text-secondary d-block py-1">
-                            계정 설정
+                        <Link to="/mypage/myaccount" className="text-secondary d-block py-1">
+                            계정관리
                         </Link>
                     </li>
                     <li>
-                        <Link to="#" className="text-secondary d-block py-1">
-                            나의 예약
+                        <Link to="/mypage/myreservation" className="text-secondary d-block py-1">
+                            예약관리
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/mypage/myinquiry" className="text-secondary d-block py-1">
+                            문의사항
                         </Link>
                     </li>
                 </ul>
@@ -27,12 +32,17 @@ const ProfileNavBar = () => {
                 <ul className="list-unstyled">
                     <li>
                         <Link to="/admin/newsevent" className="text-secondary d-block py-1">
-                            블로그
+                            블로그관리
                         </Link>
                     </li>
                     <li>
-                        <Link to="member" className="text-secondary d-block py-1">
-                            회원
+                        <Link to="/admin/menu" className="text-secondary d-block py-1">
+                            메뉴관리
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/reservation" className="text-secondary d-block py-1">
+                            예약관리
                         </Link>
                     </li>
                     <li>
@@ -41,13 +51,8 @@ const ProfileNavBar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/menu" className="text-secondary d-block py-1">
-                            메뉴
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/admin/reservation" className="text-secondary d-block py-1">
-                            예약
+                        <Link to="member" className="text-secondary d-block py-1">
+                            회원관리
                         </Link>
                     </li>
                 </ul>

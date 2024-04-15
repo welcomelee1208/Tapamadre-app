@@ -1,9 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-import ProfileNavBar from '../../components/ProfileNavBar'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
+
+import ProfileNavBar from '../../components/ProfileNavBar'
 const Setting = () => {
     return (
         <>
@@ -27,8 +28,8 @@ const Setting = () => {
                 <div className="container py-7 py-lg-10 position-relative z-index-1">
                     <div className="row">
                         {/* 컨텐츠영역 */}
-                        <div className="col-md-9 mb-6 mb-md-0 order-md-2 pb-3">
-                            <div className="pt-5 aos-init aos-animate" data-aos="fade-up" data-aos-duration="400">
+                        <div className="col-md-8 mb-6 mb-md-0 order-md-2 pb-3">
+                            <div className="aos-init aos-animate" data-aos="fade-up" data-aos-duration="400">
                                 <Outlet />
                             </div>
                         </div>
@@ -38,6 +39,7 @@ const Setting = () => {
                 </div>
                 <Footer />
             </main>
+            <Footer />
         </>
     )
 }
