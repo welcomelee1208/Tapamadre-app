@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: "사용자 이름",
       },
       email: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(100),
         allowNull: false,
         comment: "이메일(로그인시 아이디로 활용)",
       },

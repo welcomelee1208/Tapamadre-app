@@ -2,10 +2,12 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 
 import ProfileNavBar from '../../components/ProfileNavBar'
-
+import Header from '../../layout/Header'
+import Footer from '../../layout/Footer'
 const Setting = () => {
     return (
         <>
+            <Header />
             {/* 상단 영역 */}
             <section className="position-relative overflow-hidden text-white bg-dark">
                 <div className="position-absolute start-0 top-0 w-100 h-100 bg-dark jarallax" data-speed=".3">
@@ -34,6 +36,7 @@ const Setting = () => {
                         <ProfileNavBar />
                     </div>
                 </div>
+                <Footer />
             </main>
         </>
     )

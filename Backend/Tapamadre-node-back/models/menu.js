@@ -51,6 +51,11 @@ module.exports = function (sequelize, DataTypes) {
         comment:
           "메뉴 중분류 1:런치메뉴2.핀초스 3.따빠스 4.빠에야 5.파스타 6.그릴 7,디저트 ",
       },
+      is_display_code: {
+        type: DataTypes.TINYINT,
+        allowNull: false,
+        comment: "메뉴게시여부 0 게시x 1 게시o",
+      },
     },
     {
       sequelize,
