@@ -387,7 +387,7 @@ const MenuDrink = () => {
                                 delay: 2500,
                                 disableOnInteraction: false,
                             }}
-                            style={{ maxWidth: '20%', maxHeight: '60vh' }} // 스와이퍼 크기 조절
+                            style={{ maxWidth: '40%', maxHeight: '60vh' }} // 스와이퍼 크기 조절
                         >
                             <SwiperSlide>
                                 <img src="assets/img/menu/drink1.jpg" alt="" className="img-fluid mb-3" />
