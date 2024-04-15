@@ -3,6 +3,32 @@ import React from 'react'
 const Footer = () => {
     return (
         <React.Fragment>
+            <svg
+                class=" start-0 bottom-0"
+                preserveAspectRatio="none"
+                width="100%"
+                height="64"
+                viewBox="0 0 1200 200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g class="text-primary">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M0 200L422.667 100L845.333 0L1268 125V200H845.333H422.667H0Z"
+                        fill="currentColor"
+                    />
+                </g>
+                <g class="text-dark">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M0 200L450.667 108L901.333 16L1352 131V200H901.333H450.667H0Z"
+                        fill="currentColor"
+                    />
+                </g>
+            </svg>
             <footer className="footer bg-dark text-white position-relative overflow-hidden">
                 <a href="#top" data-scroll className="d-flex position-absolute end-0 bottom-0 mb-4 me-4 z-index-1">
                     <svg
@@ -19,7 +45,7 @@ const Footer = () => {
                         />
                     </svg>
                 </a>
-                <div className="container py-6 pt-lg-8 position-relative">
+                <div className="container py-5 pt-lg-6 position-relative">
                     <div className="row">
                         <div className="col-lg-6 col-xl-5 me-auto mb-5">
                             {/* <h4 className="mb-3 text-primary">Subscribe to Newsletter</h4>
@@ -43,9 +69,9 @@ const Footer = () => {
                         </div>
                         <div className="col-lg-3 mb-5">
                             <h5 className="mb-4">주소</h5>
-                            <p className="text-muted">
+                            {/* <p className="text-muted">
                                 <strong className="d-table"></strong>
-                            </p>
+                            </p> */}
                             {/* Rancho Bernardo Rd */}
                             서울특별시 종로구
                             <br />

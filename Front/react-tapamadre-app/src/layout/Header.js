@@ -167,7 +167,7 @@ const Header = (props) => {
                         </div>
                         <div className="offcanvas-body">
                             <ul className="navbar-nav mx-auto">
-                                <li className="dropdown nav-item">
+                                {/* <li className="dropdown nav-item">
                                     <Link
                                         to="/"
                                         className="nav-link active"
@@ -178,6 +178,11 @@ const Header = (props) => {
                                         aria-expanded="false"
                                     >
                                         Home
+                                    </Link>
+                                </li> */}
+                                <li className="nav-item">
+                                    <Link className="nav-link active" to="/">
+                                        HOME
                                     </Link>
                                 </li>
                                 <li className="dropdown nav-item">
@@ -193,55 +198,38 @@ const Header = (props) => {
                                     </Link>
                                     <ul className="dropdown-menu dropdown-menu-start">
                                         <li>
-                                            <Link className="dropdown-item" to="/food">
+                                            <Link className="dropdown-item" to="/menu">
                                                 FOOD
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/drink">
+                                            <Link className="dropdown-item" to="/menu/MenuDrink">
                                                 DRINK
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/set">
+                                            <Link className="dropdown-item" to="/menu/MenuSet">
                                                 SET MENU
                                             </Link>
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="dropdown nav-item">
-                                    <Link
-                                        to="/newsEvent"
-                                        className="dropdown-toggle nav-link"
-                                        data-bs-toggle="dropdown"
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                    >
-                                        NEWS & EVENT
-                                    </Link>
-                                    {/* <ul className="dropdown-menu dropdown-menu-start">
-                                        <li>
-                                            <Link className="dropdown-item" to="/blogDetail">
-                                                Sidebar end
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="/blogList">
-                                                Sidebar start
-                                            </Link>
-                                        </li>
-                                    </ul> */}
-                                </li>
+                                {/* Q & A */}
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/reservation">
-                                        Reservation
+                                    <Link className="nav-link" to="/newsevent">
+                                        NEWS & EVENT
                                     </Link>
                                 </li>
                                 {/* Q & A */}
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/inquiry">
                                         Q & A
+                                    </Link>
+                                </li>
+                                {/* Reservation */}
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/reservation">
+                                        Reservation
                                     </Link>
                                 </li>
                             </ul>

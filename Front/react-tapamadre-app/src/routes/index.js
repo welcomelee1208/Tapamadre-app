@@ -29,6 +29,15 @@ import AdminMenuList from '../pages/profile/admin/menu/AdminMenuList'
 import AdminMenuCreate from '../pages/profile/admin/menu/AdminMenuCreate'
 import AdminMenuUpdate from '../pages/profile/admin/menu/AdminMenuUpdate'
 
+// 나의정보
+// 계정관리
+import MyPersonalData from '../pages/profile/mypage/MyPersonalData'
+// 예약관리
+import MyReservations from '../pages/profile/mypage/MyReservations'
+// 문의사항
+import MyInquiries from '../pages/profile/mypage/MyInquiries'
+import MyInquiryDetail from '../pages/profile/mypage/MyInquiryDetail'
+
 //로그인 인증 여부를 체크하는 함수
 const AuthProtected = (props) => {
     if (props.isAuthProtected && !localStorage.getItem('jwttoken')) {
@@ -50,9 +59,19 @@ const SwitchRoutes = () => {
                     ))}
 
                     {/* 사용자 페이지 컴포넌트 라우팅 */}
-                    {authProtectedRoutes.map((route, idx) => (
+                    {/* {authProtectedRoutes.map((route, idx) => (
                         <Route path={route.path} element={route.component} key={idx}></Route>
-                    ))}
+                    ))} */}
+                    {/* 사용자 페이지 컴포넌트 라우팅 */}
+                    <Route path="/mypage" element={<Setting />}>
+                        {/* 계정관리 */}
+                        <Route path="myaccount" element={<MyPersonalData />} />
+                        {/* 예약관리 */}
+                        <Route path="myreservation" element={<MyReservations />} />
+                        {/* 문의사항 */}
+                        <Route path="myinquiry" element={<MyInquiries />} />
+                        <Route path="myinquiry/:idx" element={<MyInquiryDetail />} />
+                    </Route>
 
                     {/* 관리자 페이지 컴포넌트 라우팅 */}
                     <Route path="/admin/" element={<Setting />}>

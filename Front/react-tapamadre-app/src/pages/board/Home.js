@@ -34,7 +34,7 @@ const Home = () => {
                 {/* <!--aos animation--> */}
                 <link rel="stylesheet" href="../../assets/vendor/css/aos.css" />
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                {/* <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link> */}
+
                 {/* <!--Bootstrap icons--> */}
                 <link
                     rel="stylesheet"
@@ -42,8 +42,6 @@ const Home = () => {
                 />
                 {/* Main style */}
                 <link rel="stylesheet" href="../../assets/css/style.min.css" id="switchThemeStyle" />
-
-                <link rel="stylesheet" href="../../assets/js/theme.bundle"></link>
                 {/* Title */}
                 <title>Resto</title>
             </Helmet>
@@ -275,6 +273,7 @@ const Home = () => {
                 </section>
             </main>
             <Footer />
+            <script src="assets/js/theme.bundle.js"></script>
             {/* </body> */}
         </div>
     )

@@ -49,11 +49,13 @@ const QnA = () => {
             </Helmet>
             {/* <!--Main content--> */}
             {/* 상단 header 디자인 부분 */}
-            <section className="position-relative overflow-hidden bg-dark">
-                <div className="container pt-8 pb-6 text-center position-relative">
+            <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
+                <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+
+                <div className="container pt-8 pb-6 text-center position-relative text-white">
                     <div className="row pt-4 pt-lg-6 justify-content-center text-center">
                         <div className="col-lg-8 col-md-10">
-                            <h1 className="display-3 mb-3 mx-auto">Extended Tiles</h1>
+                            <h1 className="display-2 mb-2 mx-auto">Q & A</h1>
                             <p className="lead mb-0">The best food in town at one of the best locations</p>
                         </div>
                     </div>

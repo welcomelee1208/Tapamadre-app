@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -12,7 +12,16 @@ import Footer from '../../../layout/Footer'
 import image1 from '../../../assets/img/600x800/7.jpg'
 import image2 from '../../../assets/img/1140x480/3.jpg'
 import image3 from '../../../assets/img/800x600/2.jpg'
+
+// AOS 라이브러리
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 function BlogDetail() {
+    // aos 초기화
+    useEffect(() => {
+        AOS.init()
+    }, [])
     return (
         <div>
             <Helmet>
@@ -21,6 +30,11 @@ function BlogDetail() {
                     href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap"
                     rel="stylesheet"
                 />
+
+                {/* <!--aos animation--> */}
+                <link rel="stylesheet" href="../../../assets/vendor/css/aos.css" />
+                <link rel="stylesheet" href="../../../assets/js/theme.bundle"></link>
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             </Helmet>
             <Header />
             <body>
