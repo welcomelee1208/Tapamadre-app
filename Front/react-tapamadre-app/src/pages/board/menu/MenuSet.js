@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import { Navigation, Autoplay } from 'swiper'
+import 'swiper/css/navigation'
 const MenuSet = () => {
+    const [modal, setModal] = useState(false)
+
+    const toggle = () => setModal(!modal)
     return (
         <>
             <Header />
@@ -56,7 +63,7 @@ const MenuSet = () => {
                                 LUNCH SET
                             </h4>
                             <ul className="list-unstyled mb-0 px-3 py-5">
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -92,7 +99,7 @@ const MenuSet = () => {
                                     </div>
                                 </li>
                                 {/* <!--end menu box--> */}
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -139,7 +146,7 @@ const MenuSet = () => {
                             </h4>
                             <ul className="list-unstyled mb-0 px-3 py-5">
                                 {/* dinner A세트 */}
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -183,7 +190,7 @@ const MenuSet = () => {
                                     </div>
                                 </li>
                                 {/* dinner B세트 */}
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -239,7 +246,7 @@ const MenuSet = () => {
                                                 <span className="fw-bold">120, /1인</span>
                                             </div>
                                             <p className="mb-1">
-                                                셰프 특선 메뉴{'  '}
+                                                셰프 특선 메뉴
                                                 <a className="small text-dark">Chef’s special menu</a>
                                             </p>
                                             <p className="mb-1 small"> * 4인 이상 사전 주문 시 준비됩니다.</p>
@@ -252,6 +259,44 @@ const MenuSet = () => {
                 </div>
             </div>
             <Footer />
+            <Modal isOpen={modal} toggle={toggle} size="xl">
+                <ModalHeader toggle={toggle}>음식상세</ModalHeader>
+                <ModalBody>
+                    <div className="d-flex justify-content-end">
+                        <Swiper
+                            spaceBetween={50}
+                            slidesPerView={1}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            style={{ maxWidth: '40%', maxHeight: '60vh' }} // 스와이퍼 크기 조절
+                        >
+                            <SwiperSlide>
+                                <img src="assets/img/menu/drink2.jpg" alt="" className="img-fluid mb-3" />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <img src="assets/img/menu/drink2.jpg" alt="" className="img-fluid mb-3" />
+                            </SwiperSlide>
+                        </Swiper>
+                        <div className="d-flex justify-content-end">
+                            <div className="mr-3">
+                                <p>
+                                    상그리아는 스페인, 포르투갈을 필두로 주로 뜨거운 태양이 있는 나라에서 즐겨 마시는
+                                    국민 음료. 보통은 레드 와인에 오렌지나 레몬, 라임 등을 슬라이스 해서 넣고,
+                                    파인애플이나 딸기, 포도
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </ModalBody>
+
+                <ModalFooter>
+                    <Button color="primary" onClick={toggle}>
+                        닫기
+                    </Button>{' '}
+                </ModalFooter>
+            </Modal>
         </>
     )
 }
