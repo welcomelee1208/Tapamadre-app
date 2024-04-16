@@ -202,6 +202,13 @@ const Reservation = () => {
                                     런치30만원/디너60만원)
                                 </p>
                             </div>
+                            <div className="book-online-box">
+                                <h4 className="mb-3">콜키지 이용안내 </h4>
+                                <p>
+                                    예약기준 2병 반입가능하며 1병당 콜키지는 3만원입니다. 와인을 제외한 주류반입은
+                                    어려운점 양해 부탁드립니다.
+                                </p>
+                            </div>
                             <div className="pt-5" data-aos="fade-up" data-aos-duration="400">
                                 <h4 className="mb-3">Book Online</h4>
                                 <form onSubmit={handleSubmit}>

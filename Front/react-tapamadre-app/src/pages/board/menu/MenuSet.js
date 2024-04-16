@@ -6,6 +6,18 @@ const MenuSet = () => {
     return (
         <>
             <Header />
+            <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
+                <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+
+                <div className="container pt-8 pb-6 text-center position-relative text-white">
+                    <div className="row pt-4 pt-lg-6 justify-content-center text-center">
+                        <div className="col-lg-8 col-md-10">
+                            <h1 className="display-2 mb-2 mx-auto">MENU</h1>
+                            <p className="lead mb-0">The best food in town at one of the best locations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <div className="container py-7 py-lg-10 position-relative z-index-1">
                 <div className="row">
                     {/* 메뉴 카드 영역 */}
