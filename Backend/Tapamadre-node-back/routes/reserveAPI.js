@@ -97,7 +97,7 @@ router.get("/all/:userid", async (req, res, next) => {
     });
   }
 });
-//단일 예약건 확인 처리
+//단일 예약건 확인 처리 //이메일전송처리 필요
 //http://localhost:3001/reserve/all/:id
 router.post("/:id", async (req, res, next) => {
   try {

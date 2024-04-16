@@ -5,7 +5,6 @@ import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import { Navigation, Autoplay } from 'swiper'
 import 'swiper/css/navigation'
 const MenuDrink = () => {
     const [modal, setModal] = useState(false)
