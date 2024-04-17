@@ -75,22 +75,12 @@ const Entry = () => {
                                 <div className="d-flex flex-column">
                                     <ul className="nav nav-pills mb-4 pb-4 border-bottom">
                                         <li>
-                                            <Link
-                                                to="/login"
-                                                data-bs-toggle="tab"
-                                                aria-expanded="true"
-                                                className="nav-link"
-                                            >
+                                            <Link to="/login" aria-expanded="true" className="nav-link">
                                                 <h6 className="mb-0 text-reset">로그인</h6>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link
-                                                to="/entry"
-                                                data-bs-toggle="tab"
-                                                aria-expanded="true"
-                                                className="active nav-link"
-                                            >
+                                            <Link to="/entry" aria-expanded="true" className="active nav-link">
                                                 <h6 className="mb-0 text-reset">회원가입</h6>
                                             </Link>
                                         </li>
@@ -205,7 +195,7 @@ const Entry = () => {
                     </div>
                 </section>
             </main>
-            <Footer></Footer>
+            <Footer />
             <script src="assets/js/theme.bundle.js"></script>
         </div>
     )

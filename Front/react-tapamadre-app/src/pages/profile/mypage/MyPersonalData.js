@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
+// import '../../../assets/css/app.css'
+
 const MyPersonalData = () => {
     // 예시 데이터로 사용자 정보 초기화
     const [user, setUser] = useState({
@@ -58,85 +60,87 @@ const MyPersonalData = () => {
                     </div>
                 </div>
             </section>
-            <h4 className="mb-4">회원정보</h4>
-            <form>
-                <div className="form-group pb-3">
-                    <label htmlFor="name" className="col-2">
-                        이름
-                    </label>
-                    <input
-                        className="col-8"
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={user.name}
-                        onChange={(e) => setUser({ ...user, name: e.target.value })}
-                        required
-                    />
-                </div>
-                <div className="form-group pb-3">
-                    <label htmlFor="email" className="col-2">
-                        이메일
-                    </label>
-                    <input
-                        className="col-8"
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={user.email}
-                        disabled // 읽기 전용 설정
-                        required
-                    />
-                </div>
-                <div className="form-group pb-3">
-                    <label htmlFor="phoneNumber" className="col-2">
-                        전화번호
-                    </label>
-                    <input
-                        className="col-8"
-                        type="tel"
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        value={user.phoneNumber}
-                        onChange={(e) => setUser({ ...user, phoneNumber: e.target.value })}
-                        required
-                    />
-                </div>
-                <div className=" pb-3" style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                    <div className="form-group col-5" style={{ display: 'flex' }}>
-                        <label htmlFor="membershipType" className="col-5">
-                            회원가입 유형
+            <div className="container py-3">
+                <h4 className="mb-4">회원정보</h4>
+                <form>
+                    <div className="form-group pb-3" style={{ display: 'flex' }}>
+                        <label htmlFor="name" className="col-2">
+                            이름
                         </label>
-                        <p className=""> {user.membershipType === 'sns' ? 'SNS' : '사이트'}</p>
+                        <input
+                            className="col-8 form-control"
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={user.name}
+                            onChange={(e) => setUser({ ...user, name: e.target.value })}
+                            required
+                        />
                     </div>
-                    <div className="form-group col-5" style={{ display: 'flex' }}>
-                        <label htmlFor="registrationDate" className="col-5">
-                            가입일 유형
+                    <div className="form-group pb-3" style={{ display: 'flex' }}>
+                        <label htmlFor="email" className="col-2">
+                            이메일
                         </label>
-                        <p> {user.registrationDate}</p>
+                        <input
+                            className="col-8 form-control"
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={user.email}
+                            disabled // 읽기 전용 설정
+                            required
+                        />
                     </div>
-                </div>
-                {passwordChange ? (
-                    <div className="form-group">
-                        <input type="password" placeholder="새로운 비밀번호 입력" />
-                        <button className="btn btn-info mb-1" onClick={handleChangePassword}>
+                    <div className="form-group pb-3" style={{ display: 'flex' }}>
+                        <label htmlFor="phoneNumber" className="col-2">
+                            전화번호
+                        </label>
+                        <input
+                            className="col-8 form-control"
+                            type="tel"
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            value={user.phoneNumber}
+                            onChange={(e) => setUser({ ...user, phoneNumber: e.target.value })}
+                            required
+                        />
+                    </div>
+                    <div className=" pb-3" style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                        <div className="form-group col-5" style={{ display: 'flex' }}>
+                            <label htmlFor="membershipType" className="col-5">
+                                회원가입 유형
+                            </label>
+                            <p className=""> {user.membershipType === 'sns' ? 'SNS' : '사이트'}</p>
+                        </div>
+                        <div className="form-group col-5" style={{ display: 'flex' }}>
+                            <label htmlFor="registrationDate" className="col-5">
+                                가입일 유형
+                            </label>
+                            <p> {user.registrationDate}</p>
+                        </div>
+                    </div>
+                    {passwordChange ? (
+                        <div className="form-group">
+                            <input type="password" placeholder="새로운 비밀번호 입력" />
+                            <button className="btn btn-info mb-1" onClick={handleChangePassword}>
+                                비밀번호 변경
+                            </button>
+                        </div>
+                    ) : (
+                        <button className="btn btn-info mb-1" onClick={() => setPasswordChange(true)}>
                             비밀번호 변경
                         </button>
+                    )}
+                    <div className="profile-buttons" style={{ position: 'absolute', right: 0, bottom: 0 }}>
+                        <button className="btn btn-danger mb-1 me-2" onClick={handleDeleteAccount}>
+                            회원 탈퇴
+                        </button>
+                        <button className="btn btn-primary mb-1" onClick={handleEditProfile}>
+                            수정하기
+                        </button>
                     </div>
-                ) : (
-                    <button className="btn btn-info mb-1" onClick={() => setPasswordChange(true)}>
-                        비밀번호 변경
-                    </button>
-                )}
-                <div className="profile-buttons" style={{ position: 'absolute', right: 0, bottom: 0 }}>
-                    <button className="btn btn-danger mb-1 me-2" onClick={handleDeleteAccount}>
-                        회원 탈퇴
-                    </button>
-                    <button className="btn btn-primary mb-1" onClick={handleEditProfile}>
-                        수정하기
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
         </>
     )
 }

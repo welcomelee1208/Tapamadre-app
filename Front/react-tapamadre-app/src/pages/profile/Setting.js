@@ -39,7 +39,6 @@ const Setting = () => {
                 </div>
                 <Footer />
             </main>
-            <Footer />
         </>
     )
 }

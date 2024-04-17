@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Helmet } from 'react-helmet'
 
@@ -15,6 +15,24 @@ const QnA = () => {
     useEffect(() => {
         AOS.init()
     }, [])
+
+    // 문의하기 모달
+    const [sendModal, setSendModal] = useState(false)
+
+    const sendClick = (e) => {
+        e.preventDefault()
+        setSendModal(true)
+    }
+
+    const handleConfirm = () => {
+        // 발송 로직 추가
+        setSendModal(false)
+        alert('문의가 발송되었습니다.')
+    }
+
+    const handleCancel = () => {
+        setSendModal(false)
+    }
 
     return (
         <div>
@@ -34,6 +52,7 @@ const QnA = () => {
                 <link rel="stylesheet" href="../../assets/vendor/css/aos.css" />
                 <link rel="stylesheet" href="../../assets/js/theme.bundle"></link>
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
                 {/* <!--Bootstrap icons--> */}
                 <link
                     rel="stylesheet"
@@ -41,9 +60,6 @@ const QnA = () => {
                 />
                 {/* <!--Main style--> */}
                 <link rel="stylesheet" href="../../assets/css/style.min.css" id="switchThemeStyle" />
-
-                {/* <!--Add custom style here--> */}
-                {/* <!-- <link rel="stylesheet" href="assets/css/custom.css"> --> */}
 
                 <title>Resto</title>
             </Helmet>
@@ -69,15 +85,15 @@ const QnA = () => {
                                 <div className="mb-5" data-aos="fade-up" data-aos-duration="400">
                                     <h4 className="mb-3">Call us</h4>
                                     <h2 className="mb-0 display-5 fw-lighter">
-                                        <a href="#"> +01 123-456-4590</a>
+                                        <a href="#"> 02-722-4199</a>
                                     </h2>
                                 </div>
                                 <hr className="my-0" />
                                 <div className="mb-5 pt-5" data-aos="fade-up" data-aos-duration="400">
                                     <h4 className="mb-3">Send Email</h4>
                                     <h2 className="mb-0 display-5 fw-lighter">
-                                        <a href="mailto:booking@resto.com" className="d-inline-block">
-                                            <span>booking@resto.com</span>
+                                        <a href="mailto:madre@gmail.com" className="d-inline-block">
+                                            <span>madre@gmail.com</span>
                                         </a>
                                     </h2>
                                 </div>
@@ -85,25 +101,50 @@ const QnA = () => {
                                 <div className="mb-5 pt-5" data-aos="fade-up" data-aos-duration="400">
                                     <h4 className="mb-3">Opening house</h4>
                                     <h2 className="mb-0 display-5 fw-lighter"></h2>
+                                    <div style={{ display: 'flex' }}>
+                                        <div className="mb-2 col-4" style={{ color: '#ff3d00', fontWeight: 'bold' }}>
+                                            주중(월-금)
+                                        </div>
+                                        <div className="col-8">
+                                            11:30 - 22:00 (BreakTime : 15:00 - 17:30) <br />
+                                            Last Order : 런치2시, 디너9시
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div style={{ display: 'flex' }}>
+                                        <div
+                                            className="mb-2 py-2 mb-0 col-4"
+                                            style={{ color: '#ff3d00', fontWeight: 'bold' }}
+                                        >
+                                            주말(토,일,공휴일)
+                                        </div>
+                                        <div className="col-8">
+                                            12:00 - 17:00 (BreakTime : 16:00 - 17:00) <br />
+                                            Last Order : 런치3시, 디너8시
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr className="my-5" />
 
-                                {/* 수정하기 */}
                                 <div class="mx-auto">
                                     <div class="">
                                         <form>
                                             <div class="mb-3">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-12 mb-2 mb-sm-0">
-                                                        <div class="mb-2">
+                                                        <div class="mb-2 ">
                                                             <label class="mb-2">카테고리</label>
-                                                            <input
+                                                            {/* <input
                                                                 type="email"
                                                                 id="contactMail"
                                                                 class="form-control"
                                                                 placeholder="예약문의"
                                                                 required=""
-                                                            />
+                                                            /> */}
+                                                            <select class="form-control" data-choices>
+                                                                <option>예약문의</option>
+                                                                <option>기타</option>
+                                                            </select>
                                                         </div>
                                                     </div>
 
@@ -114,7 +155,7 @@ const QnA = () => {
                                                                 type="text"
                                                                 id="contactPhone"
                                                                 class="form-control"
-                                                                placeholder="홍길동"
+                                                                placeholder="이보람"
                                                                 required=""
                                                             />
                                                         </div>
@@ -168,6 +209,7 @@ const QnA = () => {
                                                 <button
                                                     type="submit"
                                                     class="btn btn-lg btn-outline-primary btn-hover-scale"
+                                                    onClick={sendClick}
                                                 >
                                                     <span>발송</span>
                                                 </button>
@@ -181,6 +223,35 @@ const QnA = () => {
                 </section>
             </main>
             <Footer />
+
+            {/* Modal */}
+            {sendModal && (
+                <div className="modal d-block" tabIndex="-1" role="dialog">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">문의 발송</h5>
+                                <button
+                                    type="button"
+                                    className="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                    onClick={handleCancel}
+                                ></button>
+                            </div>
+                            <div className="modal-body">문의를 발송하시겠습니까?</div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+                                    취소
+                                </button>
+                                <button type="button" className="btn btn-primary" onClick={handleConfirm}>
+                                    확인
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

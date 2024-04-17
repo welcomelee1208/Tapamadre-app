@@ -7,6 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { Navigation, Autoplay } from 'swiper'
 import 'swiper/css/navigation'
+
+import { Helmet } from 'react-helmet'
+// AOS 라이브러리
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const MenuData = {
     menu_name: '갑오징어 튀김',
     menu_price: '20,-',
@@ -25,7 +31,26 @@ const MenuFood = () => {
     const toggle = () => setModal(!modal)
     return (
         <>
+            <Helmet>
+                {/* <!--aos animation--> */}
+                <link rel="stylesheet" href="../../../assets/vendor/css/aos.css" />
+                <link rel="stylesheet" href="../../../assets/js/theme.bundle"></link>
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            </Helmet>
             <Header />
+            {/* 상단 header 디자인 부분 */}
+            <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
+                <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+
+                <div className="container pt-8 pb-6 text-center position-relative text-white">
+                    <div className="row pt-4 pt-lg-6 justify-content-center text-center">
+                        <div className="col-lg-8 col-md-10">
+                            <h1 className="display-2 mb-2 mx-auto">FOOD</h1>
+                            <p className="lead mb-0">The best food in town at one of the best locations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <div className="container py-7 py-lg-10 position-relative z-index-1">
                 <div className="row">
                     {/* 카테고리 영역 */}

@@ -68,10 +68,7 @@ const Header = (props) => {
                 <div className="container">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} alt="Logo" className="img-fluid logo-default" />
-                        {/* <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" />
-                        <img src="assets/img/logo/logo-dark.svg" alt="Logo" className="img-fluid logo-pinned" /> */}
                     </Link>
-                    {/* <img src="assets/img/logo/logo-light.svg" alt="Logo" className="img-fluid logo-default" /> */}
                     <div className="d-flex align-items-center order-lg-2 navbar-icons">
                         <Button
                             className="navbar-toggler order-last ms-3 ms-lg-0"
@@ -92,63 +89,12 @@ const Header = (props) => {
                                 </Link>
                             </div>
                             <div className="nav-item me-lg-0 me-3">
-                                <Link
-                                    className="nav-icon-link nav-link"
-                                    to="/entry"
-                                    data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasCart"
-                                >
+                                <Link className="nav-icon-link nav-link" to="/entry">
                                     <div className="d-flex align-items-center">
                                         <span>Join</span>
                                     </div>
                                 </Link>
                             </div>
-                            {/* <div className="position-lg-relative me-4 me-lg-0 nav-item">
-                                <Link
-                                    data-bs-toggle="dropdown"
-                                    data-bs-auto-close="outside"
-                                    to="#"
-                                    className="nav-link"
-                                ></Link>
-                                <div
-                                    className="dropdown-menu w-100 position-absolute dropdown-menu-lg-end dropdown-search p-4"
-                                    id="dropdown-search"
-                                >
-                                    <h5 className="mb-3">Tell us what you're looking for</h5>
-                                    {/* <form>
-                                        {/* <input
-                                            type="text"
-                                            className="form-control form-control-lg"
-                                            placeholder="Example: Dinner, Wine, Pizza"
-                                        />
-                                        <div className="d-grid pt-2">
-                                            <Button type="button" className="btn btn-primary">
-                                                Search
-                                            </Button>
-                                        </div>
-                                    </form>
-                                    <div className="pt-2">
-                                        <div className="dropdown-header">Popular searches</div>
-                                        <ul className="list-unstyled mb-0">
-                                            <li>
-                                                <Link to="#!" className="dropdown-item">
-                                                    Egg & spinach{' '}
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="#!" className="dropdown-item">
-                                                    Creamy soup{' '}
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="#!" className="dropdown-item">
-                                                    Crunch veg salad{' '}
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                     <div className="offcanvas offcanvas-end" id="restoMainNavbar">
