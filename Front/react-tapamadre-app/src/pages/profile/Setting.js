@@ -37,7 +37,6 @@ const Setting = () => {
                         <ProfileNavBar />
                     </div>
                 </div>
-                <Footer />
             </main>
         </>
     )

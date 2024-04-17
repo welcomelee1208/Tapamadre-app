@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
 
@@ -7,7 +7,15 @@ import { Helmet } from 'react-helmet'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import { Navigation, Autoplay } from 'swiper'
+import 'swiper/css/navigation'
 const MenuSet = () => {
+    const [modal, setModal] = useState(false)
+
+    const toggle = () => setModal(!modal)
     return (
         <>
             <Helmet>
@@ -17,14 +25,13 @@ const MenuSet = () => {
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             </Helmet>
             <Header />
-            {/* 상단 header 디자인 부분 */}
             <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
                 <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
 
                 <div className="container pt-8 pb-6 text-center position-relative text-white">
                     <div className="row pt-4 pt-lg-6 justify-content-center text-center">
                         <div className="col-lg-8 col-md-10">
-                            <h1 className="display-2 mb-2 mx-auto">SET MENU</h1>
+                            <h1 className="display-2 mb-2 mx-auto">MENU</h1>
                             <p className="lead mb-0">The best food in town at one of the best locations</p>
                         </div>
                     </div>
@@ -68,7 +75,7 @@ const MenuSet = () => {
                                 LUNCH SET
                             </h4>
                             <ul className="list-unstyled mb-0 px-3 py-5">
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -104,7 +111,7 @@ const MenuSet = () => {
                                     </div>
                                 </li>
                                 {/* <!--end menu box--> */}
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -151,7 +158,7 @@ const MenuSet = () => {
                             </h4>
                             <ul className="list-unstyled mb-0 px-3 py-5">
                                 {/* dinner A세트 */}
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -195,7 +202,7 @@ const MenuSet = () => {
                                     </div>
                                 </li>
                                 {/* dinner B세트 */}
-                                <li className="mb-4 mb-lg-5">
+                                <li className="mb-4 mb-lg-5" onClick={toggle}>
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             <div className="d-flex w-100 justify-content-between align-items-center">
@@ -251,7 +258,7 @@ const MenuSet = () => {
                                                 <span className="fw-bold">120, /1인</span>
                                             </div>
                                             <p className="mb-1">
-                                                셰프 특선 메뉴{'  '}
+                                                셰프 특선 메뉴
                                                 <a className="small text-dark">Chef’s special menu</a>
                                             </p>
                                             <p className="mb-1 small"> * 4인 이상 사전 주문 시 준비됩니다.</p>
@@ -264,6 +271,37 @@ const MenuSet = () => {
                 </div>
             </div>
             <Footer />
+            <Modal isOpen={modal} toggle={toggle} size="xl">
+                <ModalHeader toggle={toggle}>음식상세</ModalHeader>
+                <ModalBody>
+                    <div className="d-flex">
+                        <Swiper
+                            spaceBetween={50}
+                            slidesPerView={1}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                        >
+                            <SwiperSlide>
+                                <img src="assets/img/menu/drink2.jpg" alt="" className="img mb-3" />
+                            </SwiperSlide>
+                        </Swiper>
+                        <div className="flex-grow-1">
+                            <p>
+                                상그리아는 스페인, 포르투갈을 필두로 주로 뜨거운 태양이 있는 나라에서 즐겨 마시는 국민
+                                음료.
+                            </p>
+                        </div>
+                    </div>
+                </ModalBody>
+
+                <ModalFooter>
+                    <Button color="primary" onClick={toggle}>
+                        닫기
+                    </Button>
+                </ModalFooter>
+            </Modal>
         </>
     )
 }

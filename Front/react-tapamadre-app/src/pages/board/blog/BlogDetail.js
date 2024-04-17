@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import { Navigation, Autoplay } from 'swiper'
+
 import 'swiper/css/navigation'
 import '../../../assets/css/style.min.css'
 import '../../../assets/vendor/css/swiper-bundle.min.css'
@@ -10,8 +10,6 @@ import '../../../assets/vendor/css/aos.css'
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
 import image1 from '../../../assets/img/600x800/7.jpg'
-import image2 from '../../../assets/img/1140x480/3.jpg'
-import image3 from '../../../assets/img/800x600/2.jpg'
 
 // AOS 라이브러리
 import AOS from 'aos'
@@ -38,6 +36,18 @@ function BlogDetail() {
             </Helmet>
             <Header />
             <body>
+                <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
+                    <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+
+                    <div className="container pt-8 pb-6 text-center position-relative text-white">
+                        <div className="row pt-4 pt-lg-6 justify-content-center text-center">
+                            <div className="col-lg-8 col-md-10">
+                                <h1 className="display-2 mb-2 mx-auto">News & Event</h1>
+                                <p className="lead mb-0">The best food in town at one of the best locations</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <div className="preloader"></div>
                 <main id="main" className="position-relative">
                     <svg
@@ -89,6 +99,7 @@ function BlogDetail() {
                                         }}
                                         onSwiper={(swiper) => console.log(swiper)}
                                         onSlideChange={() => console.log('slide change')}
+                                        style={{ maxWidth: '100%', maxHeight: '300px' }}
                                     >
                                         <SwiperSlide>
                                             <img src={image1} alt="" className="img-fluid" />

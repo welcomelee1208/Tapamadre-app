@@ -19,6 +19,7 @@ const columns = [
         name: 'date',
         selector: (row) => row.date,
         sortable: true,
+        width: '150px',
     },
     {
         name: 'time',
@@ -323,7 +324,7 @@ const AdminReservationList = () => {
                     </div>
                     <div class="col-sm-2 col-12 mb-2 mb-sm-0">
                         <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">- 예약 종류 -</option>
+                            <option value="">- 예약 종류 </option>
                             <option value="0">일반 예약</option>
                             <option value="1">단체 예약</option>
                             <option value="2">대실 예약</option>
@@ -331,7 +332,7 @@ const AdminReservationList = () => {
                     </div>
                     <div class="col-sm-2 col-12 mb-2 mb-sm-0">
                         <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">- 예약 종류 -</option>
+                            <option value="">- 예약 종류 </option>
                             <option value="0">일반 예약</option>
                             <option value="1">단체 예약</option>
                             <option value="2">대실 예약</option>

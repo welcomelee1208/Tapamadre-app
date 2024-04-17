@@ -38,14 +38,13 @@ const MenuFood = () => {
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             </Helmet>
             <Header />
-            {/* 상단 header 디자인 부분 */}
             <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
                 <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
 
                 <div className="container pt-8 pb-6 text-center position-relative text-white">
                     <div className="row pt-4 pt-lg-6 justify-content-center text-center">
                         <div className="col-lg-8 col-md-10">
-                            <h1 className="display-2 mb-2 mx-auto">FOOD</h1>
+                            <h1 className="display-2 mb-2 mx-auto">MENU</h1>
                             <p className="lead mb-0">The best food in town at one of the best locations</p>
                         </div>
                     </div>
@@ -386,7 +385,7 @@ const MenuFood = () => {
             <Modal isOpen={modal} toggle={toggle} size="xl">
                 <ModalHeader toggle={toggle}>음식상세</ModalHeader>
                 <ModalBody>
-                    <div className="d-flex justify-content-end">
+                    <div className="d-flex">
                         <Swiper
                             spaceBetween={50}
                             slidesPerView={1}
@@ -394,23 +393,16 @@ const MenuFood = () => {
                                 delay: 2500,
                                 disableOnInteraction: false,
                             }}
-                            style={{ maxWidth: '40%', maxHeight: '60vh' }} // 스와이퍼 크기 조절
                         >
                             <SwiperSlide>
-                                <img src={MenuData.file[0].file_path} alt="" className="img-fluid mb-3" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src={MenuData.file[0].file_path} alt="" className="img-fluid mb-3" />
+                                <img src="assets/img/menu/drink2.jpg" alt="" className="img mb-3" />
                             </SwiperSlide>
                         </Swiper>
-                        <div className="d-flex justify-content-end">
-                            <div className="mr-3">
-                                <p>
-                                    상그리아는 스페인, 포르투갈을 필두로 주로 뜨거운 태양이 있는 나라에서 즐겨 마시는
-                                    국민 음료. 보통은 레드 와인에 오렌지나 레몬, 라임 등을 슬라이스 해서 넣고,
-                                    파인애플이나 딸기, 포도
-                                </p>
-                            </div>
+                        <div className="flex-grow-1">
+                            <p>
+                                상그리아는 스페인, 포르투갈을 필두로 주로 뜨거운 태양이 있는 나라에서 즐겨 마시는 국민
+                                음료.
+                            </p>
                         </div>
                     </div>
                 </ModalBody>
@@ -418,7 +410,7 @@ const MenuFood = () => {
                 <ModalFooter>
                     <Button color="primary" onClick={toggle}>
                         닫기
-                    </Button>{' '}
+                    </Button>
                 </ModalFooter>
             </Modal>
         </>
