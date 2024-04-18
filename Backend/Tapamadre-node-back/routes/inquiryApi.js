@@ -3,7 +3,7 @@ var router = express.Router();
 
 var db = require("../models/index");
 var jwt = require("jsonwebtoken");
-
+const { sendEmail } = require("./emailmiddleware"); // 미들웨어 객체에서 sendEmail 미들웨어를 가져옴
 //반환할 api객체
 var apiResult = {
   code: "",
@@ -94,23 +94,21 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // 문의사항 답변 sms/email 전송 요청 처리
-router.post("/answer/:id", async (req, res, next) => {
+router.post("/answer/:id", sendEmail, async (req, res, next) => {
   try {
-    var inquiryId = req.params.id;
-    var answer = {
-      inquiry_context: req.body.inquiry_context,
-      inquiry_answer: req.body.inquiry_answer,
-    };
-    //기능 구현 필요
-  } catch (err) {
-    console.log(err);
-    return res.json({
+    // sendEmail 미들웨어가 이미 처리한 후에 이 부분이 실행됨
+    res.json({
+      code: "200",
+      message: "이메일 전송 성공",
+      data: res.locals.emailInfo, // 이메일 전송 정보를 클라이언트에게 응답으로 전달
+    });
+  } catch (error) {
+    console.error("Error occurred while sending email:", error);
+    res.status(500).json({
       code: "500",
-      data: null,
-      result: `Error in menuApi /${menuId} GET`,
+      message: "이메일 전송 중 오류가 발생했습니다",
+      error: error.message, // 에러 메시지를 응답으로 전달
     });
   }
 });
-
-//export router
 module.exports = router;
