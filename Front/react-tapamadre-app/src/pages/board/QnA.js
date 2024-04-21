@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import { Helmet } from 'react-helmet'
 
@@ -18,6 +18,9 @@ const QnA = () => {
 
     // 문의하기 모달
     const [sendModal, setSendModal] = useState(false)
+    const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 })
+    const [isDragging, setIsDragging] = useState(false)
+    const modalRef = useRef()
 
     const sendClick = (e) => {
         e.preventDefault()
@@ -33,6 +36,41 @@ const QnA = () => {
     const handleCancel = () => {
         setSendModal(false)
     }
+
+    const handleMouseDown = (e) => {
+        setIsDragging(true)
+        const { left, top } = modalRef.current.getBoundingClientRect()
+        const offsetX = e.clientX - left
+        const offsetY = e.clientY - top
+        setModalPosition({ x: offsetX, y: offsetY })
+    }
+
+    const handleMouseMove = (e) => {
+        if (!isDragging) return
+        const { clientX, clientY } = e
+        const newX = clientX - modalPosition.x
+        const newY = clientY - modalPosition.y
+        setModalPosition({ x: newX, y: newY })
+    }
+
+    const handleMouseUp = () => {
+        setIsDragging(false)
+    }
+
+    useEffect(() => {
+        if (isDragging) {
+            document.addEventListener('mousemove', handleMouseMove)
+            document.addEventListener('mouseup', handleMouseUp)
+        } else {
+            document.removeEventListener('mousemove', handleMouseMove)
+            document.removeEventListener('mouseup', handleMouseUp)
+        }
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove)
+            document.removeEventListener('mouseup', handleMouseUp)
+        }
+    }, [isDragging])
 
     return (
         <div>
@@ -127,95 +165,85 @@ const QnA = () => {
                                 <hr className="my-5" />
 
                                 <div class="mx-auto">
-                                    <div class="">
-                                        <form>
-                                            <div class="mb-3">
-                                                <div class="row">
-                                                    <div class="col-sm-6 col-12 mb-2 mb-sm-0">
-                                                        <div class="mb-2 ">
-                                                            <label class="mb-2">카테고리</label>
-                                                            {/* <input
-                                                                type="email"
-                                                                id="contactMail"
-                                                                class="form-control"
-                                                                placeholder="예약문의"
-                                                                required=""
-                                                            /> */}
-                                                            <select class="form-control" data-choices>
-                                                                <option>예약문의</option>
-                                                                <option>기타</option>
-                                                            </select>
-                                                        </div>
+                                    <form>
+                                        <div class="mb-3">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-12 mb-2 mb-sm-0">
+                                                    <div class="mb-2 ">
+                                                        <label class="mb-2">카테고리</label>
+                                                        <select class="form-control" data-choices>
+                                                            <option>예약문의</option>
+                                                            <option>기타</option>
+                                                        </select>
                                                     </div>
+                                                </div>
 
-                                                    <div class="col-sm-6 col-12">
-                                                        <div class="mb-2">
-                                                            <label class="mb-2">이름</label>
-                                                            <input
-                                                                type="text"
-                                                                id="contactPhone"
-                                                                class="form-control"
-                                                                placeholder="이보람"
-                                                                required=""
-                                                            />
-                                                        </div>
+                                                <div class="col-sm-6 col-12">
+                                                    <div class="mb-2">
+                                                        <label class="mb-2">이름</label>
+                                                        <input
+                                                            type="text"
+                                                            id="contactPhone"
+                                                            class="form-control"
+                                                            placeholder="이보람"
+                                                            required=""
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <div class="row">
-                                                    <div class="col-sm-6 col-12 mb-2 mb-sm-0">
-                                                        <div class="mb-2">
-                                                            <label class="mb-2">이메일</label>
-                                                            <input
-                                                                type="email"
-                                                                id="contactMail"
-                                                                class="form-control"
-                                                                placeholder="test@test.com"
-                                                                required=""
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-12">
-                                                        <div class="mb-2">
-                                                            <label class="mb-2">연락처</label>
-                                                            <input
-                                                                type="text"
-                                                                id="contactPhone"
-                                                                class="form-control"
-                                                                placeholder="010-0000-0000"
-                                                                required=""
-                                                            />
-                                                        </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-12 mb-2 mb-sm-0">
+                                                    <div class="mb-2">
+                                                        <label class="mb-2">이메일</label>
+                                                        <input
+                                                            type="email"
+                                                            id="contactMail"
+                                                            class="form-control"
+                                                            placeholder="test@test.com"
+                                                            required=""
+                                                        />
                                                     </div>
                                                 </div>
-                                                <span style={{ color: 'red', fontSize: '12' }}>
-                                                    문의한 내용이 이메일과 문자로 발송되오니, 정확히 입력하시기
-                                                    바랍니다.
-                                                </span>
+                                                <div class="col-sm-6 col-12">
+                                                    <div class="mb-2">
+                                                        <label class="mb-2">연락처</label>
+                                                        <input
+                                                            type="text"
+                                                            id="contactPhone"
+                                                            class="form-control"
+                                                            placeholder="010-0000-0000"
+                                                            required=""
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <span style={{ color: 'red', fontSize: '12' }}>
+                                                문의한 내용이 이메일과 문자로 발송되오니, 정확히 입력하시기 바랍니다.
+                                            </span>
+                                        </div>
 
-                                            <div class="mb-3">
-                                                <label class="mb-2">문의하기</label>
-                                                <textarea
-                                                    rows="6"
-                                                    id="contactMsg"
-                                                    class="form-control"
-                                                    // placeholder="Enter your Message"
-                                                    required=""
-                                                ></textarea>
-                                            </div>
-                                            <div class="text-end">
-                                                <button
-                                                    type="submit"
-                                                    class="btn btn-lg btn-outline-primary btn-hover-scale"
-                                                    onClick={sendClick}
-                                                >
-                                                    <span>발송</span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        <div class="mb-3">
+                                            <label class="mb-2">문의하기</label>
+                                            <textarea
+                                                rows="6"
+                                                id="contactMsg"
+                                                class="form-control"
+                                                // placeholder="Enter your Message"
+                                                required=""
+                                            ></textarea>
+                                        </div>
+                                        <div class="text-end">
+                                            <button
+                                                type="submit"
+                                                class="btn btn-lg btn-outline-primary btn-hover-scale"
+                                                onClick={sendClick}
+                                            >
+                                                <span>발송</span>
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +254,14 @@ const QnA = () => {
 
             {/* Modal */}
             {sendModal && (
-                <div className="modal d-block" tabIndex="-1" role="dialog">
+                <div
+                    className="modal d-block"
+                    tabIndex="-1"
+                    role="dialog"
+                    style={{ top: modalPosition.y, left: modalPosition.x }}
+                    ref={modalRef}
+                    onMouseDown={handleMouseDown}
+                >
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
