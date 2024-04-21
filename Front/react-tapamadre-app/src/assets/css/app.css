@@ -1,3 +1,8 @@
-.TermsOfServiceForm {
-    /* width: 50%; */
+.ReactModal__Content {
+    width: 50%;
+    left: 25% !important;
+    top: 10% !important;
+}
+.ReactModal__Overlay--after-open {
+    background-color: rgb(151 151 151 / 75%) !important;
 }

@@ -6,7 +6,9 @@ const TermsOfService = ({ isOpen }) => {
     return (
         <ReactModal isOpen={isOpen}>
             <form className="TermsOfServiceForm">
-                <button>X</button>
+                <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+                    <button style={{ border: 'none' }}>X</button>
+                </div>
                 <h4>이용약관</h4>
                 <br />
                 <div>
