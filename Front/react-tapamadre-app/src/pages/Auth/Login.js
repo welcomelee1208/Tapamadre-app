@@ -54,7 +54,7 @@ const Login = (props) => {
             }
 
             axios
-                .post('http://localhost:3001/memberApi/login', loginData)
+                .post('http://localhost:3001/user/login', loginData)
                 .then((res) => {
                     console.log('로그인 데이터', res.data)
 

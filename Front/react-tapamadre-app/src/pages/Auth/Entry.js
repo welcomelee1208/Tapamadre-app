@@ -1,6 +1,6 @@
 // 회원가입 화면 컴포넌트
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, ModalsContext } from 'react'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
 import { useFormik } from 'formik'
@@ -11,8 +11,41 @@ import * as Yup from 'yup'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
+// 개인정보 동의
+import TermsOfService from './TermsOfService'
+import PrivacyPolicy from './PrivacyPolicy'
+
 const Entry = () => {
-    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [isEmailAvailable, setIsEmailAvailable] = useState(true)
+
+    const handleCheckDuplicate = () => {
+        axios
+            .post('http://localhost:3001/user/entry', { email })
+            .then((response) => {
+                const { isAvailable } = response.data
+                setIsEmailAvailable(isAvailable)
+                if (isAvailable) {
+                    alert('사용 가능한 이메일입니다.')
+                } else {
+                    alert('이미 사용 중인 이메일입니다.')
+                }
+            })
+            .catch((error) => {
+                console.error('Error checking email duplication:', error)
+            })
+    }
+
+    const [isOpen, setOpen] = useState(false)
+    const [isOpen2, setOpen2] = useState(false)
+
+    const handleTermsModalOpen = () => {
+        setOpen(true)
+    }
+
+    const handlePrivacyModalOpen = () => {
+        setOpen2(true)
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -26,21 +59,6 @@ const Entry = () => {
             password: Yup.string().required('비밀번호를 입력해주세요'),
             // confirmPassword: Yup.string().required('비밀번호')
         }),
-        onSubmit: (value) => {
-            var memberData = {
-                email: value.email,
-                name: value.name,
-                password: value.password,
-            }
-            axios
-                .post('http://localhost:3001/memberApi/entry', memberData)
-                .then((response) => {
-                    navigate('/login')
-                })
-                .catch((err) => {
-                    console.log('백엔드 에러', err)
-                })
-        },
     })
 
     return (
@@ -94,9 +112,11 @@ const Entry = () => {
                                                         아래 입력 후 회원가입을 진행 바랍니다.
                                                     </p>
                                                 </div>
-                                                <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                     <div className="form-floating mb-3 col-9">
                                                         <input
+                                                            value={email}
+                                                            onChange={(e) => setEmail(e.target.value)}
                                                             type="email"
                                                             id="registerEmail"
                                                             name="email"
@@ -113,6 +133,7 @@ const Entry = () => {
                                                             style={{
                                                                 height: '-webkit-fill-available',
                                                             }}
+                                                            onClick={handleCheckDuplicate}
                                                         >
                                                             중복확인
                                                         </button>
@@ -161,10 +182,28 @@ const Entry = () => {
                                                         id="checkForTerms"
                                                     />
                                                     <label className="form-check-label" htmlFor="checkForTerms">
-                                                        <small>
-                                                            <Link to="/TermsOfService">이용약관</Link>과
-                                                            <Link to="/PrivacyPolicy"> 개인정보취급방침</Link>에
-                                                            동의합니다.
+                                                        <small style={{ display: 'flex' }}>
+                                                            <p
+                                                                onClick={handleTermsModalOpen}
+                                                                style={{
+                                                                    textDecoration: 'underline',
+                                                                    cursor: 'pointer',
+                                                                }}
+                                                            >
+                                                                이용약관
+                                                            </p>
+                                                            <TermsOfService isOpen={isOpen} />
+                                                            과&nbsp;
+                                                            <p
+                                                                onClick={handlePrivacyModalOpen}
+                                                                style={{
+                                                                    textDecoration: 'underline',
+                                                                    cursor: 'pointer',
+                                                                }}
+                                                            >
+                                                                개인정보취급방침
+                                                            </p>
+                                                            <PrivacyPolicy isOpen={isOpen2} />에 동의합니다.
                                                         </small>
                                                     </label>
                                                 </div>
@@ -196,6 +235,7 @@ const Entry = () => {
                 </section>
             </main>
             <Footer />
+
             <script src="assets/js/theme.bundle.js"></script>
         </div>
     )

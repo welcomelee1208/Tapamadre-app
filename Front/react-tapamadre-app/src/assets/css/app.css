@@ -1,3 +1,8 @@
-.form-group .col-8 {
-    /* width: auto !important; col-8의 너비를 자동으로 설정하도록 함 */
+.ReactModal__Content {
+    width: 50%;
+    left: 25% !important;
+    top: 10% !important;
+}
+.ReactModal__Overlay--after-open {
+    background-color: rgb(151 151 151 / 75%) !important;
 }
