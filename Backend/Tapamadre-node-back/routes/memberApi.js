@@ -87,52 +87,49 @@ router.post("/login", async (req, res, next) => {
     });
   }
 });
-//회원가입
 router.post("/entry", async (req, res, next) => {
   try {
-    var email = req.body.email;
-    var password = req.body.password;
-    var name = req.body.name;
-    //회원가입 로직추가: 메일주소 중복체크
-    var existMember = await db.Member.findOne({ where: { email } });
-    if (existMember != null) {
-      apiResult.code = 500;
-      apiResult.data = null;
-      apiResult.msg = "ExistDoubleEmail";
-    } else {
-      //단방향 암호화 해시 알고리즘 적용 사용자 암호 암호화 적용
-      var encryptedPassword = await bcrypt.hash(password, 12);
-      var user = {
-        user_id,
-        email,
-        member_password: encryptedPassword,
-        name,
-        entry_type_code: 1,
-        use_state_code: 1,
-        reg_date: Date.now(),
-        reg_member_id: 0,
-      };
-      var newUser = await db.User.create(user);
-      // Generate JWT Token
-      const token = jwt.sign(
-        { user_id: newUser.user_id, email: newUser.email, name: newUser.name },
-        JWT_SECRET,
-        { expiresIn: "1h" } // Token expires in 1 hour
-      );
+    const { email, password, user_name } = req.body;
 
-      // Send the JWT Token in response
-      res.status(201).json({
-        code: 201,
-        data: { token },
-        msg: "User registration successful",
+    // 이메일 중복 검사
+    const existMember = await db.User.findOne({ where: { email } });
+    if (existMember) {
+      return res.status(409).json({
+        code: 409,
+        data: null,
+        msg: "이메일이 이미 사용 중입니다.",
       });
     }
+
+    // 비밀번호 암호화
+    const encryptedPassword = await bcrypt.hash(password, 12);
+    const user = {
+      email,
+      password: encryptedPassword,
+      user_name,
+      reg_type_code: 1,
+      user_state_code: 3,
+      reg_date: Date.now(),
+      email_auth_code: 0,
+      email_auth_date: Date.now(),
+      auth_type_code: 0,
+    };
+
+    // 사용자 생성
+    const newUser = await db.User.create(user);
+
+    // 성공 응답 전송
+    res.status(201).json({
+      code: 201,
+      data: newUser,
+      msg: "회원 등록 성공",
+    });
   } catch (err) {
-    console.error("Registration error:", err);
+    console.error("회원가입 처리 중 오류 발생:", err);
     res.status(500).json({
       code: 500,
       data: null,
-      msg: "Registration failed",
+      msg: "회원가입 실패",
     });
   }
 });
@@ -152,5 +149,14 @@ router.get("/all", async (req, res, next) => {
     });
   }
 });
+//비밀번호 찾기
+
+//회원정보 수정
+
+//회원정보 삭제
+
+//회원정보 조회
+
+//이메일 인증
 
 module.exports = router;
