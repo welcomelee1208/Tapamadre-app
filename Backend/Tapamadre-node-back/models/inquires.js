@@ -65,6 +65,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
         comment: "문의사항답변",
       },
+      inquiry_answer_code: {
+        type: DataTypes.TINYINT,
+        allowNull: true,
+        comment: "문의사항답변코드 0:답변x 1:답변 발송완료",
+      },
     },
     {
       sequelize,

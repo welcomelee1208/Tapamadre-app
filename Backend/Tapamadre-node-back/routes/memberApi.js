@@ -87,6 +87,55 @@ router.post("/login", async (req, res, next) => {
     });
   }
 });
+//회원가입
+router.post("/entry", async (req, res, next) => {
+  try {
+    var email = req.body.email;
+    var password = req.body.password;
+    var name = req.body.name;
+    //회원가입 로직추가: 메일주소 중복체크
+    var existMember = await db.Member.findOne({ where: { email } });
+    if (existMember != null) {
+      apiResult.code = 500;
+      apiResult.data = null;
+      apiResult.msg = "ExistDoubleEmail";
+    } else {
+      //단방향 암호화 해시 알고리즘 적용 사용자 암호 암호화 적용
+      var encryptedPassword = await bcrypt.hash(password, 12);
+      var user = {
+        user_id,
+        email,
+        member_password: encryptedPassword,
+        name,
+        entry_type_code: 1,
+        use_state_code: 1,
+        reg_date: Date.now(),
+        reg_member_id: 0,
+      };
+      var newUser = await db.User.create(user);
+      // Generate JWT Token
+      const token = jwt.sign(
+        { user_id: newUser.user_id, email: newUser.email, name: newUser.name },
+        JWT_SECRET,
+        { expiresIn: "1h" } // Token expires in 1 hour
+      );
+
+      // Send the JWT Token in response
+      res.status(201).json({
+        code: 201,
+        data: { token },
+        msg: "User registration successful",
+      });
+    }
+  } catch (err) {
+    console.error("Registration error:", err);
+    res.status(500).json({
+      code: 500,
+      data: null,
+      msg: "Registration failed",
+    });
+  }
+});
 
 //회원 목록 조회
 router.get("/all", async (req, res, next) => {
