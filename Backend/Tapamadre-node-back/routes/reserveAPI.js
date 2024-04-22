@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
+const { sendReserveEmail } = require("./emailmiddleware");
 var db = require("../models/index");
 //반환할 api객체
 var apiResult = {
@@ -36,8 +36,7 @@ router.post("/create", async (req, res, next) => {
       reserve_user_id,
       reserve_user_name,
       reserve_user_telephone,
-      reserve,
-      date,
+      reserve_date,
       reserve_time,
       reserve_type_code,
       reserve_users,
@@ -49,8 +48,7 @@ router.post("/create", async (req, res, next) => {
       reserve_user_id,
       reserve_user_name,
       reserve_user_telephone,
-      reserve,
-      date,
+      reserve_date,
       reserve_time,
       reserve_type_code,
       reserve_users,
@@ -99,7 +97,7 @@ router.get("/all/:userid", async (req, res, next) => {
 });
 //단일 예약건 확인 처리 //이메일전송처리 필요
 //http://localhost:3001/reserve/all/:id
-router.post("/:id", async (req, res, next) => {
+router.post("/:id", sendReserveEmail, async (req, res, next) => {
   try {
     var reserveId = req.params.id;
     var reserve_state_code = req.body.reserve_state_code;
