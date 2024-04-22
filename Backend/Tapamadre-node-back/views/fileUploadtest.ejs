@@ -6,7 +6,7 @@
     <title>다중 파일 업로드</title>
   </head>
   <body>
-    <form action="/menu/upload" method="POST" enctype="multipart/form-data">
+    <form action="/menu/create" method="POST" enctype="multipart/form-data">
       <input type="file" id="fileInput" name="files" multiple />
       <input type="submit" value="파일 업로드" />
     </form>
@@ -43,7 +43,7 @@
       //백엔드 전송
       function submitFormFile() {
         console.log("파일 확인>>>", formData);
-        fetch("/menu/upload", {
+        fetch("/menu/create", {
           method: "POST",
           body: formData,
         })

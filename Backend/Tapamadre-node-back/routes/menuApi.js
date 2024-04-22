@@ -135,12 +135,26 @@ router.post("/update/:id", upload.array("files"), async (req, res, next) => {
   }
 });
 
-//메뉴 삭제 처리
+// 메뉴 삭제 처리
 router.delete("/delete/:id", async (req, res, next) => {
   try {
     var menuId = req.params.id;
 
-    //메뉴 파일 storage에서 삭제 처리
+    // 메뉴 파일 정보 조회
+    var menuFiles = await db.MenuFile.findAll({
+      where: { menu_id: menuId },
+    });
+
+    // 메뉴 파일 storage에서 삭제
+    menuFiles.forEach((file) => {
+      const filePath = path.join("public/menuImg/", file.file_name);
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error("파일 삭제 중 에러 발생:", err);
+        }
+        console.log(`${filePath} 파일이 성공적으로 삭제되었습니다.`);
+      });
+    });
 
     // DB에서 메뉴와 메뉴 파일 정보를 모두 삭제
     var affectedCnt = await db.Menu.destroy({ where: { menu_id: menuId } });
@@ -155,7 +169,7 @@ router.delete("/delete/:id", async (req, res, next) => {
     });
   } catch (err) {
     console.log(err);
-    return res.json({
+    return res.status(500).json({
       code: "500",
       data: null,
       result: `Error in menuApi /delete/${menuId} POST`,
