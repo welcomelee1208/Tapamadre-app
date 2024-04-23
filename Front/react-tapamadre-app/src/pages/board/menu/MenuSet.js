@@ -271,31 +271,31 @@ const MenuSet = () => {
                 </div>
             </div>
             <Footer />
-            <Modal isOpen={modal} toggle={toggle} size="xl">
+            <Modal isOpen={modal} toggle={toggle} className="modal-xl">
                 <ModalHeader toggle={toggle}>음식상세</ModalHeader>
                 <ModalBody>
-                    <div className="d-flex">
-                        <Swiper
-                            spaceBetween={50}
-                            slidesPerView={1}
-                            autoplay={{
-                                delay: 2500,
-                                disableOnInteraction: false,
-                            }}
-                        >
-                            <SwiperSlide>
-                                <img src="assets/img/menu/drink2.jpg" alt="" className="img mb-3" />
-                            </SwiperSlide>
-                        </Swiper>
-                        <div className="flex-grow-1">
-                            <p>
-                                상그리아는 스페인, 포르투갈을 필두로 주로 뜨거운 태양이 있는 나라에서 즐겨 마시는 국민
-                                음료.
-                            </p>
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <Swiper
+                                spaceBetween={50}
+                                slidesPerView={1}
+                                autoplay={{ delay: 2500, disableOnInteraction: false }}
+                            >
+                                <SwiperSlide>
+                                    <img src="assets/img/menu/drink2.jpg" alt="" className="img mb-3" />
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="flex-grow-1">
+                                <p>
+                                    상그리아는 스페인, 포르투갈을 필두로 주로 뜨거운 태양이 있는 나라에서 즐겨 마시는
+                                    국민 음료.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </ModalBody>
-
                 <ModalFooter>
                     <Button color="primary" onClick={toggle}>
                         닫기
