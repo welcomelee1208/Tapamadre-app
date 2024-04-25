@@ -9,7 +9,6 @@ import 'swiper/css/navigation'
 
 import { Helmet } from 'react-helmet'
 // AOS 라이브러리
-import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 const MenuDrink = () => {
