@@ -87,11 +87,7 @@ router.post("/login", async (req, res, next) => {
     });
   }
 });
-<<<<<<< HEAD
-
-=======
 //회원가입
->>>>>>> 0ee20c18c5a13c28fa927534480d29739b78e062
 router.post("/entry", async (req, res, next) => {
   try {
     const { email, password, user_name } = req.body;
