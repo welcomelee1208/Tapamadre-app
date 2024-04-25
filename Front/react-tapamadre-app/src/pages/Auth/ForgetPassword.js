@@ -12,7 +12,7 @@ const ForgetPassword = ({ isOpen, onClose }) => {
 
     return (
         <div className="modal" style={{ display: isOpen ? 'block' : 'none' }}>
-            <div className="modal-content">
+            <div className="modal-content PassForm">
                 <div className="closeBox" onClick={onClose}>
                     <button className="closeBtn">&times;</button>
                 </div>

@@ -10,7 +10,7 @@
 }
 
 /* 비밀번호 찾기 모달 */
-.modal-content {
+.modal-content.PassForm {
     width: 50% !important;
     left: 25% !important;
     top: 30% !important;
