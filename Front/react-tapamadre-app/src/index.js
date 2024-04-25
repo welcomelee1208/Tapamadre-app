@@ -6,6 +6,7 @@ import ReactModal from 'react-modal'
 // CSS
 import './assets/css/style.min.css'
 import App from './App'
+import './assets/css/app.css'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'

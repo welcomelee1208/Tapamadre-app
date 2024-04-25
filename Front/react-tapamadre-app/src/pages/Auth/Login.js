@@ -1,5 +1,5 @@
 // 로그인 화면 컴포넌트
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { useFormik } from 'formik'
@@ -32,12 +32,60 @@ import {
 
 import { userLogin, loginUserSuccess } from '../../redux/actions'
 
+import ForgetPassword from './ForgetPassword'
+
 const Login = (props) => {
     const navigate = useNavigate()
     const [showAlert, setShowAlert] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
 
+    // 비밀번호 찾기 모달
+    const [showModal, setShowModal] = useState(false)
+    const handleForgotPasswordClick = () => {
+        setShowModal(true)
+    }
+
     //폼 유효성검사 및 폼데이터처리
+    // const formik = useFormik({
+    //     initialValues: {
+    //         email: '',
+    //         password: '',
+    //     },
+    //     validationSchema: Yup.object({
+    //         email: Yup.string().required('이메일을 입력해주세요'),
+    //         password: Yup.string().required('비밀번호를 입력해주세요'),
+    //     }),
+    //     onSubmit: (values) => {
+    //         var loginData = {
+    //             email: values.email,
+    //             password: values.password,
+    //         }
+
+    //         axios
+    //             .post('http://localhost:3001/user/login', loginData)
+    //             .then((res) => {
+    //                 console.log('로그인 데이터', res.data)
+
+    //                 // 토큰저장
+    //                 localStorage.setItem('token', res.data.data.token)
+
+    //                 if (res.data.code === '200') {
+    //                     props.loginUserSuccess(res.data.data.token, res.data.data.loginUser)
+
+    //                     // axio의 디폴트 사용자 인증 토큰값 바인딩 처리해주기
+    //                     axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.data.token
+
+    //                     // 로그인 후 main으로 이동
+    //                     navigate('/')
+    //                 }
+    //             })
+    //             .catch((err) => {
+    //                 console.log('에러발생', err)
+    //                 setShowAlert(true)
+    //                 setAlertMessage('로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요.')
+    //             })
+    //     },
+    // })
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -47,35 +95,30 @@ const Login = (props) => {
             email: Yup.string().required('이메일을 입력해주세요'),
             password: Yup.string().required('비밀번호를 입력해주세요'),
         }),
-        onSubmit: (values) => {
-            var loginData = {
-                email: values.email,
-                password: values.password,
-            }
+        onSubmit: async (values) => {
+            try {
+                const loginData = {
+                    email: values.email,
+                    password: values.password,
+                }
 
-            axios
-                .post('http://localhost:3001/user/login', loginData)
-                .then((res) => {
-                    console.log('로그인 데이터', res.data)
+                const response = await axios.post('http://localhost:3001/user/login', loginData)
 
-                    // 토큰저장
-                    localStorage.setItem('token', res.data.data.token)
-
-                    if (res.data.code === '200') {
-                        props.loginUserSuccess(res.data.data.token, res.data.data.loginUser)
-
-                        // axio의 디폴트 사용자 인증 토큰값 바인딩 처리해주기
-                        axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.data.token
-
-                        // 로그인 후 main으로 이동
-                        navigate('/')
-                    }
-                })
-                .catch((err) => {
-                    console.log('에러발생', err)
+                if (response.data.code === '200') {
+                    const { token, loginUser } = response.data.data
+                    props.loginUserSuccess(token, loginUser)
+                    localStorage.setItem('token', token)
+                    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+                    navigate('/')
+                } else {
                     setShowAlert(true)
                     setAlertMessage('로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요.')
-                })
+                }
+            } catch (error) {
+                console.error('에러 발생:', error)
+                setShowAlert(true)
+                setAlertMessage('로그인에 실패했습니다. 서버와의 통신에 문제가 발생했습니다.')
+            }
         },
     })
 
@@ -83,6 +126,8 @@ const Login = (props) => {
         <React.Fragment>
             <div>
                 <Helmet>
+                    <meta charset="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
                     {/* Google fonts */}
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
@@ -188,11 +233,22 @@ const Login = (props) => {
                                                         </div>
                                                         <div>
                                                             <Link
-                                                                to="/forgetpassword"
+                                                                to="#"
+                                                                onClick={handleForgotPasswordClick}
                                                                 className="text-dark small text-decoration-underline"
                                                             >
                                                                 비밀번호찾기
                                                             </Link>
+                                                            <ForgetPassword
+                                                                isOpen={showModal}
+                                                                onClose={() => setShowModal(false)}
+                                                            />
+                                                            {/* <Link
+                                                                to="/forgetpassword"
+                                                                className="text-dark small text-decoration-underline"
+                                                            >
+                                                                비밀번호찾기
+                                                            </Link> */}
                                                         </div>
                                                     </div>
                                                     <Button

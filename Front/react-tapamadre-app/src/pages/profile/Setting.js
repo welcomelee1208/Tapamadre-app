@@ -38,6 +38,7 @@ const Setting = () => {
                     </div>
                 </div>
             </main>
+            <Footer />
         </>
     )
 }

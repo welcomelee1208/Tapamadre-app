@@ -113,7 +113,7 @@ const Home = () => {
                         <div className="row g-2 justify-content-center">
                             <div className="col-md-4 col-sm-10 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="50">
                                 <Link
-                                    to="/menu"
+                                    to="/MenuFood"
                                     className="card-overlay d-block position-relative overflow-hidden tilt-image1"
                                 >
                                     <img
@@ -137,7 +137,7 @@ const Home = () => {
                             {/* <!--item-col--> */}
                             <div className="col-md-4 col-sm-10 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
                                 <Link
-                                    to="/menu"
+                                    to="/MenuDrink"
                                     className="card-overlay d-block position-relative overflow-hidden tilt-image2"
                                 >
                                     <img
@@ -161,7 +161,7 @@ const Home = () => {
                             {/* <!--item-col--> */}
                             <div className="col-md-4 col-sm-10" data-aos="fade-up" data-aos-delay="150">
                                 <Link
-                                    to="/menu"
+                                    to="/MenuSet"
                                     className="card-overlay d-block position-relative overflow-hidden tilt-image3"
                                 >
                                     <img
