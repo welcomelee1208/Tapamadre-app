@@ -87,7 +87,11 @@ router.post("/login", async (req, res, next) => {
     });
   }
 });
+<<<<<<< HEAD
 
+=======
+//회원가입
+>>>>>>> 0ee20c18c5a13c28fa927534480d29739b78e062
 router.post("/entry", async (req, res, next) => {
   try {
     const { email, password, user_name } = req.body;
@@ -120,8 +124,8 @@ router.post("/entry", async (req, res, next) => {
     const newUser = await db.User.create(user);
 
     // 성공 응답 전송
-    res.status(201).json({
-      code: 201,
+    res.status(200).json({
+      code: 200,
       data: newUser,
       msg: "회원 등록 성공",
     });
@@ -150,14 +154,124 @@ router.get("/all", async (req, res, next) => {
     });
   }
 });
-//비밀번호 찾기
 
-//회원정보 수정
+// 회원정보 조회
+router.get("/profile", async (req, res, next) => {
+  try {
+    const userId = req.user.user_id; // 로그인된 사용자의 식별 정보를 가져옴
 
-//회원정보 삭제
+    // 사용자를 식별 정보로 찾음
+    const user = await db.User.findByPk(userId);
 
-//회원정보 조회
+    if (!user) {
+      return res.status(404).json({
+        code: 404,
+        data: null,
+        msg: "사용자를 찾을 수 없습니다.",
+      });
+    }
 
+    // 사용자의 개인정보 전송 (패스워드 제외)
+    const userProfile = {
+      email: user.email,
+      user_name: user.user_name,
+      telephone: user.telephone,
+    };
+
+    return res.status(200).json({
+      code: 200,
+      data: userProfile,
+      msg: "개인정보 조회 성공",
+    });
+  } catch (err) {
+    console.error("개인정보 조회 중 오류 발생:", err);
+    return res.status(500).json({
+      code: 500,
+      data: null,
+      msg: "개인정보 조회 중 오류 발생",
+    });
+  }
+});
+//비밀번호 수정(프로필 에서 수정할 시..)
+router.post("/modify/:id", async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    const { password } = req.body;
+
+    // 비밀번호 해싱
+    const encryptedPassword = await bcrypt.hash(password, 12);
+
+    // 사용자 정보 업데이트
+    const result = await db.User.update(
+      {
+        password: encryptedPassword, // 새로운 비밀번호를 해싱하여 저장
+      },
+      {
+        where: { user_id: userId },
+      }
+    );
+
+    if (result[0] === 0) {
+      // 변경된 행이 없음
+      return res.status(404).json({
+        code: "404",
+        data: null,
+        result: "해당 사용자를 찾을 수 없습니다.",
+      });
+    }
+
+    return res.json({
+      code: "200",
+      data: null,
+      result: "사용자 정보가 성공적으로 수정되었습니다.",
+    });
+  } catch (err) {
+    console.error("회원 정보 수정 중 오류 발생:", err);
+    return res.status(500).json({
+      code: "500",
+      data: null,
+      result: "회원 정보 수정 실패",
+    });
+  }
+});
+
+// 회원정보 삭제
+router.delete("/delete/:id", async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+
+    // 사용자를 ID로 찾음
+    const user = await db.User.findByPk(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        code: 404,
+        data: null,
+        msg: "해당 ID를 가진 사용자를 찾을 수 없습니다.",
+      });
+    }
+
+    // 사용자 정보 삭제
+    await db.User.destroy({
+      where: { user_id: userId },
+    });
+
+    return res.status(200).json({
+      code: 200,
+      data: null,
+      msg: "회원정보 삭제 성공",
+    });
+  } catch (err) {
+    console.error("회원정보 삭제 중 오류 발생:", err);
+    return res.status(500).json({
+      code: 500,
+      data: null,
+      msg: "회원정보 삭제 중 오류 발생",
+    });
+  }
+});
 //이메일 인증
+
+//비밀번호 찾기
 
 module.exports = router;
