@@ -13,9 +13,7 @@ const config = require("../config/config.js")[env];
 //데이터 베이스 객체
 const db = {};
 
-const User = require("./user.js");
-const Reservation = require("./reservation.js");
-const Inquiries = require("./inquires.js");
+const Admin = require("./admin.js");
 const NewsEvent = require("./newsevent.js");
 const Menu = require("./menu.js");
 const MenuFile = require("./menu_file.js");
@@ -32,25 +30,16 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize; //DB연결정보를 포함한 DB제어 객체속성(CRUD)
 db.Sequelize = Sequelize; //Sequelize팩키지에서 제공하는 각종 데이터 타입 및 관련 객체정보를 제공함
 
-db.User = User(sequelize, Sequelize);
-db.Reservation = Reservation(sequelize, Sequelize);
-db.Inquiries = Inquiries(sequelize, Sequelize);
+db.Admin = Admin(sequelize, Sequelize);
 db.NewsEvent = NewsEvent(sequelize, Sequelize);
 db.Menu = Menu(sequelize, Sequelize);
 db.MenuFile = MenuFile(sequelize, Sequelize);
 
 // 관계 설정 부분입니다.
-// User와 Reservation 모델 간의 관계 설정
-db.User.hasMany(db.Reservation, { foreignKey: "reserve_user_id" });
-db.Reservation.belongsTo(db.User, { foreignKey: "reserve_user_id" });
-
-// User와 Inquiries 모델 간의 관계 설정
-db.User.hasMany(db.Inquiries, { foreignKey: "inquiry_user_id" });
-db.Inquiries.belongsTo(db.User, { foreignKey: "inquiry_user_id" });
 
 // User와 NewsEvent 모델 간의 관계 설정
-db.User.hasMany(db.NewsEvent, { foreignKey: "reg_member_id" });
-db.NewsEvent.belongsTo(db.User, { foreignKey: "reg_member_id" });
+db.Admin.hasMany(db.NewsEvent, { foreignKey: "reg_member_id" });
+db.NewsEvent.belongsTo(db.Admin, { foreignKey: "reg_member_id" });
 // Menu 모델이 MenuFile 모델을 참조합니다.
 db.Menu.hasMany(db.MenuFile, { foreignKey: "menu_id" });
 db.MenuFile.belongsTo(db.Menu, { foreignKey: "menu_id" });
