@@ -1,0 +1,38 @@
+/* 회원가입 - 이용약관, 개인정보동의 모달 */
+.ReactModal__Content {
+    width: 50%;
+    left: 25% !important;
+    top: 10% !important;
+}
+.ReactModal__Overlay--after-open,
+.modal {
+    background-color: rgb(151 151 151 / 75%) !important;
+}
+
+/* 비밀번호 찾기 모달 */
+.modal-content.PassForm {
+    width: 50% !important;
+    left: 25% !important;
+    top: 30% !important;
+    padding: 20px;
+    inset: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.closeBox {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.closeBtn {
+    border: none;
+    background: transparent;
+    font-size: larger;
+}
+
+/* 메뉴 아이콘 */
+.rounded-circle,
+.dropdown nav-item {
+    cursor: pointer;
+}
