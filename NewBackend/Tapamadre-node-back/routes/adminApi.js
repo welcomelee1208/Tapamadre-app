@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models/index");
 var bcrypt = require("bcryptjs");
-
+const jwt = require("jsonwebtoken");
 //반환할 api객체
 var apiResult = {
   code: "",
@@ -11,8 +11,8 @@ var apiResult = {
 };
 
 //----------------------개발진행메모-------------
-//로그인/회원가입 조회/비밀번호 수정 postman 확인 완/ 회원정보조회 테스트 필요/
-//로그인 요청 처리
+// 전부작동 확인 완료..비밀번호 찾기 어캐해야될지 고민?
+
 router.post("/login", async (req, res, next) => {
   try {
     var id = req.body.id;
@@ -39,10 +39,26 @@ router.post("/login", async (req, res, next) => {
       });
     }
 
-    // 로그인 성공 시 응답
+    // last_login_date 업데이트
+    member.last_login_date = new Date();
+    await member.save();
+
+    const payload = {
+      admin_id: member.admin_id,
+      id: member.id,
+      name: member.name,
+      reg_date: member.reg_date, // 이름 추가
+    };
+
+    // JWT 토큰 발급
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
+    // 로그인 성공 시 응답에 토큰을 포함하여 반환
     return res.json({
       code: "200",
-      data: member,
+      data: { token: token },
       result: "Ok",
     });
   } catch (err) {
@@ -51,6 +67,49 @@ router.post("/login", async (req, res, next) => {
       code: "500",
       data: null,
       result: "Error in userApi /login POST",
+    });
+  }
+});
+//개인 정보 조회
+router.get("/profile", async (req, res, next) => {
+  try {
+    // 헤더에서 토큰 추출
+    const token = req.headers.authorization.split(" ")[1];
+
+    // 토큰을 복호화하여 사용자 아이디 추출
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    const adminId = decodedToken.admin_id;
+
+    // 사용자를 식별 정보로 찾음
+    const admin = await db.Admin.findByPk(adminId);
+
+    if (!admin) {
+      return res.status(404).json({
+        code: 404,
+        data: null,
+        msg: "사용자를 찾을 수 없습니다.",
+      });
+    }
+
+    // 사용자의 개인정보 전송 (패스워드 제외)
+    const userProfile = {
+      id: admin.id,
+      name: admin.name,
+      admin_id: admin.admin_id,
+      reg_date: admin.reg_date,
+    };
+
+    return res.status(200).json({
+      code: 200,
+      data: userProfile,
+      msg: "개인정보 조회 성공",
+    });
+  } catch (err) {
+    console.error("개인정보 조회 중 오류 발생:", err);
+    return res.status(500).json({
+      code: 500,
+      data: null,
+      msg: "개인정보 조회 중 오류 발생",
     });
   }
 });
@@ -114,41 +173,6 @@ router.get("/all", async (req, res, next) => {
   }
 });
 
-// 회원정보 조회
-router.get("/profile", async (req, res, next) => {
-  try {
-    const userId = req.Admin.admin_id; // 로그인된 사용자의 식별 정보를 가져옴
-    // 사용자를 식별 정보로 찾음
-    const admin = await db.Admin.findByPk(userId);
-
-    if (!admin) {
-      return res.status(404).json({
-        code: 404,
-        data: null,
-        msg: "사용자를 찾을 수 없습니다.",
-      });
-    }
-
-    // 사용자의 개인정보 전송 (패스워드 제외)
-    const userProfile = {
-      id: admin.id,
-      name: admin.name,
-    };
-
-    return res.status(200).json({
-      code: 200,
-      data: userProfile,
-      msg: "개인정보 조회 성공",
-    });
-  } catch (err) {
-    console.error("개인정보 조회 중 오류 발생:", err);
-    return res.status(500).json({
-      code: 500,
-      data: null,
-      msg: "개인정보 조회 중 오류 발생",
-    });
-  }
-});
 //비밀번호 수정(프로필 에서 수정할 시..)
 router.post("/modify/:id", async (req, res, next) => {
   try {

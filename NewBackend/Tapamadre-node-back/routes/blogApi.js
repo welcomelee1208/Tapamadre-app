@@ -194,9 +194,12 @@ router.get("/:id", async (req, res, next) => {
   try {
     var blogId = req.params.id;
 
+    // 해당 게시글 조회
     var singleBlogPost = await db.NewsEvent.findOne({
       where: { article_id: blogId },
     });
+
+    // 해당 게시글이 존재하지 않을 경우
     if (!singleBlogPost) {
       return res.json({
         code: "400",
@@ -204,6 +207,13 @@ router.get("/:id", async (req, res, next) => {
         result: "해당 게시글이 존재하지 않습니다.",
       });
     }
+
+    // 조회수 증가
+    singleBlogPost.view_count += 1;
+
+    // 변경된 조회수 저장
+    await singleBlogPost.save();
+
     return res.json({
       code: "200",
       data: singleBlogPost,

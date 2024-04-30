@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
       menu_type_code: {
         type: DataTypes.TINYINT,
         allowNull: false,
-        comment: "메뉴타입코드 1:식사..2:디저트 3:주류 4:음료 9:기타메뉴",
+        comment: "메뉴타입코드 1:Food 2:Drink 3:SetMenu",
       },
       main_img_state_code: {
         type: DataTypes.TINYINT,
