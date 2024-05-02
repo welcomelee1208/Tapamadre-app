@@ -11,18 +11,19 @@ var apiResult = {
   data: {},
   result: "",
 };
-var storage = multer.diskStorage({
+
+const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, "public/upload/");
   },
   filename(req, file, cb) {
-    cb(
-      null,
-      `${moment(Date.now()).format("YYYYMMDDHHMMss")}_${file.originalname}`
-    );
+    const fileExtension = file.originalname.split(".").pop(); // 확장자 추출
+    const uniqueSuffix =
+      moment().format("YYYYMMDDHHmmss") + "-" + Math.round(Math.random() * 1e9);
+    cb(null, `${uniqueSuffix}.${fileExtension}`); // 새로운 파일 이름에 확장자 추가
   },
 });
-const upload = multer({ storage: storage });
+var upload = multer({ storage: storage });
 /* 이미지 파일첨부 기능 구현/ 관리자만 작성할수있는 권한 부여 필요 */
 
 //test
@@ -30,41 +31,17 @@ const upload = multer({ storage: storage });
 router.get("/createblog", function (req, res, next) {
   res.render("createBlog");
 });
-// 게시글 목록 조회
-//http://localhost:3001/blog/all
-router.get("/all", async (req, res) => {
-  // 게시글 목록을 반환하는 코드
-  try {
-    var blogList = await db.NewsEvent.findAll();
-    return res.json({
-      code: "200",
-      data: blogList,
-      result: "ok",
-    });
-  } catch (err) {
-    console.log(err);
-    return res.json({
-      code: "500",
-      data: null,
-      result: "Error in blogAPI /all get",
-    });
-  }
-});
-
 // 게시글 생성
 //http://localhost:3001/blog/create
-router.post("/create", upload.single("main_img"), async (req, res) => {
+router.post("/create", upload.single("main_img_path"), async (req, res) => {
   try {
-    var title = req.body.title;
-    var context = req.body.context;
-    var article_type_code = req.body.article_type_code;
-    var is_display_code = req.body.is_display_code;
-    var ip_address = req.body.ip_address;
-    // 파일 정보는 req.file에서 확인할 수 있습니다.
-    var main_img_path = req.file ? req.file.path : ""; // 파일이 업로드되었다면 파일 경로를 저장
-    var reg_member_id = req.body.reg_member_id;
-    var reg_date = Date.now();
-    var view_count = req.body.view_count || 0; // view_count가 제공되지 않았다면 기본값으로 0 설정
+    const { title, article_type_code, is_display_code, reg_member_id } =
+      req.body;
+    const context = req.body.context || ""; // context가 없을 경우 빈 문자열로 처리
+    const ip_address = req.ip; // 클라이언트의 IP 주소 가져오기
+    const main_img_path = req.file ? req.file.path : ""; // 파일이 업로드되었다면 파일 경로를 저장
+    const reg_date = Date.now();
+    const view_count = req.body.view_count || 0; // view_count가 제공되지 않았다면 기본값으로 0 설정
 
     var newArticle = {
       title,
@@ -93,6 +70,27 @@ router.post("/create", upload.single("main_img"), async (req, res) => {
     });
   }
 });
+// 게시글 목록 조회
+//http://localhost:3001/blog/all
+router.get("/all", async (req, res) => {
+  // 게시글 목록을 반환하는 코드
+  try {
+    var blogList = await db.NewsEvent.findAll();
+    return res.json({
+      code: "200",
+      data: blogList,
+      result: "ok",
+    });
+  } catch (err) {
+    console.log(err);
+    return res.json({
+      code: "500",
+      data: null,
+      result: "Error in blogAPI /all get",
+    });
+  }
+});
+
 //게시글 수정
 //http://localhost:3001/blog/modify/:id
 router.post("/modify/:id", async (req, res) => {

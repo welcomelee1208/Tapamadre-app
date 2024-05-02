@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom'
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
 import { Helmet } from 'react-helmet'
+import axios from 'axios'
+import moment from 'moment'
 
 // AOS 라이브러리
 import AOS from 'aos'
@@ -16,88 +18,36 @@ const BlogList = () => {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [activeFilter, setActiveFilter] = useState(searchParams.get('filter') || '*')
-
-    // 블로그 데이터 배열
-    const blogData = [
-        {
-            id: 1,
-            imageUrl: 'assets/img/600x800/1.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'Event',
-            link: '/newsevent/1',
-        },
-        {
-            id: 2,
-            imageUrl: 'assets/img/600x800/2.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'Event',
-            link: '/newsevent/2',
-        },
-        {
-            id: 3,
-            imageUrl: 'assets/img/600x800/3.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'Event',
-            link: '/newsevent/3',
-        },
-        {
-            id: 4,
-            imageUrl: 'assets/img/600x800/4.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'News',
-            link: '/newsevent/4',
-        },
-        {
-            id: 5,
-            imageUrl: 'assets/img/600x800/5.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'News',
-            link: '/newsevent/5',
-        },
-        {
-            id: 6,
-            imageUrl: 'assets/img/600x800/6.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'News',
-            link: '/newsevent/6',
-        },
-        {
-            id: 7,
-            imageUrl: 'assets/img/600x800/3.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'News',
-            link: '/newsevent/7',
-        },
-        {
-            id: 8,
-            imageUrl: 'assets/img/600x800/4.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'Event',
-            link: '/newsevent/8',
-        },
-        {
-            id: 9,
-            imageUrl: 'assets/img/600x800/5.jpg',
-            title: 'Tapamadre-newsevent 제목입니다.',
-            date: '13 Oct. 2020',
-            type: 'Event',
-            link: '/newsevent/9',
-        },
-    ]
+    const [blogData, setBlogData] = useState([])
 
     useEffect(() => {
         // URL의 변경을 감지하여 상태 업데이트
         const filter = searchParams.get('filter') || '*'
         setActiveFilter(filter)
     }, [searchParams])
+
+    useEffect(() => {
+        // 블로그 데이터 로드
+        const fetchBlogData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/blog/all')
+                if (response.data.code === '200') {
+                    // moment를 사용하여 날짜 포맷팅 및 article_type_code 변경
+                    const formattedData = response.data.data.map((blog) => ({
+                        ...blog,
+                        reg_date: moment(blog.reg_date).format('MMMM Do YYYY, h:mm:ss a'),
+                        article_type_code: blog.article_type_code === 1 ? 'News' : 'Event',
+                    }))
+                    setBlogData(formattedData)
+                } else {
+                    console.error('블로그 데이터를 가져오는데 실패했습니다.')
+                }
+            } catch (error) {
+                console.error('블로그 데이터를 가져오는데 실패했습니다.', error)
+            }
+        }
+        fetchBlogData()
+    }, [])
 
     const handleFilterClick = (filter) => {
         setActiveFilter(filter)
@@ -106,7 +56,7 @@ const BlogList = () => {
     }
 
     const filterBlogsByType = (type) => {
-        return type === '*' ? blogData : blogData.filter((blog) => blog.type === type)
+        return type === '*' ? blogData : blogData.filter((blog) => blog.article_type_code === type)
     }
 
     const filteredBlogs = filterBlogsByType(activeFilter)
@@ -171,25 +121,27 @@ const BlogList = () => {
                 </nav>
                 <div className="row g-2 isotope-grid">
                     {filteredBlogs.map((blog) => (
-                        <div key={blog.id} className={`col-md-4 col-sm-6 grid-item g_${blog.type}`}>
-                            <a href={blog.link} className="glightbox hover-shadow hover-lift d-block">
-                                <img src={blog.imageUrl} alt="" className="img-fluid" />
+                        <div key={blog.id} className={`col-md-4 col-sm-6 grid-item g_${blog.article_type_code}`}>
+                            <a
+                                href={`/newsevent/${blog.article_id}`}
+                                className="glightbox hover-shadow hover-lift d-block"
+                            >
+                                <img src={`http://localhost:3001/${blog.main_img_path}`} alt="" className="img-fluid" />
                             </a>
                             <div className="pb-5 border-bottom">
                                 <div className="mb-2">
-                                    <a href={blog.link} className="small">
-                                        {blog.type}
-                                    </a>
+                                    <a href={`/newsevent/${blog.article_id}`} className="small"></a>
                                 </div>
-                                <a href={blog.link} className="text-dark">
+                                <a href={`/newsevent/${blog.article_id}`} className="text-dark">
                                     <h1 className="mb-3 h4 text-reset">{blog.title}</h1>
                                 </a>
                                 <div className="post-meta">
                                     <ul className="list-unstyled d-flex align-items-center mb-0 small text-muted">
+                                        <span> {blog.article_type_code}</span>
                                         <li className="ms-2">
                                             On
                                             <a className="text-secondary d-inline-flex align-items-center">
-                                                <span>{blog.date}</span>
+                                                <span>{blog.reg_date}</span>
                                             </a>
                                         </li>
                                     </ul>

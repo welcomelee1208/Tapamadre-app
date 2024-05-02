@@ -3,8 +3,10 @@ var router = express.Router();
 
 var db = require("../models/index");
 var multer = require("multer");
-
+const fs = require("fs");
+const path = require("path");
 //반환할 api객체
+
 var apiResult = {
   code: "",
   data: {},
@@ -50,9 +52,7 @@ router.get("/all", async (req, res, next) => {
   }
 });
 
-//메뉴 신규 등록 처리
 router.post("/create", upload.array("files"), async (req, res, next) => {
-  // router.post("/create", async (req, res, next) => {
   try {
     console.log("업로드 파일 목록: ", req.files);
 
@@ -64,17 +64,19 @@ router.post("/create", upload.array("files"), async (req, res, next) => {
       menu_type_code: req.body.menu_type_code,
       main_img_state_code: 0,
       set_menu_state_code: req.body.set_menu_state_code,
+      categorized_menu_code: req.body.categorized_menu_code,
+      is_display_code: req.body.is_display_code,
     };
 
     var dbMenu = await db.Menu.create(newMenu);
 
-    if (req.file) {
+    if (req.files) {
       const newFiles = req.files.map((file) => {
         return {
           menu_id: dbMenu.menu_id,
           file_name: file.originalname,
-          file_size: file_size,
-          file_path: file_path,
+          file_size: file.size, // 파일의 크기 설정
+          file_path: file.path, // 파일의 경로 설정
           reg_date: Date.now(),
           main_img_state_code: req.body.main_img_state_code,
         };
@@ -146,15 +148,22 @@ router.delete("/delete/:id", async (req, res, next) => {
     });
 
     // 메뉴 파일 storage에서 삭제
-    menuFiles.forEach((file) => {
-      const filePath = path.join("public/menuImg/", file.file_name);
-      fs.unlink(filePath, (err) => {
-        if (err) {
+    await Promise.all(
+      menuFiles.map(async (file) => {
+        const filePath = path.join("public/menuImg", file.file_name);
+        try {
+          // 파일이 존재하는지 확인 후 삭제 시도
+          if (fs.existsSync(filePath)) {
+            await fs.promises.unlink(filePath);
+            console.log(`${filePath} 파일이 성공적으로 삭제되었습니다.`);
+          } else {
+            console.log(`${filePath} 파일을 찾을 수 없습니다.`);
+          }
+        } catch (err) {
           console.error("파일 삭제 중 에러 발생:", err);
         }
-        console.log(`${filePath} 파일이 성공적으로 삭제되었습니다.`);
-      });
-    });
+      })
+    );
 
     // DB에서 메뉴와 메뉴 파일 정보를 모두 삭제
     var affectedCnt = await db.Menu.destroy({ where: { menu_id: menuId } });
@@ -172,7 +181,7 @@ router.delete("/delete/:id", async (req, res, next) => {
     return res.status(500).json({
       code: "500",
       data: null,
-      result: `Error in menuApi /delete/${menuId} POST`,
+      result: `Error in menuApi /delete/${req.params.id} DELETE`,
     });
   }
 });
