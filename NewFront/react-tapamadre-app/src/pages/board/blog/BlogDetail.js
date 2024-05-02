@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -9,17 +9,49 @@ import '../../../assets/vendor/css/swiper-bundle.min.css'
 import '../../../assets/vendor/css/aos.css'
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
-import image1 from '../../../assets/img/600x800/7.jpg'
 
 // AOS 라이브러리
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import axios from 'axios'
+import moment from 'moment'
 
 function BlogDetail() {
+    // 게시글 상태
+    const [blog, setBlog] = useState(null)
+
     // aos 초기화
     useEffect(() => {
         AOS.init()
     }, [])
+
+    // 게시글 단일 조회 함수
+    const fetchBlogDetail = async () => {
+        try {
+            // 페이지에서 불러오는 게시글의 ID 값을 동적으로 가져오도록 수정
+            const pathname = window.location.pathname
+            const id = pathname.substring(pathname.lastIndexOf('/') + 1)
+
+            const response = await axios.get(`http://localhost:3001/blog/${id}`)
+            if (response.data.code === '200') {
+                // moment를 사용하여 날짜 포맷팅
+                response.data.data.reg_date = moment(response.data.data.reg_date).format('MMMM Do YYYY, h:mm:ss a')
+                // article_type_code가 1이면 "News", 0이면 "Event"로 설정
+                response.data.data.article_type_code = response.data.data.article_type_code === 1 ? 'News' : 'Event'
+                setBlog(response.data.data)
+            } else {
+                console.error('게시글을 가져오는데 실패했습니다.')
+            }
+        } catch (error) {
+            console.error('게시글을 가져오는데 실패했습니다.', error)
+        }
+    }
+
+    // 컴포넌트가 처음으로 렌더링될 때 게시글을 가져옴
+    useEffect(() => {
+        fetchBlogDetail()
+    }, [])
+
     return (
         <div>
             <Helmet>
@@ -36,18 +68,21 @@ function BlogDetail() {
             </Helmet>
             <Header />
             <body>
-                <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
-                    <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
+                {/* 게시글 정보가 로드되었을 때 렌더링 */}
+                {blog && (
+                    <section className="position-relative overflow-hidden bg-dark jarallax" data-speed=".3">
+                        <img src="assets/img/1920x1000/5.jpg" alt="" className="jarallax-img opacity-25" />
 
-                    <div className="container pt-8 pb-6 text-center position-relative text-white">
-                        <div className="row pt-4 pt-lg-6 justify-content-center text-center">
-                            <div className="col-lg-8 col-md-10">
-                                <h1 className="display-2 mb-2 mx-auto">News & Event</h1>
-                                <p className="lead mb-0">The best food in town at one of the best locations</p>
+                        <div className="container pt-8 pb-6 text-center position-relative text-white">
+                            <div className="row pt-4 pt-lg-6 justify-content-center text-center">
+                                <div className="col-lg-8 col-md-10">
+                                    <h1 className="display-2 mb-2 mx-auto">News & Event</h1>
+                                    <p className="lead mb-0">The best food in town at one of the best locations</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
                 <div className="preloader"></div>
                 <main id="main" className="position-relative">
                     <svg
@@ -71,47 +106,46 @@ function BlogDetail() {
                     <div className="container py-8 position-relative z-index-1">
                         <div className="row pt-4 pt-lg-9 justify-content-between">
                             <div className="col-lg-7 col-xl-8 mb-7 mb-lg-0">
-                                <article className="border-bottom pb-5 mb-5">
-                                    <h1 className="mb-4 display-6">Categories</h1>
-                                    <h1 className="mb-4 display-5">제목</h1>
-                                    <div className="post-meta">
-                                        <ul className="list-unstyled small d-flex align-items-center mb-4 small">
-                                            <li className="mx-3">
-                                                On
-                                                <p className="text-secondary d-inline-flex align-items-center">
-                                                    <span> 13 Oct. 2020</span>
-                                                </p>
-                                            </li>
-                                            <li>
-                                                In
-                                                <p className="d-inline-flex align-items-center">
-                                                    <span> News</span>
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <Swiper
-                                        spaceBetween={50}
-                                        slidesPerView={1}
-                                        autoplay={{
-                                            delay: 2500,
-                                            disableOnInteraction: false,
-                                        }}
-                                        onSwiper={(swiper) => console.log(swiper)}
-                                        onSlideChange={() => console.log('slide change')}
-                                        style={{ maxWidth: '100%', maxHeight: '300px' }}
-                                    >
-                                        <SwiperSlide>
-                                            <img src={image1} alt="" className="img-fluid" />
-                                        </SwiperSlide>
-                                    </Swiper>
-                                </article>
-
-                                {/* 내용 */}
-                                <div className="post-content">
-                                    <p>소제목</p>
-                                    <p className="mb-5">내용입니다.</p>
-                                </div>
+                                {/* 게시글 정보가 로드되었을 때 렌더링 */}
+                                {blog && (
+                                    <article className="border-bottom pb-5 mb-5">
+                                        <h1 className="mb-4 display-6">{blog.article_type_code}</h1>
+                                        <h1 className="mb-4 display-5">{blog.title}</h1>
+                                        <div className="post-meta">
+                                            <ul className="list-unstyled small d-flex align-items-center mb-4 small">
+                                                <li className="mx-3">
+                                                    On
+                                                    <p className="text-secondary d-inline-flex align-items-center">
+                                                        <span> {blog.reg_date}</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <Swiper
+                                            spaceBetween={50}
+                                            slidesPerView={1}
+                                            autoplay={{
+                                                delay: 2500,
+                                                disableOnInteraction: false,
+                                            }}
+                                            onSwiper={(swiper) => console.log(swiper)}
+                                            onSlideChange={() => console.log('slide change')}
+                                            style={{ maxWidth: '100%', maxHeight: '300px' }}
+                                        >
+                                            <SwiperSlide>
+                                                <img
+                                                    src={`http://localhost:3001/${blog.main_img_path}`}
+                                                    alt=""
+                                                    className="img-fluid"
+                                                />
+                                            </SwiperSlide>
+                                        </Swiper>
+                                        {/* 게시글 내용 표시 */}
+                                        <div className="post-content">
+                                            <p className="mb-5">{blog.context}</p>
+                                        </div>
+                                    </article>
+                                )}
                             </div>
 
                             <div className="col-lg-5 col-xl-4">
@@ -140,8 +174,8 @@ function BlogDetail() {
                         </div>
                     </div>
                 </main>
-                <Footer />
             </body>
+            <Footer />
         </div>
     )
 }

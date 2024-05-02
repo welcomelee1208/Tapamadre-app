@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
 // 셀렉터 choices.css/.js
 import Choices from 'choices.js'
 

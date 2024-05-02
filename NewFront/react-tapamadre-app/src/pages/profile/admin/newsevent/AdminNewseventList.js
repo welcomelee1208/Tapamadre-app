@@ -1,23 +1,14 @@
-// AdminBlogList;
-import React, { useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-
-// 테이블 패키지
+import axios from 'axios'
 import DataTable from 'react-data-table-component'
 
-// 셀렉터 choices.css/.js
-import Choices from 'choices.js'
-
-// Datatable Columns 컬럼
+// 테이블 컬럼 설정
 const columns = [
     {
         name: '카테고리',
-        selector: (row) => row.category,
+        selector: (row) => row.article_type_code,
         sortable: true,
-
         width: '100px',
     },
     {
@@ -60,157 +51,30 @@ const columns = [
     },
 ]
 
-// 임시데이터
-const data = [
-    {
-        id: 1,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다1',
-        is_display_code: 1,
-        view_count: 50,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 2,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다2',
-        is_display_code: 0,
-        view_count: 100,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 3,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다3',
-        is_display_code: 1,
-        view_count: 50,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 4,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다4',
-        is_display_code: 0,
-        view_count: 101,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 5,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다1',
-        is_display_code: 1,
-        view_count: 50,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 6,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다2',
-        is_display_code: 0,
-        view_count: 100,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 7,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다3',
-        is_display_code: 1,
-        view_count: 50,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 8,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다4',
-        is_display_code: 0,
-        view_count: 101,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 9,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다1',
-        is_display_code: 1,
-        view_count: 50,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 10,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다2',
-        is_display_code: 0,
-        view_count: 100,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 11,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다3',
-        is_display_code: 1,
-        view_count: 50,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-    {
-        id: 12,
-        category: '공지사항',
-        title: '따빠마드레 공지사항 제목입니다4',
-        is_display_code: 0,
-        view_count: 101,
-        reg_date: '2024-03-21',
-        edit_date: '2024-03-23',
-    },
-]
-
-// id값 정하기
-// const keyField =
-
 const AdminNewseventList = () => {
     const navigate = useNavigate()
-    const selectRef = useRef(null)
-
-    // 테이블 선택 이벤트 핸들러
-    // selectedRows : 선택된 데이터 리스트
-    const handleChange = ({ selectedRows }) => {
-        // You can set state or dispatch with something like Redux so we can use the retrieved data
-        console.log('Selected Rows: ', selectedRows)
-    }
+    const [blogList, setBlogList] = useState([])
 
     useEffect(() => {
-        // choices
-        const initializeChoices = () => {
-            const elements = document.querySelectorAll('[data-choices]')
-            elements.forEach((element) => {
-                new Choices(element, {
-                    classNames: {
-                        containerInner: element.className,
-                        input: 'form-control',
-                        inputCloned: 'form-control-xs',
-                        listDropdown: 'dropdown-menu',
-                        itemChoice: 'dropdown-item',
-                        activeState: 'show',
-                        selectedState: 'active',
-                    },
-                })
-            })
+        // 게시글 목록을 서버에서 가져오는 함수
+        const fetchBlogList = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/blog/all')
+                if (response.data.code === '200') {
+                    setBlogList(response.data.data)
+                } else {
+                    console.error('게시글 목록을 불러오는데 실패했습니다.')
+                }
+            } catch (error) {
+                console.error('게시글 목록을 불러오는데 실패했습니다.', error)
+            }
         }
 
-        initializeChoices()
+        fetchBlogList()
     }, [])
 
     // 테이블 열 클릭 이벤트 핸들러
-    // row : 해당 이벤트의 열 데이터(object)
-    const handleLinkToUpdate = (row, event) => {
+    const handleLinkToUpdate = (row) => {
         console.log(row)
         navigate('update')
     }
@@ -219,12 +83,20 @@ const AdminNewseventList = () => {
         <>
             <h2 className="text-center">News / Event</h2>
             <div className="text-end">
-                <button type="button" class="btn btn-primary mb-1" onClick={() => navigate('create')}>
-                    생성
-                </button>
+                <Link to="/admin/newsevent/create">
+                    <button type="button" className="btn btn-primary mb-1">
+                        생성
+                    </button>
+                </Link>
             </div>
 
-            <DataTable columns={columns} data={data} highlightOnHover pagination onRowClicked={handleLinkToUpdate} />
+            <DataTable
+                columns={columns}
+                data={blogList}
+                highlightOnHover
+                pagination
+                onRowClicked={handleLinkToUpdate}
+            />
         </>
     )
 }
