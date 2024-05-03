@@ -18,8 +18,7 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     const fileExtension = file.originalname.split(".").pop(); // 확장자 추출
-    const uniqueSuffix =
-      moment().format("YYYYMMDDHHmmss") + "-" + Math.round(Math.random() * 1e9);
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9); // 현재 시간과 랜덤한 숫자로 파일 이름 생성
     cb(null, `${uniqueSuffix}.${fileExtension}`); // 새로운 파일 이름에 확장자 추가
   },
 });

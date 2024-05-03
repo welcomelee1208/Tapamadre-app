@@ -80,11 +80,11 @@ const SwitchRoutes = () => {
                         <Route path="reservation/update" element={<AdminReservationUpdate />} />
                         {/* news/event */}
                         <Route path="newsevent" element={<AdminNewseventList />} />
-                        <Route path="newsevent/update" element={<AdminNewseventUpdate />} />
+                        <Route path="newsevent/update/:article_id" element={<AdminNewseventUpdate />} />
                         <Route path="newsevent/create" element={<AdminNewseventCreate />} />
                         {/* 메뉴 */}
                         <Route path="menu" element={<AdminMenuList />} />
-                        <Route path="menu/update" element={<AdminMenuUpdate />} />
+                        <Route path="menu/update/" element={<AdminMenuUpdate />} />
                         <Route path="menu/create" element={<AdminMenuCreate />} />
                         {/* 문의사항 */}
                         <Route path="inquiries" element={<AdminInquiriesList />} />
