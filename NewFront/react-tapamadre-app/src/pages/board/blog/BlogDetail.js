@@ -128,7 +128,7 @@ function BlogDetail() {
                                                 delay: 2500,
                                                 disableOnInteraction: false,
                                             }}
-                                            onSwiper={(swiper) => console.log(swiper)}
+                                            onSwiper={(swiper) => console.log(swiper, blog.main_img_path)}
                                             onSlideChange={() => console.log('slide change')}
                                             style={{ maxWidth: '100%', maxHeight: '300px' }}
                                         >

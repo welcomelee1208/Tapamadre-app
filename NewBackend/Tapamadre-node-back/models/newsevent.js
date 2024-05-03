@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
       article_type_code: {
         type: DataTypes.TINYINT,
         allowNull: false,
-        comment: "글 유형 코드 0:공지 1:이벤트",
+        comment: "글 유형 코드 0:News 1:event",
       },
       is_display_code: {
         type: DataTypes.TINYINT,
