@@ -1,14 +1,32 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-// 셀렉터 choices.css/.js
 import Choices from 'choices.js'
 
 const AdminMenuCreate = () => {
     const selectRef = useRef(null)
 
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+
+        const form = event.target
+        const formData = new FormData(form)
+
+        try {
+            const response = await axios.post('http://localhost:3001/admin/menu/create', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+            console.log(response.data)
+            // 메뉴 추가가 성공했을 때 필요한 동작 수행
+        } catch (error) {
+            console.error('Failed to create menu:', error.message)
+            // 메뉴 추가에 실패했을 때 필요한 동작 수행
+        }
+    }
+
     useEffect(() => {
-        // choices
         const initializeChoices = () => {
             const elements = document.querySelectorAll('[data-choices]')
             elements.forEach((element) => {
@@ -31,86 +49,97 @@ const AdminMenuCreate = () => {
 
     return (
         <>
-            <form className="needs-validation text-start px-5" noValidate>
+            <form className="needs-validation text-start px-5" onSubmit={handleSubmit} noValidate>
                 <h4 className="mb-3">메뉴 추가</h4>
                 <div className="mb-3">
-                    <label className="mb-2">메뉴 이름</label>
-                    <input
-                        type="text"
-                        req=""
-                        id="reservationName"
+                    <label htmlFor="menuName" className="form-label mb-2">
+                        메뉴 이름
+                    </label>
+                    <input type="text" id="menuName" className="form-control" name="menu_name" required />
+                </div>
+                <div className="row mb-3">
+                    <div className="col-md-6">
+                        <label htmlFor="category" className="form-label mb-2">
+                            음식분류
+                        </label>
+                        <select
+                            ref={selectRef}
+                            className="form-control"
+                            data-choices
+                            name="categorized_menu_code"
+                            required
+                        >
+                            <option value="">카테고리 선택</option>
+                            <option value="0">Food</option>
+                            <option value="1">Drink</option>
+                            <option value="2">Set Menu</option>
+                        </select>
+                    </div>
+                    <div className="col-md-6">
+                        <label htmlFor="category" className="form-label mb-2">
+                            카테고리
+                        </label>
+                        <select
+                            ref={selectRef}
+                            className="form-control"
+                            data-choices
+                            name="categorized_menu_code"
+                            required
+                        >
+                            <option value="">카테고리 선택</option>
+                            <option value="0">공지사항</option>
+                            <option value="1">이벤트</option>
+                            <option value="2">소식</option>
+                        </select>
+                    </div>
+                    <div className="col-md-6">
+                        <label htmlFor="menuPrice" className="form-label mb-2">
+                            가격
+                        </label>
+                        <input
+                            type="number"
+                            step={100}
+                            id="menuPrice"
+                            className="form-control"
+                            name="menu_price"
+                            required
+                        />
+                    </div>
+                </div>
+                <div className="mb-3">
+                    <div className="form-check form-switch">
+                        <input className="form-check-input" type="checkbox" id="isSetMenu" name="set_menu_state_code" />
+                        <label className="form-check-label" htmlFor="isSetMenu">
+                            세트 여부
+                        </label>
+                    </div>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="menuImage" className="form-label mb-2">
+                        메뉴 이미지
+                    </label>
+                    <input type="file" id="menuImage" className="form-control" name="files" multiple required />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="menuDescription" className="form-label mb-2">
+                        메뉴 설명
+                    </label>
+                    <textarea
+                        id="menuDescription"
                         className="form-control"
-                        placeholder="Your Name"
+                        name="menu_desc"
+                        style={{ height: '200px' }}
                         required
-                    />
-                </div>
-                <div className="mb-3">
-                    <div className="row">
-                        <div className=" col-sm-6 col-12 mb-2">
-                            <label className="mb-2">카테고리</label>
-                            <select ref={selectRef} className="form-control" data-choices>
-                                <option value="">카테고리 선택</option>
-                                <option value="0">공지사항</option>
-                                <option value="1">이벤트</option>
-                                <option value="2">소식</option>
-                            </select>
-                        </div>
-
-                        <div className=" col-sm-6 col-12 mb-2">
-                            <label className="mb-2">가격</label>
-                            <input type="number" step={100} className="form-control" />
-                        </div>
-                    </div>
-                </div>
-                <div className="mb-3">
-                    <label className="mb-2"></label>
-                    <div className="row">
-                        <div className=" col-sm-6 col-12 mb-2">
-                            <label className="mb-2">세트여부</label>
-                            <br />
-                            <input className="form-check-input" type="radio" name="isSet" value="single_menu" checked />
-                            <span className="ms-1">단품</span>
-                            <input className="form-check-input ms-5" type="radio" name="isSet" value="set_menu" />
-                            <span className="ms-1">세트</span>
-                        </div>
-                        <div className=" col-sm-6 col-12 mb-2">
-                            <label className="mb-2">게시여부</label>
-                            <br />
-                            <input class="form-check-input" required type="radio" name="state" value="" checked />
-                            <span className="ms-1">게시함</span>
-                            <input class="form-check-input ms-5" required type="radio" name="state" value="" />
-                            <span className="ms-1">임시 저장</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="mb-3">
-                    <div className="row">
-                        <div className="col-12 mb-2">
-                            <label className="mb-2">메뉴 이미지</label>
-                            <input type="file" className="form-control" />
-                        </div>
-                    </div>
-                </div>
-                <div className="mb-3">
-                    <div className="row">
-                        <div className=" col-sm-4 col-12 mb-2">
-                            <input class="form-check-input" type="checkbox" />
-                            <span className="ms-1">대표메뉴로 설정하기</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="mb-4">
-                    <label className="mb-2">메뉴 설명</label>
-                    <textarea className="form-control" style={{ height: '200px' }}></textarea>
+                    ></textarea>
                 </div>
                 <div className="text-end">
                     <Link to="/admin/menu">
                         <button type="button" className="btn btn-outline-dark">
-                            <span>목록</span>
+                            목록
                         </button>
                     </Link>
                     <button type="submit" className="btn btn-primary ms-4">
-                        <span>메뉴 추가</span>
+                        메뉴 추가
                     </button>
                 </div>
             </form>

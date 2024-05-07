@@ -1,52 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { Link as ScrollLink } from 'react-scroll'
 import Header from '../../../layout/Header'
 import Footer from '../../../layout/Footer'
 import { Helmet } from 'react-helmet'
-
-const MenuData = [
-    {
-        category: 'SANGRIA 상그리아',
-        items: [
-            {
-                image: 'assets/img/menu/drink1.jpg',
-                title: 'Sangria',
-                price: '36,-',
-                description: '1000ml',
-            },
-            {
-                image: 'assets/img/menu/drink1.jpg',
-                title: 'Sangria Glass',
-                price: '10,9,-',
-                description: '250ml / white, Red',
-            },
-        ],
-    },
-    {
-        category: 'VINO 글라스와인',
-        items: [
-            {
-                image: 'assets/img/menu/drink1.jpg',
-                title: 'Vino1',
-                price: '20,-',
-                description: '200ml / white, Red',
-            },
-            {
-                image: 'assets/img/menu/drink1.jpg',
-                title: 'Vino2',
-                price: '15,-',
-                description: '150ml / white, Red',
-            },
-        ],
-    },
-    // 추가 카테고리와 메뉴 항목...
-]
+import axios from 'axios'
 
 const MenuDrink = () => {
     const [modal, setModal] = useState(false)
+    const [menuData, setMenuData] = useState([])
 
     const toggle = () => setModal(!modal)
+
+    useEffect(() => {
+        const fetchMenuData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/menu/all')
+                if (response.data.code === '200') {
+                    // 모든 메뉴 항목 가져오기
+                    const allMenuData = response.data.data
+
+                    // categorized_menu_code가 2인 항목만 필터링하여 설정
+                    const filteredMenuData = allMenuData.filter((menuItem) => menuItem.categorized_menu_code === 2)
+
+                    setMenuData(filteredMenuData)
+                } else {
+                    console.error('Failed to fetch menu data.')
+                }
+            } catch (error) {
+                console.error('Failed to fetch menu data.', error)
+            }
+        }
+
+        fetchMenuData()
+    }, [])
 
     return (
         <>
@@ -76,7 +63,7 @@ const MenuDrink = () => {
                         <div className="position-relative mb-5 order-md-1">
                             <h5 className="mb-3">Categories</h5>
                             <ul className="list-unstyled">
-                                {MenuData.map((menuItem, index) => (
+                                {menuData.map((menuItem, index) => (
                                     <li key={index}>
                                         <ScrollLink
                                             activeClass="active"
@@ -95,7 +82,7 @@ const MenuDrink = () => {
                         </div>
                     </div>
                     <div className="col-md-9">
-                        {MenuData.map((menuItem, index) => (
+                        {menuData.map((menuItem, index) => (
                             <div key={index}>
                                 <h4 className="mb-1" id={`menu-${index}`}>
                                     {menuItem.category}
