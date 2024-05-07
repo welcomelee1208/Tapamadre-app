@@ -7,8 +7,6 @@ import 'flatpickr/dist/flatpickr.min.css'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
 
-import { Link } from 'react-router-dom'
-
 import { Helmet } from 'react-helmet'
 // AOS 라이브러리
 import AOS from 'aos'
@@ -211,7 +209,6 @@ const Reservation = () => {
             <script src="assets/vendor/flatpickr.min.js"></script>
             <script src="assets/vendor/choices.min.js"></script>
             <script>{/* Script to initialize flatpickr and Choices */}</script>
-
             <Footer />
         </>
     )

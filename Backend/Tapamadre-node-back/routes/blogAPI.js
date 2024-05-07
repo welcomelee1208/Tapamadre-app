@@ -25,6 +25,11 @@ var storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 /* 이미지 파일첨부 기능 구현/ 관리자만 작성할수있는 권한 부여 필요 */
 
+//test
+
+router.get("/createblog", function (req, res, next) {
+  res.render("createBlog");
+});
 // 게시글 목록 조회
 //http://localhost:3001/blog/all
 router.get("/all", async (req, res) => {

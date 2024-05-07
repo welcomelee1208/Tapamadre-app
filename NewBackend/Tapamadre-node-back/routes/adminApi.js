@@ -172,7 +172,54 @@ router.get("/all", async (req, res, next) => {
     });
   }
 });
+//비밀번호 찾기
+router.post("/forgot-password", async (req, res, next) => {
+  try {
+    const { id, name } = req.body;
 
+    // 해당 아이디와 이름을 가진 사용자 찾기
+    const user = await db.Admin.findOne({
+      where: { id: id, name: name },
+    });
+
+    if (!user) {
+      return res.status(404).json({
+        code: 404,
+        data: null,
+        msg: "해당 사용자를 찾을 수 없습니다.",
+      });
+    }
+
+    // 임시 비밀번호 생성
+    const temporaryPassword = Math.random().toString(36).slice(-8); // 임시 비밀번호 생성
+
+    // 비밀번호 암호화
+    const encryptedPassword = await bcrypt.hash(temporaryPassword, 12);
+
+    // 사용자 정보 업데이트
+    await db.Admin.update(
+      {
+        password: encryptedPassword,
+      },
+      {
+        where: { id: id },
+      }
+    );
+
+    return res.status(200).json({
+      code: 200,
+      data: temporaryPassword,
+      msg: "새로운 임시 비밀번호를 사용자 이메일로 전송했습니다.",
+    });
+  } catch (err) {
+    console.error("비밀번호 찾기 중 오류 발생:", err);
+    return res.status(500).json({
+      code: 500,
+      data: null,
+      msg: "비밀번호 찾기 중 오류 발생",
+    });
+  }
+});
 //비밀번호 수정(프로필 에서 수정할 시..)
 router.post("/modify/:id", async (req, res, next) => {
   try {
@@ -217,7 +264,5 @@ router.post("/modify/:id", async (req, res, next) => {
     });
   }
 });
-
-//비밀번호 찾기
 
 module.exports = router;

@@ -11,9 +11,9 @@ var sequelize = require("./models/index.js").sequelize;
 //api 라우터 참조
 var memberRouter = require("./routes/memberApi.js");
 var menuRouter = require("./routes/menuApi.js");
-var inquiryRouter = require("./routes/inquiryApi.js");
+// var inquiryRouter = require("./routes/inquiryApi.js");
 var blogRouter = require("./routes/blogApi.js");
-var reservationRouter = require("./routes/reserveApi.js");
+// var reservationRouter = require("./routes/reserveApi.js");
 var app = express();
 //mysql과 자동연결처리 및 모델기반 물리 테이블 생성처리제공
 sequelize.sync();
@@ -31,9 +31,9 @@ app.use("/", indexRouter);
 // app.use("/users", usersRouter);
 app.use("/user", memberRouter);
 app.use("/menu", menuRouter);
-app.use("/inquiry", inquiryRouter);
+// app.use("/inquiry", inquiryRouter);
 app.use("/blog", blogRouter);
-app.use("/reserve", reservationRouter);
+// app.use("/reserve", reservationRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

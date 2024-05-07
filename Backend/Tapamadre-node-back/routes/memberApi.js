@@ -154,8 +154,8 @@ router.get("/all", async (req, res, next) => {
 // 회원정보 조회
 router.get("/profile", async (req, res, next) => {
   try {
-    const userId = req.user.user_id; // 로그인된 사용자의 식별 정보를 가져옴
-
+    //const userId = req.user.user_id; // 로그인된 사용자의 식별 정보를 가져옴
+    const userId = req.body.user_id; // 로그인된 사용자의 식별 정보를 가져옴
     // 사용자를 식별 정보로 찾음
     const user = await db.User.findByPk(userId);
 

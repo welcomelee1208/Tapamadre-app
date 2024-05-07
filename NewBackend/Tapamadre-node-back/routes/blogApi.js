@@ -18,8 +18,7 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     const fileExtension = file.originalname.split(".").pop(); // 확장자 추출
-    const uniqueSuffix =
-      moment().format("YYYYMMDDHHmmss") + "-" + Math.round(Math.random() * 1e9);
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9); // 현재 시간과 랜덤한 숫자로 파일 이름 생성
     cb(null, `${uniqueSuffix}.${fileExtension}`); // 새로운 파일 이름에 확장자 추가
   },
 });
@@ -39,7 +38,8 @@ router.post("/create", upload.single("main_img_path"), async (req, res) => {
       req.body;
     const context = req.body.context || ""; // context가 없을 경우 빈 문자열로 처리
     const ip_address = req.ip; // 클라이언트의 IP 주소 가져오기
-    const main_img_path = req.file ? req.file.path : ""; // 파일이 업로드되었다면 파일 경로를 저장
+
+    const main_img_path = `/upload/${req.file.filename}`; //req.file ? req.file.path : ""; // 파일이 업로드되었다면 파일 경로를 저장
     const reg_date = Date.now();
     const view_count = req.body.view_count || 0; // view_count가 제공되지 않았다면 기본값으로 0 설정
 

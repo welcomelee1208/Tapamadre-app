@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import DataTable from 'react-data-table-component'
-
+import moment from 'moment' // 모먼트 라이브러리 import
 // 테이블 컬럼 설정
 const columns = [
     {
@@ -29,14 +29,14 @@ const columns = [
     },
     {
         name: '작성일',
-        selector: (row) => row.reg_date,
+        selector: (row) => moment(row.reg_date).format('YYYY-MM-DD HH:mm:ss'), // 모먼트를 사용하여 형식화
         sortable: true,
         wrap: true,
         width: '110px',
     },
     {
         name: '수정일',
-        selector: (row) => row.edit_date,
+        selector: (row) => moment(row.edit_date).format('YYYY-MM-DD HH:mm:ss'), // 모먼트를 사용하여 형식화
         maxWidth: '600px',
         sortable: true,
         wrap: true,
@@ -76,7 +76,7 @@ const AdminNewseventList = () => {
     // 테이블 열 클릭 이벤트 핸들러
     const handleLinkToUpdate = (row) => {
         console.log(row)
-        navigate('update')
+        navigate(`/admin/newsevent/update/${row.article_id}`)
     }
 
     return (
