@@ -93,7 +93,7 @@ router.get("/all", async (req, res) => {
 
 //게시글 수정
 //http://localhost:3001/blog/modify/:id
-router.post("/modify/:id", async (req, res) => {
+router.post("/modify/:id", upload.single("main_img_path"), async (req, res) => {
   try {
     var postId = req.params.id; // URL 매개변수에서 글 ID 가져오기
     var {
@@ -102,9 +102,8 @@ router.post("/modify/:id", async (req, res) => {
       article_type_code,
       is_display_code,
       ip_address,
-      main_img_path,
-      edit_member_id,
-      edit_date,
+
+      edit_user_id,
     } = req.body;
 
     // ID로 글 찾기
@@ -127,9 +126,9 @@ router.post("/modify/:id", async (req, res) => {
       article_type_code,
       is_display_code,
       ip_address,
-      main_img_path,
-      edit_member_id,
-      edit_date,
+      main_img_path: `/upload/${req.file.filename}`,
+      edit_user_id,
+      edit_date: new Date(),
     };
 
     // 글 업데이트

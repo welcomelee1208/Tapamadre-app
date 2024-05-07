@@ -107,7 +107,6 @@ const AdminNewseventCreate = () => {
                         ref={editorRef}
                         previewStyle="vertical"
                         initialEditType="wysiwyg"
-                        placeholder="글을 작성해 주세요"
                         height="450px"
                         initialValue=""
                     />
