@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
-
+const path = require("path");
 var db = require("../models/index");
-
+const fs = require("fs/promises"); // 파일 시스템 모듈
 var moment = require("moment");
 var multer = require("multer");
 //반환할 api객체
@@ -150,22 +150,31 @@ router.post("/modify/:id", upload.single("main_img_path"), async (req, res) => {
 });
 
 // DELETE 삭제: 블로그 글 삭제
-//http://localhost:3001/blog/delete/:id
+// http://localhost:3001/blog/delete/:id
 router.delete("/delete/:id", async (req, res) => {
   try {
-    var postId = req.params.id; // URL 매개변수에서 글 ID 가져오기
+    const postId = req.params.id; // URL 매개변수에서 글 ID 가져오기
 
     // ID로 글 찾기
-    // var postToDelete = await db.NewsEvent.findByPk(postId);
-    var postToDelete = await db.NewsEvent.findOne({
+    const postToDelete = await db.NewsEvent.findOne({
       where: { article_id: postId },
     });
+
     if (!postToDelete) {
       return res.json({
         code: "400",
         data: null,
         result: "해당 글을 찾을 수 없습니다.",
       });
+    }
+
+    // 관련된 이미지 파일 이름 가져오기
+    const imageFileName = postToDelete.main_img_path;
+
+    // 이미지 파일이 존재하면 삭제
+    if (imageFileName) {
+      const imagePath = path.join(__dirname, "../public/", imageFileName);
+      await fs.unlink(imagePath); // 이미지 파일 삭제
     }
 
     // 글 삭제
@@ -185,6 +194,7 @@ router.delete("/delete/:id", async (req, res) => {
     });
   }
 });
+
 //게시글 단일건 조회
 //http://localhost:3001/blog/:id
 router.get("/:id", async (req, res, next) => {
