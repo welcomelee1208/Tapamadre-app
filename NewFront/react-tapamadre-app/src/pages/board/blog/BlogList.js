@@ -1,3 +1,5 @@
+// BlogList.js
+
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Header from '../../../layout/Header'
@@ -30,7 +32,7 @@ const BlogList = () => {
                     const formattedData = response.data.data.map((blog) => ({
                         ...blog,
                         reg_date: moment(blog.reg_date).format('MMMM Do YYYY, h:mm:ss a'),
-                        article_type_code: blog.article_type_code === 1 ? 'News' : 'Event',
+                        article_type_code: blog.article_type_code === 0 ? 'News' : 'Event',
                     }))
 
                     // is_display_code가 0이 아닌 경우만 필터링하여 표시합니다.
@@ -131,6 +133,7 @@ const BlogList = () => {
                                         </div>
                                         <a href={`/newsevent/${blog.article_id}`} className="text-dark">
                                             <h1 className="mb-3 h4 text-reset">{blog.title}</h1>
+                                            <h6 className="mb-3 h6 text-reset">{blog.article_type_code}</h6>
                                         </a>
                                         <div className="post-meta">
                                             <span className="small">{blog.reg_date}</span>
