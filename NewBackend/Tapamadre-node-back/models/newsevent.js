@@ -55,7 +55,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: "작성일",
       },
       edit_user_id: {
-        type: DataTypes.DATE,
+        type: DataTypes.INTEGER,
         allowNull: true,
         comment: "수정자ID",
       },
