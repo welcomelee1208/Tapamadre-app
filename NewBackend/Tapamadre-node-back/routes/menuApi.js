@@ -51,7 +51,7 @@ router.get("/all", async (req, res, next) => {
     });
   }
 });
-
+//메뉴 업로드
 router.post("/create", upload.array("files"), async (req, res, next) => {
   try {
     console.log("업로드 파일 목록: ", req.files);

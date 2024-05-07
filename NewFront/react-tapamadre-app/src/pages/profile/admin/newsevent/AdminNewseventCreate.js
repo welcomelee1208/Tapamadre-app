@@ -62,8 +62,8 @@ const AdminNewseventCreate = () => {
                             <label className="mb-2">카테고리</label>
                             <select className="form-control" onChange={(e) => setCategory(e.target.value)}>
                                 <option value="">카테고리 선택</option>
-                                <option value="0">공지사항</option>
-                                <option value="1">이벤트</option>
+                                <option value="0">News</option>
+                                <option value="1">Event</option>
                             </select>
                         </div>
                         <div className="col-sm-1"></div>
@@ -107,7 +107,6 @@ const AdminNewseventCreate = () => {
                         ref={editorRef}
                         previewStyle="vertical"
                         initialEditType="wysiwyg"
-                        placeholder="글을 작성해 주세요"
                         height="450px"
                         initialValue=""
                     />
