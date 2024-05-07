@@ -10,6 +10,7 @@ const columns = [
         selector: (row) => row.article_type_code,
         sortable: true,
         width: '100px',
+        format: (row) => (row.article_type_code === 0 ? 'News' : 'Event'), // 0이면 'News', 1이면 'Event'로 변환
     },
     {
         name: '제목',
