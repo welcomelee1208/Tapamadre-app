@@ -8,18 +8,20 @@ const MyInquiryDetail = React.lazy(() => import('../pages/profile/mypage/MyInqui
 
 //인증이 필요없는 페이지 컴포넌트 참조
 const Home = React.lazy(() => import('../pages/board/Home'))
+const Login = React.lazy(() => import('../pages/Auth/Login'))
 const MenuSet = React.lazy(() => import('../pages/board/menu/MenuSet'))
 const MenuFood = React.lazy(() => import('../pages/board/menu/MenuFood'))
 const MenuDrink = React.lazy(() => import('../pages/board/menu/MenuDrink'))
 const NewsEvent = React.lazy(() => import('../pages/board/blog/BlogList'))
 const NewsEventDetail = React.lazy(() => import('../pages/board/blog/BlogDetail'))
-const Reservation = React.lazy(() => import('../pages/board/Reservation'))
-const Inquiry = React.lazy(() => import('../pages/board/QnA'))
-const Login = React.lazy(() => import('../pages/Auth/Login'))
-const Entry = React.lazy(() => import('../pages/Auth/Entry'))
-const ForgetPassword = React.lazy(() => import('../pages/Auth/ForgetPassword'))
-const PrivacyPolicy = React.lazy(() => import('../components/PrivacyPolicy'))
-const TermsOfService = React.lazy(() => import('../components/TermsOfService'))
+const History = React.lazy(() => import('../pages/board/History'))
+const Social = React.lazy(() => import('../pages/board/Social'))
+// const Reservation = React.lazy(() => import('../pages/board/Reservation'))
+// const Inquiry = React.lazy(() => import('../pages/board/QnA'))
+// const Entry = React.lazy(() => import('../pages/Auth/Entry'))
+// const ForgetPassword = React.lazy(() => import('../pages/Auth/ForgetPassword'))
+// const PrivacyPolicy = React.lazy(() => import('../components/PrivacyPolicy'))
+// const TermsOfService = React.lazy(() => import('../components/TermsOfService'))
 
 //인증이 필요한 라우팅 목록
 const authProtectedRoutes = [
@@ -32,18 +34,20 @@ const authProtectedRoutes = [
 //인증이 필요 없는 라우팅 목록
 const publicRoutes = [
     { path: '/login', component: <Login /> },
-    { path: '/entry', component: <Entry /> },
-    { path: '/forgetpassword', component: <ForgetPassword /> },
+    // { path: '/entry', component: <Entry /> },
+    // { path: '/forgetpassword', component: <ForgetPassword /> },
     { path: '/', component: <Home /> },
     { path: '/menufood', component: <MenuFood /> },
     { path: '/menudrink', component: <MenuDrink /> },
     { path: '/menuset', component: <MenuSet /> },
     { path: '/newsEvent', component: <NewsEvent /> },
     { path: '/newsEvent/:idx', component: <NewsEventDetail /> },
-    { path: '/reservation', component: <Reservation /> },
-    { path: '/inquiry', component: <Inquiry /> },
-    { path: '/PrivacyPolicy', component: <PrivacyPolicy /> },
-    { path: '/TermsOfService', component: <TermsOfService /> },
+    { path: '/history', component: <History /> },
+    { path: '/social', component: <Social /> },
+    // { path: '/reservation', component: <Reservation /> },
+    // { path: '/inquiry', component: <Inquiry /> },
+    // { path: '/PrivacyPolicy', component: <PrivacyPolicy /> },
+    // { path: '/TermsOfService', component: <TermsOfService /> },
 ]
 
 //관리자 권한이 필요한 라우팅 목록

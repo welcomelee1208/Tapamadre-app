@@ -36,3 +36,18 @@
 .dropdown nav-item {
     cursor: pointer;
 }
+
+/* Social Page */
+
+.mapBox {
+    position: relative;
+}
+.box {
+    display: flex;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 800px;
+    height: 600px;
+    background-color: white;
+}

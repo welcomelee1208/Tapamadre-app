@@ -5,7 +5,6 @@ import logo from '../assets/img/logo.png'
 import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { setActiveTab } from '../redux/actions'
 import { Helmet } from 'react-helmet'
 import {
     Nav,
@@ -88,13 +87,20 @@ const Header = (props) => {
                                     LOGIN
                                 </Link>
                             </div>
-                            <div className="nav-item me-lg-0 me-3">
+                            {/* <div className="nav-item me-lg-0 me-3">
                                 <Link className="nav-icon-link nav-link" to="/entry">
                                     <div className="d-flex align-items-center">
                                         <span>Join</span>
                                     </div>
                                 </Link>
-                            </div>
+                            </div> */}
+                            {/* <div className="nav-item me-lg-0 me-3">
+                                <Link className="nav-icon-link nav-link" to="#">
+                                    <div className="d-flex align-items-center">
+                                        <span>Reservation</span>
+                                    </div>
+                                </Link>
+                            </div> */}
                         </div>
                     </div>
                     <div className="offcanvas offcanvas-end" id="restoMainNavbar">
@@ -130,6 +136,7 @@ const Header = (props) => {
                                     <div
                                         className="dropdown-toggle nav-link"
                                         onClick={() => setDropdownOpen(!dropdownOpen)}
+                                        style={{ cursor: 'pointer' }}
                                     >
                                         MENU
                                     </div>
@@ -155,23 +162,32 @@ const Header = (props) => {
                                         </li>
                                     </ul>
                                 </li>
-                                {/* Q & A */}
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/history">
+                                        HISTORY
+                                    </Link>
+                                </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/newsevent">
                                         NEWS & EVENT
                                     </Link>
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link" to="/social">
+                                        SOCIAL
+                                    </Link>
+                                </li>
+                                {/* <li className="nav-item">
                                     <Link className="nav-link" to="/inquiry">
                                         Q & A
                                     </Link>
-                                </li>
+                                </li> */}
                                 {/* Reservation */}
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <Link className="nav-link" to="/reservation">
                                         Reservation
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>

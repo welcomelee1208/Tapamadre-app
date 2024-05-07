@@ -1,0 +1,67 @@
+<!-- create_menu.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Menu</title>
+  </head>
+  <body>
+    <h1>Create Menu</h1>
+    <form action="/menu/create" method="POST" enctype="multipart/form-data">
+      <label for="menu_name">Menu Name:</label>
+      <input type="text" id="menu_name" name="menu_name" required /><br /><br />
+
+      <label for="menu_price">Menu Price:</label>
+      <input
+        type="number"
+        id="menu_price"
+        name="menu_price"
+        required
+      /><br /><br />
+
+      <label for="menu_desc">Menu Description:</label><br />
+      <textarea id="menu_desc" name="menu_desc" required></textarea><br /><br />
+
+      <label for="menu_caution">Menu Caution:</label><br />
+      <textarea id="menu_caution" name="menu_caution"></textarea><br /><br />
+
+      <label for="menu_type_code">Menu Type Code:</label>
+      <input
+        type="text"
+        id="menu_type_code"
+        name="menu_type_code"
+        required
+      /><br /><br />
+
+      <label for="set_menu_state_code">Set Menu State Code:</label>
+      <input
+        type="text"
+        id="set_menu_state_code"
+        name="set_menu_state_code"
+        required
+      /><br /><br />
+
+      <label for="categorized_menu_code">Categorized Menu Code:</label>
+      <input
+        type="text"
+        id="categorized_menu_code"
+        name="categorized_menu_code"
+        required
+      /><br /><br />
+
+      <label for="is_display_code">Is Display Code:</label>
+      <input
+        type="text"
+        id="is_display_code"
+        name="is_display_code"
+        required
+      /><br /><br />
+
+      <label for="files">Main Image:</label>
+      <input type="file" id="files" name="files" multiple /><br /><br />
+
+      <button type="submit">Create Menu</button>
+    </form>
+  </body>
+</html>

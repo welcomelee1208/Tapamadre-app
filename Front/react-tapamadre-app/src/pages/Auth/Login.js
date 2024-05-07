@@ -149,7 +149,7 @@ const Login = (props) => {
                     <title>Resto</title>
                 </Helmet>
 
-                <Header></Header>
+                <Header />
                 <main id="main" className="mt-auto">
                     <section className="position-relative">
                         <div className="container position-relative py-8">
@@ -162,11 +162,11 @@ const Login = (props) => {
                                                     <h6 className="mb-0 text-reset">로그인</h6>
                                                 </Link>
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <Link to="/entry" aria-expanded="true" className="nav-link">
                                                     <h6 className="mb-0 text-reset">회원가입</h6>
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                         </ul>
                                         <div className="tab-content">
                                             <div className="tab-pane fade active show" id="login">
@@ -176,8 +176,12 @@ const Login = (props) => {
                                                     onSubmit={formik.handleSubmit}
                                                 >
                                                     <div className="mb-4">
-                                                        <h2 className="mb-1 display-8">따빠마드레 방문을 환영합니다</h2>
-                                                        <p className="mb-0 text-muted">로그인 후 이용바랍니다</p>
+                                                        <h4 className="mb-1 display-8">
+                                                            관리자는 로그인 후 이용바랍니다.
+                                                        </h4>
+                                                        <p className="mb-0 text-muted">
+                                                            일반사용자는 이용할 수 없습니다.
+                                                        </p>
                                                     </div>
                                                     <div className="form-floating mb-3">
                                                         <Input
@@ -229,7 +233,7 @@ const Login = (props) => {
                                                             >
                                                                 <small>Remember me</small>
                                                             </Label>
-                                                        </div> */}
+                                                            </div> */}
                                                         </div>
                                                         <div>
                                                             <Link
@@ -243,12 +247,6 @@ const Login = (props) => {
                                                                 isOpen={showModal}
                                                                 onClose={() => setShowModal(false)}
                                                             />
-                                                            {/* <Link
-                                                                to="/forgetpassword"
-                                                                className="text-dark small text-decoration-underline"
-                                                            >
-                                                                비밀번호찾기
-                                                            </Link> */}
                                                         </div>
                                                     </div>
                                                     <Button
@@ -266,7 +264,7 @@ const Login = (props) => {
                         </div>
                     </section>
                 </main>
-                <Footer></Footer>
+                <Footer />
                 <script src="assets/js/theme.bundle.js"></script>
             </div>
         </React.Fragment>
