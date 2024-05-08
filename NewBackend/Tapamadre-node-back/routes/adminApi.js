@@ -48,6 +48,7 @@ router.post("/login", async (req, res, next) => {
       id: member.id,
       name: member.name,
       reg_date: member.reg_date, // 이름 추가
+      last_login_date: member.last_login_date,
     };
 
     // JWT 토큰 발급
@@ -97,6 +98,7 @@ router.get("/profile", async (req, res, next) => {
       name: admin.name,
       admin_id: admin.admin_id,
       reg_date: admin.reg_date,
+      last_login_date: admin.last_login_date,
     };
 
     return res.status(200).json({

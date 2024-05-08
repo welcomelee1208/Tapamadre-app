@@ -72,7 +72,7 @@ const AdminMenuList = () => {
 
     const handleLinkToUpdate = (row) => {
         console.log(row)
-        navigate('/admin/menu/update')
+        navigate(`/admin/menu/update/${row.menu_id}`)
     }
 
     return (
