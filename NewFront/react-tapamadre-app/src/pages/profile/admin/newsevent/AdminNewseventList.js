@@ -82,7 +82,28 @@ const AdminNewseventList = () => {
 
     return (
         <>
-            <h2 className="text-center">News / Event</h2>
+            {/* <h2 className="text-center">News / Event</h2> */}
+            {/* <!--Page hero--> */}
+            <section class="position-relative overflow-hidden bg-light">
+                <div class="container pb-5 position-relative">
+                    <div class="col-md-8 col-lg-6">
+                        <h4 class="display-6 mb-2">블로그관리</h4>
+                        <nav class="mb-0" aria-label="breadcrumb">
+                            <ol class="breadcrumb small bg-transparent px-0 mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="/">홈</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">MYPAGE</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    블로그관리
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </section>
             <div className="text-end">
                 <Link to="/admin/newsevent/create">
                     <button type="button" className="btn btn-primary mb-1">

@@ -7,7 +7,7 @@ const ProfileNavBar = () => {
             {/* 관리자기능 탭 */}
             {/* 관리자 체크후 표시하기 */}
             <div className="position-relative mb-5">
-                <h5 className="mb-3">관리자 기능</h5>
+                <h5 className="mb-3">MYPAGE</h5>
                 <ul className="list-unstyled">
                     <li>
                         <Link to="/admin/adminMemberList" className="text-secondary d-block py-1">
