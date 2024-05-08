@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const AdminMenuUpdate = () => {
     const { menu_id } = useParams()
-
-    const [menuData, setMenuData] = useState(null)
+    const navigate = useNavigate()
     const [menuName, setMenuName] = useState('')
     const [menuPrice, setMenuPrice] = useState('')
     const [menuType, setMenuType] = useState('')
     const [category, setCategory] = useState('')
     const [isSet, setIsSet] = useState(false)
-    const [isPublished, setIsPublished] = useState(false)
+    const [isPublished, setIsPublished] = useState(false) // 게시여부 상태 추가
     const [menuDesc, setMenuDesc] = useState('')
     const [menuImage, setMenuImage] = useState(null)
+    const [imgFiles, setImgFiles] = useState([]) // 이미지 파일 목록 추가
 
     useEffect(() => {
         const fetchMenuData = async () => {
             try {
                 const response = await axios.get(`http://localhost:3001/menu/${menu_id}`)
                 const postData = response.data
-                setMenuData(postData.data)
+
                 setMenuName(postData.data.menu.menu_name)
                 setMenuPrice(postData.data.menu.menu_price)
                 setMenuType(postData.data.menu.menu_type_code)
                 setCategory(postData.data.menu.categorized_menu_code)
                 setMenuDesc(postData.data.menu.menu_desc)
-                setMenuImage(postData.data.files.file_path)
-                console.log('메뉴데이타 불러오기성공', postData)
+                setImgFiles(postData.data.files) // 이미지 파일 목록 설정
+                setIsPublished(postData.data.menu.is_display_code === 1) // 게시여부 상태 설정
+                console.log('메뉴 데이터 불러오기 성공', postData)
             } catch (error) {
                 console.error('Failed to fetch menu data:', error.message)
             }
@@ -45,9 +46,10 @@ const AdminMenuUpdate = () => {
         formData.append('menu_desc', menuDesc)
         formData.append('menu_type_code', menuType)
         formData.append('categorized_menu_code', category)
-        formData.append('is_display_code', isPublished ? 1 : 0)
+        formData.append('is_display_code', isPublished ? 1 : 0) // 게시여부에 따라 값 설정
         formData.append('set_menu_state_code', isSet ? 1 : 0)
-        formData.append('file_path', menuImage)
+        formData.append('main_img_state_code', menuImage)
+        formData.append('file_path', imgFiles)
 
         try {
             const response = await axios.post(`http://localhost:3001/menu/update/${menu_id}`, formData, {
@@ -57,12 +59,33 @@ const AdminMenuUpdate = () => {
             })
             console.log(response.data)
             alert('메뉴가 성공적으로 수정되었습니다')
+            navigate('/admin/menu')
         } catch (error) {
             console.error('Failed to update menu:', error.message)
         }
     }
 
-    if (!menuData) return <div>Loading...</div>
+    // 등록 버튼을 누를 때 해당 이미지를 대표 이미지로 설정하는 함수
+    const handleMainImageSet = (index) => {
+        const updatedImgFiles = imgFiles.map((img, i) => ({
+            ...img,
+            main_img_state_code: i === index ? 1 : 0,
+        }))
+        setImgFiles(updatedImgFiles)
+    }
+
+    // 이미지 목록을 렌더링하는 부분
+    const ImageViewer = ({ imagePath }) => {
+        return (
+            <div className="col-4">
+                <img
+                    src={`http://localhost:3001/${imagePath}`}
+                    alt="Menu Image"
+                    style={{ maxWidth: '100%', maxHeight: 300, objectFit: 'contain' }}
+                />
+            </div>
+        )
+    }
 
     return (
         <>
@@ -158,7 +181,7 @@ const AdminMenuUpdate = () => {
                                 className="form-check-input"
                                 type="checkbox"
                                 checked={isPublished}
-                                onChange={(e) => setIsPublished(e.target.checked)}
+                                onChange={(e) => setIsPublished(e.target.checked)} // 게시여부 변경 핸들러
                             />
                             <span className="ms-1">게시함</span>
                         </div>
@@ -173,18 +196,47 @@ const AdminMenuUpdate = () => {
                             onChange={(e) => setMenuImage(e.target.files[0])}
                             required
                         />
-                        <button type="button" className="btn btn-outline-primary">
-                            등록
-                        </button>
                     </div>
                 </div>
-                <div className="mb-3">
-                    <div className="row">
-                        <div className="col-sm-4 col-12 mb-2">
-                            <input className="form-check-input" type="checkbox" />
-                            <span className="ms-1">대표메뉴로 설정하기</span>
+                <div>
+                    {imgFiles.map((img, index) => (
+                        <div
+                            key={index}
+                            className="d-flex align-items-center my-2"
+                            style={{
+                                fontSize: '0.9rem',
+                                height: '200px',
+                                padding: '5px 7px',
+                                position: 'relative', // 부모 요소의 position을 relative로 설정
+                            }}
+                        >
+                            <ImageViewer imagePath={img.file_path} />
+                            <span className="col-8">
+                                {/* 대표 이미지 설정 버튼 */}
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-primary ms-3"
+                                    onClick={() => handleMainImageSet(index)}
+                                    style={{ position: 'absolute', right: '10px' }} // 버튼 위치 조정
+                                >
+                                    대표 이미지 설정
+                                </button>
+                                {/* 대표 이미지 표시 */}
+                                {img.main_img_state_code === 1 && (
+                                    <span
+                                        className="btn btn-primary ms-3"
+                                        style={{
+                                            height: '25px',
+                                            padding: '2px 4px',
+                                            borderRadius: '10px',
+                                        }}
+                                    >
+                                        대표 이미지
+                                    </span>
+                                )}
+                            </span>
                         </div>
-                    </div>
+                    ))}
                 </div>
                 <div className="text-end">
                     <Link to="/admin/menu">
