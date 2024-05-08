@@ -49,7 +49,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.TINYINT,
         allowNull: false,
         comment:
-          "메뉴 중분류 1:런치메뉴2.핀초스 3.따빠스 4.빠에야 5.파스타 6.그릴 7,디저트 ",
+          "메뉴 중분류 1:런치메뉴2.핀초스 3.따빠스 4.빠에야 5.파스타 6.그릴 7,디저트 8.상그리아,9.글라스와인.10음료",
       },
       is_display_code: {
         type: DataTypes.TINYINT,

@@ -18,7 +18,7 @@ const Setting = () => {
                 <div className="container pt-8 pb-6 pb-lg-9 position-relative z-index-1">
                     <div className="row pt-4 pt-lg-9">
                         <div className="col-10 col-lg-7 mx-auto text-center">
-                            <h1 className="display-2 mb-0">관리자 설정 / 예약</h1>
+                            <h1 className="display-2 mb-0">관리자 설정 </h1>
                         </div>
                     </div>
                 </div>
