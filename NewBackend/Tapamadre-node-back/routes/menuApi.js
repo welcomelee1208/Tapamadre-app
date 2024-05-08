@@ -39,7 +39,10 @@ router.get("/uploadTest", async (req, res, next) => {
 //메뉴 목록 조회
 router.get("/all", async (req, res, next) => {
   try {
-    var menuList = await db.Menu.findAll();
+    // 메뉴 데이터와 관련된 파일 데이터 함께 가져오기
+    var menuList = await db.Menu.findAll({
+      include: db.MenuFile,
+    });
 
     return res.json({ code: "200", data: menuList, result: "Ok" });
   } catch (err) {
@@ -51,8 +54,9 @@ router.get("/all", async (req, res, next) => {
     });
   }
 });
+
 //메뉴 업로드
-router.post("/create", upload.array("files"), async (req, res, next) => {
+router.post("/create", upload.array("menu_image"), async (req, res, next) => {
   try {
     console.log("업로드 파일 목록: ", req.files);
 
@@ -60,12 +64,12 @@ router.post("/create", upload.array("files"), async (req, res, next) => {
       menu_name: req.body.menu_name,
       menu_price: req.body.menu_price,
       menu_desc: req.body.menu_desc,
-      menu_caution: req.body.menu_caution,
+
       menu_type_code: req.body.menu_type_code,
       main_img_state_code: 0,
       set_menu_state_code: 0,
       categorized_menu_code: req.body.categorized_menu_code,
-      is_display_code: req.body.is_display_code,
+      is_display_code: 0,
     };
 
     var dbMenu = await db.Menu.create(newMenu);
@@ -74,17 +78,17 @@ router.post("/create", upload.array("files"), async (req, res, next) => {
       const newFiles = req.files.map((file) => {
         return {
           menu_id: dbMenu.menu_id,
-          file_name: file.name,
-          file_size: file.size, // 파일의 크기 설정
-          file_path: `/menuImg/${req.file.filename}`, // 파일의 경로 설정
+          file_name: file.filename,
+          file_size: file.size,
+          file_path: `/menuImg/${file.filename}`, // req.file.file_name 대신 file.originalname 사용
           reg_date: Date.now(),
-          main_img_state_code: req.body.main_img_state_code,
+          main_img_state_code: 0,
         };
       });
 
-      await db.MenuFile.bulkCreate(newFiles);
+      var fileupload = await db.MenuFile.bulkCreate(newFiles);
     }
-    return res.json({ code: "200", data: dbMenu, result: "Ok" });
+    return res.json({ code: "200", data: dbMenu, fileupload, result: "Ok" });
   } catch (err) {
     console.log(err);
     return res.json({
@@ -94,49 +98,66 @@ router.post("/create", upload.array("files"), async (req, res, next) => {
     });
   }
 });
-
-//메뉴 정보 수정 요청 처리
-router.post("/update/:id", upload.array("files"), async (req, res, next) => {
-  try {
-    var menuId = req.params.id;
-    var updateMenu = {
-      menu_name: req.body.menu_name,
-      menu_price: req.body.menu_price,
-      menu_desc: req.body.menu_desc,
-      menu_caution: req.body.menu_caution,
-      menu_type_code: req.body.menu_type_code,
-      main_img_state_code: req.body.main_img_state_code,
-      set_menu_state_code: req.body.set_menu_state_code,
-    };
-
-    const newFiles = req.files.map((file) => {
-      return {
-        menu_id: menuId,
-        file_name: file.name,
-        file_size: file_size,
-        file_path: `/menuImg/${req.file.filename}`, // 파일의 경로 설정,
-        reg_date: Date.now(),
+// 메뉴 정보 수정 요청 처리
+router.post(
+  "/update/:id",
+  upload.array("menu_image"),
+  async (req, res, next) => {
+    try {
+      const menuId = req.params.id;
+      const updateMenuData = {
+        menu_name: req.body.menu_name,
+        menu_price: req.body.menu_price,
+        menu_desc: req.body.menu_desc,
+        menu_type_code: req.body.menu_type_code,
         main_img_state_code: req.body.main_img_state_code,
+        set_menu_state_code: req.body.set_menu_state_code,
       };
-    });
 
-    var dbFiles = await db.MenuFile.bulkCreate(newFiles);
+      const files = req.files;
+      const deletedImageIds = JSON.parse(req.body.deletedImageIds);
 
-    var affectedCnt = await db.Menu.update(updateMenu, {
-      where: { menu_id: menuId },
-    });
+      // 메뉴 정보 업데이트
+      const affectedCnt = await db.Menu.update(updateMenuData, {
+        where: { menu_id: menuId },
+      });
 
-    return res.json({ code: "200", data: affectedCnt, result: "Ok" });
-  } catch (err) {
-    console.log(err);
-    return res.json({
-      code: "500",
-      data: null,
-      result: `Error in menuApi /update/${menuId} POST`,
-    });
+      // 새로운 파일이 업로드된 경우
+      if (files && files.length > 0) {
+        const newFiles = files.map((file) => ({
+          menu_id: menuId,
+          file_name: file.filename,
+          file_size: file.size,
+          file_path: `/menuImg/${file.filename}`,
+          reg_date: Date.now(),
+          main_img_state_code: updateMenuData.main_img_state_code,
+        }));
+
+        // 새로운 파일 정보 생성
+        await db.MenuFile.bulkCreate(newFiles);
+      }
+
+      // 삭제할 이미지가 있는 경우
+      if (deletedImageIds && deletedImageIds.length > 0) {
+        // 각 이미지 ID에 해당하는 파일을 삭제
+        await Promise.all(
+          deletedImageIds.map(async (imageId) => {
+            await db.MenuFile.destroy({ where: { id: imageId } });
+          })
+        );
+      }
+
+      return res.json({ code: "200", data: affectedCnt, result: "Ok" });
+    } catch (err) {
+      console.log(err);
+      return res.json({
+        code: "500",
+        data: null,
+        result: `Error in menuApi /update/${menuId} POST`,
+      });
+    }
   }
-});
-
+);
 // 메뉴 삭제 처리
 router.delete("/delete/:id", async (req, res, next) => {
   try {
@@ -186,17 +207,27 @@ router.delete("/delete/:id", async (req, res, next) => {
   }
 });
 
-//단일 메뉴 정보 조회
+// 메뉴 정보 조회
 router.get("/:id", async (req, res, next) => {
   try {
-    var menuId = req.params.id;
-    var menu = await db.Menu.findOne({ where: { menu_id: menuId } });
-
-    //menu file들도 전달 필요
-
-    if (!menu)
+    const menuId = req.params.id;
+    // 메뉴 정보 조회
+    const menu = await db.Menu.findOne({ where: { menu_id: menuId } });
+    if (!menu) {
       return res.json({ code: "400", data: null, result: "Menu not found" });
-    else return res.json({ code: "200", data: menu, result: "Ok" });
+    }
+
+    // 메뉴 파일 정보 조회
+    const menuFiles = await db.MenuFile.findAll({
+      where: { menu_id: menuId },
+    });
+
+    // 메뉴 정보와 파일 정보 함께 전송
+    return res.json({
+      code: "200",
+      data: { menu, files: menuFiles },
+      result: "Ok",
+    });
   } catch (err) {
     console.log(err);
     return res.json({
