@@ -70,6 +70,7 @@ router.post("/login", async (req, res, next) => {
     });
   }
 });
+
 //개인 정보 조회
 router.get("/profile", async (req, res, next) => {
   try {
@@ -113,6 +114,7 @@ router.get("/profile", async (req, res, next) => {
     });
   }
 });
+
 //회원가입
 router.post("/entry", async (req, res, next) => {
   try {
@@ -172,6 +174,7 @@ router.get("/all", async (req, res, next) => {
     });
   }
 });
+
 //비밀번호 찾기
 router.post("/forgot-password", async (req, res, next) => {
   try {
