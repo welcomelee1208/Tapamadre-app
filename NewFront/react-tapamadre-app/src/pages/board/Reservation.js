@@ -7,7 +7,6 @@ import Choices from 'choices.js'
 import 'flatpickr/dist/flatpickr.min.css'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
-import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 // AOS 라이브러리
 import AOS from 'aos'
