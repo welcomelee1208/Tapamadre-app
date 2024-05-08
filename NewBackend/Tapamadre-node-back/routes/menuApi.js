@@ -98,56 +98,45 @@ router.post("/create", upload.array("menu_image"), async (req, res, next) => {
     });
   }
 });
-// 메뉴 정보 수정 요청 처리
+
+//메뉴 정보 수정 요청 처리
 router.post(
   "/update/:id",
   upload.array("menu_image"),
   async (req, res, next) => {
     try {
-      const menuId = req.params.id;
-      const updateMenuData = {
+      var menuId = req.params.id;
+      var updateMenu = {
         menu_name: req.body.menu_name,
         menu_price: req.body.menu_price,
         menu_desc: req.body.menu_desc,
         menu_type_code: req.body.menu_type_code,
         main_img_state_code: req.body.main_img_state_code,
         set_menu_state_code: req.body.set_menu_state_code,
+        is_display_code: req.body.is_display_code,
       };
-
-      const files = req.files;
-      const deletedImageIds = JSON.parse(req.body.deletedImageIds);
-
-      // 메뉴 정보 업데이트
-      const affectedCnt = await db.Menu.update(updateMenuData, {
+      var affectedCnt = await db.Menu.update(updateMenu, {
         where: { menu_id: menuId },
       });
-
-      // 새로운 파일이 업로드된 경우
-      if (files && files.length > 0) {
-        const newFiles = files.map((file) => ({
+      const newFiles = req.files.map((file) => {
+        return {
           menu_id: menuId,
           file_name: file.filename,
           file_size: file.size,
-          file_path: `/menuImg/${file.filename}`,
+          file_path: `/menuImg/${file.filename}`, // 파일의 경로 설정,
           reg_date: Date.now(),
-          main_img_state_code: updateMenuData.main_img_state_code,
-        }));
+          main_img_state_code: req.body.main_img_state_code,
+        };
+      });
 
-        // 새로운 파일 정보 생성
-        await db.MenuFile.bulkCreate(newFiles);
-      }
+      var dbFiles = await db.MenuFile.bulkCreate(newFiles);
 
-      // 삭제할 이미지가 있는 경우
-      if (deletedImageIds && deletedImageIds.length > 0) {
-        // 각 이미지 ID에 해당하는 파일을 삭제
-        await Promise.all(
-          deletedImageIds.map(async (imageId) => {
-            await db.MenuFile.destroy({ where: { id: imageId } });
-          })
-        );
-      }
+      return res.json({
+        code: "200",
+        data: affectedCnt,
 
-      return res.json({ code: "200", data: affectedCnt, result: "Ok" });
+        result: "Ok",
+      });
     } catch (err) {
       console.log(err);
       return res.json({
@@ -158,6 +147,7 @@ router.post(
     }
   }
 );
+
 // 메뉴 삭제 처리
 router.delete("/delete/:id", async (req, res, next) => {
   try {
@@ -207,18 +197,18 @@ router.delete("/delete/:id", async (req, res, next) => {
   }
 });
 
-// 메뉴 정보 조회
+//단일 메뉴 정보 조회
 router.get("/:id", async (req, res, next) => {
   try {
-    const menuId = req.params.id;
+    var menuId = req.params.id;
     // 메뉴 정보 조회
-    const menu = await db.Menu.findOne({ where: { menu_id: menuId } });
+    var menu = await db.Menu.findOne({ where: { menu_id: menuId } });
     if (!menu) {
       return res.json({ code: "400", data: null, result: "Menu not found" });
     }
 
     // 메뉴 파일 정보 조회
-    const menuFiles = await db.MenuFile.findAll({
+    var menuFiles = await db.MenuFile.findAll({
       where: { menu_id: menuId },
     });
 
