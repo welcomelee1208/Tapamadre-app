@@ -10,7 +10,7 @@ const ProfileNavBar = () => {
                 <h5 className="mb-3">관리자 기능</h5>
                 <ul className="list-unstyled">
                     <li>
-                        <Link to="/mypage/myaccount" className="text-secondary d-block py-1">
+                        <Link to="/admin/adminMemberList" className="text-secondary d-block py-1">
                             계정관리
                         </Link>
                     </li>
