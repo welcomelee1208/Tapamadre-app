@@ -9,15 +9,23 @@ import Choices from 'choices.js'
 // Datatable Columns 컬럼
 const columns = [
     {
-        name: '종류',
-        selector: (row) => row.category,
+        name: '대분류',
+        selector: (row) => row.menu_type_code,
         sortable: true,
         center: true,
         width: '90px',
     },
     {
+        name: '중분류',
+        selector: (row) => row.categorized_menu_code,
+        sortable: true,
+        center: true,
+        wrap: true,
+        width: '90px',
+    },
+    {
         name: '이름',
-        selector: (row) => row.name,
+        selector: (row) => row.menu_name,
         sortable: true,
         center: true,
         wrap: true,
@@ -25,32 +33,15 @@ const columns = [
     },
     {
         name: '가격',
-        selector: (row) => row.cost,
+        selector: (row) => row.menu_price,
         sortable: true,
         center: true,
         wrap: true,
         maxWidth: '100px',
     },
     {
-        name: '설명',
-        selector: (row) => row.desc,
-        sortable: true,
-        wrap: true,
-        width: '300px',
-        // format: (row) => (row.is_display_code === 1 ? 'O' : 'X'),
-    },
-
-    {
-        name: '종류',
-        selector: (row) => row.category,
-        sortable: true,
-        center: true,
-        wrap: true,
-        width: '90px',
-    },
-    {
         name: '세트',
-        selector: (row) => row.isSetMenu,
+        selector: (row) => row.set_menu_state_code,
         width: '80px',
         sortable: true,
         center: true,
@@ -65,7 +56,7 @@ const AdminMenuList = () => {
     useEffect(() => {
         const fetchMenuList = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/admin/menu/all')
+                const response = await axios.get('http://localhost:3001/menu/all')
                 if (response.data.code === '200') {
                     setMenuList(response.data.data)
                 } else {
