@@ -91,8 +91,8 @@ router.get("/all", async (req, res) => {
   }
 });
 
-//게시글 수정
-//http://localhost:3001/blog/modify/:id
+// 게시글 수정
+// http://localhost:3001/blog/modify/:id
 router.post("/modify/:id", upload.single("main_img_path"), async (req, res) => {
   try {
     var postId = req.params.id; // URL 매개변수에서 글 ID 가져오기
@@ -102,7 +102,6 @@ router.post("/modify/:id", upload.single("main_img_path"), async (req, res) => {
       article_type_code,
       is_display_code,
       ip_address,
-
       edit_user_id,
     } = req.body;
 
@@ -126,7 +125,10 @@ router.post("/modify/:id", upload.single("main_img_path"), async (req, res) => {
       article_type_code,
       is_display_code,
       ip_address,
-      main_img_path: `/upload/${req.file.filename}`,
+      // req.file가 존재하는지 확인하고 파일 경로를 업데이트합니다.
+      main_img_path: req.file
+        ? `/upload/${req.file.filename}`
+        : postToUpdate.main_img_path,
       edit_user_id,
       edit_date: new Date(),
     };
