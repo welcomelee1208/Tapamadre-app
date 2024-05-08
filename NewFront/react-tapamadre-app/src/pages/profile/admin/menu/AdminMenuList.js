@@ -1,10 +1,6 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-
-// 테이블 패키지
+import axios from 'axios'
 import DataTable from 'react-data-table-component'
 
 // 셀렉터 choices.css/.js
@@ -62,136 +58,28 @@ const columns = [
     },
 ]
 
-// 임시데이터
-const data = [
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '오늘의 셰프 추천 봉골레 파스타',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'X',
-        cost: 13000,
-        desc: '메뉴 설명 텍스트 입니다. 메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '프랑스산 레드 와인',
-        reg_date: '2024-03-13',
-        category: '음료',
-        state: 'O',
-        isSetMenu: 'X',
-        cost: 42000,
-        desc: '메뉴 설명 텍스트 입니다. 메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-    {
-        name: '수제 하몽 만체고 크로켓',
-        reg_date: '2024-03-13',
-        category: '식사메뉴',
-        state: 'O',
-        isSetMenu: 'O',
-        cost: 15000,
-        desc: '메뉴 설명 텍스트 입니다.',
-    },
-]
-
-// id값 정하기
-// const keyField =
-
 const AdminMenuList = () => {
     const navigate = useNavigate()
+    const [menuList, setMenuList] = useState([])
 
-    // 테이블 열 클릭 이벤트 핸들러
-    // row : 해당 이벤트의 열 데이터(object)
-    const handleLinkToUpdate = (row, event) => {
+    useEffect(() => {
+        const fetchMenuList = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/admin/menu/all')
+                if (response.data.code === '200') {
+                    setMenuList(response.data.data)
+                } else {
+                    console.error('Failed to fetch menu list:', response.data.result)
+                }
+            } catch (error) {
+                console.error('Failed to fetch menu list:', error.message)
+            }
+        }
+
+        fetchMenuList()
+    }, [])
+
+    const handleLinkToUpdate = (row) => {
         console.log(row)
         navigate('/admin/menu/update')
     }
@@ -207,7 +95,7 @@ const AdminMenuList = () => {
 
             <DataTable
                 columns={columns}
-                data={data}
+                data={menuList}
                 highlightOnHover
                 pagination
                 onRowClicked={handleLinkToUpdate}
