@@ -10,11 +10,13 @@ import Footer from '../../layout/Footer'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-const Home = () => {
+const Home = (props) => {
     // aos 초기화
     useEffect(() => {
         AOS.init()
     }, [])
+
+    const activeTab = props.activeTab
 
     return (
         <div>

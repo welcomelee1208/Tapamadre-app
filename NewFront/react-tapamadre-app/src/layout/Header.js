@@ -26,19 +26,21 @@ import classnames from 'classnames'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-const Header = (props) => {
+const Header = () => {
+    const token = localStorage.getItem('token')
+    console.log('로그인한 사용자 토큰: ', token)
+
+    // 토큰 정보 삭제
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+    }
+
     // aos 초기화
     useEffect(() => {
         AOS.init()
     }, [])
 
-    // 메뉴 선택시 선택 탭정보 전역상태 반영
-    const toggleTab = (tab) => {
-        props.setActiveTab(tab)
-    }
     const [dropdownOpen, setDropdownOpen] = useState(false)
-
-    const activeTab = props.activeTab
 
     const dispatch = useDispatch()
 
@@ -84,17 +86,32 @@ const Header = (props) => {
                         </Button>
                         <div className="navbar-nav flex-row align-items-center">
                             <div className="nav-item me-3 me-lg-0">
-                                <Link className="nav-icon-link nav-link" to="/login">
+                                {/* <Link className="nav-icon-link nav-link" to="/login">
                                     LOGIN
-                                </Link>
+                                </Link> */}
+                                {token ? null : (
+                                    <li>
+                                        <Link className="nav-icon-link nav-link" to="/login">
+                                            Login
+                                        </Link>
+                                    </li>
+                                )}
+                                {token ? (
+                                    <li>
+                                        <Link className="nav-icon-link nav-link" to="/login" onClick={handleLogout}>
+                                            Logout
+                                        </Link>
+                                    </li>
+                                ) : null}
+                                {token ? (
+                                    <li>
+                                        <Link className="nav-icon-link nav-link" to="/admin">
+                                            MyPage
+                                        </Link>
+                                    </li>
+                                ) : null}
                             </div>
-                            {/* <div className="nav-item me-lg-0 me-3">
-                                <Link className="nav-icon-link nav-link" to="/entry">
-                                    <div className="d-flex align-items-center">
-                                        <span>Join</span>
-                                    </div>
-                                </Link>
-                            </div> */}
+                            {/* {myPageButton} */}
                         </div>
                     </div>
                     <div className="offcanvas offcanvas-end" id="restoMainNavbar">

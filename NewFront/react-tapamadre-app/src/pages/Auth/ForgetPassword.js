@@ -2,7 +2,8 @@
 import React, { useState } from 'react'
 
 const ForgetPassword = ({ isOpen, onClose }) => {
-    const [email, setEmail] = useState('')
+    const [userId, setUserId] = useState('')
+    const [name, setName] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -19,28 +20,28 @@ const ForgetPassword = ({ isOpen, onClose }) => {
                 <h4 style={{ marginBottom: '20px' }}>비밀번호 찾기</h4>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="email" style={{ marginBottom: '10px' }}>
+                        <label htmlFor="name" style={{ marginBottom: '10px' }}>
                             이름
                         </label>
                         <input
-                            type="email"
-                            id="email"
+                            type="text"
+                            id="name"
                             className="form-control"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             required
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email" style={{ marginBottom: '10px' }}>
+                        <label htmlFor="id" style={{ marginBottom: '10px' }}>
                             아이디
                         </label>
                         <input
-                            type="email"
-                            id="email"
+                            type="text"
+                            id="id"
                             className="form-control"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={userId}
+                            onChange={(e) => setUserId(e.target.value)}
                             required
                         />
                     </div>
