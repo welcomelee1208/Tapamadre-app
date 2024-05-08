@@ -13,16 +13,16 @@ var apiResult = {
   result: "",
 };
 
-//multer 파일 저장 위치 지정
-var storage = multer.diskStorage({
-  destination(req, file, callback) {
-    callback(null, "public/menuImg/");
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, "public/menuImg/");
   },
-  filename(req, file, callback) {
-    callback(null, file.originalname);
+  filename(req, file, cb) {
+    const fileExtension = file.originalname.split(".").pop(); // 확장자 추출
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9); // 현재 시간과 랜덤한 숫자로 파일 이름 생성
+    cb(null, `${uniqueSuffix}.${fileExtension}`); // 새로운 파일 이름에 확장자 추가
   },
 });
-
 //파일 업로드 객체 정의
 var upload = multer({ storage: storage });
 
@@ -63,7 +63,7 @@ router.post("/create", upload.array("files"), async (req, res, next) => {
       menu_caution: req.body.menu_caution,
       menu_type_code: req.body.menu_type_code,
       main_img_state_code: 0,
-      set_menu_state_code: req.body.set_menu_state_code,
+      set_menu_state_code: 0,
       categorized_menu_code: req.body.categorized_menu_code,
       is_display_code: req.body.is_display_code,
     };
@@ -74,9 +74,9 @@ router.post("/create", upload.array("files"), async (req, res, next) => {
       const newFiles = req.files.map((file) => {
         return {
           menu_id: dbMenu.menu_id,
-          file_name: file.originalname,
+          file_name: file.name,
           file_size: file.size, // 파일의 크기 설정
-          file_path: file.path, // 파일의 경로 설정
+          file_path: `/menuImg/${req.file.filename}`, // 파일의 경로 설정
           reg_date: Date.now(),
           main_img_state_code: req.body.main_img_state_code,
         };
@@ -112,9 +112,9 @@ router.post("/update/:id", upload.array("files"), async (req, res, next) => {
     const newFiles = req.files.map((file) => {
       return {
         menu_id: menuId,
-        file_name: file.originalname,
+        file_name: file.name,
         file_size: file_size,
-        file_path: file_path,
+        file_path: `/menuImg/${req.file.filename}`, // 파일의 경로 설정,
         reg_date: Date.now(),
         main_img_state_code: req.body.main_img_state_code,
       };
