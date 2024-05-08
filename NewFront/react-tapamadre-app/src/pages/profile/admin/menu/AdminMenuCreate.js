@@ -100,9 +100,7 @@ const AdminMenuCreate = () => {
                     <div className="col-md-6 align-self-start">
                         {' '}
                         {/* align-self-start 클래스 추가 */}
-                        <label htmlFor="category" className="form-label mb-2">
-                            카테고리
-                        </label>
+                        <label className="form-label mb-2">카테고리</label>
                         <select
                             ref={selectRef}
                             className="form-control"
