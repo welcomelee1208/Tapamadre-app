@@ -74,7 +74,7 @@ const SwitchRoutes = () => {
                         <Route path="newsevent/create" element={<AdminNewseventCreate />} />
                         {/* 메뉴 */}
                         <Route path="menu" element={<AdminMenuList />} />
-                        <Route path="menu/update/:article_id" element={<AdminMenuUpdate />} />
+                        <Route path="menu/update/:menu_id" element={<AdminMenuUpdate />} />
                         <Route path="menu/create" element={<AdminMenuCreate />} />
                         {/* 문의사항 */}
                         {/* <Route path="inquiries" element={<AdminInquiriesList />} /> */}

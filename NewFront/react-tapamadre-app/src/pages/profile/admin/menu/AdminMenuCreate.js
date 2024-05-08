@@ -47,7 +47,7 @@ const AdminMenuCreate = () => {
         const formData = new FormData(form)
 
         try {
-            const response = await axios.post('http://localhost:3001/admin/menu/create', formData, {
+            const response = await axios.post('http://localhost:3001/menu/create', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -90,7 +90,7 @@ const AdminMenuCreate = () => {
                         <label htmlFor="menuType" className="form-label mb-2">
                             메뉴 타입
                         </label>
-                        <select className="form-control" onChange={handleMenuTypeChange} required>
+                        <select className="form-control" onChange={handleMenuTypeChange} required name="menu_type_code">
                             <option value="">메뉴 타입 선택</option>
                             <option value="1">Food</option>
                             <option value="2">Drink</option>
@@ -139,7 +139,15 @@ const AdminMenuCreate = () => {
                     <label htmlFor="menuImage" className="form-label mb-2">
                         메뉴 이미지
                     </label>
-                    <input type="file" id="menuImage" className="form-control" name="files" multiple required />
+                    <input
+                        type="file"
+                        id="menuImage"
+                        className="form-control"
+                        name="menu_image"
+                        accept="image/*"
+                        multiple
+                        required
+                    />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="menuDescription" className="form-label mb-2">
