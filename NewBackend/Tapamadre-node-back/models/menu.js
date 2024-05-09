@@ -25,11 +25,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         comment: "문의사항 내용",
       },
-      menu_caution: {
-        type: DataTypes.STRING(1000),
-        allowNull: true,
-        comment: "메뉴 주의사항",
-      },
+
       menu_type_code: {
         type: DataTypes.TINYINT,
         allowNull: false,

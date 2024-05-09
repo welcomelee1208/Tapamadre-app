@@ -114,35 +114,42 @@ router.post(
         main_img_state_code: req.body.main_img_state_code,
         set_menu_state_code: req.body.set_menu_state_code,
         is_display_code: req.body.is_display_code,
+        categorized_menu_code: req.body.categorized_menu_code,
       };
       var affectedCnt = await db.Menu.update(updateMenu, {
         where: { menu_id: menuId },
       });
-      const newFiles = req.files.map((file) => {
-        return {
-          menu_id: menuId,
-          file_name: file.filename,
-          file_size: file.size,
-          file_path: `/menuImg/${file.filename}`, // 파일의 경로 설정,
-          reg_date: Date.now(),
-          main_img_state_code: req.body.main_img_state_code,
-        };
-      });
 
-      var dbFiles = await db.MenuFile.bulkCreate(newFiles);
+      if (req.files && req.files.length > 0) {
+        // 새로운 이미지 파일 업로드
+        const newFiles = req.files.map((file) => {
+          return {
+            menu_id: menuId,
+            file_name: file.filename,
+            file_size: file.size,
+            file_path: `/menuImg/${file.filename}`,
+            reg_date: new Date(),
+            main_img_state_code: req.body.main_img_state_code,
+          };
+        });
 
+        var dbFiles = await db.MenuFile.bulkCreate(newFiles);
+      }
+
+      // 성공 응답
       return res.json({
         code: "200",
         data: affectedCnt,
-
         result: "Ok",
       });
     } catch (err) {
-      console.log(err);
-      return res.json({
+      // 에러 처리
+      console.error(err);
+      return res.status(500).json({
         code: "500",
         data: null,
-        result: `Error in menuApi /update/${menuId} POST`,
+        result: "Error",
+        message: "메뉴 정보 수정 중 오류가 발생했습니다.",
       });
     }
   }
