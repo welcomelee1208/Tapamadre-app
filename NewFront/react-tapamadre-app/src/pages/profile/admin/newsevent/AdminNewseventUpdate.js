@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { Editor } from '@toast-ui/react-editor'
@@ -13,7 +13,7 @@ const AdminNewseventUpdate = () => {
     const [file, setFile] = useState(null)
     const [content, setContent] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
-
+    const editorRef = useRef(null) // useRef를 null로 초기화
     useEffect(() => {
         const fetchPost = async () => {
             try {
@@ -62,12 +62,13 @@ const AdminNewseventUpdate = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        const editorValue = editorRef.current.getInstance().getMarkdown() // getMarkdown() 메서드 사용
         const formData = new FormData()
         formData.append('title', title)
         formData.append('article_type_code', category)
         formData.append('is_display_code', state)
         formData.append('main_img_path', file)
-        formData.append('context', content)
+        formData.append('context', editorValue)
 
         try {
             const response = await axios.post(`http://localhost:3001/blog/modify/${article_id}`, formData)
@@ -157,6 +158,7 @@ const AdminNewseventUpdate = () => {
                 <div className="mb-4">
                     <label className="mb-2">내용</label>
                     <Editor
+                        ref={editorRef}
                         previewStyle="tap"
                         initialEditType="wysiwyg"
                         height="450px"
