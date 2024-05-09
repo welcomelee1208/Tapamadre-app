@@ -62,16 +62,6 @@ const SwitchRoutes = () => {
                     {authProtectedRoutes.map((route, idx) => (
                         <Route path={route.path} element={route.component} key={idx}></Route>
                     ))}
-                    {/* 사용자 페이지 컴포넌트 라우팅 */}
-                    {/* <Route path="/mypage" element={<Setting />}> */}
-                    {/* 계정관리 */}
-                    {/* <Route path="myaccount" element={<MyPersonalData />} /> */}
-                    {/* 예약관리 */}
-                    {/* <Route path="myreservation" element={<MyReservations />} /> */}
-                    {/* 문의사항 */}
-                    {/* <Route path="myinquiry" element={<MyInquiries />} /> */}
-                    {/* <Route path="myinquiry/:idx" element={<MyInquiryDetail />} /> */}
-                    {/* </Route> */}
 
                     {/* 관리자 페이지 컴포넌트 라우팅 */}
                     <Route path="/admin/" element={<Setting />}>
@@ -86,13 +76,11 @@ const SwitchRoutes = () => {
                         <Route path="menu" element={<AdminMenuList />} />
                         <Route path="menu/update/:menu_id" element={<AdminMenuUpdate />} />
                         <Route path="menu/create" element={<AdminMenuCreate />} />
-                        {/* 계정관리 */}
-                        {/* <Route path="myaccount" element={<MyPersonalData />} /> */}
                         {/* 문의사항 */}
                         {/* <Route path="inquiries" element={<AdminInquiriesList />} /> */}
                         {/* <Route path="inquiries/answer" element={<AdminInquiriesAnswer />} /> */}
-                        {/* 회원 */}
-                        {/* <Route path="member" element={<AdminMemberList />} /> */}
+                        {/* 계정관리 */}
+                        <Route path="adminMemberList" element={<AdminMemberList />} />
                         {/* <Route path="member/update" element={<AdminMemberUpdate />} /> */}
                         {/* <Route path="member/create" element={<AdminMemberCreate />} /> */}
                     </Route>

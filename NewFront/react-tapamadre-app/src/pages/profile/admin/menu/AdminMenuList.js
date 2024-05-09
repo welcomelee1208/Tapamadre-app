@@ -77,7 +77,28 @@ const AdminMenuList = () => {
 
     return (
         <>
-            <h2 className="text-center">메뉴</h2>
+            {/* <h2 className="text-center">메뉴</h2> */}
+            {/* <!--Page hero--> */}
+            <section class="position-relative overflow-hidden bg-light">
+                <div class="container pb-5 position-relative">
+                    <div class="col-md-8 col-lg-6">
+                        <h4 class="display-6 mb-2">메뉴관리</h4>
+                        <nav class="mb-0" aria-label="breadcrumb">
+                            <ol class="breadcrumb small bg-transparent px-0 mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="/">홈</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">MYPAGE</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    메뉴관리
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </section>
             <div className="text-end">
                 <Link to="/admin/menu/create">
                     <button className="btn btn-primary">메뉴 추가</button>

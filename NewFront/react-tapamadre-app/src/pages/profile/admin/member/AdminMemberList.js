@@ -1,181 +1,146 @@
-import React, { useRef, useEffect } from 'react'
-
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-
-// 테이블 패키지
-import DataTable from 'react-data-table-component'
-
-// 셀렉터 choices.css/.js
-import Choices from 'choices.js'
-
-// Datatable Columns 컬럼
-const columns = [
-    {
-        name: 'id',
-        selector: (row) => row.id,
-        sortable: true,
-        wrap: true,
-    },
-    {
-        name: '이메일',
-        selector: (row) => row.email,
-        sortable: true,
-        wrap: true,
-        minWidth: '250px',
-    },
-    {
-        name: '이름',
-        selector: (row) => row.name,
-        sortable: true,
-        wrap: true,
-        // format: (row) => (row.is_display_code === 1 ? 'O' : 'X'),
-    },
-    {
-        name: '상태',
-        selector: (row) => row.state,
-        sortable: true,
-        minWidth: '80px',
-    },
-    {
-        name: '가입유형',
-        selector: (row) => row.category,
-        sortable: true,
-        wrap: true,
-        width: '110px',
-    },
-    {
-        name: '권한',
-        selector: (row) => row.isAdmin,
-        maxWidth: '600px',
-        sortable: true,
-        wrap: true,
-        width: '110px',
-    },
-    {
-        name: '생성날짜',
-        selector: (row) => row.reg_date,
-        maxWidth: '600px',
-        sortable: true,
-        wrap: true,
-        width: '110px',
-    },
-]
-
-// 임시데이터
-const data = [
-    {
-        id: 1,
-        email: 'test1234@test.com',
-        name: 'OOO',
-        state: '활성화',
-        category: '직접가입',
-        isAdmin: '일반',
-        reg_date: '2024-03-13',
-    },
-]
-
-// id값 정하기
-// const keyField =
+import React, { useState, useEffect } from 'react'
+import { jwtDecode } from 'jwt-decode'
+import axios from 'axios'
 
 const AdminMemberList = () => {
-    const selectRef = useRef(null)
-
-    // 테이블 선택 이벤트 핸들러
-    // selectedRows : 선택된 데이터 리스트
-    const handleChange = ({ selectedRows }) => {
-        // You can set state or dispatch with something like Redux so we can use the retrieved data
-        console.log('Selected Rows: ', selectedRows)
-    }
+    const [token, setToken] = useState('')
+    // 사용자 정보 초기화
+    const [user, setUser] = useState({
+        name: '',
+        id: '',
+        last_login_date: '',
+    })
 
     useEffect(() => {
-        // choices
-        const initializeChoices = () => {
-            const elements = document.querySelectorAll('[data-choices]')
-            elements.forEach((element) => {
-                new Choices(element, {
-                    classNames: {
-                        containerInner: element.className,
-                        input: 'form-control',
-                        inputCloned: 'form-control-xs',
-                        listDropdown: 'dropdown-menu',
-                        itemChoice: 'dropdown-item',
-                        activeState: 'show',
-                        selectedState: 'active',
-                    },
-                })
-            })
+        const storageToken = localStorage.getItem('token')
+        if (storageToken) {
+            setToken(storageToken)
         }
-
-        initializeChoices()
+        const decodedToken = jwtDecode(storageToken)
+        const adminInfo = {
+            name: decodedToken.name,
+            id: decodedToken.id,
+            last_login_date: decodedToken.last_login_date,
+        }
+        setUser(adminInfo)
     }, [])
 
-    // 테이블 열 클릭 이벤트 핸들러
-    // row : 해당 이벤트의 열 데이터(object)
-    const handleLinkToUpdate = (row, event) => {
-        console.log(row)
+    // 비밀번호 변경 함수
+    const handleChangePassword = async () => {
+        try {
+            const newPassword = prompt('새로운 비밀번호를 입력하세요')
+            if (!newPassword) return
+            const response = await axios.post(`http://localhost:3001/admin/modify/${user.id}`, {
+                password: newPassword,
+            })
+            alert(response.data.result)
+        } catch (error) {
+            console.log('비밀번호 변경 중 오류 발생:', error)
+            alert('비밀번호 변경에 실패했습니다.')
+        }
+    }
+
+    // 회원 탈퇴 함수
+    const handleDeleteAccount = () => {
+        // 회원 탈퇴 작업 수행
+        // ...
+        alert('회원 탈퇴 작업을 수행합니다.')
+    }
+
+    // 정보 수정 함수
+    const handleEditProfile = () => {
+        // 정보 수정 작업 수행
+        // ...
+        alert('회원 정보를 수정합니다.')
+    }
+
+    // 관리자 추가 (메인관리자 기능)
+    const AdminAdd = () => {
+        alert('관리자 추가 완료')
+    }
+
+    // 시간설정
+    const formatDate = (dateString) => {
+        const date = new Date(dateString)
+        return date.toLocaleString()
     }
 
     return (
         <>
-            <h2>회원</h2>
-            <Form style={{ border: '#f0f3ee 0.5px solid', padding: '12px 8px 4px' }}>
-                <Row>
-                    {/* 카테고리 */}
-                    <div className="col-sm-3 col-12 mb-2">
-                        <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">카테고리 선택</option>
-                            <option value="0">공지사항</option>
-                            <option value="1">이벤트</option>
-                            <option value="2">소식</option>
-                        </select>
+            {/* <!--Page hero--> */}
+            <section class="position-relative overflow-hidden bg-light">
+                <div class="container pb-5 position-relative">
+                    <div class="col-md-8 col-lg-6">
+                        <h4 class="display-6 mb-2">계정관리</h4>
+                        <nav class="mb-0" aria-label="breadcrumb">
+                            <ol class="breadcrumb small bg-transparent px-0 mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="/">홈</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">MYPAGE</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    계정관리
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
-
-                    <div className="col-sm-9 col-12 mb-2">
-                        <input type="text" req id="reservationName" class="form-control" placeholder="제목" />
+                </div>
+            </section>
+            <div className="container py-3">
+                {/* <h4 className="mb-4">회원정보</h4> */}
+                <form>
+                    <div className="form-group pb-3" style={{ display: 'flex' }}>
+                        <label htmlFor="name" className="col-3">
+                            이름
+                        </label>
+                        <input
+                            className="col-8 form-control"
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={user.name}
+                            onChange={(e) => setUser({ ...user, name: e.target.value })}
+                            required
+                        />
                     </div>
-                </Row>
-
-                <Row className="mb-2">
-                    <div className="col-sm-3 col-12 mb-2 mb-sm-0">
-                        <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">- 예약 종류 -</option>
-                            <option value="0">일반 예약</option>
-                            <option value="1">단체 예약</option>
-                            <option value="2">대실 예약</option>
-                        </select>
+                    <div className="form-group pb-3" style={{ display: 'flex' }}>
+                        <label htmlFor="email" className="col-3">
+                            아이디
+                        </label>
+                        <input
+                            className="col-8 form-control"
+                            type="text"
+                            id="id"
+                            name="id"
+                            value={user.id}
+                            disabled={true} // 읽기 전용 설정
+                            required
+                        />
                     </div>
-                    <div className="col-sm-3 col-12 mb-2 mb-sm-0">
-                        <select ref={selectRef} className="form-control" data-choices>
-                            <option value="">- 예약 종류 -</option>
-                            <option value="0">일반 예약</option>
-                            <option value="1">단체 예약</option>
-                            <option value="2">대실 예약</option>
-                        </select>
+                    <div className=" pb-3">
+                        <div className="form-group pb-3" style={{ display: 'flex' }}>
+                            <label htmlFor="registrationDate" className="col-3">
+                                마지막 로그인시간
+                            </label>
+                            <p> {formatDate(user.last_login_date)}</p>
+                        </div>
                     </div>
-                    <div className="col-sm-6 col-12 mb-2 mb-sm-0" style={{ textAlign: 'right' }}>
-                        <button type="submit" class="btn btn-primary mb-1">
-                            검색
-                        </button>
+                    <div className="profile-buttons" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                        {/* <button className="btn btn-secondary mb-1" onClick={AdminAdd}>
+                            관리자 추가
+                        </button> */}
+                        <div>
+                            <button className="btn btn-info mb-1 me-2" onClick={handleChangePassword}>
+                                비밀번호 변경
+                            </button>
+                            <button className="btn btn-primary mb-1" onClick={handleEditProfile}>
+                                수정하기
+                            </button>
+                        </div>
                     </div>
-                </Row>
-            </Form>
-
-            <DataTable
-                columns={columns}
-                data={data}
-                selectableRows
-                pagination
-                onSelectedRowsChange={handleChange}
-                onRowClicked={handleLinkToUpdate}
-            />
-            <div style={{ textAlign: 'right' }}>
-                <button type="button" class="btn btn-danger mb-1  me-3">
-                    선택 삭제
-                </button>
-                <button type="submit" class="btn btn-primary mb-1">
-                    생성
-                </button>
+                </form>
             </div>
         </>
     )

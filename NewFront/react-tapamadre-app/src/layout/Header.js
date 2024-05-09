@@ -105,7 +105,7 @@ const Header = () => {
                                 ) : null}
                                 {token ? (
                                     <li>
-                                        <Link className="nav-icon-link nav-link" to="/admin">
+                                        <Link className="nav-icon-link nav-link" to="/admin/adminMemberList">
                                             MyPage
                                         </Link>
                                     </li>
@@ -125,19 +125,6 @@ const Header = () => {
                         </div>
                         <div className="offcanvas-body">
                             <ul className="navbar-nav mx-auto">
-                                {/* <li className="dropdown nav-item">
-                                    <Link
-                                        to="/"
-                                        className="nav-link active"
-                                        data-bs-auto-close="outside"
-                                        data-bs-toggle="dropdown"
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                    >
-                                        Home
-                                    </Link>
-                                </li> */}
                                 <li className="nav-item">
                                     <Link className="nav-link active" to="/">
                                         HOME
