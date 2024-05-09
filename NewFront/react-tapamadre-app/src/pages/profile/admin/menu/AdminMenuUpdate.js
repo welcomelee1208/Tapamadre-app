@@ -49,8 +49,10 @@ const AdminMenuUpdate = () => {
         formData.append('is_display_code', isPublished ? 1 : 0) // 게시여부에 따라 값 설정
         formData.append('set_menu_state_code', isSet ? 1 : 0)
         formData.append('main_img_state_code', menuImage)
-        formData.append('file_path', imgFiles)
 
+        imgFiles.forEach((file) => {
+            formData.append('menu_image', file)
+        })
         try {
             const response = await axios.post(`http://localhost:3001/menu/update/${menu_id}`, formData, {
                 headers: {
@@ -85,6 +87,21 @@ const AdminMenuUpdate = () => {
                 />
             </div>
         )
+    }
+    // AdminMenuUpdate.js 파일 내의 handleSubmit 함수 안에 추가
+    // handleDelete 함수 수정
+    const handleDelete = async () => {
+        const isConfirmed = window.confirm('정말로 메뉴를 삭제하시겠습니까?')
+        if (isConfirmed) {
+            try {
+                const response = await axios.delete(`http://localhost:3001/menu/delete/${menu_id}`)
+                console.log(response.data)
+                alert('메뉴가 성공적으로 삭제되었습니다')
+                navigate('/admin/menu')
+            } catch (error) {
+                console.error('Failed to delete menu:', error.message)
+            }
+        }
     }
 
     return (
@@ -246,6 +263,10 @@ const AdminMenuUpdate = () => {
                     </Link>
                     <button type="submit" className="btn btn-primary ms-4">
                         <span>메뉴 수정</span>
+                    </button>
+
+                    <button type="button" className="btn btn-outline-danger me-2" onClick={handleDelete}>
+                        <span>삭제</span>
                     </button>
                 </div>
             </form>
