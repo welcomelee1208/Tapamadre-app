@@ -87,7 +87,7 @@ const AdminNewseventList = () => {
             <section class="position-relative overflow-hidden bg-light">
                 <div class="container pb-5 position-relative">
                     <div class="col-md-8 col-lg-6">
-                        <h4 class="display-6 mb-2">블로그관리</h4>
+                        <h4 class="display-6 mb-2">뉴스이벤트관리</h4>
                         <nav class="mb-0" aria-label="breadcrumb">
                             <ol class="breadcrumb small bg-transparent px-0 mb-0">
                                 <li class="breadcrumb-item">
@@ -97,7 +97,7 @@ const AdminNewseventList = () => {
                                     <a href="#">MYPAGE</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    블로그관리
+                                    뉴스이벤트관리
                                 </li>
                             </ol>
                         </nav>

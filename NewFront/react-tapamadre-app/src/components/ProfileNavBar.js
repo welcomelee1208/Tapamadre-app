@@ -15,13 +15,13 @@ const ProfileNavBar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/newsevent" className="text-secondary d-block py-1">
-                            블로그관리
+                        <Link to="/admin/menu" className="text-secondary d-block py-1">
+                            메뉴관리
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/menu" className="text-secondary d-block py-1">
-                            메뉴관리
+                        <Link to="/admin/newsevent" className="text-secondary d-block py-1">
+                            뉴스이벤트관리
                         </Link>
                     </li>
                 </ul>

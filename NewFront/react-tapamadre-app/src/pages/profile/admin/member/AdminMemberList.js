@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { jwtDecode } from 'jwt-decode'
+import axios from 'axios'
 
 const AdminMemberList = () => {
     const [token, setToken] = useState('')
@@ -24,14 +25,19 @@ const AdminMemberList = () => {
         setUser(adminInfo)
     }, [])
 
-    // 비밀번호 변경 관련 상태
-    const [passwordChange, setPasswordChange] = useState(false)
-
     // 비밀번호 변경 함수
-    const handleChangePassword = () => {
-        // 비밀번호 변경 관련 작업 수행
-        // ...
-        alert('비밀번호 변경 작업을 수행합니다.')
+    const handleChangePassword = async () => {
+        try {
+            const newPassword = prompt('새로운 비밀번호를 입력하세요')
+            if (!newPassword) return
+            const response = await axios.post(`http://localhost:3001/admin/modify/${user.id}`, {
+                password: newPassword,
+            })
+            alert(response.data.result)
+        } catch (error) {
+            console.log('비밀번호 변경 중 오류 발생:', error)
+            alert('비밀번호 변경에 실패했습니다.')
+        }
     }
 
     // 회원 탈퇴 함수
@@ -46,6 +52,17 @@ const AdminMemberList = () => {
         // 정보 수정 작업 수행
         // ...
         alert('회원 정보를 수정합니다.')
+    }
+
+    // 관리자 추가 (메인관리자 기능)
+    const AdminAdd = () => {
+        alert('관리자 추가 완료')
+    }
+
+    // 시간설정
+    const formatDate = (dateString) => {
+        const date = new Date(dateString)
+        return date.toLocaleString()
     }
 
     return (
@@ -107,25 +124,16 @@ const AdminMemberList = () => {
                             <label htmlFor="registrationDate" className="col-3">
                                 마지막 로그인시간
                             </label>
-                            <p> {user.last_login_date}</p>
+                            <p> {formatDate(user.last_login_date)}</p>
                         </div>
                     </div>
-                    <div className="profile-buttons" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        {passwordChange ? (
-                            <div className="form-group">
-                                <input type="password" placeholder="새로운 비밀번호 입력" />
-                                <button className="btn btn-info mb-1" onClick={handleChangePassword}>
-                                    비밀번호 변경
-                                </button>
-                            </div>
-                        ) : (
-                            <button className="btn btn-info mb-1" onClick={() => setPasswordChange(true)}>
-                                비밀번호 변경
-                            </button>
-                        )}
+                    <div className="profile-buttons" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                        {/* <button className="btn btn-secondary mb-1" onClick={AdminAdd}>
+                            관리자 추가
+                        </button> */}
                         <div>
-                            <button className="btn btn-danger mb-1 me-2" onClick={handleDeleteAccount}>
-                                회원 탈퇴
+                            <button className="btn btn-info mb-1 me-2" onClick={handleChangePassword}>
+                                비밀번호 변경
                             </button>
                             <button className="btn btn-primary mb-1" onClick={handleEditProfile}>
                                 수정하기
