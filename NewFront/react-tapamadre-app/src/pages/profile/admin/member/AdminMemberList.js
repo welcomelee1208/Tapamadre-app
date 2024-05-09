@@ -115,7 +115,7 @@ const AdminMemberList = () => {
                             id="id"
                             name="id"
                             value={user.id}
-                            disabled // 읽기 전용 설정
+                            disabled={true} // 읽기 전용 설정
                             required
                         />
                     </div>
