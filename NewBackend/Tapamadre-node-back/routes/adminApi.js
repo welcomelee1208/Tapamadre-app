@@ -225,6 +225,7 @@ router.post("/forgot-password", async (req, res, next) => {
     });
   }
 });
+
 //비밀번호 수정(프로필 에서 수정할 시..)
 router.post("/modify/:id", async (req, res, next) => {
   try {
