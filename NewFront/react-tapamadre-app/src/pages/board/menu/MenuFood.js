@@ -12,6 +12,15 @@ import { Helmet } from 'react-helmet'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+const categories = [
+    { to: 'lunchmenu', label: 'LUNCH MENU 점심메뉴' },
+    { to: 'pintxos', label: 'PINTXOS 핀초스' },
+    { to: 'tapas', label: 'TAPAS 따빠스' },
+    { to: 'pasta', label: 'PASTA 파스타' },
+    { to: 'parrillada', label: 'PARRILLADA 그릴' },
+    { to: 'postre', label: 'POSTRE 디저트' },
+    { to: 'paella', label: 'PAELLA 빠에야' },
+]
 const MenuData = {
     menu_name: '갑오징어 튀김',
     menu_price: '20,-',
@@ -23,21 +32,15 @@ const MenuData = {
     categorized_menu_code: 1,
     file: [{ file_path: 'assets/img/menu/food1.jpg' }],
 }
-
-const categories = [
-    { to: 'lunchmenu', label: 'LUNCH MENU 점심메뉴' },
-    { to: 'pintxos', label: 'PINTXOS 핀초스' },
-    { to: 'tapas', label: 'TAPAS 따빠스' },
-    { to: 'pasta', label: 'PASTA 파스타' },
-    { to: 'parrillada', label: 'PARRILLADA 그릴' },
-    { to: 'postre', label: 'POSTRE 디저트' },
-]
-
 const MenuFood = () => {
     const [modal, setModal] = useState(false)
-
+    const [selectedMenuItem, setSelectedMenuItem] = useState(null)
     const toggle = () => setModal(!modal)
 
+    const handleOpenModal = (menuItem) => {
+        setSelectedMenuItem(menuItem)
+        toggle()
+    }
     const menuSections = [
         {
             id: 'lunchmenu',
@@ -50,9 +53,17 @@ const MenuFood = () => {
                     translation: 'Assorted pintxo piatter (6picese)',
                     price: '20,-',
                     description: '다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리',
-                    image: 'assets/img/menu/food1.jpg',
+                    image: 'assets/img/menu/pintxo.jpg',
                 },
                 // 다른 메뉴 항목들 추가
+                {
+                    id: 2,
+                    name: '토마토 부라타 샐러드',
+                    translation: 'Ensalada de queso burrata y tomate',
+                    price: '20,-',
+                    description: '파프리카퓌레와 스모크한 토마토, 제철 허브를 올린 부라타 샐러드',
+                    image: 'assets/img/menu/pintxo.jpg',
+                },
             ],
         },
         {
@@ -61,14 +72,22 @@ const MenuFood = () => {
 
             items: [
                 {
-                    id: 1,
-                    name: '모둠 핀초 (6pieces)',
-                    translation: 'Assorted pintxo piatter (6picese)',
-                    price: '20,-',
-                    description: '다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리',
-                    image: 'assets/img/menu/food1.jpg',
+                    id: 3,
+                    name: '만체고 치즈 핀초',
+                    translation: 'Pintxo de queso Manchego',
+                    price: '8,-',
+                    description: '감자크림과 만체고 치즈를 조합한 핀초',
+                    image: 'assets/img/menu/pintxo.jpg',
                 },
                 // 다른 메뉴 항목들 추가
+                {
+                    id: 4,
+                    name: '이베리코하몽베요따 핀초',
+                    translation: 'Pintxo de jamon iberico',
+                    price: '8,-',
+                    description: '5J의 베요타 하몽을 카빙하여 얹은 핀초',
+                    image: 'assets/img/menu/steak.jpg',
+                },
             ],
         },
         {
@@ -77,12 +96,20 @@ const MenuFood = () => {
 
             items: [
                 {
-                    id: 1,
-                    name: '모둠 핀초 (6pieces)',
-                    translation: 'Assorted pintxo piatter (6picese)',
-                    price: '20,-',
-                    description: '다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리',
-                    image: 'assets/img/menu/food1.jpg',
+                    id: 5,
+                    name: '올리브 절임',
+                    translation: 'olivas',
+                    price: '12,-',
+                    description: '따빠 마드레 방식으로 특별하게 절인 올리브 타파스',
+                    image: 'assets/img/menu/olive.jpg',
+                },
+                {
+                    id: 6,
+                    name: '살피콘 뽈뽀',
+                    translation: 'Salpcon de Pulpo',
+                    price: '26,-',
+                    description: '한입 크기로 자른 문어에 제철 야채와 올리브오일,비네거를 넣어 버무린 콜드 타파스',
+                    image: 'assets/img/menu/olive.jpg',
                 },
                 // 다른 메뉴 항목들 추가
             ],
@@ -93,12 +120,20 @@ const MenuFood = () => {
 
             items: [
                 {
-                    id: 1,
-                    name: '모둠 핀초 (6pieces)',
-                    translation: 'Assorted pintxo piatter (6picese)',
-                    price: '20,-',
-                    description: '다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리',
-                    image: 'assets/img/menu/food1.jpg',
+                    id: 7,
+                    name: '하몬 크림파스타',
+                    translation: 'Pasta de jamon serrano',
+                    price: '24,-',
+                    description: '하몽과 양송이 버섯의 조화가 일품인 크림파스타',
+                    image: 'assets/img/menu/pasta.jpg',
+                },
+                {
+                    id: 8,
+                    name: '새우오일 파스타',
+                    translation: 'Pasta de gambas',
+                    price: '22,-',
+                    description: '새우와 마늘 올리브오일로 만든 건강한맛 파스타',
+                    image: 'assets/img/menu/pasta.jpg',
                 },
                 // 다른 메뉴 항목들 추가
             ],
@@ -109,11 +144,19 @@ const MenuFood = () => {
 
             items: [
                 {
-                    id: 1,
-                    name: '모둠 핀초 (6pieces)',
-                    translation: 'Assorted pintxo piatter (6picese)',
-                    price: '20,-',
-                    description: '다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리',
+                    id: 9,
+                    name: '이베리코 스테이크(200g)',
+                    translation: 'cuello de cerdo iberico(200g)',
+                    price: '42,-',
+                    description: '이베리코 베요타 스테이크와 시즌 가니쉬/ 100g 추가주문시 20000추가됩니다.',
+                    image: 'assets/img/menu/steak.jpg',
+                },
+                {
+                    id: 10,
+                    name: '피쉬 그릴',
+                    translation: 'Pescado',
+                    price: '48-',
+                    description: '꿀대구에 토마토 소스를 뎥들인 생선 스테이크',
                     image: 'assets/img/menu/food1.jpg',
                 },
                 // 다른 메뉴 항목들 추가
@@ -125,14 +168,49 @@ const MenuFood = () => {
 
             items: [
                 {
-                    id: 1,
-                    name: '모둠 핀초 (6pieces)',
-                    translation: 'Assorted pintxo piatter (6picese)',
-                    price: '20,-',
-                    description: '다양한 재료의 핀초 요리를 한번에 맛볼 수 있는 핀초모둠요리',
+                    id: 11,
+                    name: '크레마 까탈라나',
+                    translation: 'Crema catalana',
+                    price: '8,-',
+                    description:
+                        '스페인 까탈루냐 지역의 달달한 전통 디저트로 캬라멜의 바삭함과 크림의 부드러움을 맛볼 수 있는 디저트',
+                    image: 'assets/img/menu/food1.jpg',
+                },
+                {
+                    id: 12,
+                    name: '바스크 치즈케이크',
+                    translation: 'Vasco Cheese cake',
+                    price: '12,-',
+                    description:
+                        '치즈 본연의 고소한 풍미와 그윽한 향을 품은 스페인 북부 바스크 지방에서 유래한 치즈케이크',
                     image: 'assets/img/menu/food1.jpg',
                 },
                 // 다른 메뉴 항목들 추가
+            ],
+        },
+        {
+            id: 'paella',
+            title: 'PAELLA',
+
+            items: [
+                {
+                    id: 13,
+                    name: '해산물 빠에야',
+                    translation: 'Paella de marisco',
+                    price: '36,-',
+                    description: '해산물로 육수를 내려 각종 해산물의 짭조름한 바다의 맛이 일품인 스페인 전통 쌀 요리',
+                    image: 'assets/img/menu/paella.jpg',
+                },
+                {
+                    id: 14,
+                    name: '먹물 빠에야',
+                    translation: 'Arroz negro',
+                    price: '36,-',
+                    description:
+                        '해산물로 육수를 내려 각종 해산물육수 베이스에 오징어 먹물을 넣어 검게만든 스페인 전통 쌀 요리',
+                    image: 'assets/img/menu/paella.jpg',
+                },
+                // 다른 메뉴 항목들 추가e
             ],
         },
         // 다른 섹션들 추가
@@ -195,7 +273,13 @@ const MenuFood = () => {
 
                                     <ul className="list-unstyled mb-0 px-3 py-5">
                                         {section.items.map((menuItem) => (
-                                            <li key={menuItem.id} className="mb-4 mb-lg-5" onClick={toggle}>
+                                            <li
+                                                key={menuItem.id}
+                                                className="mb-4 mb-lg-5"
+                                                onClick={() => handleOpenModal(menuItem)}
+                                            >
+                                                {/* 이하 내용은 동일 */}
+
                                                 <div className="d-flex align-items-center">
                                                     <div>
                                                         <img
@@ -227,31 +311,20 @@ const MenuFood = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
             <Modal isOpen={modal} toggle={toggle} className="modal-xl">
-                <ModalHeader toggle={toggle}>음식상세</ModalHeader>
+                <ModalHeader toggle={toggle}>{selectedMenuItem && selectedMenuItem.name}</ModalHeader>
                 <ModalBody>
-                    <div className="row">
-                        <div className="col-lg-6">
-                            <Swiper
-                                spaceBetween={50}
-                                slidesPerView={1}
-                                autoplay={{ delay: 2500, disableOnInteraction: false }}
-                            >
-                                <SwiperSlide>
-                                    <img src="assets/img/menu/drink2.jpg" alt="" className="img mb-3" />
-                                </SwiperSlide>
-                            </Swiper>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="flex-grow-1">
-                                <p>
-                                    상그리아는 스페인, 포르투갈을 필두로 주로 뜨거운 태양이 있는 나라에서 즐겨 마시는
-                                    국민 음료.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {selectedMenuItem && (
+                        <>
+                            <img
+                                src={selectedMenuItem.image}
+                                alt=""
+                                className="img mb-3"
+                                style={{ width: '50%', height: '50%' }}
+                            />
+                            <p>{selectedMenuItem.description}</p>
+                        </>
+                    )}
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={toggle}>
@@ -259,6 +332,7 @@ const MenuFood = () => {
                     </Button>
                 </ModalFooter>
             </Modal>
+            <Footer />
         </>
     )
 }

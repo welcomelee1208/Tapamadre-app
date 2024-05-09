@@ -17,6 +17,7 @@ const ForgetPassword = ({ isOpen, onClose }) => {
             // 임시 비밀번호 생성
             const response = await axios.post('http://localhost:3001/admin/forgot-password', { userId, name })
             setPassword(response.data.password)
+
             setShowPassword(true)
             setMsg('MyPage에서 변경하시기 바랍니다.')
         } catch (error) {
