@@ -17,7 +17,7 @@ const Reservation = React.lazy(() => import('../pages/board/Reservation'))
 const Inquiry = React.lazy(() => import('../pages/board/QnA'))
 const Login = React.lazy(() => import('../pages/Auth/Login'))
 const Entry = React.lazy(() => import('../pages/Auth/Entry'))
-const ForgetPassword = React.lazy(() => import('../pages/Auth/ForgetPassword'))
+const ForgotPassword = React.lazy(() => import('../pages/Auth/ForgotPassword'))
 const PrivacyPolicy = React.lazy(() => import('../components/PrivacyPolicy'))
 const TermsOfService = React.lazy(() => import('../components/TermsOfService'))
 
@@ -33,7 +33,7 @@ const authProtectedRoutes = [
 const publicRoutes = [
     { path: '/login', component: <Login /> },
     { path: '/entry', component: <Entry /> },
-    { path: '/forgetpassword', component: <ForgetPassword /> },
+    { path: '/forgotpassword', component: <ForgotPassword /> },
     { path: '/', component: <Home /> },
     { path: '/menufood', component: <MenuFood /> },
     { path: '/menudrink', component: <MenuDrink /> },

@@ -9,20 +9,57 @@ import Choices from 'choices.js'
 // Datatable Columns 컬럼
 const columns = [
     {
-        name: '대분류',
-        selector: (row) => row.menu_type_code,
+        name: '메뉴타입',
+        selector: (row) => {
+            switch (row.menu_type_code) {
+                case 0:
+                    return 'set'
+                case 1:
+                    return 'Food'
+                case 2:
+                    return 'Drink'
+                default:
+                    return ''
+            }
+        },
         sortable: true,
         center: true,
-        width: '90px',
+        width: '150px',
     },
     {
-        name: '중분류',
-        selector: (row) => row.categorized_menu_code,
+        name: '카테고리',
+        selector: (row) => {
+            switch (row.categorized_menu_code) {
+                case 1:
+                    return '런치메뉴'
+                case 2:
+                    return '핀초스'
+                case 3:
+                    return '따빠스'
+                case 4:
+                    return '빠에야'
+                case 5:
+                    return '파스타'
+                case 6:
+                    return '그릴'
+                case 7:
+                    return '디저트'
+                case 8:
+                    return '상그리아'
+                case 9:
+                    return '글라스와인'
+                case 10:
+                    return '음료'
+                default:
+                    return ''
+            }
+        },
         sortable: true,
         center: true,
         wrap: true,
-        width: '90px',
+        width: '150px',
     },
+
     {
         name: '이름',
         selector: (row) => row.menu_name,
@@ -37,7 +74,7 @@ const columns = [
         sortable: true,
         center: true,
         wrap: true,
-        maxWidth: '100px',
+        maxWidth: '80px',
     },
     {
         name: '세트',

@@ -28,7 +28,6 @@ import 'aos/dist/aos.css'
 
 const Header = () => {
     const token = localStorage.getItem('token')
-    console.log('로그인한 사용자 토큰: ', token)
 
     // 토큰 정보 삭제
     const handleLogout = () => {

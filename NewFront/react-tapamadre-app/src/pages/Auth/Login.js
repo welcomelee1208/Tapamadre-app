@@ -35,18 +35,10 @@ import {
 
 import { userLogin, loginUserSuccess } from '../../redux/actions'
 
-import ForgetPassword from './ForgetPassword'
-
 const Login = (props) => {
     const navigate = useNavigate()
     const [showAlert, setShowAlert] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
-
-    // 비밀번호 찾기 모달
-    const [showModal, setShowModal] = useState(false)
-    const handleForgotPasswordClick = () => {
-        setShowModal(true)
-    }
 
     const formik = useFormik({
         initialValues: {
@@ -75,7 +67,7 @@ const Login = (props) => {
                     toast.success('로그인에 성공했습니다.')
                 } else {
                     setShowAlert(true)
-                    setAlertMessage('로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요.')
+                    setAlertMessage('로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.')
                 }
             } catch (error) {
                 console.error('에러 발생:', error)
@@ -200,16 +192,11 @@ const Login = (props) => {
                                                         </div>
                                                         <div>
                                                             <Link
-                                                                to="#"
-                                                                onClick={handleForgotPasswordClick}
+                                                                to="/forgotpassword"
                                                                 className="text-dark small text-decoration-underline"
                                                             >
                                                                 비밀번호찾기
                                                             </Link>
-                                                            <ForgetPassword
-                                                                isOpen={showModal}
-                                                                onClose={() => setShowModal(false)}
-                                                            />
                                                         </div>
                                                     </div>
                                                     <Button
