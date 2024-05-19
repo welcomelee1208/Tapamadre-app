@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
       menu_type_code: {
         type: DataTypes.TINYINT,
         allowNull: false,
-        comment: "메뉴타입코드 0:Food 1:Drink 2:SetMenu",
+        comment: "메뉴타입코드 0:Food 1:Drink",
       },
       main_img_state_code: {
         type: DataTypes.TINYINT,
@@ -37,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: "메인이미지 게시여부  0:계시안함 1: 계시함",
       },
       set_menu_state_code: {
-        type: DataTypes.TINYINT,
+        type: DataTypes.JSON,
         allowNull: false,
         comment: "세트메뉴 여부 0:설정x 1: 설정함",
       },

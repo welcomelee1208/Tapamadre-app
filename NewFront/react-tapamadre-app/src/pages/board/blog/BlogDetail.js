@@ -129,7 +129,7 @@ function BlogDetail() {
                                         }}
                                         onSwiper={(swiper) => console.log(swiper, blog.main_img_path)}
                                         onSlideChange={() => console.log('slide change')}
-                                        style={{ maxWidth: '100%', maxHeight: '80%' }}
+                                        style={{ maxWidth: '100%', maxHeight: '60%' }}
                                     >
                                         <SwiperSlide>
                                             <img

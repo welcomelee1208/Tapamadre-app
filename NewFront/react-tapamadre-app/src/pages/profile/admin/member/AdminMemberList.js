@@ -6,6 +6,7 @@ const AdminMemberList = () => {
     const [token, setToken] = useState('')
     // 사용자 정보 초기화
     const [user, setUser] = useState({
+        admin_id: '',
         name: '',
         id: '',
         last_login_date: '',
@@ -18,6 +19,7 @@ const AdminMemberList = () => {
         }
         const decodedToken = jwtDecode(storageToken)
         const adminInfo = {
+            admin_id: decodedToken.admin_id,
             name: decodedToken.name,
             id: decodedToken.id,
             last_login_date: decodedToken.last_login_date,
@@ -30,10 +32,15 @@ const AdminMemberList = () => {
         try {
             const newPassword = prompt('새로운 비밀번호를 입력하세요')
             if (!newPassword) return
-            const response = await axios.post(`http://localhost:3001/admin/modify/${user.id}`, {
+
+            const response = await axios.post(`http://localhost:3001/admin/modify/${user.admin_id}`, {
                 password: newPassword,
             })
-            alert(response.data.result)
+            // alert(response.data.result)
+
+            if (response.data.code === '200') {
+                alert('비밀번호가 변경되었습니다.')
+            }
         } catch (error) {
             console.log('비밀번호 변경 중 오류 발생:', error)
             alert('비밀번호 변경에 실패했습니다.')
@@ -103,10 +110,11 @@ const AdminMemberList = () => {
                             value={user.name}
                             onChange={(e) => setUser({ ...user, name: e.target.value })}
                             required
+                            disabled={true} // 읽기 전용 설정
                         />
                     </div>
                     <div className="form-group pb-3" style={{ display: 'flex' }}>
-                        <label htmlFor="email" className="col-3">
+                        <label htmlFor="id" className="col-3">
                             아이디
                         </label>
                         <input
@@ -135,9 +143,9 @@ const AdminMemberList = () => {
                             <button className="btn btn-info mb-1 me-2" onClick={handleChangePassword}>
                                 비밀번호 변경
                             </button>
-                            <button className="btn btn-primary mb-1" onClick={handleEditProfile}>
+                            {/* <button className="btn btn-primary mb-1" onClick={handleEditProfile}>
                                 수정하기
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </form>

@@ -94,7 +94,6 @@ const AdminMenuCreate = () => {
                             <option value="">메뉴 타입 선택</option>
                             <option value="1">Food</option>
                             <option value="2">Drink</option>
-                            <option value="0">SetMenu</option>
                         </select>
                     </div>
                     <div className="col-md-6 align-self-start">
