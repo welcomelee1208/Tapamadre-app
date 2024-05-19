@@ -9,11 +9,11 @@ const AdminMenuUpdate = () => {
     const [menuPrice, setMenuPrice] = useState('')
     const [menuType, setMenuType] = useState('')
     const [category, setCategory] = useState('')
-    const [isSet, setIsSet] = useState(false)
-    const [isPublished, setIsPublished] = useState(false) // 게시여부 상태 추가
+    const [isSet, setIsSet] = useState([])
+    const [isPublished, setIsPublished] = useState(false)
     const [menuDesc, setMenuDesc] = useState('')
     const [menuImage, setMenuImage] = useState(null)
-    const [imgFiles, setImgFiles] = useState([]) // 이미지 파일 목록 추가
+    const [imgFiles, setImgFiles] = useState([])
 
     useEffect(() => {
         const fetchMenuData = async () => {
@@ -26,8 +26,9 @@ const AdminMenuUpdate = () => {
                 setMenuType(postData.data.menu.menu_type_code)
                 setCategory(postData.data.menu.categorized_menu_code)
                 setMenuDesc(postData.data.menu.menu_desc)
-                setImgFiles(postData.data.files) // 이미지 파일 목록 설정
-                setIsPublished(postData.data.menu.is_display_code === 1) // 게시여부 상태 설정
+                setImgFiles(postData.data.files)
+                setIsPublished(postData.data.menu.is_display_code === 1)
+                setIsSet(postData.data.menu.set_menu_state_code.map(String))
                 console.log('메뉴 데이터 불러오기 성공', postData)
             } catch (error) {
                 console.error('Failed to fetch menu data:', error.message)
@@ -46,13 +47,14 @@ const AdminMenuUpdate = () => {
         formData.append('menu_desc', menuDesc)
         formData.append('menu_type_code', menuType)
         formData.append('categorized_menu_code', category)
-        formData.append('is_display_code', isPublished ? 1 : 0) // 게시여부에 따라 값 설정
-        formData.append('set_menu_state_code', isSet ? 1 : 0)
+        formData.append('is_display_code', isPublished ? 1 : 0)
+        formData.append('set_menu_state_code', JSON.stringify(isSet))
         formData.append('main_img_state_code', menuImage)
 
         imgFiles.forEach((file) => {
             formData.append('menu_image', file)
         })
+
         try {
             const response = await axios.post(`http://localhost:3001/menu/update/${menu_id}`, formData, {
                 headers: {
@@ -67,29 +69,6 @@ const AdminMenuUpdate = () => {
         }
     }
 
-    // 등록 버튼을 누를 때 해당 이미지를 대표 이미지로 설정하는 함수
-    const handleMainImageSet = (index) => {
-        const updatedImgFiles = imgFiles.map((img, i) => ({
-            ...img,
-            main_img_state_code: i === index ? 1 : 0,
-        }))
-        setImgFiles(updatedImgFiles)
-    }
-
-    // 이미지 목록을 렌더링하는 부분
-    const ImageViewer = ({ imagePath }) => {
-        return (
-            <div className="col-4">
-                <img
-                    src={`http://localhost:3001/${imagePath}`}
-                    alt="Menu Image"
-                    style={{ maxWidth: '100%', maxHeight: 300, objectFit: 'contain' }}
-                />
-            </div>
-        )
-    }
-    // AdminMenuUpdate.js 파일 내의 handleSubmit 함수 안에 추가
-    // handleDelete 함수 수정
     const handleDelete = async () => {
         const isConfirmed = window.confirm('정말로 메뉴를 삭제하시겠습니까?')
         if (isConfirmed) {
@@ -102,6 +81,18 @@ const AdminMenuUpdate = () => {
                 console.error('Failed to delete menu:', error.message)
             }
         }
+    }
+
+    const ImageViewer = ({ imagePath }) => {
+        return (
+            <div className="col-4">
+                <img
+                    src={`http://localhost:3001/${imagePath}`}
+                    alt="Menu Image"
+                    style={{ maxWidth: '100%', maxHeight: 300, objectFit: 'contain' }}
+                />
+            </div>
+        )
     }
 
     return (
@@ -178,32 +169,46 @@ const AdminMenuUpdate = () => {
                         onChange={(e) => setMenuDesc(e.target.value)}
                     ></textarea>
                 </div>
-                <div className="mb-3">
-                    <div className="row">
-                        <div className="col-sm-6 col-12 mb-2">
-                            <label className="mb-2">세트여부</label>
-                            <br />
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                checked={isSet}
-                                onChange={(e) => setIsSet(e.target.checked)}
-                            />
-                            <span className="ms-1">세트</span>
-                        </div>
-                        <div className="col-sm-6 col-12 mb-2">
-                            <label className="mb-2">게시여부</label>
-                            <br />
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                checked={isPublished}
-                                onChange={(e) => setIsPublished(e.target.checked)} // 게시여부 변경 핸들러
-                            />
-                            <span className="ms-1">게시함</span>
-                        </div>
+                <div className="col-sm-6 col-12 mb-2">
+                    <label className="mb-2">세트 여부</label>
+                    <select
+                        className="form-control"
+                        multiple
+                        value={isSet}
+                        onChange={(e) => {
+                            const selectedValues = Array.from(e.target.selectedOptions, (option) => option.value)
+                            setIsSet(selectedValues)
+                        }}
+                        required
+                    >
+                        <option value="0">설정x</option>
+                        <option value="1">Lunch A</option>
+                        <option value="2">Lunch B</option>
+                        <option value="3">Dinner A</option>
+                        <option value="4">Dinner B</option>
+                    </select>
+                    <div className="mt-2">
+                        <p>선택된 세트 메뉴:</p>
+                        <ul>
+                            {isSet.map((set, index) => (
+                                <li key={index}>{set}</li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
+
+                <div className="col-sm-6 col-12 mb-2">
+                    <label className="mb-2">게시여부</label>
+                    <br />
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        checked={isPublished}
+                        onChange={(e) => setIsPublished(e.target.checked)}
+                    />
+                    <span className="ms-1">게시함</span>
+                </div>
+
                 <div className="mb-3">
                     <label className="mb-2">이미지 추가</label>
                     <div className="input-group">
@@ -222,23 +227,13 @@ const AdminMenuUpdate = () => {
                             className="d-flex align-items-center my-2"
                             style={{
                                 fontSize: '0.9rem',
-                                height: '200px',
+                                height: '250px',
                                 padding: '5px 7px',
-                                position: 'relative', // 부모 요소의 position을 relative로 설정
+                                position: 'relative',
                             }}
                         >
                             <ImageViewer imagePath={img.file_path} />
                             <span className="col-8">
-                                {/* 대표 이미지 설정 버튼 */}
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-primary ms-3"
-                                    onClick={() => handleMainImageSet(index)}
-                                    style={{ position: 'absolute', right: '10px' }} // 버튼 위치 조정
-                                >
-                                    대표 이미지 설정
-                                </button>
-                                {/* 대표 이미지 표시 */}
                                 {img.main_img_state_code === 1 && (
                                     <span
                                         className="btn btn-primary ms-3"
@@ -261,12 +256,11 @@ const AdminMenuUpdate = () => {
                             <span>목록</span>
                         </button>
                     </Link>
-                    <button type="submit" className="btn btn-primary ms-4">
-                        <span>메뉴 수정</span>
-                    </button>
-
-                    <button type="button" className="btn btn-outline-danger me-2" onClick={handleDelete}>
+                    <button type="button" className="btn btn-outline-danger ms-2" onClick={handleDelete}>
                         <span>삭제</span>
+                    </button>
+                    <button type="submit" className="btn btn-dark ms-2">
+                        <span>수정</span>
                     </button>
                 </div>
             </form>

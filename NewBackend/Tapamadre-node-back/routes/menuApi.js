@@ -56,15 +56,14 @@ router.get("/all", async (req, res, next) => {
 });
 
 //메뉴 업로드
-router.post("/create", upload.array("menu_image"), async (req, res, next) => {
+router.post("/create", upload.single("menu_image"), async (req, res, next) => {
   try {
-    console.log("업로드 파일 목록: ", req.files);
+    console.log("업로드 파일: ", req.file);
 
     var newMenu = {
       menu_name: req.body.menu_name,
       menu_price: req.body.menu_price,
       menu_desc: req.body.menu_desc,
-
       menu_type_code: req.body.menu_type_code,
       main_img_state_code: 0,
       set_menu_state_code: 0,
@@ -74,19 +73,17 @@ router.post("/create", upload.array("menu_image"), async (req, res, next) => {
 
     var dbMenu = await db.Menu.create(newMenu);
 
-    if (req.files) {
-      const newFiles = req.files.map((file) => {
-        return {
-          menu_id: dbMenu.menu_id,
-          file_name: file.filename,
-          file_size: file.size,
-          file_path: `/menuImg/${file.filename}`, // req.file.file_name 대신 file.originalname 사용
-          reg_date: Date.now(),
-          main_img_state_code: 0,
-        };
-      });
+    if (req.file) {
+      const newFile = {
+        menu_id: dbMenu.menu_id,
+        file_name: req.file.filename,
+        file_size: req.file.size,
+        file_path: `/menuImg/${req.file.filename}`,
+        reg_date: Date.now(),
+        main_img_state_code: 0,
+      };
 
-      var fileupload = await db.MenuFile.bulkCreate(newFiles);
+      var fileupload = await db.MenuFile.create(newFile);
     }
     return res.json({ code: "200", data: dbMenu, fileupload, result: "Ok" });
   } catch (err) {
@@ -98,11 +95,9 @@ router.post("/create", upload.array("menu_image"), async (req, res, next) => {
     });
   }
 });
-
-//메뉴 정보 수정 요청 처리
 router.post(
   "/update/:id",
-  upload.array("menu_image"),
+  upload.single("menu_image"),
   async (req, res, next) => {
     try {
       var menuId = req.params.id;
@@ -112,7 +107,7 @@ router.post(
         menu_desc: req.body.menu_desc,
         menu_type_code: req.body.menu_type_code,
         main_img_state_code: req.body.main_img_state_code,
-        set_menu_state_code: req.body.set_menu_state_code,
+        set_menu_state_code: JSON.parse(req.body.set_menu_state_code), // 배열로 파싱
         is_display_code: req.body.is_display_code,
         categorized_menu_code: req.body.categorized_menu_code,
       };
@@ -120,20 +115,18 @@ router.post(
         where: { menu_id: menuId },
       });
 
-      if (req.files && req.files.length > 0) {
+      if (req.file) {
         // 새로운 이미지 파일 업로드
-        const newFiles = req.files.map((file) => {
-          return {
-            menu_id: menuId,
-            file_name: file.filename,
-            file_size: file.size,
-            file_path: `/menuImg/${file.filename}`,
-            reg_date: new Date(),
-            main_img_state_code: req.body.main_img_state_code,
-          };
-        });
+        const newFile = {
+          menu_id: menuId,
+          file_name: req.file.filename,
+          file_size: req.file.size,
+          file_path: `/menuImg/${req.file.filename}`,
+          reg_date: new Date(),
+          main_img_state_code: req.body.main_img_state_code,
+        };
 
-        var dbFiles = await db.MenuFile.bulkCreate(newFiles);
+        var dbFile = await db.MenuFile.create(newFile);
       }
 
       // 성공 응답
